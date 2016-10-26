@@ -45,8 +45,8 @@ def schmidt_decomposition(bipartitepurestate_tensor):
     eigenvalues1, unitarymat1 = eig(rho1)
     eigenorder1 = np.argsort(eigenvalues1)
 
-    decomposition = [(eigenvalues0[eigenorder0[orderid]],
+    decomposition = [(float(np.real(eigenvalues0[eigenorder0[orderid]])),
                       unitarymat0[:, eigenorder0[orderid]],
-                      unitarymat1[:, eigenorder1[orderid]]) for orderid in range(mindim)]
+                      unitarymat1[:, eigenorder1[orderid]]) for orderid in range(mindim-1, -1, -1)]
 
     return decomposition
