@@ -32,3 +32,21 @@ def entanglement_entropy(bipartitepurestate_tensor):
     eigenvalues = np.real(eigenvalues)
     entropy = np.sum(- eigenvalues*np.log(eigenvalues))
     return entropy
+
+def schmidt_decomposition(bipartitepurestate_tensor):
+    state_dims = bipartitepurestate_tensor.shape
+    mindim = np.min(state_dims)
+
+    rho0 = bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, 0)
+    rho1 = bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, 1)
+
+    eigenvalues0, unitarymat0 = eig(rho0)
+    eigenorder0 = np.argsort(eigenvalues0)
+    eigenvalues1, unitarymat1 = eig(rho1)
+    eigenorder1 = np.argsort(eigenvalues1)
+
+    decomposition = [(eigenvalues0[eigenorder0[orderid]],
+                      unitarymat0[:, eigenorder0[orderid]],
+                      unitarymat1[:, eigenorder1[orderid]]) for orderid in range(mindim)]
+
+    return decomposition
