@@ -2,6 +2,7 @@ from itertools import product
 
 import numpy as np
 from numpy.linalg import eig
+from scipy.linalg import solve
 
 def bipartitepurestate_densitymatrix(bipartitepurestate_tensor):
     state_dims = bipartitepurestate_tensor.shape
@@ -50,3 +51,27 @@ def schmidt_decomposition(bipartitepurestate_tensor):
                       unitarymat1[:, eigenorder1[orderid]]) for orderid in range(mindim-1, -1, -1)]
 
     return decomposition
+
+def phase_fixing(bipartitepurestate_tensor, decomposed):
+    numcomps = len(decomposed)
+    state_dims = bipartitepurestate_tensor.shape
+    idxcombs = list(product(*map(range, state_dims)))
+    pickedcombs = [idxcombs[idx] for idx in np.random.randint(len(idxcombs), size=numcomps)]
+
+    A = np.zeros((numcomps, numcomps))
+    b = np.zeros((numcomps, 1))
+
+    for kp, i, j in zip(range(numcomps), *pickedcombs):
+        b[kp, 0] = bipartitepurestate_tensor[i, j]
+        for k in range(numcomps):
+            coef, vecA, vecB = decomposed[k]
+            A[kp, k] = np.sqrt(coef)*vecA[i]*vecB[j]
+
+    print A, b
+    cmpfctors = solve(A, b)
+
+    decomposition = [(np.sqrt(coef)*cmpfactor, vecA, vecB)
+                     for cmpfactor, coef, vecA, vecB in zip(cmpfctors, *decomposed)]
+
+    return decomposition
+
