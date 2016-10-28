@@ -26,16 +26,6 @@ def bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, kept):
                                  for j in range(state_dims[0])])
     return rho
 
-# entanglement entropy
-def entanglement_entropy(bipartitepurestate_tensor):
-    state_dims = bipartitepurestate_tensor.shape
-    which_mindim = np.argmin(state_dims)
-    rho = bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, which_mindim)
-    eigenvalues, _ = eig(rho)
-    eigenvalues = np.real(eigenvalues)
-    entropy = np.sum(- eigenvalues*np.log(eigenvalues))
-    return entropy
-
 # Schmidt decomposition
 def schmidt_decomposition(bipartitepurestate_tensor):
     state_dims = bipartitepurestate_tensor.shape
