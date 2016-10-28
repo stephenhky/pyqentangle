@@ -17,7 +17,5 @@ def participation_ratio(reduceddensitymatrix):
 
 # negativity
 def negativity(reduceddensitymatrix):
-    sqmat = np.dot(np.transpose(np.conj(reduceddensitymatrix)), reduceddensitymatrix)
-    sqmat_eigvals = eigvals(sqmat)
-    negval = np.sum(np.sqrt(np.real(sqmat_eigvals)))
-    return 0.5*(negval-1)
+    eigenvalues = eigvals(reduceddensitymatrix)
+    return 0.5*(np.sum(np.abs(eigenvalues))-1)
