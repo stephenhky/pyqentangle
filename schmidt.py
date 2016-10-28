@@ -2,7 +2,6 @@ from itertools import product
 
 import numpy as np
 from numpy.linalg import eig
-from scipy.linalg import solve
 
 # total density matrix
 def bipartitepurestate_densitymatrix(bipartitepurestate_tensor):
@@ -47,10 +46,9 @@ def schmidt_decomposition(bipartitepurestate_tensor):
     inv_unitarymat1 = np.linalg.inv(unitarymat1)
     coefmat0 = np.dot(bipartitepurestate_tensor, inv_unitarymat1)
 
-    decomposition = []
-    for k in range(mindim):
-        decomposition += [(float(np.real(eigenvalues1[k])),
-                           coefmat0[:, k]/np.sqrt(np.real(eigenvalues1[k])),
-                           unitarymat1[:, k])]
+    decomposition = [(float(np.real(eigenvalues1[k])),
+                      coefmat0[:, k]/np.sqrt(np.real(eigenvalues1[k])),
+                      unitarymat1[:, k])
+                     for k in range(mindim)]
 
     return decomposition
