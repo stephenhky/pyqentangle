@@ -42,35 +42,15 @@ def schmidt_decomposition(bipartitepurestate_tensor):
     state_dims = bipartitepurestate_tensor.shape
     mindim = np.min(state_dims)
 
-    rho0 = bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, 0)
-    rho1 = bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, 1)
-
-    eigenvalues0, unitarymat0 = eig(rho0)
-    eigenorder0 = np.argsort(eigenvalues0)
-    eigenvalues1, unitarymat1 = eig(rho1)
-    eigenorder1 = np.argsort(eigenvalues1)
-
-    decomposition = [(float(np.real(eigenvalues0[eigenorder0[orderid]])),
-                      unitarymat0[:, eigenorder0[orderid]],
-                      unitarymat1[:, eigenorder1[orderid]]) for orderid in range(mindim-1, -1, -1)]
-
-    return decomposition
-
-def schmidt_decomposition_correctphase(bipartitepurestate_tensor):
-    state_dims = bipartitepurestate_tensor.shape
-    mindim = np.min(state_dims)
-
     rho1 = bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, 1)
     eigenvalues1, unitarymat1 = eig(rho1)
     inv_unitarymat1 = np.linalg.inv(unitarymat1)
+    coefmat0 = np.dot(bipartitepurestate_tensor, inv_unitarymat1)
 
     decomposition = []
     for k in range(mindim):
-        vec0 = np.zeros(state_dims[0])
-        for i in range(state_dims[0]):
-            vec0[i] = np.sum([bipartitepurestate_tensor[i, j]*inv_unitarymat1[j, k] for j in range(state_dims[1])])
         decomposition += [(float(np.real(eigenvalues1[k])),
-                           vec0,
+                           coefmat0[:, k]/np.sqrt(np.real(eigenvalues1[k])),
                            unitarymat1[:, k])]
 
     return decomposition
