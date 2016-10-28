@@ -56,31 +56,21 @@ def schmidt_decomposition(bipartitepurestate_tensor):
 
     return decomposition
 
-# fixing the phase
-def phase_fixing(bipartitepurestate_tensor, decomposed):
-    numcomps = len(decomposed)
+def schmidt_decomposition_correctphase(bipartitepurestate_tensor):
     state_dims = bipartitepurestate_tensor.shape
-    idxcombs = list(product(*map(range, state_dims)))
-    idxcombs = filter(lambda idxcomb: bipartitepurestate_tensor[idxcomb]!=0 and bipartitepurestate_tensor[idxcomb]!=1.+0.j,
-                      idxcombs)
-    print idxcombs
-    picked_idxcombs = [idxcombs[idx] for idx in np.random.randint(len(idxcombs), size=numcomps)]
+    mindim = np.min(state_dims)
 
-    A = np.zeros((numcomps, numcomps))
-    b = np.zeros((numcomps, 1))
+    rho1 = bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, 1)
+    eigenvalues1, unitarymat1 = eig(rho1)
+    inv_unitarymat1 = np.linalg.inv(unitarymat1)
 
-    for kp, (i, j) in zip(range(numcomps), picked_idxcombs):
-        b[kp, 0] = bipartitepurestate_tensor[i, j]
-        for k in range(numcomps):
-            coef, vecA, vecB = decomposed[k]
-            A[kp, k] = np.sqrt(coef)*vecA[i]*vecB[j]
-
-    print A
-    print b
-    cmpfctors = solve(A, b)
-
-    decomposition = [(np.sqrt(coef)*cmpfactor, vecA, vecB)
-                     for cmpfactor, (coef, vecA, vecB) in zip(cmpfctors, decomposed)]
+    decomposition = []
+    for k in range(mindim):
+        vec0 = np.zeros(state_dims[0])
+        for i in range(state_dims[0]):
+            vec0[i] = np.sum([bipartitepurestate_tensor[i, j]*inv_unitarymat1[j, k] for j in range(state_dims[1])])
+        decomposition += [(float(np.real(eigenvalues1[k])),
+                           vec0,
+                           unitarymat1[:, k])]
 
     return decomposition
-
