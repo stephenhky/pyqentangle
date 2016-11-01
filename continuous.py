@@ -45,7 +45,7 @@ def numerical_continuous_interpolation(xarray, yarray, x):
     return val
 
 def numerical_continuous_function(xarray, yarray):
-    return lambda x: numerical_continuous_interpolation(xarray, yarray, x)
+    return lambda xs: np.array(map(lambda x: numerical_continuous_interpolation(xarray, yarray, x), xs))
 
 def discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100, nb_x2=100):
     x1 = np.linspace(x1_lo, x1_hi, nb_x1)
@@ -55,20 +55,32 @@ def discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=10
         tensor[i, j] = fcn(x1[i], x2[j])
     return tensor
 
-def continuous_schmidt_decomposition(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100, nb_x2=100):
+def continuous_schmidt_decomposition(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100, nb_x2=100, keep=None):
     tensor = discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=nb_x1, nb_x2=nb_x2)
     decomposition = schmidt.schmidt_decomposition(tensor)
+
+    if keep==None or keep>len(decomposition):
+        keep = len(decomposition)
 
     x1array = np.linspace(x1_lo, x1_hi, nb_x1)
     x2array = np.linspace(x2_lo, x2_hi, nb_x2)
     dx1 = (x1_hi-x1_lo)/(nb_x1-1.)
     dx2 = (x2_hi-x2_lo)/(nb_x2-1.)
 
-    renormalized_decomposition = [
-        (schmidt_weight,
-         numerical_continuous_function(x1array, unnorm_modeA/np.sqrt(np.linalg.norm(unnorm_modeA)**2*dx1)),
-         numerical_continuous_function(x2array, unnorm_modeB/np.sqrt(np.linalg.norm(unnorm_modeB)**2*dx2)))
-        for schmidt_weight, unnorm_modeA, unnorm_modeB in decomposition]
+    renormalized_decomposition = []
+    for i in range(keep):
+        schmidt_weight, unnorm_modeA, unnorm_modeB = decomposition[i]
+        sqnormA = np.linalg.norm(unnorm_modeA)**2*dx1
+        sqnormB = np.linalg.norm(unnorm_modeB)**2*dx2
+        print i, sqnormA, sqnormB
+        renormalized_decomposition.append(
+            (schmidt_weight*sqnormA*sqnormB,
+             numerical_continuous_function(x1array, unnorm_modeA/np.sqrt(sqnormA)),
+             numerical_continuous_function(x2array, unnorm_modeB/np.sqrt(sqnormB)),
+             unnorm_modeA,
+             unnorm_modeB
+             )
+        )
 
     return renormalized_decomposition
 
