@@ -40,5 +40,6 @@ def schmidt_decomposition(bipartitepurestate_tensor):
                       coefmat0[:, k]/np.sqrt(np.real(eigenvalues1[k])),
                       unitarymat1[:, k])
                      for k in range(mindim)]
+    decomposition = sorted(decomposition, key=lambda dec: dec[0], reverse=True)
 
     return decomposition

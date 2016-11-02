@@ -4,6 +4,8 @@ import numpy as np
 
 import schmidt
 
+disentangled_gaussian = lambda x1, x2: np.exp(-0.5*(x1*x1+x2*x2))/np.sqrt(np.pi)
+
 class OutOfRangeException(Exception):
     def __init__(self, value):
         self.msg = "Out of range: "+str(value)
@@ -68,13 +70,13 @@ def continuous_schmidt_decomposition(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100,
     dx2 = (x2_hi-x2_lo)/(nb_x2-1.)
 
     renormalized_decomposition = []
+    sumeigvals = np.sum(map(lambda dec: dec[0], decomposition))
     for i in range(keep):
         schmidt_weight, unnorm_modeA, unnorm_modeB = decomposition[i]
         sqnormA = np.linalg.norm(unnorm_modeA)**2*dx1
         sqnormB = np.linalg.norm(unnorm_modeB)**2*dx2
-        print i, sqnormA, sqnormB
         renormalized_decomposition.append(
-            (schmidt_weight*sqnormA*sqnormB,
+            (schmidt_weight/sumeigvals,
              numerical_continuous_function(x1array, unnorm_modeA/np.sqrt(sqnormA)),
              numerical_continuous_function(x2array, unnorm_modeB/np.sqrt(sqnormB)),
              unnorm_modeA,
