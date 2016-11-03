@@ -35,12 +35,12 @@ def numerical_continuous_interpolation(xarray, yarray, x):
     left = 0
     right = len(xarray)-1
     idx = len(xarray) / 2
-    while not (x >= xarray[idx] and x < xarray[idx+1]):
+    while (idx!=0 and idx!=len(xarray)-1) and (not (x >= xarray[idx] and x < xarray[idx+1])):
         if x >= xarray[idx+1]:
             left = idx+1
         elif x < xarray[idx]:
             right = idx-1
-        idx = (left + right + 1) / 2
+        idx = (left + right) / 2
 
     # interpolation
     val = yarray[idx] + (yarray[idx+1]-yarray[idx])/(xarray[idx+1]-xarray[idx])*(x-xarray[idx])
@@ -78,9 +78,7 @@ def continuous_schmidt_decomposition(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100,
         renormalized_decomposition.append(
             (schmidt_weight/sumeigvals,
              numerical_continuous_function(x1array, unnorm_modeA/np.sqrt(sqnormA)),
-             numerical_continuous_function(x2array, unnorm_modeB/np.sqrt(sqnormB)),
-             unnorm_modeA,
-             unnorm_modeB
+             numerical_continuous_function(x2array, unnorm_modeB/np.sqrt(sqnormB))
              )
         )
 
