@@ -92,16 +92,29 @@ def numerical_continuous_function(xarray, yarray):
 
 
 def discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100, nb_x2=100):
-    """
+    """Find the discretized representation of the continuous bipartite system
 
-    :param fcn:
-    :param x1_lo:
-    :param x1_hi:
-    :param x2_lo:
-    :param x2_hi:
-    :param nb_x1:
-    :param nb_x2:
-    :return:
+    Given a function `fcn` (a function with two input variables),
+    find the discretized representation of the bipartite system, with
+    the first system ranges from `x1_lo` to `x1_hi`, and second from `x2_lo` to `x2_hi`.
+
+    :param fcn: function with two input variables
+    :param x1_lo: lower bound of :math:`x_1`
+    :param x1_hi: upper bound of :math:`x_1`
+    :param x2_lo: lower bound of :math:`x_2`
+    :param x2_hi: upper bound of :math:`x_2`
+    :param nb_x1: number of :math:`x_1` (default: 100)
+    :param nb_x2: number of :math:`x_2` (default: 100)
+    :return: discretized tensor representation of the continuous bipartite system
+    :type fcn: function
+    :type x1_lo: float
+    :type x1_hi: float
+    :type x2_lo: float
+    :type x2_hi: float
+    :type nb_x1: int
+    :type nb_x2: int
+    :rtype: numpy.ndarray
+
     """
     x1 = np.linspace(x1_lo, x1_hi, nb_x1)
     x2 = np.linspace(x2_lo, x2_hi, nb_x2)
@@ -112,6 +125,33 @@ def discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=10
 
 
 def continuous_schmidt_decomposition(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100, nb_x2=100, keep=None):
+    """Compute the Schmidt decomposition of a continuous bipartite quantum systems
+
+    Given a function `fcn` (a function with two input variables), perform the Schmidt
+    decomposition, returning a list of tuples, where each contains a Schmidt decomposition,
+    the lambda function of the eigenmode in the first subsystem, and the lambda function
+    of the eigenmode of the second subsystem.
+
+    :param fcn: function with two input variables
+    :param x1_lo: lower bound of :math:`x_1`
+    :param x1_hi: upper bound of :math:`x_1`
+    :param x2_lo: lower bound of :math:`x_2`
+    :param x2_hi: upper bound of :math:`x_2`
+    :param nb_x1: number of :math:`x_1` (default: 100)
+    :param nb_x2: number of :math:`x_2` (default: 100)
+    :param keep: the number of Schmidt modes with the largest coefficients to return; the smaller of `nb_x1` and `nb_x2` will be returned if `None` is given. (default: `None`)
+    :return: list of tuples, where each contains a Schmidt coefficient, the lambda function of the eigenmode of the first subsystem, and the lambda function of the eigenmode of the second subsystem
+    :type fcn: function
+    :type x1_lo: float
+    :type x1_hi: float
+    :type x2_lo: float
+    :type x2_hi: float
+    :type nb_x1: int
+    :type nb_x2: int
+    :type keep: int
+    :rtype: list
+
+    """
     tensor = discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=nb_x1, nb_x2=nb_x2)
     decomposition = schmidt.schmidt_decomposition(tensor)
 
