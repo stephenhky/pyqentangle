@@ -24,6 +24,25 @@ class UnequalLengthException(Exception):
 
 
 def numerical_continuous_interpolation(xarray, yarray, x):
+    """Evaluate the value of a function given a variable x using interpolation
+
+    With a function approximated by given arrays of independent variable (`xarray`)
+    and of dependent variable (`yarray`), the value of this function given `x` is
+    calculated by interpolation.
+
+    If `x` is outside the range of `xarray`, an `OutOfRangeException`
+    is raised; if the lengths of `xarray` and `yarray` are not equal, an
+    `UnequalLengthException` is raised.
+
+    :param xarray: an array of independent variable values
+    :param yarray: an array of dependent variable values
+    :param x: the input value at where the function is computed at
+    :return: the value of function with the given `x`
+    :type xarray: numpy.ndarray
+    :type yarray: numpy.ndarray
+    :rtype: float
+    :raises: OutOfRangeException, UnequalLengthException
+    """
     if len(xarray) != len(yarray):
         raise UnequalLengthException(xarray, yarray)
     minx = np.min(xarray)
@@ -51,10 +70,39 @@ def numerical_continuous_interpolation(xarray, yarray, x):
 
 
 def numerical_continuous_function(xarray, yarray):
+    """Return a function with the given arrays of independent and dependent variables
+
+    With a function approximated by given arrays of independent variable (`xarray`)
+    and of dependent variable (`yarray`), it returns a lambda function that takes
+    a `numpy.ndarray` as an input and calculates the values at all these elements
+    using interpolation.
+
+    If `x` is outside the range of `xarray`, an `OutOfRangeException`
+    is raised.
+
+    :param xarray: an array of independent variable values
+    :param yarray: an array of dependent variable values
+    :return: a lambda function that takes a `numpy.ndarray` as the input parameter and calculate the values
+    :type xarray: numpy.ndarray
+    :type yarray: numpy.ndarray
+    :rtype: function
+    :raises: OutOfRangeException
+    """
     return lambda xs: np.array(map(lambda x: numerical_continuous_interpolation(xarray, yarray, x), xs))
 
 
 def discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100, nb_x2=100):
+    """
+
+    :param fcn:
+    :param x1_lo:
+    :param x1_hi:
+    :param x2_lo:
+    :param x2_hi:
+    :param nb_x1:
+    :param nb_x2:
+    :return:
+    """
     x1 = np.linspace(x1_lo, x1_hi, nb_x1)
     x2 = np.linspace(x2_lo, x2_hi, nb_x2)
     tensor = np.zeros((len(x1), len(x2)))
