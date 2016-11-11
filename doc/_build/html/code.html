@@ -1,0 +1,372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Documentation &mdash; PyQEntangle 0.14 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.14',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="PyQEntangle 0.14 documentation" href="index.html" />
+    <link rel="prev" title="Welcome to PyQEntangle’s documentation!" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to PyQEntangle’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyQEntangle 0.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-schmidt">
+<span id="documentation"></span><h1>Documentation<a class="headerlink" href="#module-schmidt" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="schmidt.bipartitepurestate_densitymatrix">
+<code class="descclassname">schmidt.</code><code class="descname">bipartitepurestate_densitymatrix</code><span class="sig-paren">(</span><em>bipartitepurestate_tensor</em><span class="sig-paren">)</span><a class="headerlink" href="#schmidt.bipartitepurestate_densitymatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the whole density matrix of the bipartitite system</p>
+<p>Given a discrete normalized quantum system, given in terms of 2-D numpy array <code class="docutils literal"><span class="pre">bipartitepurestate_tensor</span></code>,
+each element of <code class="docutils literal"><span class="pre">bipartitepurestate_tensor[i,</span> <span class="pre">j]</span></code> is the coefficient of the ket <span class="math">\(|ij\rangle\)</span>,
+calculate the whole density matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bipartitepurestate_tensor</strong> (<em>numpy.ndarray</em>) &#8211; tensor describing the bi-partitite states, with each elements the coefficients for <span class="math">\(|ij\rangle\)</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">density matrix</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">numpy.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="schmidt.bipartitepurestate_reduceddensitymatrix">
+<code class="descclassname">schmidt.</code><code class="descname">bipartitepurestate_reduceddensitymatrix</code><span class="sig-paren">(</span><em>bipartitepurestate_tensor</em>, <em>kept</em><span class="sig-paren">)</span><a class="headerlink" href="#schmidt.bipartitepurestate_reduceddensitymatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the reduced density matrix for the specified subsystem</p>
+<p>Given a discrete normalized quantum system, given in terms of 2-D numpy array <code class="docutils literal"><span class="pre">bipartitepurestate_tensor</span></code>,
+each element of <code class="docutils literal"><span class="pre">bipartitepurestate_tensor[i,</span> <span class="pre">j]</span></code> is the coefficient of the ket <span class="math">\(|ij\rangle\)</span>,
+calculate the reduced density matrix of the specified subsystem.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>bipartitepurestate_tensor</strong> (<em>numpy.ndarray</em>) &#8211; tensor describing the bi-partitite states, with each elements the coefficients for <span class="math">\(|ij\rangle\)</span></li>
+<li><strong>kept</strong> (<em>int</em>) &#8211; subsystem, 0 indicating the first subsystem; 1 the second</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">reduced density matrix of the specified subsystem</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">numpy.ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="schmidt.schmidt_decomposition">
+<code class="descclassname">schmidt.</code><code class="descname">schmidt_decomposition</code><span class="sig-paren">(</span><em>bipartitepurestate_tensor</em><span class="sig-paren">)</span><a class="headerlink" href="#schmidt.schmidt_decomposition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Schmidt decomposition of the given discrete bipartite quantum system</p>
+<p>Given a discrete normalized quantum system, given in terms of 2-D numpy array <code class="docutils literal"><span class="pre">bipartitepurestate_tensor</span></code>,
+each element of <code class="docutils literal"><span class="pre">bipartitepurestate_tensor[i,</span> <span class="pre">j]</span></code> is the coefficient of the ket <span class="math">\(|ij\rangle\)</span>,
+calculate its Schmidt decomposition, returned as a list of tuples, where each tuple contains
+the Schmidt coefficient, the vector of eigenmode of first subsystem, and the vector of the eigenmode of
+second subsystem.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bipartitepurestate_tensor</strong> (<em>numpy.ndarray</em>) &#8211; tensor describing the bi-partitite states, with each elements the coefficients for <span class="math">\(|ij\rangle\)</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of tuples containing the Schmidt coefficient, eigenmode for first subsystem, and eigenmode for second subsystem</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<span class="target" id="module-continuous"></span><dl class="function">
+<dt id="continuous.continuous_schmidt_decomposition">
+<code class="descclassname">continuous.</code><code class="descname">continuous_schmidt_decomposition</code><span class="sig-paren">(</span><em>fcn</em>, <em>x1_lo</em>, <em>x1_hi</em>, <em>x2_lo</em>, <em>x2_hi</em>, <em>nb_x1=100</em>, <em>nb_x2=100</em>, <em>keep=None</em><span class="sig-paren">)</span><a class="headerlink" href="#continuous.continuous_schmidt_decomposition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the Schmidt decomposition of a continuous bipartite quantum systems</p>
+<p>Given a function <cite>fcn</cite> (a function with two input variables), perform the Schmidt
+decomposition, returning a list of tuples, where each contains a Schmidt decomposition,
+the lambda function of the eigenmode in the first subsystem, and the lambda function
+of the eigenmode of the second subsystem.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fcn</strong> (<em>function</em>) &#8211; function with two input variables</li>
+<li><strong>x1_lo</strong> (<em>float</em>) &#8211; lower bound of <span class="math">\(x_1\)</span></li>
+<li><strong>x1_hi</strong> (<em>float</em>) &#8211; upper bound of <span class="math">\(x_1\)</span></li>
+<li><strong>x2_lo</strong> (<em>float</em>) &#8211; lower bound of <span class="math">\(x_2\)</span></li>
+<li><strong>x2_hi</strong> (<em>float</em>) &#8211; upper bound of <span class="math">\(x_2\)</span></li>
+<li><strong>nb_x1</strong> (<em>int</em>) &#8211; number of <span class="math">\(x_1\)</span> (default: 100)</li>
+<li><strong>nb_x2</strong> (<em>int</em>) &#8211; number of <span class="math">\(x_2\)</span> (default: 100)</li>
+<li><strong>keep</strong> (<em>int</em>) &#8211; the number of Schmidt modes with the largest coefficients to return; the smaller of <cite>nb_x1</cite> and <cite>nb_x2</cite> will be returned if <cite>None</cite> is given. (default: <cite>None</cite>)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of tuples, where each contains a Schmidt coefficient, the lambda function of the eigenmode of the first subsystem, and the lambda function of the eigenmode of the second subsystem</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="continuous.discretize_continuous_bipartitesys">
+<code class="descclassname">continuous.</code><code class="descname">discretize_continuous_bipartitesys</code><span class="sig-paren">(</span><em>fcn</em>, <em>x1_lo</em>, <em>x1_hi</em>, <em>x2_lo</em>, <em>x2_hi</em>, <em>nb_x1=100</em>, <em>nb_x2=100</em><span class="sig-paren">)</span><a class="headerlink" href="#continuous.discretize_continuous_bipartitesys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the discretized representation of the continuous bipartite system</p>
+<p>Given a function <cite>fcn</cite> (a function with two input variables),
+find the discretized representation of the bipartite system, with
+the first system ranges from <cite>x1_lo</cite> to <cite>x1_hi</cite>, and second from <cite>x2_lo</cite> to <cite>x2_hi</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fcn</strong> (<em>function</em>) &#8211; function with two input variables</li>
+<li><strong>x1_lo</strong> (<em>float</em>) &#8211; lower bound of <span class="math">\(x_1\)</span></li>
+<li><strong>x1_hi</strong> (<em>float</em>) &#8211; upper bound of <span class="math">\(x_1\)</span></li>
+<li><strong>x2_lo</strong> (<em>float</em>) &#8211; lower bound of <span class="math">\(x_2\)</span></li>
+<li><strong>x2_hi</strong> (<em>float</em>) &#8211; upper bound of <span class="math">\(x_2\)</span></li>
+<li><strong>nb_x1</strong> (<em>int</em>) &#8211; number of <span class="math">\(x_1\)</span> (default: 100)</li>
+<li><strong>nb_x2</strong> (<em>int</em>) &#8211; number of <span class="math">\(x_2\)</span> (default: 100)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">discretized tensor representation of the continuous bipartite system</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">numpy.ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="continuous.numerical_continuous_function">
+<code class="descclassname">continuous.</code><code class="descname">numerical_continuous_function</code><span class="sig-paren">(</span><em>xarray</em>, <em>yarray</em><span class="sig-paren">)</span><a class="headerlink" href="#continuous.numerical_continuous_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a function with the given arrays of independent and dependent variables</p>
+<p>With a function approximated by given arrays of independent variable (<cite>xarray</cite>)
+and of dependent variable (<cite>yarray</cite>), it returns a lambda function that takes
+a <cite>numpy.ndarray</cite> as an input and calculates the values at all these elements
+using interpolation.</p>
+<p>If <cite>x</cite> is outside the range of <cite>xarray</cite>, an <cite>OutOfRangeException</cite>
+is raised.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>xarray</strong> (<em>numpy.ndarray</em>) &#8211; an array of independent variable values</li>
+<li><strong>yarray</strong> (<em>numpy.ndarray</em>) &#8211; an array of dependent variable values</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a lambda function that takes a <cite>numpy.ndarray</cite> as the input parameter and calculate the values</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">function</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">OutOfRangeException</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="continuous.numerical_continuous_interpolation">
+<code class="descclassname">continuous.</code><code class="descname">numerical_continuous_interpolation</code><span class="sig-paren">(</span><em>xarray</em>, <em>yarray</em>, <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#continuous.numerical_continuous_interpolation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the value of a function given a variable x using interpolation</p>
+<p>With a function approximated by given arrays of independent variable (<cite>xarray</cite>)
+and of dependent variable (<cite>yarray</cite>), the value of this function given <cite>x</cite> is
+calculated by interpolation.</p>
+<p>If <cite>x</cite> is outside the range of <cite>xarray</cite>, an <cite>OutOfRangeException</cite>
+is raised; if the lengths of <cite>xarray</cite> and <cite>yarray</cite> are not equal, an
+<cite>UnequalLengthException</cite> is raised.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>xarray</strong> (<em>numpy.ndarray</em>) &#8211; an array of independent variable values</li>
+<li><strong>yarray</strong> (<em>numpy.ndarray</em>) &#8211; an array of dependent variable values</li>
+<li><strong>x</strong> &#8211; the input value at where the function is computed at</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the value of function with the given <cite>x</cite></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">float</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">OutOfRangeException, UnequalLengthException</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<span class="target" id="module-metrics"></span><dl class="function">
+<dt id="metrics.entanglement_entropy">
+<code class="descclassname">metrics.</code><code class="descname">entanglement_entropy</code><span class="sig-paren">(</span><em>reduceddensitymatrix</em><span class="sig-paren">)</span><a class="headerlink" href="#metrics.entanglement_entropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the entanglement entropy</p>
+<p>Given the reduced density matrix of a subsystem, compute the entanglement entropy
+with the formula <span class="math">\(H=-\sum_i p_i \log p_i\)</span>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reduceddensitymatrix</strong> (<em>numpy.ndarray</em>) &#8211; reduced density matrix of a subsystem</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the entanglement entropy</td>
+</tr>
+</tbody>
+</table>
+<p>:rtype numpy.float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="metrics.negativity">
+<code class="descclassname">metrics.</code><code class="descname">negativity</code><span class="sig-paren">(</span><em>reduceddensitymatrix</em><span class="sig-paren">)</span><a class="headerlink" href="#metrics.negativity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the negativity</p>
+<p>Given the reduced density matrix of a subsystem, compute the negativity
+with the formula <span class="math">\(N = \frac{||\rho||_1-1}{2}\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reduceddensitymatrix</strong> (<em>numpy.ndarray</em>) &#8211; reduced density matrix of a subsystem</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">negativity</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">numpy.float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="metrics.participation_ratio">
+<code class="descclassname">metrics.</code><code class="descname">participation_ratio</code><span class="sig-paren">(</span><em>reduceddensitymatrix</em><span class="sig-paren">)</span><a class="headerlink" href="#metrics.participation_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the participation ratio</p>
+<p>Given the reduced density matrix of a subsystem, compute the participation ratio
+with the formula <span class="math">\(K=\frac{1}{\sum_i p_i^2}\)</span>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reduceddensitymatrix</strong> (<em>numpy.ndarray</em>) &#8211; reduced density matrix of a subsystem</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">participation ratio</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">numpy.float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to PyQEntangle&#8217;s documentation!</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/code.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Kwan-Yuet Ho.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.3</a>
+      
+      |
+      <a href="_sources/code.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>
