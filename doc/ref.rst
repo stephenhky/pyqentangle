@@ -5,5 +5,7 @@ Reference
 - Asher Peres, "Separability Criterion for Density Matrices", *Phys. Rev. Lett.* 77, 1413–1415 (1996).
 - Lu-Ming Duan, G. Giedke, J. I. Cirac, P. Zoller, "Inseparability Criterion for Continuous Variable Systems," *Phys. Rev. Lett.* 84, 2722 (2000).
 - Michael A. Nielsen, Isaac L. Chuang, *Quantum Computation and Quantum Information* (London, UK: Cambridge University Press, 2010).
+- Kwan-Yuet Ho, "Quantum Entanglement in Continuous Systems" (BSc Thesis, Chinese University of Hong Kong, 2004). [ResearchGate_]
 
+.. _ResearchGate: https://www.researchgate.net/publication/309484888_Quantum_Entanglement_in_Continuous_System
 
