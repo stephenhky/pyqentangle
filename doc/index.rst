@@ -16,6 +16,8 @@ Contents:
    :maxdepth: 2
 
    code
+   links
+   ref
 
 Indices and tables
 ==================
