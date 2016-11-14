@@ -11,7 +11,7 @@ def entanglement_entropy(reduceddensitymatrix):
     :param reduceddensitymatrix: reduced density matrix of a subsystem
     :return: the entanglement entropy
     :type reduceddensitymatrix: numpy.ndarray
-    :rtype numpy.float
+    :rtype: numpy.float
 
     """
     eigenvalues = eigvals(reduceddensitymatrix)
