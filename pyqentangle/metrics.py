@@ -16,6 +16,7 @@ def entanglement_entropy(reduceddensitymatrix):
     """
     eigenvalues = eigvals(reduceddensitymatrix)
     eigenvalues = np.real(eigenvalues)
+    eigenvalues = eigenvalues[ eigenvalues > 0]
     entropy = np.sum(- eigenvalues * np.log(eigenvalues))
     return entropy
 
