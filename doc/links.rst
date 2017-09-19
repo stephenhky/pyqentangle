@@ -5,4 +5,4 @@ Links
 - PyPI_
 
 .. _Github: https://github.com/stephenhky/pyqentangle
-.. _PyPI: https://pypi.python.org/pypi/pyqentangle/
+.. _PyPI: https://pypi.org/project/pyqentangle/
