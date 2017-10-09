@@ -2,7 +2,7 @@ from itertools import product
 
 import numpy as np
 
-import schmidt
+from . import schmidt
 
 disentangled_gaussian = lambda x1, x2: np.exp(-0.5 * (x1 * x1 + x2 * x2)) / np.sqrt(np.pi)
 
