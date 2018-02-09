@@ -1,16 +1,9 @@
-sudo: false
-dist: trusty
-sudo: required
 language: python
 python:
   - "2.7"
   - "3.5"
   - "3.6"
 install:
-  - conda create --yes -n pyqentangle-test python=$TRAVIS_PYTHON_VERSION pip numpy scipy
-  - source activate pyqentangle-test
-  - pip install unittest2
-  - pip install pytest
   - pip install -U .
 script:
   - python setup.py test
