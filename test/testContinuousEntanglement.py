@@ -2,7 +2,6 @@
 import unittest2
 
 import numpy as np
-from scipy.integrate import quad
 
 import pyqentangle
 

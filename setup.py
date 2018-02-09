@@ -22,7 +22,7 @@ setup(name='pyqentangle',
       install_requires=[
           'numpy',
       ],
-      tests_require=['unittest2',],
+      tests_require=['unittest2', 'numpy',],
       test_suite="test",
       include_package_data=True,
       zip_safe=False)
