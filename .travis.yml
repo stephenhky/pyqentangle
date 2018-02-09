@@ -6,20 +6,11 @@ python:
   - "2.7"
   - "3.5"
   - "3.6"
-before_install:
-  - wget 'http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh' -O miniconda.sh
-  - chmod +x miniconda.sh
-  - ./miniconda.sh -b
-  - export PATH=/home/travis/miniconda2/bin:$PATH
-  - conda update --yes conda
-  - sudo apt-get update
-  - sudo apt-get install libc6
 install:
   - conda create --yes -n pyqentangle-test python=$TRAVIS_PYTHON_VERSION pip numpy scipy
   - source activate pyqentangle-test
   - pip install unittest2
   - pip install pytest
-  - pip install google-compute-engine
   - pip install -U .
 script:
   - python setup.py test
