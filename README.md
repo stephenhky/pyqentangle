@@ -68,7 +68,7 @@ The second and the third elements in each tuple in the list `decompositions` are
 >>> x2array = np.linspace(-10., 10., 100)
 >>> import matplotlib.pyplot as plt
 >>> plt.plot(x1array, decompositions[0][1](x1array))
->>> plt.plot(x2array, decompositions[0][1](x2array))
+>>> plt.plot(x2array, decompositions[0][2](x2array))
 ```
 
 ![alt](fig/Figure_1A.png)
