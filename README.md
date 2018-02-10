@@ -71,9 +71,9 @@ The second and the third elements in each tuple in the list `decompositions` are
 >>> plt.plot(x2array, decompositions[0][1](x2array))
 ```
 
-![alt](fig/mode1A.png)
+![alt](fig/Figure_1A.png)
 
-![alt](fig/mode1B.png)
+![alt](fig/Figure_1B.png)
 
 ## Useful Links
 
