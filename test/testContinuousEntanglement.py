@@ -2,6 +2,7 @@
 import unittest2
 
 import numpy as np
+from scipy.integrate import quad
 
 import pyqentangle
 
@@ -18,8 +19,8 @@ class testContinuousEntanglement(unittest2.TestCase):
         eigenvalues = map(lambda item: item[0], decompositions)
         self.assertAlmostEqual(eigenvalues[0], 0.888888889)
         self.assertAlmostEqual(eigenvalues[1], 0.098765432)
-        # self.assertAlmostEqual(quad(lambda x1: decompositions[0][1](x1)*decompositions[0][1](x1), -10, 10), 1)
-        # self.assertAlmostEqual(quad(lambda x2: decompositions[0][2](x2)*decompositions[0][2](x2), -10, 10), 1)
+        self.assertAlmostEqual(quad(lambda x1: decompositions[0][1](x1)*decompositions[0][1](x1), -10, 10), 1)
+        self.assertAlmostEqual(quad(lambda x2: decompositions[0][2](x2)*decompositions[0][2](x2), -10, 10), 1)
 
 if __name__ == '__main__':
     unittest2.main()
