@@ -19,8 +19,11 @@ class testContinuousEntanglement(unittest2.TestCase):
         eigenvalues = map(lambda item: item[0], decompositions)
         self.assertAlmostEqual(eigenvalues[0], 0.888888889)
         self.assertAlmostEqual(eigenvalues[1], 0.098765432)
-        self.assertAlmostEqual(np.real(quad(lambda x1: np.conjugate(decompositions[0][1](np.array([x1])))*decompositions[0][1](np.array([x1])), -10, 10)[0]), 1)
-        self.assertAlmostEqual(np.real(quad(lambda x2: np.conjugate(decompositions[0][2](np.array([x2])))*decompositions[0][2](np.array([x2])), -10, 10)[0]), 1)
+
+        norm1, err1 = quad(lambda x1: np.real(np.conjugate(decompositions[0][1](np.array([x1])))*decompositions[0][1](np.array([x1]))), -10, 10)
+        norm2, err2 = quad(lambda x2: np.real(np.conjugate(decompositions[0][2](np.array([x2])))*decompositions[0][2](np.array([x2]))), -10, 10)
+        print(norm1, err1)
+        print(norm2, err2)
 
 if __name__ == '__main__':
     unittest2.main()
