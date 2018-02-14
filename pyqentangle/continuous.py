@@ -1,6 +1,7 @@
 from itertools import product
 
 import numpy as np
+from numba import jit
 
 from . import schmidt
 
@@ -21,6 +22,38 @@ class UnequalLengthException(Exception):
 
     def __str__(self):
         return repr(self.msg)
+
+
+@jit
+def numerical_continuous_interpolation_nocheck(xarray, yarray, x):
+    """Evaluate the value of a function given a variable x using interpolation without exception handling.
+
+    This is a function called by :func:`numerical_continuous_interpolation`, and not
+    recommended for use directly.
+
+    :param xarray: an array of independent variable values
+    :param yarray: an array of dependent variable values
+    :param x: the input value at where the function is computed at
+    :return: the value of function with the given `x`
+    :type xarray: numpy.ndarray
+    :type yarray: numpy.ndarray
+    :rtype: float
+    """
+    # assumed xarray sorted (for efficient run; reasonable assumption)
+    # binary search
+    left = 0
+    right = len(xarray) - 1
+    idx = len(xarray) / 2
+    while (idx != 0 and idx != len(xarray) - 1) and (not (x >= xarray[idx] and x < xarray[idx + 1])):
+        if x >= xarray[idx + 1]:
+            left = idx + 1
+        elif x < xarray[idx]:
+            right = idx - 1
+        idx = (left + right) / 2
+
+    # interpolation
+    val = yarray[idx] + (yarray[idx + 1] - yarray[idx]) / (xarray[idx + 1] - xarray[idx]) * (x - xarray[idx])
+    return val
 
 
 def numerical_continuous_interpolation(xarray, yarray, x):
@@ -52,21 +85,7 @@ def numerical_continuous_interpolation(xarray, yarray, x):
     if not (x >= minx and x < maxx):
         raise OutOfRangeException(x)
 
-    # assumed xarray sorted (for efficient run; reasonable assumption)
-    # binary search
-    left = 0
-    right = len(xarray) - 1
-    idx = len(xarray) / 2
-    while (idx != 0 and idx != len(xarray) - 1) and (not (x >= xarray[idx] and x < xarray[idx + 1])):
-        if x >= xarray[idx + 1]:
-            left = idx + 1
-        elif x < xarray[idx]:
-            right = idx - 1
-        idx = (left + right) / 2
-
-    # interpolation
-    val = yarray[idx] + (yarray[idx + 1] - yarray[idx]) / (xarray[idx + 1] - xarray[idx]) * (x - xarray[idx])
-    return val
+    return numerical_continuous_interpolation_nocheck(xarray, yarray, x)
 
 
 def numerical_continuous_function(xarray, yarray):
