@@ -24,7 +24,7 @@ class UnequalLengthException(Exception):
         return repr(self.msg)
 
 
-@jit
+@jit(cache=True)
 def numerical_continuous_interpolation_nocheck(xarray, yarray, x):
     """Evaluate the value of a function given a variable x using interpolation without exception handling.
 
