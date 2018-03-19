@@ -3,7 +3,7 @@ from itertools import product
 import numpy as np
 from numba import jit
 
-from . import schmidt
+from . import schmidt_decomposition
 
 disentangled_gaussian = lambda x1, x2: np.exp(-0.5 * (x1 * x1 + x2 * x2)) / np.sqrt(np.pi)
 
@@ -172,7 +172,7 @@ def continuous_schmidt_decomposition(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100,
 
     """
     tensor = discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=nb_x1, nb_x2=nb_x2)
-    decomposition = schmidt.schmidt_decomposition(tensor)
+    decomposition = schmidt_decomposition(tensor)
 
     if keep == None or keep > len(decomposition):
         keep = len(decomposition)
