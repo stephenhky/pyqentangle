@@ -25,5 +25,11 @@ class testContinuousEntanglement(unittest2.TestCase):
         print(norm1, err1)
         print(norm2, err2)
 
+    def testInterpolation(self):
+        xarray = np.array([0., 1., 2.])
+        yarray = np.array([0., 1., 4.])
+        self.assertAlmostEqual(pyqentangle.continuous.numerical_continuous_interpolation(xarray, yarray, 0.5), 0.5)
+        self.assertAlmostEqual(pyqentangle.continuous.numerical_continuous_interpolation(xarray, yarray, 1.5), 2.5)
+
 if __name__ == '__main__':
     unittest2.main()
