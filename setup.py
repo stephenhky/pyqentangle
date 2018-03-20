@@ -7,7 +7,7 @@ def readme():
         return f.read()
 
 setup(name='pyqentangle',
-      version="0.20",
+      version="0.21",
       description="Quantum Entanglement for Python",
       long_description="Schmidt decomposition for discrete and continuous bi-partite quantum systems",
       classifiers=[
