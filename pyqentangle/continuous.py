@@ -1,9 +1,9 @@
+
 from itertools import product
 
 import numpy as np
-# from numba import jit
-from .interpolate_nocheck import numerical_continuous_interpolation_nocheck_cython
 
+from .interpolate_nocheck import numerical_continuous_interpolation_nocheck_cython
 from . import schmidt_decomposition
 
 disentangled_gaussian = lambda x1, x2: np.exp(-0.5 * (x1 * x1 + x2 * x2)) / np.sqrt(np.pi)
@@ -25,7 +25,6 @@ class UnequalLengthException(Exception):
         return repr(self.msg)
 
 
-# @jit(cache=True)
 def numerical_continuous_interpolation_nocheck(xarray, yarray, x):
     """Evaluate the value of a function given a variable x using interpolation without exception handling.
 
@@ -41,20 +40,6 @@ def numerical_continuous_interpolation_nocheck(xarray, yarray, x):
     :rtype: float
     """
     # assumed xarray sorted (for efficient run; reasonable assumption)
-    # binary search
-    # left = 0
-    # right = len(xarray) - 1
-    # idx = len(xarray) / 2
-    # while (idx != 0 and idx != len(xarray) - 1) and (not (x >= xarray[idx] and x < xarray[idx + 1])):
-    #     if x >= xarray[idx + 1]:
-    #         left = idx + 1
-    #     elif x < xarray[idx]:
-    #         right = idx - 1
-    #     idx = (left + right) / 2
-    #
-    # # interpolation
-    # val = yarray[idx] + (yarray[idx + 1] - yarray[idx]) / (xarray[idx + 1] - xarray[idx]) * (x - xarray[idx])
-    # return val
     return numerical_continuous_interpolation_nocheck_cython(xarray, yarray, x)
 
 
