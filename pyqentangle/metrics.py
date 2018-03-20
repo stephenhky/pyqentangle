@@ -1,57 +1,66 @@
+
 import numpy as np
-from numpy.linalg import eigvals
 
 
-def entanglement_entropy(reduceddensitymatrix):
+def schmidt_coefficients(schmidt_modes):
+    """ Retrieving Schmidt coefficients from Schmidt modes.
+
+    :param schmidt_modes: Schmidt modes
+    :return: Schmidt coefficients
+    :type schmidt_modes: list
+    :rtype: numpy.array
+    """
+    return np.array(map(lambda item: item[0], schmidt_modes))
+
+
+def entanglement_entropy(schmidt_modes):
     """Calculate the entanglement entropy
 
-    Given the reduced density matrix of a subsystem, compute the entanglement entropy
+    Given the calculated Schmidt modes, compute the entanglement entropy
     with the formula :math:`H=-\\sum_i p_i \log p_i`.
 
-    :param reduceddensitymatrix: reduced density matrix of a subsystem
+    :param schmidt_modes: Schmidt modes
     :return: the entanglement entropy
-    :type reduceddensitymatrix: numpy.ndarray
+    :type schmidt_modes: list
     :rtype: numpy.float
 
     """
-    eigenvalues = eigvals(reduceddensitymatrix)
-    eigenvalues = np.real(eigenvalues)
+    eigenvalues = np.real(schmidt_coefficients(schmidt_modes))
     eigenvalues = eigenvalues[ eigenvalues > 0]
     entropy = np.sum(- eigenvalues * np.log(eigenvalues))
     return entropy
 
 
 # participation ratio
-def participation_ratio(reduceddensitymatrix):
+def participation_ratio(schmidt_modes):
     """Calculate the participation ratio
 
-    Given the reduced density matrix of a subsystem, compute the participation ratio
+    Given the calculated Schmidt modes, compute the participation ratio
     with the formula :math:`K=\\frac{1}{\\sum_i p_i^2}`.
 
-    :param reduceddensitymatrix: reduced density matrix of a subsystem
+    :param schmidt_modes: Schmidt modes
     :return: participation ratio
-    :type reduceddensitymatrix: numpy.ndarray
+    :type schmidt_modes: list
     :rtype: numpy.float
 
     """
-    eigenvalues = eigvals(reduceddensitymatrix)
-    eigenvalues = np.real(eigenvalues)
+    eigenvalues = np.real(np.real(schmidt_coefficients(schmidt_modes)))
     K = 1. / np.sum(eigenvalues * eigenvalues)
     return K
 
 
 # negativity
-def negativity(reduceddensitymatrix):
+def negativity(schmidt_modes):
     """Calculate the negativity
 
-    Given the reduced density matrix of a subsystem, compute the negativity
+    Given the calculated Schmidt modes, compute the negativity
     with the formula :math:`N = \\frac{||\\rho||_1-1}{2}`
 
-    :param reduceddensitymatrix: reduced density matrix of a subsystem
+    :param schmidt_modes: Schmidt modes
     :return: negativity
-    :type reduceddensitymatrix: numpy.ndarray
+    :type schmidt_modes: list
     :rtype: numpy.float
 
     """
-    eigenvalues = eigvals(reduceddensitymatrix)
+    eigenvalues = np.real(np.real(schmidt_coefficients(schmidt_modes)))
     return 0.5 * (np.sum(np.abs(eigenvalues)) - 1)
