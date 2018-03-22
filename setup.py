@@ -1,6 +1,5 @@
-from setuptools import setup, Extension
-#from Cython.Build import cythonize
-import Cython.Build
+from setuptools import setup
+from Cython.Build import cythonize
 import numpy as np
 
 def readme():
@@ -26,8 +25,7 @@ setup(name='pyqentangle',
       setup_requires=['Cython',],
       install_requires=['numpy',],
       tests_require=['unittest2', 'numpy', 'scipy',],
-      ext_modules=[Extension( 'interpolate_nocheck', ['pyqentangle/interpolate_nocheck.pyx']),],
-      cmdclass={'build_ext': Cython.Build.build_ext},
+      ext_modules=cythonize('pyqentangle/interpolate_nocheck.pyx'),
       test_suite="test",
       include_package_data=True,
       zip_safe=False)
