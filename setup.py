@@ -1,5 +1,6 @@
-from setuptools import setup
-from Cython.Build import cythonize
+from setuptools import setup, Extension
+#from Cython.Build import cythonize
+import Cython.Build
 import numpy as np
 
 def readme():
@@ -7,7 +8,7 @@ def readme():
         return f.read()
 
 setup(name='pyqentangle',
-      version="0.21",
+      version="0.22",
       description="Quantum Entanglement for Python",
       long_description="Schmidt decomposition for discrete and continuous bi-partite quantum systems",
       classifiers=[
@@ -21,12 +22,12 @@ setup(name='pyqentangle',
       author_email="stephenhky@yahoo.com.hk",
       license='MIT',
       packages=['pyqentangle'],
-      install_requires=[
-          'numpy',
-      ],
-      ext_modules=cythonize('pyqentangle/interpolate_nocheck.pyx'),
       include_dirs=[np.get_include()],
-      tests_require=['unittest2', 'numpy', 'Cython', 'scipy'],
+      setup_requires=['Cython',],
+      install_requires=['numpy',],
+      tests_require=['unittest2', 'numpy', 'scipy',],
+      ext_modules=[Extension( 'interpolate_nocheck', ['pyqentangle/interpolate_nocheck.pyx']),],
+      cmdclass={'build_ext': Cython.Build.build_ext},
       test_suite="test",
       include_package_data=True,
       zip_safe=False)

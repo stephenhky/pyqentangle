@@ -25,24 +25,6 @@ class UnequalLengthException(Exception):
         return repr(self.msg)
 
 
-def numerical_continuous_interpolation_nocheck(xarray, yarray, x):
-    """Evaluate the value of a function given a variable x using interpolation without exception handling.
-
-    This is a function called by :func:`numerical_continuous_interpolation`, and not
-    recommended for use directly.
-
-    :param xarray: an array of independent variable values
-    :param yarray: an array of dependent variable values
-    :param x: the input value at where the function is computed at
-    :return: the value of function with the given `x`
-    :type xarray: numpy.ndarray
-    :type yarray: numpy.ndarray
-    :rtype: float
-    """
-    # assumed xarray sorted (for efficient run; reasonable assumption)
-    return numerical_continuous_interpolation_nocheck_cython(xarray, yarray, x)
-
-
 def numerical_continuous_interpolation(xarray, yarray, x):
     """Evaluate the value of a function given a variable x using interpolation
 
@@ -72,7 +54,7 @@ def numerical_continuous_interpolation(xarray, yarray, x):
     if not (x >= minx and x < maxx):
         raise OutOfRangeException(x)
 
-    return numerical_continuous_interpolation_nocheck(xarray, yarray, x)
+    return numerical_continuous_interpolation_nocheck_cython(xarray, yarray, x)
 
 
 def numerical_continuous_function(xarray, yarray):
