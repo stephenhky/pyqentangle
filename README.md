@@ -77,6 +77,7 @@ The second and the third elements in each tuple in the list `decompositions` are
 
 ## Useful Links
 
+* Study of Entanglement in Quantum Computers: [https://datawarrior.wordpress.com/2017/09/20/a-first-glimpse-of-rigettis-quantum-computing-cloud/](https://datawarrior.wordpress.com/2017/09/20/a-first-glimpse-of-rigettis-quantum-computing-cloud/)
 * Github page: [https://github.com/stephenhky/pyqentangle](https://github.com/stephenhky/pyqentangle)
 * PyPI page: [https://pypi.python.org/pypi/pyqentangle/](https://pypi.python.org/pypi/pyqentangle/)
 * Documentation: [http://pyqentangle.readthedocs.io/](http://pyqentangle.readthedocs.io/)
