@@ -13,11 +13,8 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install libc6
 install:
-  - conda create --yes -n shorttext-test python=$TRAVIS_PYTHON_VERSION pip numpy scipy
-  - source activate shorttext-test
-  - pip install unittest2
-  - pip install pytest
-  - pip install google-compute-engine
+  - conda create --yes -n qm-test python=$TRAVIS_PYTHON_VERSION pip numpy scipy
+  - source activate qm-test
   - pip install -U numpy
   - pip install Cython
   - pip install -U .
