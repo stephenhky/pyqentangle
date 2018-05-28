@@ -81,6 +81,7 @@ The second and the third elements in each tuple in the list `decompositions` are
 * Github page: [https://github.com/stephenhky/pyqentangle](https://github.com/stephenhky/pyqentangle)
 * PyPI page: [https://pypi.python.org/pypi/pyqentangle/](https://pypi.python.org/pypi/pyqentangle/)
 * Documentation: [http://pyqentangle.readthedocs.io/](http://pyqentangle.readthedocs.io/)
+* RQEntangle: [https://CRAN.R-project.org/package=RQEntangle](https://CRAN.R-project.org/package=RQEntangle) (corresponding R library)
 
 ## Reference
 * Artur Ekert, Peter L. Knight, "Entangled quantum systems and the Schmidt decomposition", *Am. J. Phys.* 63, 415 (1995).
