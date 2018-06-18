@@ -26,7 +26,7 @@ def entanglement_entropy(schmidt_modes):
 
     """
     eigenvalues = np.real(schmidt_coefficients(schmidt_modes))
-    eigenvalues = eigenvalues[ eigenvalues > 0]
+    eigenvalues = np.extract(eigenvalues > 0, eigenvalues)
     entropy = np.sum(- eigenvalues * np.log(eigenvalues))
     return entropy
 
