@@ -10,8 +10,9 @@ python:
 install:
   - sudo apt-get install libc6
   - pip install -U numpy
+  - pip install -U scipy
   - pip install Cython
   - pip install -U .
 # command to run tests
 script:
-  - pytest # or py.test for Python versions 3.5 and below
+  - python setup.py test
