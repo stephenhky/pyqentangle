@@ -10,7 +10,7 @@ def schmidt_coefficients(schmidt_modes):
     :type schmidt_modes: list
     :rtype: numpy.array
     """
-    return np.array(map(lambda item: item[0], schmidt_modes))
+    return np.array(list(map(lambda item: item[0], schmidt_modes)))
 
 
 def entanglement_entropy(schmidt_modes):
