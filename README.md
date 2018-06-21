@@ -7,7 +7,7 @@
 This package can be installed using `pip`.
 
 ```
->>> pip install pyqentagnle
+>>> pip install -U pyqentangle
 ```
 
 To use it, enter
