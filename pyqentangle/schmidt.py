@@ -74,11 +74,10 @@ def schmidt_decomposition(bipartitepurestate_tensor):
 
     rho1 = bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, 1)
     eigenvalues1, unitarymat1 = eig(rho1)
-    inv_unitarymat1 = np.linalg.inv(unitarymat1)
-    coefmat0 = np.dot(bipartitepurestate_tensor, inv_unitarymat1)
+    coefmat0 = np.matmul(bipartitepurestate_tensor, unitarymat1)
 
     decomposition = [(float(np.real(eigenvalues1[k])),
-                      coefmat0[:, k] / np.sqrt(np.real(eigenvalues1[k])),
+                      coefmat0[:, k] / np.linalg.norm(coefmat0[:, k]),
                       unitarymat1[:, k])
                      for k in range(mindim)]
     decomposition = sorted(decomposition, key=lambda dec: dec[0], reverse=True)

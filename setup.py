@@ -7,13 +7,16 @@ def readme():
         return f.read()
 
 setup(name='pyqentangle',
-      version="0.22",
+      version="1.0.0a0",
       description="Quantum Entanglement for Python",
       long_description="Schmidt decomposition for discrete and continuous bi-partite quantum systems",
       classifiers=[
           "Topic :: Scientific/Engineering :: Physics",
           "Topic :: Scientific/Engineering :: Mathematics",
           "License :: OSI Approved :: MIT License",
+          "Programming Language :: Python :: 2.7",
+          "Programming Language :: Python :: 3.5",
+          "Programming Language :: Python :: 3.6",
       ],
       keywords="quantum physics Schmidt decompostion entanglement",
       url="https://github.com/stephenhky/pyqentangle",

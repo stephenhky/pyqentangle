@@ -76,7 +76,7 @@ def numerical_continuous_function(xarray, yarray):
     :rtype: function
     :raises: OutOfRangeException
     """
-    return lambda xs: np.array(map(lambda x: numerical_continuous_interpolation(xarray, yarray, x), xs))
+    return lambda xs: np.array(list(map(lambda x: numerical_continuous_interpolation(xarray, yarray, x), xs)))
 
 
 def discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100, nb_x2=100):
@@ -152,15 +152,15 @@ def continuous_schmidt_decomposition(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100,
     dx2 = (x2_hi - x2_lo) / (nb_x2 - 1.)
 
     renormalized_decomposition = []
-    sumeigvals = np.sum(map(lambda dec: dec[0], decomposition))
+    sumeigvals = np.sum(list(map(lambda dec: dec[0], decomposition)))
     for i in range(keep):
         schmidt_weight, unnorm_modeA, unnorm_modeB = decomposition[i]
-        sqnormA = np.linalg.norm(unnorm_modeA) ** 2 * dx1
-        sqnormB = np.linalg.norm(unnorm_modeB) ** 2 * dx2
+        normA = np.linalg.norm(unnorm_modeA) * np.sqrt(dx1)
+        normB = np.linalg.norm(unnorm_modeB) * np.sqrt(dx2)
         renormalized_decomposition.append(
-            (schmidt_weight / sumeigvals,
-             numerical_continuous_function(x1array, unnorm_modeA / np.sqrt(sqnormA)),
-             numerical_continuous_function(x2array, unnorm_modeB / np.sqrt(sqnormB))
+            ( (schmidt_weight / sumeigvals),
+              numerical_continuous_function(x1array, unnorm_modeA / normA),
+              numerical_continuous_function(x2array, unnorm_modeB / normB)
              )
         )
 

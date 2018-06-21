@@ -1,10 +1,13 @@
 # Quantum Entanglement for Python
+
+[![Build Status](https://travis-ci.org/stephenhky/pyqentangle.svg?branch=master)](https://travis-ci.org/stephenhky/pyqentangle)
+
 ## Installation
 
 This package can be installed using `pip`.
 
 ```
->>> pip install pyqentagnle
+>>> pip install -U pyqentangle
 ```
 
 To use it, enter
@@ -49,7 +52,7 @@ Then perform the Schmidt decomposition,
 where it describes the ranges of x1 and x2 respectively, and `keep=10` specifies only top 10 Schmidt modes are kept. Then we can read the Schmidt coefficients:
 
 ```
->>> map(lambda dec: dec[0], decompositions)
+>>> list(map(lambda dec: dec[0], decompositions))
 [0.88888888888888884,
  0.098765432098765565,
  0.010973936899862853,
@@ -67,13 +70,22 @@ The second and the third elements in each tuple in the list `decompositions` are
 >>> x1array = np.linspace(-10., 10., 100)
 >>> x2array = np.linspace(-10., 10., 100)
 >>> import matplotlib.pyplot as plt
+>>> # Eigenfunctions of the first Schmidt mode
 >>> plt.plot(x1array, decompositions[0][1](x1array))
 >>> plt.plot(x2array, decompositions[0][2](x2array))
+>>> # Eigenfunctions of the second Schmidt mode
+>>> plt.plot(x1array, decompositions[1][1](x1array))
+>>> plt.plot(x2array, decompositions[1][2](x2array))
 ```
 
 ![alt](fig/Figure_1A.png)
 
 ![alt](fig/Figure_1B.png)
+
+![alt](fig/Figure_2A.png)
+
+![alt](fig/Figure_2B.png)
+
 
 ## Useful Links
 
