@@ -1,0 +1,50 @@
+import unittest2
+
+import numpy as np
+
+import pyqentangle
+
+class testRedDenMat(unittest2.TestCase):
+    def setUp(self):
+        pass
+
+    def tearDown(self):
+        pass
+
+    def testTwoLevel(self):
+        tensor = np.array([[0., np.sqrt(0.6) * 1j], [np.sqrt(0.4) * 1j, 0.]])
+        reddenmat0 = pyqentangle.schmidt.bipartitepurestate_reduceddensitymatrix(tensor, 0)
+        reddenmat1 = pyqentangle.schmidt.bipartitepurestate_reduceddensitymatrix(tensor, 0)
+        self.assertAlmostEqual(np.trace(reddenmat0), 1.0)
+        self.assertAlmostEqual(np.trace(reddenmat1), 1.0)
+
+    def testThreeLevel(self):
+        tensor = np.array([[np.sqrt(0.5), 0.0, 0.0], [0.0, np.sqrt(0.3)*1.j, 0.0], [0.0, 0.0, np.sqrt(0.2)]])
+        reddenmat0 = pyqentangle.schmidt.bipartitepurestate_reduceddensitymatrix(tensor, 0)
+        reddenmat1 = pyqentangle.schmidt.bipartitepurestate_reduceddensitymatrix(tensor, 0)
+        self.assertAlmostEqual(np.trace(reddenmat0), 1.0)
+        self.assertAlmostEqual(np.trace(reddenmat1), 1.0)
+
+    def testTwoLevels2(self):
+        tensor = np.array([[np.sqrt(0.5), np.sqrt(0.25) * 1.j], [0., np.sqrt(0.25)]])
+        reddenmat0 = pyqentangle.schmidt.bipartitepurestate_reduceddensitymatrix(tensor, 0)
+        reddenmat1 = pyqentangle.schmidt.bipartitepurestate_reduceddensitymatrix(tensor, 0)
+        self.assertAlmostEqual(np.trace(reddenmat0), 1.0)
+        self.assertAlmostEqual(np.trace(reddenmat1), 1.0)
+
+    def testFiftennLevels(self):
+        tensor = np.zeros((15, 15))
+        tensor[1, 1] = np.sqrt(0.3)
+        tensor[1, 2] = np.sqrt(0.1)
+        tensor[1, 3] = np.sqrt(0.1)
+        tensor[11, 10] = np.sqrt(0.2)
+        tensor[11, 11] = np.sqrt(0.1)
+        tensor[11, 12] = np.sqrt(0.2)
+        reddenmat0 = pyqentangle.schmidt.bipartitepurestate_reduceddensitymatrix(tensor, 0)
+        reddenmat1 = pyqentangle.schmidt.bipartitepurestate_reduceddensitymatrix(tensor, 0)
+        self.assertAlmostEqual(np.trace(reddenmat0), 1.0)
+        self.assertAlmostEqual(np.trace(reddenmat1), 1.0)
+
+
+if __name__ == '__main__':
+    unittest2.main()
