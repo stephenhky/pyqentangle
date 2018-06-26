@@ -2,6 +2,7 @@ from itertools import product
 
 import numpy as np
 from numpy.linalg import eig
+from .bipartite_reddenmat_nocheck import bipartitepurestate_reduceddensitymatrix_nocheck
 
 
 # total density matrix
@@ -40,18 +41,9 @@ def bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, kept):
     :rtype: numpy.ndarray
 
     """
-    state_dims = bipartitepurestate_tensor.shape
     if not (kept in [0, 1]):
         raise ValueError('kept can only be 0 or 1!')
-    rho = np.zeros((state_dims[kept],) * 2, dtype=np.complex)
-    for i, ip in product(*map(range, (state_dims[kept],) * 2)):
-        if kept == 0:
-            rho[i, ip] = np.sum([bipartitepurestate_tensor[i, j] * np.conj(bipartitepurestate_tensor[ip, j])
-                                 for j in range(state_dims[1])])
-        else:
-            rho[i, ip] = np.sum([bipartitepurestate_tensor[j, i] * np.conj(bipartitepurestate_tensor[j, ip])
-                                 for j in range(state_dims[0])])
-    return rho
+    return bipartitepurestate_reduceddensitymatrix_nocheck(bipartitepurestate_tensor, kept)
 
 
 def schmidt_decomposition(bipartitepurestate_tensor):
