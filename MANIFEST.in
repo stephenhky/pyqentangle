@@ -1,2 +1,3 @@
 include README.md
 include pyqentangle/interpolate_nocheck.pyx
+include pyqentangle/bipartite_reddenmat_nocheck.pyx
