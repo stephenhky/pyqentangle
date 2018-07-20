@@ -12,10 +12,9 @@ sudo: true
 # command to install dependencies
 install:
   - apt-get install libc6
-  - apt-get install libgcc
   - pip install -U numpy
   - pip install -U scipy
-#  - pip install Cython
+  - pip install Cython
   - pip install -U .
 # command to run tests
 script:
