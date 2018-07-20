@@ -1,3 +1,7 @@
 include README.md
 include pyqentangle/interpolate_nocheck.pyx
 include pyqentangle/bipartite_reddenmat_nocheck.pyx
+include pyqentangle/bipartite_denmat.pyx
+include pyqentangle/interpolate_nocheck.c
+include pyqentangle/bipartite_reddenmat_nocheck.c
+include pyqentangle/bipartite_denmat.c
