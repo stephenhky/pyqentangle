@@ -7,9 +7,12 @@ try:
                              'pyqentangle/bipartite_reddenmat_nocheck.pyx',
                              'pyqentangle/bipartite_denmat.pyx'])
 except ImportError:
-    ext_modules = [Extension('_interpolate_nocheck', 'pyqentangle/interpolate_nocheck.c'),
-                   Extension('_bipartite_reddenmat_nocheck', 'pyqentangle/bipartite_reddenmat_nocheck.c'),
-                   Extension('_bipartite_denmat', 'pyqentangle/bipartite_denmat.c')]
+    ext_modules = [Extension('_interpolate_nocheck',
+                             sources=['pyqentangle/interpolate_nocheck.c']),
+                   Extension('_bipartite_reddenmat_nocheck',
+                             sources=['pyqentangle/bipartite_reddenmat_nocheck.c']),
+                   Extension('_bipartite_denmat',
+                             sources=['pyqentangle/bipartite_denmat.c'])]
 
 
 def readme():
