@@ -3,6 +3,7 @@ from itertools import product
 import numpy as np
 from numpy.linalg import eig
 from .bipartite_reddenmat_nocheck import bipartitepurestate_reduceddensitymatrix_nocheck
+from .bipartite_denmat import bipartitepurestate_densitymatrix_cython
 
 
 # total density matrix
@@ -19,11 +20,12 @@ def bipartitepurestate_densitymatrix(bipartitepurestate_tensor):
     :rtype: numpy.ndarray
 
     """
-    state_dims = bipartitepurestate_tensor.shape
-    rho = np.zeros(state_dims * 2, dtype=np.complex)
-    for i, j, ip, jp in product(*map(range, state_dims * 2)):
-        rho[i, j, ip, jp] = bipartitepurestate_tensor[i, j] * np.conj(bipartitepurestate_tensor[ip, jp])
-    return rho
+    # state_dims = bipartitepurestate_tensor.shape
+    # rho = np.zeros(state_dims * 2, dtype=np.complex)
+    # for i, j, ip, jp in product(*map(range, state_dims * 2)):
+    #     rho[i, j, ip, jp] = bipartitepurestate_tensor[i, j] * np.conj(bipartitepurestate_tensor[ip, jp])
+    # return rho
+    return bipartitepurestate_densitymatrix_cython(bipartitepurestate_tensor)
 
 
 def bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, kept):
