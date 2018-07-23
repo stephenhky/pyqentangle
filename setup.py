@@ -1,17 +1,18 @@
 from setuptools import setup, Extension
 import numpy as np
 
+# reference: https://stackoverflow.com/questions/46784964/create-package-with-cython-so-users-can-install-it-without-having-cython-already
 try:
     from Cython.Build import cythonize
     ext_modules = cythonize(['pyqentangle/interpolate_nocheck.pyx',
                              'pyqentangle/bipartite_reddenmat_nocheck.pyx',
                              'pyqentangle/bipartite_denmat.pyx'])
 except ImportError:
-    ext_modules = [Extension('_interpolate_nocheck',
+    ext_modules = [Extension('pyqentangle.interpolate_nocheck',
                              sources=['pyqentangle/interpolate_nocheck.c']),
-                   Extension('_bipartite_reddenmat_nocheck',
+                   Extension('pyqentangle.bipartite_reddenmat_nocheck',
                              sources=['pyqentangle/bipartite_reddenmat_nocheck.c']),
-                   Extension('_bipartite_denmat',
+                   Extension('pyqentangle.bipartite_denmat',
                              sources=['pyqentangle/bipartite_denmat.c'])]
 
 
@@ -19,8 +20,9 @@ def readme():
     with open('README.md') as f:
         return f.read()
 
+
 setup(name='pyqentangle',
-      version="1.0.2",
+      version="1.0.3a0",
       description="Quantum Entanglement for Python",
       long_description="Schmidt decomposition for discrete and continuous bi-partite quantum systems",
       classifiers=[
