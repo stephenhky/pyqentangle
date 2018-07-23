@@ -10,6 +10,8 @@ This is the PyQEntangle project, which provides routine to perform Schmidt decom
 for quantum entangled states. The states have to be bipartite, i.e., containing two
 subsystems. The two subsystems can be either discrete or continuous.
 
+This package runs in Python 2.7, 3.5, 3.6, and 3.7. However, under Python 3.7, Cython has to be installed.
+
 Contents:
 
 .. toctree::
