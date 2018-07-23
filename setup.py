@@ -1,6 +1,7 @@
 from setuptools import setup, Extension
 import numpy as np
 
+# reference: https://stackoverflow.com/questions/46784964/create-package-with-cython-so-users-can-install-it-without-having-cython-already
 try:
     from Cython.Build import cythonize
     ext_modules = cythonize(['pyqentangle/interpolate_nocheck.pyx',
@@ -18,6 +19,7 @@ except ImportError:
 def readme():
     with open('README.md') as f:
         return f.read()
+
 
 setup(name='pyqentangle',
       version="1.0.3a0",

@@ -14,7 +14,7 @@ install:
   - sudo apt-get install libc6
   - pip install -U numpy
   - pip install -U scipy
-#  - pip install Cython
+  - pip install Cython
   - pip install -U .
 # command to run tests
 script:
