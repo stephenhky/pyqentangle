@@ -43,6 +43,7 @@ def bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, kept):
     return bipartitepurestate_reduceddensitymatrix_nocheck(bipartitepurestate_tensor, kept)
 
 
+# TODO: change here
 def schmidt_decomposition(bipartitepurestate_tensor):
     """Calculate the Schmidt decomposition of the given discrete bipartite quantum system
 
