@@ -1,8 +1,7 @@
 
 import numpy as np
-from numpy.linalg import eig
-from pyqentangle.bipartite_reddenmat_nocheck import bipartitepurestate_reduceddensitymatrix_nocheck
-from pyqentangle.bipartite_denmat import bipartitepurestate_densitymatrix_cython
+from .bipartite_reddenmat_nocheck import bipartitepurestate_reduceddensitymatrix_nocheck
+from .bipartite_denmat import bipartitepurestate_densitymatrix_cython
 
 
 # total density matrix
@@ -42,7 +41,6 @@ def bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, kept):
     return bipartitepurestate_reduceddensitymatrix_nocheck(bipartitepurestate_tensor, kept)
 
 
-# TODO: change here
 def schmidt_decomposition(bipartitepurestate_tensor):
     """Calculate the Schmidt decomposition of the given discrete bipartite quantum system
 

@@ -1,5 +1,8 @@
 
 import numpy as np
+from .negativity_utils import bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython
+from .negativity_utils import bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython
+from .bipartite_denmat import flatten_bipartite_densitymatrix_cython
 
 
 def schmidt_coefficients(schmidt_modes):
@@ -54,7 +57,7 @@ def negativity(schmidt_modes):
     """Calculate the negativity
 
     Given the calculated Schmidt modes, compute the negativity
-    with the formula :math:`N = \\frac{||\\rho||_1-1}{2}`
+    with the formula :math:`N = \\frac{||\\rho^{\Gamma_A}||_1-1}{2}`
 
     :param schmidt_modes: Schmidt modes
     :return: negativity
