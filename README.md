@@ -3,6 +3,10 @@
 [![Build Status](https://travis-ci.org/stephenhky/pyqentangle.svg?branch=master)](https://travis-ci.org/stephenhky/pyqentangle)
 [![GitHub release](https://img.shields.io/github/release/stephenhky/pyqentangle.svg?maxAge=3600)](https://github.com/stephenhky/pyqentangle/releases)
 
+## Version
+
+The releases of `pyqentangle` 2.x.x is incompatible with previous releases.
+
 ## Installation
 
 This package can be installed using `pip`.
