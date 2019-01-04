@@ -6,14 +6,17 @@ try:
     from Cython.Build import cythonize
     ext_modules = cythonize(['pyqentangle/interpolate_nocheck.pyx',
                              'pyqentangle/bipartite_reddenmat_nocheck.pyx',
-                             'pyqentangle/bipartite_denmat.pyx'])
+                             'pyqentangle/bipartite_denmat.pyx',
+                             'pyqentangle/negativity_utils.pyx'])
 except ImportError:
     ext_modules = [Extension('pyqentangle.interpolate_nocheck',
                              sources=['pyqentangle/interpolate_nocheck.c']),
                    Extension('pyqentangle.bipartite_reddenmat_nocheck',
                              sources=['pyqentangle/bipartite_reddenmat_nocheck.c']),
                    Extension('pyqentangle.bipartite_denmat',
-                             sources=['pyqentangle/bipartite_denmat.c'])]
+                             sources=['pyqentangle/bipartite_denmat.c']),
+                   Extension('pyqentangle.negativity_utils',
+                             sources=['pyqentangle/negativity_utils.c'])]
 
 
 def readme():
@@ -22,7 +25,7 @@ def readme():
 
 
 setup(name='pyqentangle',
-      version="1.1.0",
+      version="2.0.0a01",
       description="Quantum Entanglement for Python",
       long_description="Schmidt decomposition for discrete and continuous bi-partite quantum systems",
       classifiers=[

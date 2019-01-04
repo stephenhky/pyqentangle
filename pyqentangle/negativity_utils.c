@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [], 
-        "name": "pyqentangle.bipartite_denmat", 
+        "name": "pyqentangle.negativity_utils", 
         "sources": [
-            "pyqentangle/bipartite_denmat.pyx"
+            "pyqentangle/negativity_utils.pyx"
         ]
     }, 
-    "module_name": "pyqentangle.bipartite_denmat"
+    "module_name": "pyqentangle.negativity_utils"
 }
 END: Cython Metadata */
 
@@ -480,8 +480,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__pyqentangle__bipartite_denmat
-#define __PYX_HAVE_API__pyqentangle__bipartite_denmat
+#define __PYX_HAVE__pyqentangle__negativity_utils
+#define __PYX_HAVE_API__pyqentangle__negativity_utils
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -709,7 +709,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "pyqentangle/bipartite_denmat.pyx",
+  "pyqentangle/negativity_utils.pyx",
   "__init__.pxd",
   "type.pxd",
 };
@@ -1364,11 +1364,11 @@ static PyTypeObject *__pyx_ptype_5numpy_ndarray = 0;
 static PyTypeObject *__pyx_ptype_5numpy_ufunc = 0;
 static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *, char *, char *, int *); /*proto*/
 
-/* Module declarations from 'pyqentangle.bipartite_denmat' */
-#define __Pyx_MODULE_NAME "pyqentangle.bipartite_denmat"
-int __pyx_module_is_main_pyqentangle__bipartite_denmat = 0;
+/* Module declarations from 'pyqentangle.negativity_utils' */
+#define __Pyx_MODULE_NAME "pyqentangle.negativity_utils"
+int __pyx_module_is_main_pyqentangle__negativity_utils = 0;
 
-/* Implementation of 'pyqentangle.bipartite_denmat' */
+/* Implementation of 'pyqentangle.negativity_utils' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -1392,30 +1392,29 @@ static const char __pyx_k_import[] = "__import__";
 static const char __pyx_k_complex[] = "complex";
 static const char __pyx_k_ValueError[] = "ValueError";
 static const char __pyx_k_ImportError[] = "ImportError";
-static const char __pyx_k_full_denmat[] = "full_denmat";
 static const char __pyx_k_RuntimeError[] = "RuntimeError";
-static const char __pyx_k_flatten_denmat[] = "flatten_denmat";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_bipartitepurestate_tensor[] = "bipartitepurestate_tensor";
 static const char __pyx_k_ndarray_is_not_C_contiguous[] = "ndarray is not C contiguous";
-static const char __pyx_k_pyqentangle_bipartite_denmat[] = "pyqentangle.bipartite_denmat";
-static const char __pyx_k_flatten_bipartite_densitymatrix[] = "flatten_bipartite_densitymatrix_cython";
+static const char __pyx_k_pyqentangle_negativity_utils[] = "pyqentangle.negativity_utils";
 static const char __pyx_k_numpy_core_multiarray_failed_to[] = "numpy.core.multiarray failed to import";
 static const char __pyx_k_unknown_dtype_code_in_numpy_pxd[] = "unknown dtype code in numpy.pxd (%d)";
 static const char __pyx_k_Format_string_allocated_too_shor[] = "Format string allocated too short, see comment in numpy.pxd";
 static const char __pyx_k_Non_native_byte_order_not_suppor[] = "Non-native byte order not supported";
-static const char __pyx_k_bipartitepurestate_densitymatrix[] = "bipartitepurestate_densitymatrix_cython";
+static const char __pyx_k_bipartitepurestate_partialtransp[] = "bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython";
 static const char __pyx_k_ndarray_is_not_Fortran_contiguou[] = "ndarray is not Fortran contiguous";
 static const char __pyx_k_numpy_core_umath_failed_to_impor[] = "numpy.core.umath failed to import";
-static const char __pyx_k_pyqentangle_bipartite_denmat_pyx[] = "pyqentangle/bipartite_denmat.pyx";
+static const char __pyx_k_pyqentangle_negativity_utils_pyx[] = "pyqentangle/negativity_utils.pyx";
 static const char __pyx_k_Format_string_allocated_too_shor_2[] = "Format string allocated too short.";
+static const char __pyx_k_bipartitepurestate_partialtransp_2[] = "bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython";
 static PyObject *__pyx_kp_u_Format_string_allocated_too_shor;
 static PyObject *__pyx_kp_u_Format_string_allocated_too_shor_2;
 static PyObject *__pyx_n_s_ImportError;
 static PyObject *__pyx_kp_u_Non_native_byte_order_not_suppor;
 static PyObject *__pyx_n_s_RuntimeError;
 static PyObject *__pyx_n_s_ValueError;
-static PyObject *__pyx_n_s_bipartitepurestate_densitymatrix;
+static PyObject *__pyx_n_s_bipartitepurestate_partialtransp;
+static PyObject *__pyx_n_s_bipartitepurestate_partialtransp_2;
 static PyObject *__pyx_n_s_bipartitepurestate_tensor;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_complex;
@@ -1423,9 +1422,6 @@ static PyObject *__pyx_n_s_conj;
 static PyObject *__pyx_n_s_dim0;
 static PyObject *__pyx_n_s_dim1;
 static PyObject *__pyx_n_s_dtype;
-static PyObject *__pyx_n_s_flatten_bipartite_densitymatrix;
-static PyObject *__pyx_n_s_flatten_denmat;
-static PyObject *__pyx_n_s_full_denmat;
 static PyObject *__pyx_n_s_i;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_ip;
@@ -1438,15 +1434,15 @@ static PyObject *__pyx_n_s_np;
 static PyObject *__pyx_n_s_numpy;
 static PyObject *__pyx_kp_s_numpy_core_multiarray_failed_to;
 static PyObject *__pyx_kp_s_numpy_core_umath_failed_to_impor;
-static PyObject *__pyx_n_s_pyqentangle_bipartite_denmat;
-static PyObject *__pyx_kp_s_pyqentangle_bipartite_denmat_pyx;
+static PyObject *__pyx_n_s_pyqentangle_negativity_utils;
+static PyObject *__pyx_kp_s_pyqentangle_negativity_utils_pyx;
 static PyObject *__pyx_n_s_range;
 static PyObject *__pyx_n_s_rho;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_kp_u_unknown_dtype_code_in_numpy_pxd;
 static PyObject *__pyx_n_s_zeros;
-static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_bipartitepurestate_densitymatrix_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_bipartitepurestate_tensor); /* proto */
-static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_2flatten_bipartite_densitymatrix_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_full_denmat); /* proto */
+static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_bipartitepurestate_tensor); /* proto */
+static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_2bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_bipartitepurestate_tensor); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
 static PyObject *__pyx_tuple_;
@@ -1463,23 +1459,23 @@ static PyObject *__pyx_tuple__12;
 static PyObject *__pyx_codeobj__11;
 static PyObject *__pyx_codeobj__13;
 
-/* "pyqentangle/bipartite_denmat.pyx":5
+/* "pyqentangle/negativity_utils.pyx":6
  * cimport numpy as np
  * 
- * def bipartitepurestate_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
+ * def bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
  *     cdef int i, j, ip, jp
  *     cdef int dim0 = bipartitepurestate_tensor.shape[0]
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11pyqentangle_16bipartite_denmat_1bipartitepurestate_densitymatrix_cython(PyObject *__pyx_self, PyObject *__pyx_v_bipartitepurestate_tensor); /*proto*/
-static PyMethodDef __pyx_mdef_11pyqentangle_16bipartite_denmat_1bipartitepurestate_densitymatrix_cython = {"bipartitepurestate_densitymatrix_cython", (PyCFunction)__pyx_pw_11pyqentangle_16bipartite_denmat_1bipartitepurestate_densitymatrix_cython, METH_O, 0};
-static PyObject *__pyx_pw_11pyqentangle_16bipartite_denmat_1bipartitepurestate_densitymatrix_cython(PyObject *__pyx_self, PyObject *__pyx_v_bipartitepurestate_tensor) {
+static PyObject *__pyx_pw_11pyqentangle_16negativity_utils_1bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(PyObject *__pyx_self, PyObject *__pyx_v_bipartitepurestate_tensor); /*proto*/
+static PyMethodDef __pyx_mdef_11pyqentangle_16negativity_utils_1bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython = {"bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython", (PyCFunction)__pyx_pw_11pyqentangle_16negativity_utils_1bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython, METH_O, 0};
+static PyObject *__pyx_pw_11pyqentangle_16negativity_utils_1bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(PyObject *__pyx_self, PyObject *__pyx_v_bipartitepurestate_tensor) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("bipartitepurestate_densitymatrix_cython (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_bipartitepurestate_tensor), __pyx_ptype_5numpy_ndarray, 1, "bipartitepurestate_tensor", 0))) __PYX_ERR(0, 5, __pyx_L1_error)
-  __pyx_r = __pyx_pf_11pyqentangle_16bipartite_denmat_bipartitepurestate_densitymatrix_cython(__pyx_self, ((PyArrayObject *)__pyx_v_bipartitepurestate_tensor));
+  __Pyx_RefNannySetupContext("bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython (wrapper)", 0);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_bipartitepurestate_tensor), __pyx_ptype_5numpy_ndarray, 1, "bipartitepurestate_tensor", 0))) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_r = __pyx_pf_11pyqentangle_16negativity_utils_bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(__pyx_self, ((PyArrayObject *)__pyx_v_bipartitepurestate_tensor));
 
   /* function exit code */
   goto __pyx_L0;
@@ -1490,7 +1486,7 @@ static PyObject *__pyx_pw_11pyqentangle_16bipartite_denmat_1bipartitepurestate_d
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_bipartitepurestate_densitymatrix_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_bipartitepurestate_tensor) {
+static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_bipartitepurestate_tensor) {
   int __pyx_v_i;
   int __pyx_v_j;
   int __pyx_v_ip;
@@ -1514,10 +1510,10 @@ static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_bipartitepurestate_de
   int __pyx_t_12;
   int __pyx_t_13;
   int __pyx_t_14;
-  __Pyx_RefNannySetupContext("bipartitepurestate_densitymatrix_cython", 0);
+  __Pyx_RefNannySetupContext("bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython", 0);
 
-  /* "pyqentangle/bipartite_denmat.pyx":7
- * def bipartitepurestate_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):
+  /* "pyqentangle/negativity_utils.pyx":8
+ * def bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):
  *     cdef int i, j, ip, jp
  *     cdef int dim0 = bipartitepurestate_tensor.shape[0]             # <<<<<<<<<<<<<<
  *     cdef int dim1 = bipartitepurestate_tensor.shape[1]
@@ -1525,36 +1521,36 @@ static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_bipartitepurestate_de
  */
   __pyx_v_dim0 = (__pyx_v_bipartitepurestate_tensor->dimensions[0]);
 
-  /* "pyqentangle/bipartite_denmat.pyx":8
+  /* "pyqentangle/negativity_utils.pyx":9
  *     cdef int i, j, ip, jp
  *     cdef int dim0 = bipartitepurestate_tensor.shape[0]
  *     cdef int dim1 = bipartitepurestate_tensor.shape[1]             # <<<<<<<<<<<<<<
  * 
- *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim0, dim1), dtype=np.complex)
+ *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim1, dim0), dtype=np.complex)
  */
   __pyx_v_dim1 = (__pyx_v_bipartitepurestate_tensor->dimensions[1]);
 
-  /* "pyqentangle/bipartite_denmat.pyx":10
+  /* "pyqentangle/negativity_utils.pyx":11
  *     cdef int dim1 = bipartitepurestate_tensor.shape[1]
  * 
- *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim0, dim1), dtype=np.complex)             # <<<<<<<<<<<<<<
+ *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim1, dim0), dtype=np.complex)             # <<<<<<<<<<<<<<
  * 
  *     for i in range(dim0):
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_dim0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_dim0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_dim1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_dim1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_dim0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_dim1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_dim1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_dim0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = PyTuple_New(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_1);
@@ -1568,31 +1564,31 @@ static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_bipartitepurestate_de
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
   __pyx_t_5 = 0;
-  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_6);
   PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_6);
   __pyx_t_6 = 0;
-  __pyx_t_6 = PyDict_New(); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_6 = PyDict_New(); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_complex); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_complex); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_dtype, __pyx_t_3) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_dtype, __pyx_t_3) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 10, __pyx_L1_error)
+  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 11, __pyx_L1_error)
   __pyx_v_rho = ((PyArrayObject *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "pyqentangle/bipartite_denmat.pyx":12
- *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim0, dim1), dtype=np.complex)
+  /* "pyqentangle/negativity_utils.pyx":13
+ *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim1, dim0), dtype=np.complex)
  * 
  *     for i in range(dim0):             # <<<<<<<<<<<<<<
  *         for j in range(dim1):
@@ -1602,7 +1598,7 @@ static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_bipartitepurestate_de
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
     __pyx_v_i = __pyx_t_8;
 
-    /* "pyqentangle/bipartite_denmat.pyx":13
+    /* "pyqentangle/negativity_utils.pyx":14
  * 
  *     for i in range(dim0):
  *         for j in range(dim1):             # <<<<<<<<<<<<<<
@@ -1613,40 +1609,40 @@ static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_bipartitepurestate_de
     for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
       __pyx_v_j = __pyx_t_10;
 
-      /* "pyqentangle/bipartite_denmat.pyx":14
+      /* "pyqentangle/negativity_utils.pyx":15
  *     for i in range(dim0):
  *         for j in range(dim1):
  *             for ip in range(dim0):             # <<<<<<<<<<<<<<
  *                 for jp in range(dim1):
- *                     rho[i, j, ip, jp] = bipartitepurestate_tensor[i, j] * np.conj(bipartitepurestate_tensor[ip, jp])
+ *                     rho[ip, j, i, jp] = bipartitepurestate_tensor[i, j] * np.conj(bipartitepurestate_tensor[ip, jp])
  */
       __pyx_t_11 = __pyx_v_dim0;
       for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
         __pyx_v_ip = __pyx_t_12;
 
-        /* "pyqentangle/bipartite_denmat.pyx":15
+        /* "pyqentangle/negativity_utils.pyx":16
  *         for j in range(dim1):
  *             for ip in range(dim0):
  *                 for jp in range(dim1):             # <<<<<<<<<<<<<<
- *                     rho[i, j, ip, jp] = bipartitepurestate_tensor[i, j] * np.conj(bipartitepurestate_tensor[ip, jp])
+ *                     rho[ip, j, i, jp] = bipartitepurestate_tensor[i, j] * np.conj(bipartitepurestate_tensor[ip, jp])
  * 
  */
         __pyx_t_13 = __pyx_v_dim1;
         for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
           __pyx_v_jp = __pyx_t_14;
 
-          /* "pyqentangle/bipartite_denmat.pyx":16
+          /* "pyqentangle/negativity_utils.pyx":17
  *             for ip in range(dim0):
  *                 for jp in range(dim1):
- *                     rho[i, j, ip, jp] = bipartitepurestate_tensor[i, j] * np.conj(bipartitepurestate_tensor[ip, jp])             # <<<<<<<<<<<<<<
+ *                     rho[ip, j, i, jp] = bipartitepurestate_tensor[i, j] * np.conj(bipartitepurestate_tensor[ip, jp])             # <<<<<<<<<<<<<<
  * 
  *     return rho
  */
-          __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
-          __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 16, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 17, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 16, __pyx_L1_error)
+          __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 17, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_GIVEREF(__pyx_t_3);
           PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3);
@@ -1654,19 +1650,19 @@ static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_bipartitepurestate_de
           PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_6);
           __pyx_t_3 = 0;
           __pyx_t_6 = 0;
-          __pyx_t_6 = PyObject_GetItem(((PyObject *)__pyx_v_bipartitepurestate_tensor), __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 16, __pyx_L1_error)
+          __pyx_t_6 = PyObject_GetItem(((PyObject *)__pyx_v_bipartitepurestate_tensor), __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 17, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
-          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_conj); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_conj); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-          __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_ip); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_ip); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
-          __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_jp); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 16, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_jp); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 17, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
-          __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
+          __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_GIVEREF(__pyx_t_3);
           PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
@@ -1674,7 +1670,7 @@ static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_bipartitepurestate_de
           PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_4);
           __pyx_t_3 = 0;
           __pyx_t_4 = 0;
-          __pyx_t_4 = PyObject_GetItem(((PyObject *)__pyx_v_bipartitepurestate_tensor), __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 16, __pyx_L1_error)
+          __pyx_t_4 = PyObject_GetItem(((PyObject *)__pyx_v_bipartitepurestate_tensor), __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 17, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
           __pyx_t_1 = NULL;
@@ -1688,14 +1684,14 @@ static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_bipartitepurestate_de
             }
           }
           if (!__pyx_t_1) {
-            __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 16, __pyx_L1_error)
+            __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 17, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
             __Pyx_GOTREF(__pyx_t_5);
           } else {
             #if CYTHON_FAST_PYCALL
             if (PyFunction_Check(__pyx_t_2)) {
               PyObject *__pyx_temp[2] = {__pyx_t_1, __pyx_t_4};
-              __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 16, __pyx_L1_error)
+              __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 17, __pyx_L1_error)
               __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
               __Pyx_GOTREF(__pyx_t_5);
               __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -1704,38 +1700,38 @@ static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_bipartitepurestate_de
             #if CYTHON_FAST_PYCCALL
             if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
               PyObject *__pyx_temp[2] = {__pyx_t_1, __pyx_t_4};
-              __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 16, __pyx_L1_error)
+              __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 17, __pyx_L1_error)
               __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
               __Pyx_GOTREF(__pyx_t_5);
               __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
             } else
             #endif
             {
-              __pyx_t_3 = PyTuple_New(1+1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+              __pyx_t_3 = PyTuple_New(1+1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_3);
               __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1); __pyx_t_1 = NULL;
               __Pyx_GIVEREF(__pyx_t_4);
               PyTuple_SET_ITEM(__pyx_t_3, 0+1, __pyx_t_4);
               __pyx_t_4 = 0;
-              __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 16, __pyx_L1_error)
+              __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 17, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_5);
               __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
             }
           }
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __pyx_t_2 = PyNumber_Multiply(__pyx_t_6, __pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+          __pyx_t_2 = PyNumber_Multiply(__pyx_t_6, __pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 16, __pyx_L1_error)
+          __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_ip); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 17, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
-          __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 16, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 17, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_ip); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
-          __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_jp); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 16, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_jp); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 17, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
-          __pyx_t_1 = PyTuple_New(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
+          __pyx_t_1 = PyTuple_New(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_GIVEREF(__pyx_t_5);
           PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_5);
@@ -1749,7 +1745,7 @@ static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_bipartitepurestate_de
           __pyx_t_6 = 0;
           __pyx_t_3 = 0;
           __pyx_t_4 = 0;
-          if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_rho), __pyx_t_1, __pyx_t_2) < 0)) __PYX_ERR(0, 16, __pyx_L1_error)
+          if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_rho), __pyx_t_1, __pyx_t_2) < 0)) __PYX_ERR(0, 17, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         }
@@ -1757,8 +1753,8 @@ static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_bipartitepurestate_de
     }
   }
 
-  /* "pyqentangle/bipartite_denmat.pyx":18
- *                     rho[i, j, ip, jp] = bipartitepurestate_tensor[i, j] * np.conj(bipartitepurestate_tensor[ip, jp])
+  /* "pyqentangle/negativity_utils.pyx":19
+ *                     rho[ip, j, i, jp] = bipartitepurestate_tensor[i, j] * np.conj(bipartitepurestate_tensor[ip, jp])
  * 
  *     return rho             # <<<<<<<<<<<<<<
  * 
@@ -1769,10 +1765,10 @@ static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_bipartitepurestate_de
   __pyx_r = ((PyObject *)__pyx_v_rho);
   goto __pyx_L0;
 
-  /* "pyqentangle/bipartite_denmat.pyx":5
+  /* "pyqentangle/negativity_utils.pyx":6
  * cimport numpy as np
  * 
- * def bipartitepurestate_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
+ * def bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
  *     cdef int i, j, ip, jp
  *     cdef int dim0 = bipartitepurestate_tensor.shape[0]
  */
@@ -1785,7 +1781,7 @@ static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_bipartitepurestate_de
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("pyqentangle.bipartite_denmat.bipartitepurestate_densitymatrix_cython", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyqentangle.negativity_utils.bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_rho);
@@ -1794,23 +1790,23 @@ static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_bipartitepurestate_de
   return __pyx_r;
 }
 
-/* "pyqentangle/bipartite_denmat.pyx":21
+/* "pyqentangle/negativity_utils.pyx":23
  * 
  * 
- * def flatten_bipartite_densitymatrix_cython(np.ndarray full_denmat):             # <<<<<<<<<<<<<<
- *     cdef int dim0 = full_denmat.shape[0]
- *     cdef int dim1 = full_denmat.shape[1]
+ * def bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
+ *     cdef int i, j, ip, jp
+ *     cdef int dim0 = bipartitepurestate_tensor.shape[0]
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11pyqentangle_16bipartite_denmat_3flatten_bipartite_densitymatrix_cython(PyObject *__pyx_self, PyObject *__pyx_v_full_denmat); /*proto*/
-static PyMethodDef __pyx_mdef_11pyqentangle_16bipartite_denmat_3flatten_bipartite_densitymatrix_cython = {"flatten_bipartite_densitymatrix_cython", (PyCFunction)__pyx_pw_11pyqentangle_16bipartite_denmat_3flatten_bipartite_densitymatrix_cython, METH_O, 0};
-static PyObject *__pyx_pw_11pyqentangle_16bipartite_denmat_3flatten_bipartite_densitymatrix_cython(PyObject *__pyx_self, PyObject *__pyx_v_full_denmat) {
+static PyObject *__pyx_pw_11pyqentangle_16negativity_utils_3bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(PyObject *__pyx_self, PyObject *__pyx_v_bipartitepurestate_tensor); /*proto*/
+static PyMethodDef __pyx_mdef_11pyqentangle_16negativity_utils_3bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython = {"bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython", (PyCFunction)__pyx_pw_11pyqentangle_16negativity_utils_3bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython, METH_O, 0};
+static PyObject *__pyx_pw_11pyqentangle_16negativity_utils_3bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(PyObject *__pyx_self, PyObject *__pyx_v_bipartitepurestate_tensor) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("flatten_bipartite_densitymatrix_cython (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_full_denmat), __pyx_ptype_5numpy_ndarray, 1, "full_denmat", 0))) __PYX_ERR(0, 21, __pyx_L1_error)
-  __pyx_r = __pyx_pf_11pyqentangle_16bipartite_denmat_2flatten_bipartite_densitymatrix_cython(__pyx_self, ((PyArrayObject *)__pyx_v_full_denmat));
+  __Pyx_RefNannySetupContext("bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython (wrapper)", 0);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_bipartitepurestate_tensor), __pyx_ptype_5numpy_ndarray, 1, "bipartitepurestate_tensor", 0))) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_r = __pyx_pf_11pyqentangle_16negativity_utils_2bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(__pyx_self, ((PyArrayObject *)__pyx_v_bipartitepurestate_tensor));
 
   /* function exit code */
   goto __pyx_L0;
@@ -1821,14 +1817,14 @@ static PyObject *__pyx_pw_11pyqentangle_16bipartite_denmat_3flatten_bipartite_de
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_2flatten_bipartite_densitymatrix_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_full_denmat) {
+static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_2bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_bipartitepurestate_tensor) {
+  int __pyx_v_i;
+  int __pyx_v_j;
+  int __pyx_v_ip;
+  int __pyx_v_jp;
   int __pyx_v_dim0;
   int __pyx_v_dim1;
-  PyArrayObject *__pyx_v_flatten_denmat = 0;
-  PyObject *__pyx_v_i = NULL;
-  PyObject *__pyx_v_j = NULL;
-  PyObject *__pyx_v_ip = NULL;
-  PyObject *__pyx_v_jp = NULL;
+  PyArrayObject *__pyx_v_rho = 0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1836,432 +1832,274 @@ static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_2flatten_bipartite_de
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
-  Py_ssize_t __pyx_t_6;
-  PyObject *(*__pyx_t_7)(PyObject *);
-  Py_ssize_t __pyx_t_8;
-  PyObject *(*__pyx_t_9)(PyObject *);
-  Py_ssize_t __pyx_t_10;
-  PyObject *(*__pyx_t_11)(PyObject *);
-  Py_ssize_t __pyx_t_12;
-  PyObject *(*__pyx_t_13)(PyObject *);
-  PyObject *__pyx_t_14 = NULL;
-  PyObject *__pyx_t_15 = NULL;
-  PyObject *__pyx_t_16 = NULL;
-  __Pyx_RefNannySetupContext("flatten_bipartite_densitymatrix_cython", 0);
+  PyObject *__pyx_t_6 = NULL;
+  int __pyx_t_7;
+  int __pyx_t_8;
+  int __pyx_t_9;
+  int __pyx_t_10;
+  int __pyx_t_11;
+  int __pyx_t_12;
+  int __pyx_t_13;
+  int __pyx_t_14;
+  __Pyx_RefNannySetupContext("bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython", 0);
 
-  /* "pyqentangle/bipartite_denmat.pyx":22
- * 
- * def flatten_bipartite_densitymatrix_cython(np.ndarray full_denmat):
- *     cdef int dim0 = full_denmat.shape[0]             # <<<<<<<<<<<<<<
- *     cdef int dim1 = full_denmat.shape[1]
- *     # the other two dimensions have the same lengths
- */
-  __pyx_v_dim0 = (__pyx_v_full_denmat->dimensions[0]);
-
-  /* "pyqentangle/bipartite_denmat.pyx":23
- * def flatten_bipartite_densitymatrix_cython(np.ndarray full_denmat):
- *     cdef int dim0 = full_denmat.shape[0]
- *     cdef int dim1 = full_denmat.shape[1]             # <<<<<<<<<<<<<<
- *     # the other two dimensions have the same lengths
+  /* "pyqentangle/negativity_utils.pyx":25
+ * def bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):
+ *     cdef int i, j, ip, jp
+ *     cdef int dim0 = bipartitepurestate_tensor.shape[0]             # <<<<<<<<<<<<<<
+ *     cdef int dim1 = bipartitepurestate_tensor.shape[1]
  * 
  */
-  __pyx_v_dim1 = (__pyx_v_full_denmat->dimensions[1]);
+  __pyx_v_dim0 = (__pyx_v_bipartitepurestate_tensor->dimensions[0]);
 
-  /* "pyqentangle/bipartite_denmat.pyx":26
- *     # the other two dimensions have the same lengths
+  /* "pyqentangle/negativity_utils.pyx":26
+ *     cdef int i, j, ip, jp
+ *     cdef int dim0 = bipartitepurestate_tensor.shape[0]
+ *     cdef int dim1 = bipartitepurestate_tensor.shape[1]             # <<<<<<<<<<<<<<
  * 
- *     cdef np.ndarray flatten_denmat = np.zeros((dim0*dim1, dim0*dim1), dtype=np.complex)             # <<<<<<<<<<<<<<
+ *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim1, dim0), dtype=np.complex)
+ */
+  __pyx_v_dim1 = (__pyx_v_bipartitepurestate_tensor->dimensions[1]);
+
+  /* "pyqentangle/negativity_utils.pyx":28
+ *     cdef int dim1 = bipartitepurestate_tensor.shape[1]
+ * 
+ *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim1, dim0), dtype=np.complex)             # <<<<<<<<<<<<<<
  * 
  *     for i in range(dim0):
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_v_dim0 * __pyx_v_dim1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_dim0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyInt_From_int((__pyx_v_dim0 * __pyx_v_dim1)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_dim1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_dim1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_3);
-  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_3);
-  __pyx_t_1 = 0;
-  __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 26, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GIVEREF(__pyx_t_4);
-  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
-  __pyx_t_4 = 0;
-  __pyx_t_4 = PyDict_New(); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 26, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_complex); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 26, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 26, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 26, __pyx_L1_error)
-  __pyx_v_flatten_denmat = ((PyArrayObject *)__pyx_t_5);
-  __pyx_t_5 = 0;
-
-  /* "pyqentangle/bipartite_denmat.pyx":28
- *     cdef np.ndarray flatten_denmat = np.zeros((dim0*dim1, dim0*dim1), dtype=np.complex)
- * 
- *     for i in range(dim0):             # <<<<<<<<<<<<<<
- *         for j in range(dim1):
- *             for ip in range(dim0):
- */
   __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_dim0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 28, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_6 = PyTuple_New(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_1);
+  __Pyx_GIVEREF(__pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_3);
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_5);
-  PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5);
+  PyTuple_SET_ITEM(__pyx_t_6, 3, __pyx_t_5);
+  __pyx_t_1 = 0;
+  __pyx_t_3 = 0;
+  __pyx_t_4 = 0;
   __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_4, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_GIVEREF(__pyx_t_6);
+  PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_6);
+  __pyx_t_6 = 0;
+  __pyx_t_6 = PyDict_New(); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_complex); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (likely(PyList_CheckExact(__pyx_t_5)) || PyTuple_CheckExact(__pyx_t_5)) {
-    __pyx_t_4 = __pyx_t_5; __Pyx_INCREF(__pyx_t_4); __pyx_t_6 = 0;
-    __pyx_t_7 = NULL;
-  } else {
-    __pyx_t_6 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 28, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_7 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 28, __pyx_L1_error)
-  }
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_dtype, __pyx_t_3) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  for (;;) {
-    if (likely(!__pyx_t_7)) {
-      if (likely(PyList_CheckExact(__pyx_t_4))) {
-        if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_4)) break;
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_5 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 28, __pyx_L1_error)
-        #else
-        __pyx_t_5 = PySequence_ITEM(__pyx_t_4, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 28, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_5);
-        #endif
-      } else {
-        if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_4)) break;
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 28, __pyx_L1_error)
-        #else
-        __pyx_t_5 = PySequence_ITEM(__pyx_t_4, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 28, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_5);
-        #endif
-      }
-    } else {
-      __pyx_t_5 = __pyx_t_7(__pyx_t_4);
-      if (unlikely(!__pyx_t_5)) {
-        PyObject* exc_type = PyErr_Occurred();
-        if (exc_type) {
-          if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 28, __pyx_L1_error)
-        }
-        break;
-      }
-      __Pyx_GOTREF(__pyx_t_5);
-    }
-    __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_5);
-    __pyx_t_5 = 0;
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_v_rho = ((PyArrayObject *)__pyx_t_3);
+  __pyx_t_3 = 0;
 
-    /* "pyqentangle/bipartite_denmat.pyx":29
- * 
- *     for i in range(dim0):
- *         for j in range(dim1):             # <<<<<<<<<<<<<<
- *             for ip in range(dim0):
- *                 for jp in range(dim1):
- */
-    __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_dim1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 29, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 29, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_GIVEREF(__pyx_t_5);
-    PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_5);
-    __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_3, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 29, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (likely(PyList_CheckExact(__pyx_t_5)) || PyTuple_CheckExact(__pyx_t_5)) {
-      __pyx_t_3 = __pyx_t_5; __Pyx_INCREF(__pyx_t_3); __pyx_t_8 = 0;
-      __pyx_t_9 = NULL;
-    } else {
-      __pyx_t_8 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 29, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_9 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 29, __pyx_L1_error)
-    }
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    for (;;) {
-      if (likely(!__pyx_t_9)) {
-        if (likely(PyList_CheckExact(__pyx_t_3))) {
-          if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_3)) break;
-          #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_5 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_8); __Pyx_INCREF(__pyx_t_5); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 29, __pyx_L1_error)
-          #else
-          __pyx_t_5 = PySequence_ITEM(__pyx_t_3, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 29, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          #endif
-        } else {
-          if (__pyx_t_8 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
-          #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_8); __Pyx_INCREF(__pyx_t_5); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 29, __pyx_L1_error)
-          #else
-          __pyx_t_5 = PySequence_ITEM(__pyx_t_3, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 29, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          #endif
-        }
-      } else {
-        __pyx_t_5 = __pyx_t_9(__pyx_t_3);
-        if (unlikely(!__pyx_t_5)) {
-          PyObject* exc_type = PyErr_Occurred();
-          if (exc_type) {
-            if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 29, __pyx_L1_error)
-          }
-          break;
-        }
-        __Pyx_GOTREF(__pyx_t_5);
-      }
-      __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_5);
-      __pyx_t_5 = 0;
-
-      /* "pyqentangle/bipartite_denmat.pyx":30
- *     for i in range(dim0):
- *         for j in range(dim1):
- *             for ip in range(dim0):             # <<<<<<<<<<<<<<
- *                 for jp in range(dim1):
- *                     flatten_denmat[i*dim0+j, ip*dim0+jp] = full_denmat[i, j, ip, jp]
- */
-      __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_dim0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 30, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 30, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_GIVEREF(__pyx_t_5);
-      PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_5);
-      __pyx_t_5 = 0;
-      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_2, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 30, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (likely(PyList_CheckExact(__pyx_t_5)) || PyTuple_CheckExact(__pyx_t_5)) {
-        __pyx_t_2 = __pyx_t_5; __Pyx_INCREF(__pyx_t_2); __pyx_t_10 = 0;
-        __pyx_t_11 = NULL;
-      } else {
-        __pyx_t_10 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 30, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_11 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 30, __pyx_L1_error)
-      }
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      for (;;) {
-        if (likely(!__pyx_t_11)) {
-          if (likely(PyList_CheckExact(__pyx_t_2))) {
-            if (__pyx_t_10 >= PyList_GET_SIZE(__pyx_t_2)) break;
-            #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-            __pyx_t_5 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_10); __Pyx_INCREF(__pyx_t_5); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 30, __pyx_L1_error)
-            #else
-            __pyx_t_5 = PySequence_ITEM(__pyx_t_2, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 30, __pyx_L1_error)
-            __Pyx_GOTREF(__pyx_t_5);
-            #endif
-          } else {
-            if (__pyx_t_10 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
-            #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-            __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_10); __Pyx_INCREF(__pyx_t_5); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 30, __pyx_L1_error)
-            #else
-            __pyx_t_5 = PySequence_ITEM(__pyx_t_2, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 30, __pyx_L1_error)
-            __Pyx_GOTREF(__pyx_t_5);
-            #endif
-          }
-        } else {
-          __pyx_t_5 = __pyx_t_11(__pyx_t_2);
-          if (unlikely(!__pyx_t_5)) {
-            PyObject* exc_type = PyErr_Occurred();
-            if (exc_type) {
-              if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-              else __PYX_ERR(0, 30, __pyx_L1_error)
-            }
-            break;
-          }
-          __Pyx_GOTREF(__pyx_t_5);
-        }
-        __Pyx_XDECREF_SET(__pyx_v_ip, __pyx_t_5);
-        __pyx_t_5 = 0;
-
-        /* "pyqentangle/bipartite_denmat.pyx":31
- *         for j in range(dim1):
- *             for ip in range(dim0):
- *                 for jp in range(dim1):             # <<<<<<<<<<<<<<
- *                     flatten_denmat[i*dim0+j, ip*dim0+jp] = full_denmat[i, j, ip, jp]
- * 
- */
-        __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_dim1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 31, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 31, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_GIVEREF(__pyx_t_5);
-        PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_5);
-        __pyx_t_5 = 0;
-        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_1, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 31, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_5);
-        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        if (likely(PyList_CheckExact(__pyx_t_5)) || PyTuple_CheckExact(__pyx_t_5)) {
-          __pyx_t_1 = __pyx_t_5; __Pyx_INCREF(__pyx_t_1); __pyx_t_12 = 0;
-          __pyx_t_13 = NULL;
-        } else {
-          __pyx_t_12 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 31, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_13 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 31, __pyx_L1_error)
-        }
-        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        for (;;) {
-          if (likely(!__pyx_t_13)) {
-            if (likely(PyList_CheckExact(__pyx_t_1))) {
-              if (__pyx_t_12 >= PyList_GET_SIZE(__pyx_t_1)) break;
-              #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-              __pyx_t_5 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_12); __Pyx_INCREF(__pyx_t_5); __pyx_t_12++; if (unlikely(0 < 0)) __PYX_ERR(0, 31, __pyx_L1_error)
-              #else
-              __pyx_t_5 = PySequence_ITEM(__pyx_t_1, __pyx_t_12); __pyx_t_12++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 31, __pyx_L1_error)
-              __Pyx_GOTREF(__pyx_t_5);
-              #endif
-            } else {
-              if (__pyx_t_12 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
-              #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-              __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_12); __Pyx_INCREF(__pyx_t_5); __pyx_t_12++; if (unlikely(0 < 0)) __PYX_ERR(0, 31, __pyx_L1_error)
-              #else
-              __pyx_t_5 = PySequence_ITEM(__pyx_t_1, __pyx_t_12); __pyx_t_12++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 31, __pyx_L1_error)
-              __Pyx_GOTREF(__pyx_t_5);
-              #endif
-            }
-          } else {
-            __pyx_t_5 = __pyx_t_13(__pyx_t_1);
-            if (unlikely(!__pyx_t_5)) {
-              PyObject* exc_type = PyErr_Occurred();
-              if (exc_type) {
-                if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-                else __PYX_ERR(0, 31, __pyx_L1_error)
-              }
-              break;
-            }
-            __Pyx_GOTREF(__pyx_t_5);
-          }
-          __Pyx_XDECREF_SET(__pyx_v_jp, __pyx_t_5);
-          __pyx_t_5 = 0;
-
-          /* "pyqentangle/bipartite_denmat.pyx":32
- *             for ip in range(dim0):
- *                 for jp in range(dim1):
- *                     flatten_denmat[i*dim0+j, ip*dim0+jp] = full_denmat[i, j, ip, jp]             # <<<<<<<<<<<<<<
- * 
- *     return flatten_denmat
- */
-          __pyx_t_5 = PyTuple_New(4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 32, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          __Pyx_INCREF(__pyx_v_i);
-          __Pyx_GIVEREF(__pyx_v_i);
-          PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_v_i);
-          __Pyx_INCREF(__pyx_v_j);
-          __Pyx_GIVEREF(__pyx_v_j);
-          PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_v_j);
-          __Pyx_INCREF(__pyx_v_ip);
-          __Pyx_GIVEREF(__pyx_v_ip);
-          PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_v_ip);
-          __Pyx_INCREF(__pyx_v_jp);
-          __Pyx_GIVEREF(__pyx_v_jp);
-          PyTuple_SET_ITEM(__pyx_t_5, 3, __pyx_v_jp);
-          __pyx_t_14 = PyObject_GetItem(((PyObject *)__pyx_v_full_denmat), __pyx_t_5); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 32, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_14);
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_dim0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 32, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          __pyx_t_15 = PyNumber_Multiply(__pyx_v_i, __pyx_t_5); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 32, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_15);
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __pyx_t_5 = PyNumber_Add(__pyx_t_15, __pyx_v_j); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 32, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
-          __pyx_t_15 = __Pyx_PyInt_From_int(__pyx_v_dim0); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 32, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_15);
-          __pyx_t_16 = PyNumber_Multiply(__pyx_v_ip, __pyx_t_15); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 32, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_16);
-          __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
-          __pyx_t_15 = PyNumber_Add(__pyx_t_16, __pyx_v_jp); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 32, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_15);
-          __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
-          __pyx_t_16 = PyTuple_New(2); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 32, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_16);
-          __Pyx_GIVEREF(__pyx_t_5);
-          PyTuple_SET_ITEM(__pyx_t_16, 0, __pyx_t_5);
-          __Pyx_GIVEREF(__pyx_t_15);
-          PyTuple_SET_ITEM(__pyx_t_16, 1, __pyx_t_15);
-          __pyx_t_5 = 0;
-          __pyx_t_15 = 0;
-          if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_flatten_denmat), __pyx_t_16, __pyx_t_14) < 0)) __PYX_ERR(0, 32, __pyx_L1_error)
-          __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
-          __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-
-          /* "pyqentangle/bipartite_denmat.pyx":31
- *         for j in range(dim1):
- *             for ip in range(dim0):
- *                 for jp in range(dim1):             # <<<<<<<<<<<<<<
- *                     flatten_denmat[i*dim0+j, ip*dim0+jp] = full_denmat[i, j, ip, jp]
- * 
- */
-        }
-        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-        /* "pyqentangle/bipartite_denmat.pyx":30
- *     for i in range(dim0):
- *         for j in range(dim1):
- *             for ip in range(dim0):             # <<<<<<<<<<<<<<
- *                 for jp in range(dim1):
- *                     flatten_denmat[i*dim0+j, ip*dim0+jp] = full_denmat[i, j, ip, jp]
- */
-      }
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-      /* "pyqentangle/bipartite_denmat.pyx":29
- * 
- *     for i in range(dim0):
- *         for j in range(dim1):             # <<<<<<<<<<<<<<
- *             for ip in range(dim0):
- *                 for jp in range(dim1):
- */
-    }
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-    /* "pyqentangle/bipartite_denmat.pyx":28
- *     cdef np.ndarray flatten_denmat = np.zeros((dim0*dim1, dim0*dim1), dtype=np.complex)
+  /* "pyqentangle/negativity_utils.pyx":30
+ *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim1, dim0), dtype=np.complex)
  * 
  *     for i in range(dim0):             # <<<<<<<<<<<<<<
  *         for j in range(dim1):
  *             for ip in range(dim0):
  */
-  }
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_7 = __pyx_v_dim0;
+  for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
+    __pyx_v_i = __pyx_t_8;
 
-  /* "pyqentangle/bipartite_denmat.pyx":34
- *                     flatten_denmat[i*dim0+j, ip*dim0+jp] = full_denmat[i, j, ip, jp]
+    /* "pyqentangle/negativity_utils.pyx":31
  * 
- *     return flatten_denmat             # <<<<<<<<<<<<<<
+ *     for i in range(dim0):
+ *         for j in range(dim1):             # <<<<<<<<<<<<<<
+ *             for ip in range(dim0):
+ *                 for jp in range(dim1):
+ */
+    __pyx_t_9 = __pyx_v_dim1;
+    for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
+      __pyx_v_j = __pyx_t_10;
+
+      /* "pyqentangle/negativity_utils.pyx":32
+ *     for i in range(dim0):
+ *         for j in range(dim1):
+ *             for ip in range(dim0):             # <<<<<<<<<<<<<<
+ *                 for jp in range(dim1):
+ *                     rho[i, jp, ip, j] = bipartitepurestate_tensor[i, j] * np.conj(bipartitepurestate_tensor[ip, jp])
+ */
+      __pyx_t_11 = __pyx_v_dim0;
+      for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
+        __pyx_v_ip = __pyx_t_12;
+
+        /* "pyqentangle/negativity_utils.pyx":33
+ *         for j in range(dim1):
+ *             for ip in range(dim0):
+ *                 for jp in range(dim1):             # <<<<<<<<<<<<<<
+ *                     rho[i, jp, ip, j] = bipartitepurestate_tensor[i, j] * np.conj(bipartitepurestate_tensor[ip, jp])
+ * 
+ */
+        __pyx_t_13 = __pyx_v_dim1;
+        for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
+          __pyx_v_jp = __pyx_t_14;
+
+          /* "pyqentangle/negativity_utils.pyx":34
+ *             for ip in range(dim0):
+ *                 for jp in range(dim1):
+ *                     rho[i, jp, ip, j] = bipartitepurestate_tensor[i, j] * np.conj(bipartitepurestate_tensor[ip, jp])             # <<<<<<<<<<<<<<
+ * 
+ *     return rho
+ */
+          __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 34, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_3);
+          __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 34, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_6);
+          __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 34, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_5);
+          __Pyx_GIVEREF(__pyx_t_3);
+          PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3);
+          __Pyx_GIVEREF(__pyx_t_6);
+          PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_6);
+          __pyx_t_3 = 0;
+          __pyx_t_6 = 0;
+          __pyx_t_6 = PyObject_GetItem(((PyObject *)__pyx_v_bipartitepurestate_tensor), __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 34, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_6);
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+          __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 34, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_3);
+          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_conj); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 34, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_ip); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 34, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_3);
+          __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_jp); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 34, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
+          __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_1);
+          __Pyx_GIVEREF(__pyx_t_3);
+          PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
+          __Pyx_GIVEREF(__pyx_t_4);
+          PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_4);
+          __pyx_t_3 = 0;
+          __pyx_t_4 = 0;
+          __pyx_t_4 = PyObject_GetItem(((PyObject *)__pyx_v_bipartitepurestate_tensor), __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 34, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
+          __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+          __pyx_t_1 = NULL;
+          if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
+            __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_2);
+            if (likely(__pyx_t_1)) {
+              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+              __Pyx_INCREF(__pyx_t_1);
+              __Pyx_INCREF(function);
+              __Pyx_DECREF_SET(__pyx_t_2, function);
+            }
+          }
+          if (!__pyx_t_1) {
+            __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 34, __pyx_L1_error)
+            __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+            __Pyx_GOTREF(__pyx_t_5);
+          } else {
+            #if CYTHON_FAST_PYCALL
+            if (PyFunction_Check(__pyx_t_2)) {
+              PyObject *__pyx_temp[2] = {__pyx_t_1, __pyx_t_4};
+              __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 34, __pyx_L1_error)
+              __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+              __Pyx_GOTREF(__pyx_t_5);
+              __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+            } else
+            #endif
+            #if CYTHON_FAST_PYCCALL
+            if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
+              PyObject *__pyx_temp[2] = {__pyx_t_1, __pyx_t_4};
+              __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 34, __pyx_L1_error)
+              __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+              __Pyx_GOTREF(__pyx_t_5);
+              __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+            } else
+            #endif
+            {
+              __pyx_t_3 = PyTuple_New(1+1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 34, __pyx_L1_error)
+              __Pyx_GOTREF(__pyx_t_3);
+              __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1); __pyx_t_1 = NULL;
+              __Pyx_GIVEREF(__pyx_t_4);
+              PyTuple_SET_ITEM(__pyx_t_3, 0+1, __pyx_t_4);
+              __pyx_t_4 = 0;
+              __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 34, __pyx_L1_error)
+              __Pyx_GOTREF(__pyx_t_5);
+              __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+            }
+          }
+          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+          __pyx_t_2 = PyNumber_Multiply(__pyx_t_6, __pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 34, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+          __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 34, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_5);
+          __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_jp); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 34, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_6);
+          __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_ip); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 34, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_3);
+          __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 34, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
+          __pyx_t_1 = PyTuple_New(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_1);
+          __Pyx_GIVEREF(__pyx_t_5);
+          PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_5);
+          __Pyx_GIVEREF(__pyx_t_6);
+          PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_6);
+          __Pyx_GIVEREF(__pyx_t_3);
+          PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_t_3);
+          __Pyx_GIVEREF(__pyx_t_4);
+          PyTuple_SET_ITEM(__pyx_t_1, 3, __pyx_t_4);
+          __pyx_t_5 = 0;
+          __pyx_t_6 = 0;
+          __pyx_t_3 = 0;
+          __pyx_t_4 = 0;
+          if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_rho), __pyx_t_1, __pyx_t_2) < 0)) __PYX_ERR(0, 34, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        }
+      }
+    }
+  }
+
+  /* "pyqentangle/negativity_utils.pyx":36
+ *                     rho[i, jp, ip, j] = bipartitepurestate_tensor[i, j] * np.conj(bipartitepurestate_tensor[ip, jp])
+ * 
+ *     return rho             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(((PyObject *)__pyx_v_flatten_denmat));
-  __pyx_r = ((PyObject *)__pyx_v_flatten_denmat);
+  __Pyx_INCREF(((PyObject *)__pyx_v_rho));
+  __pyx_r = ((PyObject *)__pyx_v_rho);
   goto __pyx_L0;
 
-  /* "pyqentangle/bipartite_denmat.pyx":21
+  /* "pyqentangle/negativity_utils.pyx":23
  * 
  * 
- * def flatten_bipartite_densitymatrix_cython(np.ndarray full_denmat):             # <<<<<<<<<<<<<<
- *     cdef int dim0 = full_denmat.shape[0]
- *     cdef int dim1 = full_denmat.shape[1]
+ * def bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
+ *     cdef int i, j, ip, jp
+ *     cdef int dim0 = bipartitepurestate_tensor.shape[0]
  */
 
   /* function exit code */
@@ -2271,17 +2109,11 @@ static PyObject *__pyx_pf_11pyqentangle_16bipartite_denmat_2flatten_bipartite_de
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_14);
-  __Pyx_XDECREF(__pyx_t_15);
-  __Pyx_XDECREF(__pyx_t_16);
-  __Pyx_AddTraceback("pyqentangle.bipartite_denmat.flatten_bipartite_densitymatrix_cython", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_AddTraceback("pyqentangle.negativity_utils.bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
-  __Pyx_XDECREF((PyObject *)__pyx_v_flatten_denmat);
-  __Pyx_XDECREF(__pyx_v_i);
-  __Pyx_XDECREF(__pyx_v_j);
-  __Pyx_XDECREF(__pyx_v_ip);
-  __Pyx_XDECREF(__pyx_v_jp);
+  __Pyx_XDECREF((PyObject *)__pyx_v_rho);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -4812,7 +4644,7 @@ static struct PyModuleDef __pyx_moduledef = {
   #else
     PyModuleDef_HEAD_INIT,
   #endif
-    "bipartite_denmat",
+    "negativity_utils",
     0, /* m_doc */
     -1, /* m_size */
     __pyx_methods /* m_methods */,
@@ -4830,7 +4662,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_u_Non_native_byte_order_not_suppor, __pyx_k_Non_native_byte_order_not_suppor, sizeof(__pyx_k_Non_native_byte_order_not_suppor), 0, 1, 0, 0},
   {&__pyx_n_s_RuntimeError, __pyx_k_RuntimeError, sizeof(__pyx_k_RuntimeError), 0, 0, 1, 1},
   {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
-  {&__pyx_n_s_bipartitepurestate_densitymatrix, __pyx_k_bipartitepurestate_densitymatrix, sizeof(__pyx_k_bipartitepurestate_densitymatrix), 0, 0, 1, 1},
+  {&__pyx_n_s_bipartitepurestate_partialtransp, __pyx_k_bipartitepurestate_partialtransp, sizeof(__pyx_k_bipartitepurestate_partialtransp), 0, 0, 1, 1},
+  {&__pyx_n_s_bipartitepurestate_partialtransp_2, __pyx_k_bipartitepurestate_partialtransp_2, sizeof(__pyx_k_bipartitepurestate_partialtransp_2), 0, 0, 1, 1},
   {&__pyx_n_s_bipartitepurestate_tensor, __pyx_k_bipartitepurestate_tensor, sizeof(__pyx_k_bipartitepurestate_tensor), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_complex, __pyx_k_complex, sizeof(__pyx_k_complex), 0, 0, 1, 1},
@@ -4838,9 +4671,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_dim0, __pyx_k_dim0, sizeof(__pyx_k_dim0), 0, 0, 1, 1},
   {&__pyx_n_s_dim1, __pyx_k_dim1, sizeof(__pyx_k_dim1), 0, 0, 1, 1},
   {&__pyx_n_s_dtype, __pyx_k_dtype, sizeof(__pyx_k_dtype), 0, 0, 1, 1},
-  {&__pyx_n_s_flatten_bipartite_densitymatrix, __pyx_k_flatten_bipartite_densitymatrix, sizeof(__pyx_k_flatten_bipartite_densitymatrix), 0, 0, 1, 1},
-  {&__pyx_n_s_flatten_denmat, __pyx_k_flatten_denmat, sizeof(__pyx_k_flatten_denmat), 0, 0, 1, 1},
-  {&__pyx_n_s_full_denmat, __pyx_k_full_denmat, sizeof(__pyx_k_full_denmat), 0, 0, 1, 1},
   {&__pyx_n_s_i, __pyx_k_i, sizeof(__pyx_k_i), 0, 0, 1, 1},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_ip, __pyx_k_ip, sizeof(__pyx_k_ip), 0, 0, 1, 1},
@@ -4853,8 +4683,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_numpy, __pyx_k_numpy, sizeof(__pyx_k_numpy), 0, 0, 1, 1},
   {&__pyx_kp_s_numpy_core_multiarray_failed_to, __pyx_k_numpy_core_multiarray_failed_to, sizeof(__pyx_k_numpy_core_multiarray_failed_to), 0, 0, 1, 0},
   {&__pyx_kp_s_numpy_core_umath_failed_to_impor, __pyx_k_numpy_core_umath_failed_to_impor, sizeof(__pyx_k_numpy_core_umath_failed_to_impor), 0, 0, 1, 0},
-  {&__pyx_n_s_pyqentangle_bipartite_denmat, __pyx_k_pyqentangle_bipartite_denmat, sizeof(__pyx_k_pyqentangle_bipartite_denmat), 0, 0, 1, 1},
-  {&__pyx_kp_s_pyqentangle_bipartite_denmat_pyx, __pyx_k_pyqentangle_bipartite_denmat_pyx, sizeof(__pyx_k_pyqentangle_bipartite_denmat_pyx), 0, 0, 1, 0},
+  {&__pyx_n_s_pyqentangle_negativity_utils, __pyx_k_pyqentangle_negativity_utils, sizeof(__pyx_k_pyqentangle_negativity_utils), 0, 0, 1, 1},
+  {&__pyx_kp_s_pyqentangle_negativity_utils_pyx, __pyx_k_pyqentangle_negativity_utils_pyx, sizeof(__pyx_k_pyqentangle_negativity_utils_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
   {&__pyx_n_s_rho, __pyx_k_rho, sizeof(__pyx_k_rho), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
@@ -4863,7 +4693,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 13, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(1, 218, __pyx_L1_error)
   __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(1, 799, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(1, 989, __pyx_L1_error)
@@ -4973,29 +4803,29 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
 
-  /* "pyqentangle/bipartite_denmat.pyx":5
+  /* "pyqentangle/negativity_utils.pyx":6
  * cimport numpy as np
  * 
- * def bipartitepurestate_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
+ * def bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
  *     cdef int i, j, ip, jp
  *     cdef int dim0 = bipartitepurestate_tensor.shape[0]
  */
-  __pyx_tuple__10 = PyTuple_Pack(8, __pyx_n_s_bipartitepurestate_tensor, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_ip, __pyx_n_s_jp, __pyx_n_s_dim0, __pyx_n_s_dim1, __pyx_n_s_rho); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __pyx_tuple__10 = PyTuple_Pack(8, __pyx_n_s_bipartitepurestate_tensor, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_ip, __pyx_n_s_jp, __pyx_n_s_dim0, __pyx_n_s_dim1, __pyx_n_s_rho); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__10);
   __Pyx_GIVEREF(__pyx_tuple__10);
-  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyqentangle_bipartite_denmat_pyx, __pyx_n_s_bipartitepurestate_densitymatrix, 5, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyqentangle_negativity_utils_pyx, __pyx_n_s_bipartitepurestate_partialtransp, 6, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(0, 6, __pyx_L1_error)
 
-  /* "pyqentangle/bipartite_denmat.pyx":21
+  /* "pyqentangle/negativity_utils.pyx":23
  * 
  * 
- * def flatten_bipartite_densitymatrix_cython(np.ndarray full_denmat):             # <<<<<<<<<<<<<<
- *     cdef int dim0 = full_denmat.shape[0]
- *     cdef int dim1 = full_denmat.shape[1]
+ * def bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
+ *     cdef int i, j, ip, jp
+ *     cdef int dim0 = bipartitepurestate_tensor.shape[0]
  */
-  __pyx_tuple__12 = PyTuple_Pack(8, __pyx_n_s_full_denmat, __pyx_n_s_dim0, __pyx_n_s_dim1, __pyx_n_s_flatten_denmat, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_ip, __pyx_n_s_jp); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_tuple__12 = PyTuple_Pack(8, __pyx_n_s_bipartitepurestate_tensor, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_ip, __pyx_n_s_jp, __pyx_n_s_dim0, __pyx_n_s_dim1, __pyx_n_s_rho); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__12);
   __Pyx_GIVEREF(__pyx_tuple__12);
-  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__12, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyqentangle_bipartite_denmat_pyx, __pyx_n_s_flatten_bipartite_densitymatrix, 21, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__12, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyqentangle_negativity_utils_pyx, __pyx_n_s_bipartitepurestate_partialtransp_2, 23, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -5004,18 +4834,18 @@ static int __Pyx_InitCachedConstants(void) {
 }
 
 static int __Pyx_InitGlobals(void) {
-  if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 2, __pyx_L1_error);
+  if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 3, __pyx_L1_error);
   return 0;
   __pyx_L1_error:;
   return -1;
 }
 
 #if PY_MAJOR_VERSION < 3
-PyMODINIT_FUNC initbipartite_denmat(void); /*proto*/
-PyMODINIT_FUNC initbipartite_denmat(void)
+PyMODINIT_FUNC initnegativity_utils(void); /*proto*/
+PyMODINIT_FUNC initnegativity_utils(void)
 #else
-PyMODINIT_FUNC PyInit_bipartite_denmat(void); /*proto*/
-PyMODINIT_FUNC PyInit_bipartite_denmat(void)
+PyMODINIT_FUNC PyInit_negativity_utils(void); /*proto*/
+PyMODINIT_FUNC PyInit_negativity_utils(void)
 #endif
 {
   PyObject *__pyx_t_1 = NULL;
@@ -5029,25 +4859,25 @@ PyMODINIT_FUNC PyInit_bipartite_denmat(void)
           Py_FatalError("failed to import 'refnanny' module");
   }
   #endif
-  __Pyx_RefNannySetupContext("PyMODINIT_FUNC PyInit_bipartite_denmat(void)", 0);
-  if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
-  __pyx_empty_tuple = PyTuple_New(0); if (unlikely(!__pyx_empty_tuple)) __PYX_ERR(0, 2, __pyx_L1_error)
-  __pyx_empty_bytes = PyBytes_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_bytes)) __PYX_ERR(0, 2, __pyx_L1_error)
-  __pyx_empty_unicode = PyUnicode_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_unicode)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __Pyx_RefNannySetupContext("PyMODINIT_FUNC PyInit_negativity_utils(void)", 0);
+  if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_empty_tuple = PyTuple_New(0); if (unlikely(!__pyx_empty_tuple)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_empty_bytes = PyBytes_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_bytes)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_empty_unicode = PyUnicode_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_unicode)) __PYX_ERR(0, 3, __pyx_L1_error)
   #ifdef __Pyx_CyFunction_USED
-  if (__pyx_CyFunction_init() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__pyx_CyFunction_init() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #endif
   #ifdef __Pyx_FusedFunction_USED
-  if (__pyx_FusedFunction_init() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__pyx_FusedFunction_init() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #endif
   #ifdef __Pyx_Coroutine_USED
-  if (__pyx_Coroutine_init() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__pyx_Coroutine_init() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #endif
   #ifdef __Pyx_Generator_USED
-  if (__pyx_Generator_init() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__pyx_Generator_init() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #endif
   #ifdef __Pyx_StopAsyncIteration_USED
-  if (__pyx_StopAsyncIteration_init() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__pyx_StopAsyncIteration_init() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #endif
   /*--- Library function declarations ---*/
   /*--- Threads initialization code ---*/
@@ -5058,39 +4888,39 @@ PyMODINIT_FUNC PyInit_bipartite_denmat(void)
   #endif
   /*--- Module creation code ---*/
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("bipartite_denmat", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("negativity_utils", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
-  if (unlikely(!__pyx_m)) __PYX_ERR(0, 2, __pyx_L1_error)
-  __pyx_d = PyModule_GetDict(__pyx_m); if (unlikely(!__pyx_d)) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (unlikely(!__pyx_m)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_d = PyModule_GetDict(__pyx_m); if (unlikely(!__pyx_d)) __PYX_ERR(0, 3, __pyx_L1_error)
   Py_INCREF(__pyx_d);
-  __pyx_b = PyImport_AddModule(__Pyx_BUILTIN_MODULE_NAME); if (unlikely(!__pyx_b)) __PYX_ERR(0, 2, __pyx_L1_error)
-  __pyx_cython_runtime = PyImport_AddModule((char *) "cython_runtime"); if (unlikely(!__pyx_cython_runtime)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __pyx_b = PyImport_AddModule(__Pyx_BUILTIN_MODULE_NAME); if (unlikely(!__pyx_b)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_cython_runtime = PyImport_AddModule((char *) "cython_runtime"); if (unlikely(!__pyx_cython_runtime)) __PYX_ERR(0, 3, __pyx_L1_error)
   #if CYTHON_COMPILING_IN_PYPY
   Py_INCREF(__pyx_b);
   #endif
-  if (PyObject_SetAttrString(__pyx_m, "__builtins__", __pyx_b) < 0) __PYX_ERR(0, 2, __pyx_L1_error);
+  if (PyObject_SetAttrString(__pyx_m, "__builtins__", __pyx_b) < 0) __PYX_ERR(0, 3, __pyx_L1_error);
   /*--- Initialize various global constants etc. ---*/
-  if (__Pyx_InitGlobals() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__Pyx_InitGlobals() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
-  if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_pyqentangle__bipartite_denmat) {
-    if (PyObject_SetAttrString(__pyx_m, "__name__", __pyx_n_s_main) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__pyx_module_is_main_pyqentangle__negativity_utils) {
+    if (PyObject_SetAttrString(__pyx_m, "__name__", __pyx_n_s_main) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
-    PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 2, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "pyqentangle.bipartite_denmat")) {
-      if (unlikely(PyDict_SetItemString(modules, "pyqentangle.bipartite_denmat", __pyx_m) < 0)) __PYX_ERR(0, 2, __pyx_L1_error)
+    PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 3, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "pyqentangle.negativity_utils")) {
+      if (unlikely(PyDict_SetItemString(modules, "pyqentangle.negativity_utils", __pyx_m) < 0)) __PYX_ERR(0, 3, __pyx_L1_error)
     }
   }
   #endif
   /*--- Builtin init code ---*/
-  if (__Pyx_InitCachedBuiltins() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__Pyx_InitCachedBuiltins() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   /*--- Constants init code ---*/
-  if (__Pyx_InitCachedConstants() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__Pyx_InitCachedConstants() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   /*--- Global init code ---*/
   /*--- Variable export code ---*/
   /*--- Function export code ---*/
@@ -5112,53 +4942,55 @@ PyMODINIT_FUNC PyInit_bipartite_denmat(void)
   /*--- Function import code ---*/
   /*--- Execution code ---*/
   #if defined(__Pyx_Generator_USED) || defined(__Pyx_Coroutine_USED)
-  if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #endif
 
-  /* "pyqentangle/bipartite_denmat.pyx":2
+  /* "pyqentangle/negativity_utils.pyx":3
+ * 
  * 
  * import numpy as np             # <<<<<<<<<<<<<<
  * cimport numpy as np
  * 
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyqentangle/bipartite_denmat.pyx":5
+  /* "pyqentangle/negativity_utils.pyx":6
  * cimport numpy as np
  * 
- * def bipartitepurestate_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
+ * def bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
  *     cdef int i, j, ip, jp
  *     cdef int dim0 = bipartitepurestate_tensor.shape[0]
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11pyqentangle_16bipartite_denmat_1bipartitepurestate_densitymatrix_cython, NULL, __pyx_n_s_pyqentangle_bipartite_denmat); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11pyqentangle_16negativity_utils_1bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython, NULL, __pyx_n_s_pyqentangle_negativity_utils); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_bipartitepurestate_densitymatrix, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_bipartitepurestate_partialtransp, __pyx_t_1) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyqentangle/bipartite_denmat.pyx":21
+  /* "pyqentangle/negativity_utils.pyx":23
  * 
  * 
- * def flatten_bipartite_densitymatrix_cython(np.ndarray full_denmat):             # <<<<<<<<<<<<<<
- *     cdef int dim0 = full_denmat.shape[0]
- *     cdef int dim1 = full_denmat.shape[1]
+ * def bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
+ *     cdef int i, j, ip, jp
+ *     cdef int dim0 = bipartitepurestate_tensor.shape[0]
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11pyqentangle_16bipartite_denmat_3flatten_bipartite_densitymatrix_cython, NULL, __pyx_n_s_pyqentangle_bipartite_denmat); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11pyqentangle_16negativity_utils_3bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython, NULL, __pyx_n_s_pyqentangle_negativity_utils); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_flatten_bipartite_densitymatrix, __pyx_t_1) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_bipartitepurestate_partialtransp_2, __pyx_t_1) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyqentangle/bipartite_denmat.pyx":2
+  /* "pyqentangle/negativity_utils.pyx":3
+ * 
  * 
  * import numpy as np             # <<<<<<<<<<<<<<
  * cimport numpy as np
  * 
  */
-  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_1) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "../../anaconda/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":997
@@ -5176,11 +5008,11 @@ PyMODINIT_FUNC PyInit_bipartite_denmat(void)
   __Pyx_XDECREF(__pyx_t_1);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init pyqentangle.bipartite_denmat", 0, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init pyqentangle.negativity_utils", 0, __pyx_lineno, __pyx_filename);
     }
     Py_DECREF(__pyx_m); __pyx_m = 0;
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init pyqentangle.bipartite_denmat");
+    PyErr_SetString(PyExc_ImportError, "init pyqentangle.negativity_utils");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

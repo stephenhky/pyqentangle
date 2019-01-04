@@ -18,6 +18,7 @@ class testDiscreteEntanglement(unittest2.TestCase):
         self.assertAlmostEqual(modes[0][0], 0.6)
         self.assertAlmostEqual(pyqentangle.entanglement_entropy(modes), 0.6730116670092563)
         self.assertAlmostEqual(pyqentangle.participation_ratio(modes), 1.9230769230769227)
+        self.assertAlmostEqual(pyqentangle.negativity(tensor), 0.489897948556636)
 
 
 if __name__ == '__main__':
