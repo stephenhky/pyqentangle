@@ -53,17 +53,22 @@ def participation_ratio(schmidt_modes):
 
 
 # negativity
-def negativity(schmidt_modes):
+def negativity(bipartite_tensor):
     """Calculate the negativity
 
-    Given the calculated Schmidt modes, compute the negativity
+    Given a normalized bipartite discrete state, compute the negativity
     with the formula :math:`N = \\frac{||\\rho^{\Gamma_A}||_1-1}{2}`
 
-    :param schmidt_modes: Schmidt modes
+    :param bipartitepurestate_tensor: tensor describing the bi-partitite states, with each elements the coefficients for :math:`|ij\\rangle`
     :return: negativity
-    :type schmidt_modes: list
+    :type bipartitepurestate_tensor: numpy.ndarray
     :rtype: numpy.float
 
     """
-    eigenvalues = np.real(np.real(schmidt_coefficients(schmidt_modes)))
+    dim0, dim1 = bipartite_tensor.shape
+    flatten_fullden_pt = flatten_bipartite_densitymatrix_cython(bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(bipartite_tensor)
+                                                                if dim0 < dim1
+                                                                else bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(bipartite_tensor))
+
+    eigenvalues = np.linalg.eigvals(flatten_fullden_pt)
     return 0.5 * (np.sum(np.abs(eigenvalues)) - 1)
