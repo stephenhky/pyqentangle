@@ -24,7 +24,7 @@ def readme():
         return f.read()
 
 
-setup(name='pyqentangle',
+setup(name='pyqentangle_Hosseinberg',
       version="2.0.0",
       description="Quantum Entanglement for Python",
       long_description="Schmidt decomposition for discrete and continuous bi-partite quantum systems",
@@ -48,7 +48,7 @@ setup(name='pyqentangle',
       author="Kwan-Yuet Ho",
       author_email="stephenhky@yahoo.com.hk",
       license='MIT',
-      packages=['pyqentangle'],
+      packages=['pyqentangle_Hosseinberg'],
       include_dirs=[np.get_include()],
       setup_requires=['Cython', 'numpy', ],
       install_requires=['numpy',],
