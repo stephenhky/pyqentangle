@@ -21,8 +21,8 @@ class testContinuousEntanglement(unittest2.TestCase):
         decompositions = pyqentangle.continuous_schmidt_decomposition(fcn, -10., 10., -10., 10., keep=10)
         eigenvalues = list(map(lambda item: item[0], decompositions))
         for i in range(10):
-            print('expected={}, calculated={}'.format(expected_coef[i], eigenvalues[i]))
-            self.assertAlmostEqual(eigenvalues[i], eigenvalues[i])
+            print('expected={}, calculated={}'.format(expected_coef(i), eigenvalues[i]))
+            self.assertAlmostEqual(expected_coef(i), eigenvalues[i])
 
         norm1, err1 = quad(lambda x1: np.real(np.conjugate(decompositions[0][1](np.array([x1])))*decompositions[0][1](np.array([x1]))), -10, 10)
         norm2, err2 = quad(lambda x2: np.real(np.conjugate(decompositions[0][2](np.array([x2])))*decompositions[0][2](np.array([x2]))), -10, 10)
