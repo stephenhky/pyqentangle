@@ -17,7 +17,7 @@ class testContinuousEntanglement(unittest2.TestCase):
         fcn = lambda x1, x2: np.exp(-0.5 * (x1 + x2) ** 2) * np.exp(-(x1 - x2) ** 2) * np.sqrt(np.sqrt(8.) / np.pi)
         rho = 3 - 2*np.sqrt(2)
         a = np.sqrt((1-rho*rho)/(2*rho))
-        expected_coef = lambda n: np.sqrt(8)*(1-rho*rho)/(a*a)*rho**(2*n)
+        expected_coef = lambda n: np.sqrt(np.sqrt(8)*(1-rho*rho)/(a*a)*rho**(2*n))
         decompositions = pyqentangle.continuous_schmidt_decomposition(fcn, -10., 10., -10., 10., keep=10)
         print(decompositions)
         eigenvalues = list(map(lambda item: item[0], decompositions))

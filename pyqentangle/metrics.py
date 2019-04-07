@@ -29,8 +29,8 @@ def entanglement_entropy(schmidt_modes):
 
     """
     eigenvalues = np.real(schmidt_coefficients(schmidt_modes))
-    eigenvalues = np.extract(eigenvalues > 0, eigenvalues)
-    entropy = np.sum(- eigenvalues * np.log(eigenvalues))
+    square_eigenvalues = np.square(np.extract(eigenvalues > 0, eigenvalues))
+    entropy = np.sum(- square_eigenvalues * np.log(square_eigenvalues))
     return entropy
 
 
@@ -48,7 +48,7 @@ def participation_ratio(schmidt_modes):
 
     """
     eigenvalues = np.real(np.real(schmidt_coefficients(schmidt_modes)))
-    K = 1. / np.sum(eigenvalues * eigenvalues)
+    K = 1. / np.sum(np.square(np.square(eigenvalues)))
     return K
 
 
