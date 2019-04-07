@@ -59,10 +59,13 @@ def schmidt_decomposition(bipartitepurestate_tensor):
     state_dims = bipartitepurestate_tensor.shape
     mindim = np.min(state_dims)
 
-    vecs1, diags, vecs2 = np.linalg.svd(bipartitepurestate_tensor)
-
-    decomposition = [(diags[k]*diags[k], vecs1[:, k], vecs2[:, k])
+    vecs1, diags, vecs2_h = np.linalg.svd(bipartitepurestate_tensor)
+    vecs2 = vecs2_h.transpose()
+    #decomposition = [(diags[k]*diags[k], vecs1[:, k], transposevecs2[:, k])
+    #                 for k in range(mindim)]
+    decomposition = [(diags[k], vecs1[:, k], vecs2[:, k])
                      for k in range(mindim)]
+
     decomposition = sorted(decomposition, key=lambda dec: dec[0], reverse=True)
 
     return decomposition
