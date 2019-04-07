@@ -152,13 +152,13 @@ def continuous_schmidt_decomposition(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100,
     dx2 = (x2_hi - x2_lo) / (nb_x2 - 1.)
 
     renormalized_decomposition = []
-    sumeigvals = np.sum(list(map(lambda dec: dec[0], decomposition)))
+    sum_sq_eigvals = np.sum(list(map(lambda dec: dec[0]*dec[0], decomposition)))
     for i in range(keep):
         schmidt_weight, unnorm_modeA, unnorm_modeB = decomposition[i]
         normA = np.linalg.norm(unnorm_modeA) * np.sqrt(dx1)
         normB = np.linalg.norm(unnorm_modeB) * np.sqrt(dx2)
         renormalized_decomposition.append(
-            ( (schmidt_weight / sumeigvals),
+            ( (schmidt_weight / np.sqrt(sum_sq_eigvals)),
               numerical_continuous_function(x1array, unnorm_modeA / normA),
               numerical_continuous_function(x2array, unnorm_modeB / normB)
              )
