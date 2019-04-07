@@ -19,10 +19,12 @@ class testContinuousEntanglement(unittest2.TestCase):
         a = np.sqrt((1-rho*rho)/(2*rho))
         expected_coef = lambda n: np.sqrt(8)*(1-rho*rho)/(a*a)*rho**(2*n)
         decompositions = pyqentangle.continuous_schmidt_decomposition(fcn, -10., 10., -10., 10., keep=10)
+        print(decompositions)
         eigenvalues = list(map(lambda item: item[0], decompositions))
+        print(eigenvalues)
         for i in range(10):
-            print('expected={}, calculated={}'.format(eigenvalues[i]), expected_coef(i))
-            self.assertAlmostEqual(expected_coef(i), eigenvalues[i])
+            print('expected={}, calculated={}'.format(eigenvalues[i], expected_coef(i)))
+            self.assertAlmostEqual(np.sqrt(expected_coef(i)), eigenvalues[i])
 
         norm1, err1 = quad(lambda x1: np.real(np.conjugate(decompositions[0][1](np.array([x1])))*decompositions[0][1](np.array([x1]))), -10, 10)
         norm2, err2 = quad(lambda x2: np.real(np.conjugate(decompositions[0][2](np.array([x2])))*decompositions[0][2](np.array([x2]))), -10, 10)
