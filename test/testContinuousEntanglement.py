@@ -23,7 +23,7 @@ class testContinuousEntanglement(unittest2.TestCase):
         eigenvalues = list(map(lambda item: item[0], decompositions))
         print(eigenvalues)
         for i in range(10):
-            print('expected={}, calculated={}'.format(eigenvalues[i], expected_coef(i)))
+            print('expected={}, calculated={}'.format(np.sqrt(expected_coef(i)), eigenvalues[i]))
             self.assertAlmostEqual(np.sqrt(expected_coef(i)), eigenvalues[i])
 
         norm1, err1 = quad(lambda x1: np.real(np.conjugate(decompositions[0][1](np.array([x1])))*decompositions[0][1](np.array([x1]))), -10, 10)
