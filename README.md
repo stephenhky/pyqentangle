@@ -7,6 +7,8 @@
 
 The releases of `pyqentangle` 2.x.x is incompatible with previous releases.
 
+The releases of `pyqentangle` 3.x.x is incompatible with previous releases.
+
 ## Installation
 
 This package can be installed using `pip`.
@@ -34,9 +36,9 @@ To perform the Schmidt decompostion, just enter:
 
 ```
 >>> pyqentangle.schmidt_decomposition(tensor)
-[(0.5000000000000001, array([ 0.+0.j,  1.+0.j]), array([ 1.+0.j,  0.+0.j])),
- (0.5000000000000001, array([ 1.+0.j,  0.+0.j]), array([ 0.+0.j,  1.+0.j]))]
-```
+[(0.7071067811865476, array([ 0., -1.]), array([-1., -0.])),
+ (0.7071067811865476, array([-1.,  0.]), array([-0., -1.]))]
+ ```
 
 For each tuple in the returned list, the first element is the Schmidt coefficients, the second the component for first subsystem, and the third the component for the second subsystem.
 
@@ -45,19 +47,19 @@ For each tuple in the returned list, the first element is the Schmidt coefficien
 We can perform Schmidt decomposition on continuous systems too. For example, define the following normalized wavefunction:
 
 ```
->>> fcn = lambda x1, x2: np.exp(-((0.5*(x1+x2))**2))*np.exp(-(x1-x2)**2)*np.sqrt(2./np.pi)
+>>> fcn = lambda x1, x2: np.exp(-0.5 * (x1 + x2) ** 2) * np.exp(-(x1 - x2) ** 2) * np.sqrt(np.sqrt(8.) / np.pi)
 ```
 
 Then perform the Schmidt decomposition, 
 
 ```
->>> decompositions = pyqentangle.continuous_schmidt_decomposition(fcn, -10., 10., -10., 10., keep=10)
+>>> modes = pyqentangle.continuous_schmidt_decomposition(biwavefcn, -10., 10., -10., 10., keep=10)
 ```
 
 where it describes the ranges of x1 and x2 respectively, and `keep=10` specifies only top 10 Schmidt modes are kept. Then we can read the Schmidt coefficients:
 
 ```
->>> list(map(lambda dec: dec[0], decompositions))
+>>> list(map(lambda dec: dec[0], modes))
 [0.88888888888888884,
  0.098765432098765565,
  0.010973936899862853,
@@ -72,24 +74,25 @@ where it describes the ranges of x1 and x2 respectively, and `keep=10` specifies
 
 The second and the third elements in each tuple in the list `decompositions` are lambda functions for the modes of susbsystems A and B respectively. The Schmidt functions can be plotted:
 ```
->>> x1array = np.linspace(-10., 10., 100)
->>> x2array = np.linspace(-10., 10., 100)
->>> import matplotlib.pyplot as plt
->>> # Eigenfunctions of the first Schmidt mode
->>> plt.plot(x1array, decompositions[0][1](x1array))
->>> plt.plot(x2array, decompositions[0][2](x2array))
->>> # Eigenfunctions of the second Schmidt mode
->>> plt.plot(x1array, decompositions[1][1](x1array))
->>> plt.plot(x2array, decompositions[1][2](x2array))
+>>> xarray = np.linspace(-10., 10., 100)
+
+    plt.subplot(3, 2, 1)
+    plt.plot(xarray, modes[0][1](xarray))
+    plt.subplot(3, 2, 2)
+    plt.plot(xarray, modes[0][2](xarray))
+
+    plt.subplot(3, 2, 3)
+    plt.plot(xarray, modes[1][1](xarray))
+    plt.subplot(3, 2, 4)
+    plt.plot(xarray, modes[1][2](xarray))
+
+    plt.subplot(3, 2, 5)
+    plt.plot(xarray, modes[2][1](xarray))
+    plt.subplot(3, 2, 6)
+    plt.plot(xarray, modes[2][2](xarray))
 ```
 
-![alt](fig/Figure_1A.png)
-
-![alt](fig/Figure_1B.png)
-
-![alt](fig/Figure_2A.png)
-
-![alt](fig/Figure_2B.png)
+![alt](fig/three_harmonic_modes.png)
 
 
 ## Useful Links
