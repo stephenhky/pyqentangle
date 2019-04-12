@@ -24,10 +24,17 @@ def readme():
         return f.read()
 
 
+def package_description():
+    text = open('README.md', 'r').read()
+    startpos = text.find('# Quantum Entanglement in Python')
+    return text[startpos:]
+
+
 setup(name='pyqentangle',
-      version="3.0.0",
-      description="Quantum Entanglement for Python",
-      long_description="Schmidt decomposition for discrete and continuous bi-partite quantum systems",
+      version="3.0.1",
+      description="Quantum Entanglement in Python",
+      long_description=package_description(),
+      long_description_content_type='text/markdown',
       classifiers=[
           "Topic :: Scientific/Engineering :: Physics",
           "Topic :: Scientific/Engineering :: Mathematics",

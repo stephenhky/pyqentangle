@@ -24,6 +24,13 @@ Contents:
    links
    ref
 
+Acknowledgements
+================
+
+- `Hossein Seifoory
+  <https://ca.linkedin.com/in/hosseinseifoory?trk=public_profile_card_url>`_ for an important debug.
+
+
 Indices and tables
 ==================
 

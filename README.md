@@ -1,4 +1,4 @@
-# Quantum Entanglement for Python
+# Quantum Entanglement in Python
 
 [![Build Status](https://travis-ci.org/stephenhky/pyqentangle.svg?branch=master)](https://travis-ci.org/stephenhky/pyqentangle)
 [![GitHub release](https://img.shields.io/github/release/stephenhky/pyqentangle.svg?maxAge=3600)](https://github.com/stephenhky/pyqentangle/releases)
@@ -92,7 +92,7 @@ The second and the third elements in each tuple in the list `decompositions` are
     plt.plot(xarray, modes[2][2](xarray))
 ```
 
-![alt](fig/three_harmonic_modes.png)
+![alt](https://github.com/stephenhky/pyqentangle/raw/master/fig/three_harmonic_modes.png)
 
 
 ## Useful Links
@@ -105,3 +105,6 @@ The second and the third elements in each tuple in the list `decompositions` are
 
 ## Reference
 * Artur Ekert, Peter L. Knight, "Entangled quantum systems and the Schmidt decomposition", *Am. J. Phys.* 63, 415 (1995).
+
+## Acknowledgement
+* [Hossein Seifoory](https://ca.linkedin.com/in/hosseinseifoory?trk=public_profile_card_url)
