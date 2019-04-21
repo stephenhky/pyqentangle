@@ -21,3 +21,25 @@ def compute_entanglement(alpha, beta):
     returned_results['K'] = participation_ratio
 
     return returned_results
+
+
+def run(request):
+    a = request['a']
+    b = request['b']
+
+    request_json = request.get_json()
+    if request.args and 'message' in request.args:
+        return request.args.get('message')
+    elif request_json and 'message' in request_json:
+        return request_json['message']
+    else:
+        schmidt_modes = pyqentangle.continuous_schmidt_decomposition(partial(compound_harmonic_fcn,
+                                                                             alpha=a, beta=b),
+                                                                     -10., 10., -10., 10.)
+        entropy = pyqentangle.entanglement_entropy(schmidt_modes)
+        participation_ratio = pyqentangle.participation_ratio(schmidt_modes)
+        returned_results = {'coefficients': [mode[0] for mode in schmidt_modes],
+                            'entropy': entropy,
+                            'participation_ratio': participation_ratio}
+
+        return returned_results
