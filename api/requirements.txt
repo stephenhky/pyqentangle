@@ -1,4 +1,5 @@
 # Function dependencies, for example:
 # package>=version
 numpy>=1.16.0
+Cython
 pyqentangle>=3.0.1

@@ -2,6 +2,7 @@
 import numpy as np
 import pyqentangle
 from functools import partial
+import json
 
 
 def compound_harmonic_fcn(x1, x2, alpha, beta):
@@ -42,4 +43,4 @@ def run(request):
                             'entropy': entropy,
                             'participation_ratio': participation_ratio}
 
-        return returned_results
+        return json.dumps(returned_results)
