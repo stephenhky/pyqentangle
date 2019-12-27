@@ -31,7 +31,7 @@ def package_description():
 
 
 setup(name='pyqentangle',
-      version="3.0.1",
+      version="3.1.0a01",
       description="Quantum Entanglement in Python",
       long_description=package_description(),
       long_description_content_type='text/markdown',
@@ -58,7 +58,7 @@ setup(name='pyqentangle',
       packages=['pyqentangle'],
       include_dirs=[np.get_include()],
       setup_requires=['Cython', 'numpy', ],
-      install_requires=['numpy',],
+      install_requires=['numpy', 'tensornetwork'],
       tests_require=['unittest2', 'numpy', 'scipy',],
       ext_modules=ext_modules,
       test_suite="test",
