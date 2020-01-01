@@ -3,6 +3,8 @@ import numpy as np
 from .negativity_utils import bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython
 from .negativity_utils import bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython
 from .bipartite_denmat import flatten_bipartite_densitymatrix_cython
+from .utils import InvalidQuantumStateException
+import tensornetwork as tn
 
 
 def schmidt_coefficients(schmidt_modes):
@@ -59,9 +61,9 @@ def negativity(bipartite_tensor):
     Given a normalized bipartite discrete state, compute the negativity
     with the formula :math:`N = \\frac{||\\rho^{\Gamma_A}||_1-1}{2}`
 
-    :param bipartitepurestate_tensor: tensor describing the bi-partitite states, with each elements the coefficients for :math:`|ij\\rangle`
+    :param bipartite_tensor: tensor describing the bi-partitite states, with each elements the coefficients for :math:`|ij\\rangle`
     :return: negativity
-    :type bipartitepurestate_tensor: numpy.ndarray
+    :type bipartite_tensor: numpy.ndarray
     :rtype: numpy.float
 
     """
@@ -72,3 +74,41 @@ def negativity(bipartite_tensor):
 
     eigenvalues = np.linalg.eigvals(flatten_fullden_pt)
     return 0.5 * (np.sum(np.abs(eigenvalues)) - 1)
+
+
+# concurrence
+def concurrence(bipartite_tensor):
+    """ Calculate the concurrence of a bipartite system that contains 2-dimensional state qubit only.
+
+    :param bipartite_tensor: tensor describing the bi-partitite states, with each elements the coefficients for :math:`|ij\\rangle`
+    :return: concurrence
+    :type bipartite_tensor: numpy.ndarray
+    :rtype: numpy.float
+    """
+    dim0, dim1 = bipartite_tensor.shape
+    if dim0 != 2 and dim1 != 2:
+        raise InvalidQuantumStateException('Both or one of the subsystems have more than one bases.')
+
+    # Levi-Civita symbol
+    epsilon = np.array([[0., 1.], [-1., 0.]])
+
+    # defining tensorflow node
+    psi_node = tn.Node(bipartite_tensor, name='psi')
+    # psiprime_node = tn.Node(np.conj(bipartite_tensor, name='psiprime'))
+    psiprime_node = tn.Node(bipartite_tensor, name='psiprime')
+    eps1_node = tn.Node(epsilon, name='epsilon1')
+    eps2_node = tn.Node(epsilon, name='epsilon2')
+
+    # defining edges for contraction
+    edges = [psi_node[0] ^ eps1_node[0],
+             eps1_node[1] ^ psiprime_node[0],
+             psiprime_node[1] ^ eps2_node[1],
+             eps2_node[0] ^ psi_node[1]]
+
+    # computation by contraction
+    t = None
+    for edge in edges:
+        t = tn.contract(edge)
+
+    # concurrence
+    return np.abs(t.tensor)
