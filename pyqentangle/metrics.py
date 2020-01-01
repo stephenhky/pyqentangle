@@ -94,7 +94,8 @@ def concurrence(bipartite_tensor):
 
     # defining tensorflow node
     psi_node = tn.Node(bipartite_tensor)
-    psiprime_node = tn.Node(np.conj(bipartite_tensor))
+    # psiprime_node = tn.Node(np.conj(bipartite_tensor))
+    psiprime_node = tn.Node(bipartite_tensor)
     eps1_node = tn.Node(epsilon)
     eps2_node = tn.Node(epsilon)
 
