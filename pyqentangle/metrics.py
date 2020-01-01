@@ -93,11 +93,11 @@ def concurrence(bipartite_tensor):
     epsilon = np.array([[0., 1.], [-1., 0.]])
 
     # defining tensorflow node
-    psi_node = tn.Node(bipartite_tensor)
-    # psiprime_node = tn.Node(np.conj(bipartite_tensor))
-    psiprime_node = tn.Node(bipartite_tensor)
-    eps1_node = tn.Node(epsilon)
-    eps2_node = tn.Node(epsilon)
+    psi_node = tn.Node(bipartite_tensor, name='psi')
+    # psiprime_node = tn.Node(np.conj(bipartite_tensor, name='psiprime'))
+    psiprime_node = tn.Node(bipartite_tensor, name='psiprime')
+    eps1_node = tn.Node(epsilon, name='epsilon1')
+    eps2_node = tn.Node(epsilon, name='epsilon2')
 
     # defining edges for contraction
     edges = [psi_node[0] ^ eps1_node[0],
