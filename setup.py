@@ -31,7 +31,7 @@ def package_description():
 
 
 setup(name='pyqentangle',
-      version="3.1.0a01",
+      version="3.1.0",
       description="Quantum Entanglement in Python",
       long_description=package_description(),
       long_description_content_type='text/markdown',

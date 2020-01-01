@@ -13,7 +13,7 @@ subsystems. The two subsystems can be either discrete or continuous.
 Note: the releases 2.x is incompatible with releases 1.x and 3.x; the releases 3.x is incompatible
 with releases 1.x and 2.x.
 
-This package runs in Python 2.7, 3.5, 3.6, and 3.7. However, under Python 3.7, Cython has to be installed.
+This package runs in Python 3.6, and 3.7. However, under Python 3.7, Cython has to be installed.
 
 Contents:
 

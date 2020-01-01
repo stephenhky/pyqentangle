@@ -9,6 +9,8 @@ The releases of `pyqentangle` 2.x.x is incompatible with previous releases.
 
 The releases of `pyqentangle` 3.x.x is incompatible with previous releases.
 
+Since release 3.1.0, the support for Python 2.7 and 3.5 has been decomissioned.
+
 ## Installation
 
 This package can be installed using `pip`.
