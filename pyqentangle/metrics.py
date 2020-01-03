@@ -1,7 +1,8 @@
 
 import numpy as np
-from .cythonmodule.negativity_utils import bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython
-from .cythonmodule.negativity_utils import bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython
+# from .cythonmodule.negativity_utils import bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython
+# from .cythonmodule.negativity_utils import bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython
+from .cythonmodule.negativity_utils import bipartitepurestate_partialtranspose_densitymatrix_cython
 from .cythonmodule.bipartite_denmat import flatten_bipartite_densitymatrix_cython
 from .utils import InvalidQuantumStateException
 import tensornetwork as tn
@@ -68,9 +69,7 @@ def negativity(bipartite_tensor):
 
     """
     dim0, dim1 = bipartite_tensor.shape
-    flatten_fullden_pt = flatten_bipartite_densitymatrix_cython(bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(bipartite_tensor)
-                                                                if dim0 < dim1
-                                                                else bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(bipartite_tensor))
+    flatten_fullden_pt = flatten_bipartite_densitymatrix_cython(bipartitepurestate_partialtranspose_densitymatrix_cython(bipartite_tensor, 0 if dim0<dim1 else 1))
 
     eigenvalues = np.linalg.eigvals(flatten_fullden_pt)
     return 0.5 * (np.sum(np.abs(eigenvalues)) - 1)
