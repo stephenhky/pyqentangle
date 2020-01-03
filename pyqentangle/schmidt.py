@@ -1,11 +1,12 @@
 
 import numpy as np
+import tensornetwork as tn
 from .cythonmodule.bipartite_reddenmat_nocheck import bipartitepurestate_reduceddensitymatrix_nocheck
 from .cythonmodule.bipartite_denmat import bipartitepurestate_densitymatrix_cython
 
 
 # total density matrix
-def bipartitepurestate_densitymatrix(bipartitepurestate_tensor):
+def bipartitepurestate_densitymatrix(bipartitepurestate_tensor, use_cython=False):
     """Calculate the whole density matrix of the bipartitite system
 
     Given a discrete normalized quantum system, given in terms of 2-D numpy array ``bipartitepurestate_tensor``,
@@ -13,15 +14,22 @@ def bipartitepurestate_densitymatrix(bipartitepurestate_tensor):
     calculate the whole density matrix.
 
     :param bipartitepurestate_tensor: tensor describing the bi-partitite states, with each elements the coefficients for :math:`|ij\\rangle`
+    :param use_cython: use legacy Cython code (default: False)
     :return: density matrix
     :type bipartitepurestate_tensor: numpy.ndarray
+    :type use_cython: bool
     :rtype: numpy.ndarray
-
     """
-    return bipartitepurestate_densitymatrix_cython(bipartitepurestate_tensor)
+    if use_cython:
+        return bipartitepurestate_densitymatrix_cython(bipartitepurestate_tensor)
+
+    ketnode = tn.Node(bipartitepurestate_tensor)
+    branode = tn.Node(np.conj(bipartitepurestate_tensor))
+    denmat_node = tn.outer_product(ketnode, branode)
+    return denmat_node.tensor
 
 
-def bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, kept):
+def bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, kept, use_cython=False):
     """Calculate the reduced density matrix for the specified subsystem
 
     Given a discrete normalized quantum system, given in terms of 2-D numpy array ``bipartitepurestate_tensor``,
@@ -30,15 +38,27 @@ def bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, kept):
 
     :param bipartitepurestate_tensor: tensor describing the bi-partitite states, with each elements the coefficients for :math:`|ij\\rangle`
     :param kept: subsystem, 0 indicating the first subsystem; 1 the second
+    :param use_cython: use legacy Cython code (default: False)
     :return: reduced density matrix of the specified subsystem
     :type bipartitepurestate_tensor: numpy.ndarray
     :type kept: int
+    :type use_cython: bool
     :rtype: numpy.ndarray
 
     """
     if not (kept in [0, 1]):
         raise ValueError('kept can only be 0 or 1!')
-    return bipartitepurestate_reduceddensitymatrix_nocheck(bipartitepurestate_tensor, kept)
+
+    if use_cython:
+        return bipartitepurestate_reduceddensitymatrix_nocheck(bipartitepurestate_tensor, kept)
+
+    ketnode = tn.Node(bipartitepurestate_tensor)
+    branode = tn.Node(np.conj(bipartitepurestate_tensor))
+
+    _ = ketnode[1-kept] ^ branode[1-kept]   # defining the edge
+    reddenmat_node = ketnode @ branode     # contract
+
+    return reddenmat_node.tensor
 
 
 def schmidt_decomposition(bipartitepurestate_tensor):
