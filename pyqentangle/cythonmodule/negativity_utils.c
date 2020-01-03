@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "pyqentangle.negativity_utils",
+        "name": "pyqentangle.cythonmodule.negativity_utils",
         "sources": [
-            "pyqentangle/negativity_utils.pyx"
+            "pyqentangle/cythonmodule/negativity_utils.pyx"
         ]
     },
-    "module_name": "pyqentangle.negativity_utils"
+    "module_name": "pyqentangle.cythonmodule.negativity_utils"
 }
 END: Cython Metadata */
 
@@ -598,8 +598,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__pyqentangle__negativity_utils
-#define __PYX_HAVE_API__pyqentangle__negativity_utils
+#define __PYX_HAVE__pyqentangle__cythonmodule__negativity_utils
+#define __PYX_HAVE_API__pyqentangle__cythonmodule__negativity_utils
 /* Early includes */
 #include <string.h>
 #include <stdio.h>
@@ -835,7 +835,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "pyqentangle/negativity_utils.pyx",
+  "pyqentangle/cythonmodule/negativity_utils.pyx",
   "__init__.pxd",
   "type.pxd",
 };
@@ -1591,12 +1591,12 @@ static PyTypeObject *__pyx_ptype_5numpy_ndarray = 0;
 static PyTypeObject *__pyx_ptype_5numpy_ufunc = 0;
 static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *, char *, char *, int *); /*proto*/
 
-/* Module declarations from 'pyqentangle.negativity_utils' */
-#define __Pyx_MODULE_NAME "pyqentangle.negativity_utils"
-extern int __pyx_module_is_main_pyqentangle__negativity_utils;
-int __pyx_module_is_main_pyqentangle__negativity_utils = 0;
+/* Module declarations from 'pyqentangle.cythonmodule.negativity_utils' */
+#define __Pyx_MODULE_NAME "pyqentangle.cythonmodule.negativity_utils"
+extern int __pyx_module_is_main_pyqentangle__cythonmodule__negativity_utils;
+int __pyx_module_is_main_pyqentangle__cythonmodule__negativity_utils = 0;
 
-/* Implementation of 'pyqentangle.negativity_utils' */
+/* Implementation of 'pyqentangle.cythonmodule.negativity_utils' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -1625,7 +1625,6 @@ static const char __pyx_k_RuntimeError[] = "RuntimeError";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_bipartitepurestate_tensor[] = "bipartitepurestate_tensor";
 static const char __pyx_k_ndarray_is_not_C_contiguous[] = "ndarray is not C contiguous";
-static const char __pyx_k_pyqentangle_negativity_utils[] = "pyqentangle.negativity_utils";
 static const char __pyx_k_numpy_core_multiarray_failed_to[] = "numpy.core.multiarray failed to import";
 static const char __pyx_k_unknown_dtype_code_in_numpy_pxd[] = "unknown dtype code in numpy.pxd (%d)";
 static const char __pyx_k_Format_string_allocated_too_shor[] = "Format string allocated too short, see comment in numpy.pxd";
@@ -1633,9 +1632,10 @@ static const char __pyx_k_Non_native_byte_order_not_suppor[] = "Non-native byte 
 static const char __pyx_k_bipartitepurestate_partialtransp[] = "bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython";
 static const char __pyx_k_ndarray_is_not_Fortran_contiguou[] = "ndarray is not Fortran contiguous";
 static const char __pyx_k_numpy_core_umath_failed_to_impor[] = "numpy.core.umath failed to import";
-static const char __pyx_k_pyqentangle_negativity_utils_pyx[] = "pyqentangle/negativity_utils.pyx";
+static const char __pyx_k_pyqentangle_cythonmodule_negativ[] = "pyqentangle/cythonmodule/negativity_utils.pyx";
 static const char __pyx_k_Format_string_allocated_too_shor_2[] = "Format string allocated too short.";
 static const char __pyx_k_bipartitepurestate_partialtransp_2[] = "bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython";
+static const char __pyx_k_pyqentangle_cythonmodule_negativ_2[] = "pyqentangle.cythonmodule.negativity_utils";
 static PyObject *__pyx_kp_u_Format_string_allocated_too_shor;
 static PyObject *__pyx_kp_u_Format_string_allocated_too_shor_2;
 static PyObject *__pyx_n_s_ImportError;
@@ -1664,15 +1664,15 @@ static PyObject *__pyx_n_s_np;
 static PyObject *__pyx_n_s_numpy;
 static PyObject *__pyx_kp_s_numpy_core_multiarray_failed_to;
 static PyObject *__pyx_kp_s_numpy_core_umath_failed_to_impor;
-static PyObject *__pyx_n_s_pyqentangle_negativity_utils;
-static PyObject *__pyx_kp_s_pyqentangle_negativity_utils_pyx;
+static PyObject *__pyx_kp_s_pyqentangle_cythonmodule_negativ;
+static PyObject *__pyx_n_s_pyqentangle_cythonmodule_negativ_2;
 static PyObject *__pyx_n_s_range;
 static PyObject *__pyx_n_s_rho;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_kp_u_unknown_dtype_code_in_numpy_pxd;
 static PyObject *__pyx_n_s_zeros;
-static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_bipartitepurestate_tensor); /* proto */
-static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_2bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_bipartitepurestate_tensor); /* proto */
+static PyObject *__pyx_pf_11pyqentangle_12cythonmodule_16negativity_utils_bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_bipartitepurestate_tensor); /* proto */
+static PyObject *__pyx_pf_11pyqentangle_12cythonmodule_16negativity_utils_2bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_bipartitepurestate_tensor); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
 static PyObject *__pyx_tuple_;
@@ -1688,7 +1688,7 @@ static PyObject *__pyx_codeobj__9;
 static PyObject *__pyx_codeobj__11;
 /* Late includes */
 
-/* "pyqentangle/negativity_utils.pyx":6
+/* "pyqentangle/cythonmodule/negativity_utils.pyx":6
  * cimport numpy as np
  * 
  * def bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
@@ -1697,14 +1697,14 @@ static PyObject *__pyx_codeobj__11;
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11pyqentangle_16negativity_utils_1bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(PyObject *__pyx_self, PyObject *__pyx_v_bipartitepurestate_tensor); /*proto*/
-static PyMethodDef __pyx_mdef_11pyqentangle_16negativity_utils_1bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython = {"bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython", (PyCFunction)__pyx_pw_11pyqentangle_16negativity_utils_1bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython, METH_O, 0};
-static PyObject *__pyx_pw_11pyqentangle_16negativity_utils_1bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(PyObject *__pyx_self, PyObject *__pyx_v_bipartitepurestate_tensor) {
+static PyObject *__pyx_pw_11pyqentangle_12cythonmodule_16negativity_utils_1bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(PyObject *__pyx_self, PyObject *__pyx_v_bipartitepurestate_tensor); /*proto*/
+static PyMethodDef __pyx_mdef_11pyqentangle_12cythonmodule_16negativity_utils_1bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython = {"bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython", (PyCFunction)__pyx_pw_11pyqentangle_12cythonmodule_16negativity_utils_1bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython, METH_O, 0};
+static PyObject *__pyx_pw_11pyqentangle_12cythonmodule_16negativity_utils_1bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(PyObject *__pyx_self, PyObject *__pyx_v_bipartitepurestate_tensor) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython (wrapper)", 0);
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_bipartitepurestate_tensor), __pyx_ptype_5numpy_ndarray, 1, "bipartitepurestate_tensor", 0))) __PYX_ERR(0, 6, __pyx_L1_error)
-  __pyx_r = __pyx_pf_11pyqentangle_16negativity_utils_bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(__pyx_self, ((PyArrayObject *)__pyx_v_bipartitepurestate_tensor));
+  __pyx_r = __pyx_pf_11pyqentangle_12cythonmodule_16negativity_utils_bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(__pyx_self, ((PyArrayObject *)__pyx_v_bipartitepurestate_tensor));
 
   /* function exit code */
   goto __pyx_L0;
@@ -1715,7 +1715,7 @@ static PyObject *__pyx_pw_11pyqentangle_16negativity_utils_1bipartitepurestate_p
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_bipartitepurestate_tensor) {
+static PyObject *__pyx_pf_11pyqentangle_12cythonmodule_16negativity_utils_bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_bipartitepurestate_tensor) {
   int __pyx_v_i;
   int __pyx_v_j;
   int __pyx_v_ip;
@@ -1745,7 +1745,7 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_bipartitepurestate_pa
   int __pyx_t_18;
   __Pyx_RefNannySetupContext("bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython", 0);
 
-  /* "pyqentangle/negativity_utils.pyx":8
+  /* "pyqentangle/cythonmodule/negativity_utils.pyx":8
  * def bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):
  *     cdef int i, j, ip, jp
  *     cdef int dim0 = bipartitepurestate_tensor.shape[0]             # <<<<<<<<<<<<<<
@@ -1754,19 +1754,19 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_bipartitepurestate_pa
  */
   __pyx_v_dim0 = (__pyx_v_bipartitepurestate_tensor->dimensions[0]);
 
-  /* "pyqentangle/negativity_utils.pyx":9
+  /* "pyqentangle/cythonmodule/negativity_utils.pyx":9
  *     cdef int i, j, ip, jp
  *     cdef int dim0 = bipartitepurestate_tensor.shape[0]
  *     cdef int dim1 = bipartitepurestate_tensor.shape[1]             # <<<<<<<<<<<<<<
  * 
- *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim1, dim0), dtype=np.complex)
+ *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim0, dim1), dtype=np.complex)
  */
   __pyx_v_dim1 = (__pyx_v_bipartitepurestate_tensor->dimensions[1]);
 
-  /* "pyqentangle/negativity_utils.pyx":11
+  /* "pyqentangle/cythonmodule/negativity_utils.pyx":11
  *     cdef int dim1 = bipartitepurestate_tensor.shape[1]
  * 
- *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim1, dim0), dtype=np.complex)             # <<<<<<<<<<<<<<
+ *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim0, dim1), dtype=np.complex)             # <<<<<<<<<<<<<<
  * 
  *     for i in range(dim0):
  */
@@ -1779,9 +1779,9 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_bipartitepurestate_pa
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_dim1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_dim1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_dim0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_dim0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_dim1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = PyTuple_New(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
@@ -1820,8 +1820,8 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_bipartitepurestate_pa
   __pyx_v_rho = ((PyArrayObject *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "pyqentangle/negativity_utils.pyx":13
- *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim1, dim0), dtype=np.complex)
+  /* "pyqentangle/cythonmodule/negativity_utils.pyx":13
+ *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim0, dim1), dtype=np.complex)
  * 
  *     for i in range(dim0):             # <<<<<<<<<<<<<<
  *         for j in range(dim1):
@@ -1832,7 +1832,7 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_bipartitepurestate_pa
   for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
     __pyx_v_i = __pyx_t_9;
 
-    /* "pyqentangle/negativity_utils.pyx":14
+    /* "pyqentangle/cythonmodule/negativity_utils.pyx":14
  * 
  *     for i in range(dim0):
  *         for j in range(dim1):             # <<<<<<<<<<<<<<
@@ -1844,7 +1844,7 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_bipartitepurestate_pa
     for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
       __pyx_v_j = __pyx_t_12;
 
-      /* "pyqentangle/negativity_utils.pyx":15
+      /* "pyqentangle/cythonmodule/negativity_utils.pyx":15
  *     for i in range(dim0):
  *         for j in range(dim1):
  *             for ip in range(dim0):             # <<<<<<<<<<<<<<
@@ -1856,7 +1856,7 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_bipartitepurestate_pa
       for (__pyx_t_15 = 0; __pyx_t_15 < __pyx_t_14; __pyx_t_15+=1) {
         __pyx_v_ip = __pyx_t_15;
 
-        /* "pyqentangle/negativity_utils.pyx":16
+        /* "pyqentangle/cythonmodule/negativity_utils.pyx":16
  *         for j in range(dim1):
  *             for ip in range(dim0):
  *                 for jp in range(dim1):             # <<<<<<<<<<<<<<
@@ -1868,7 +1868,7 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_bipartitepurestate_pa
         for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_17; __pyx_t_18+=1) {
           __pyx_v_jp = __pyx_t_18;
 
-          /* "pyqentangle/negativity_utils.pyx":17
+          /* "pyqentangle/cythonmodule/negativity_utils.pyx":17
  *             for ip in range(dim0):
  *                 for jp in range(dim1):
  *                     rho[ip, j, i, jp] = bipartitepurestate_tensor[i, j] * np.conj(bipartitepurestate_tensor[ip, jp])             # <<<<<<<<<<<<<<
@@ -1960,7 +1960,7 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_bipartitepurestate_pa
     }
   }
 
-  /* "pyqentangle/negativity_utils.pyx":19
+  /* "pyqentangle/cythonmodule/negativity_utils.pyx":19
  *                     rho[ip, j, i, jp] = bipartitepurestate_tensor[i, j] * np.conj(bipartitepurestate_tensor[ip, jp])
  * 
  *     return rho             # <<<<<<<<<<<<<<
@@ -1972,7 +1972,7 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_bipartitepurestate_pa
   __pyx_r = ((PyObject *)__pyx_v_rho);
   goto __pyx_L0;
 
-  /* "pyqentangle/negativity_utils.pyx":6
+  /* "pyqentangle/cythonmodule/negativity_utils.pyx":6
  * cimport numpy as np
  * 
  * def bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
@@ -1988,7 +1988,7 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_bipartitepurestate_pa
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("pyqentangle.negativity_utils.bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyqentangle.cythonmodule.negativity_utils.bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_rho);
@@ -1997,7 +1997,7 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_bipartitepurestate_pa
   return __pyx_r;
 }
 
-/* "pyqentangle/negativity_utils.pyx":23
+/* "pyqentangle/cythonmodule/negativity_utils.pyx":23
  * 
  * 
  * def bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
@@ -2006,14 +2006,14 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_bipartitepurestate_pa
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11pyqentangle_16negativity_utils_3bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(PyObject *__pyx_self, PyObject *__pyx_v_bipartitepurestate_tensor); /*proto*/
-static PyMethodDef __pyx_mdef_11pyqentangle_16negativity_utils_3bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython = {"bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython", (PyCFunction)__pyx_pw_11pyqentangle_16negativity_utils_3bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython, METH_O, 0};
-static PyObject *__pyx_pw_11pyqentangle_16negativity_utils_3bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(PyObject *__pyx_self, PyObject *__pyx_v_bipartitepurestate_tensor) {
+static PyObject *__pyx_pw_11pyqentangle_12cythonmodule_16negativity_utils_3bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(PyObject *__pyx_self, PyObject *__pyx_v_bipartitepurestate_tensor); /*proto*/
+static PyMethodDef __pyx_mdef_11pyqentangle_12cythonmodule_16negativity_utils_3bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython = {"bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython", (PyCFunction)__pyx_pw_11pyqentangle_12cythonmodule_16negativity_utils_3bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython, METH_O, 0};
+static PyObject *__pyx_pw_11pyqentangle_12cythonmodule_16negativity_utils_3bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(PyObject *__pyx_self, PyObject *__pyx_v_bipartitepurestate_tensor) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython (wrapper)", 0);
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_bipartitepurestate_tensor), __pyx_ptype_5numpy_ndarray, 1, "bipartitepurestate_tensor", 0))) __PYX_ERR(0, 23, __pyx_L1_error)
-  __pyx_r = __pyx_pf_11pyqentangle_16negativity_utils_2bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(__pyx_self, ((PyArrayObject *)__pyx_v_bipartitepurestate_tensor));
+  __pyx_r = __pyx_pf_11pyqentangle_12cythonmodule_16negativity_utils_2bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(__pyx_self, ((PyArrayObject *)__pyx_v_bipartitepurestate_tensor));
 
   /* function exit code */
   goto __pyx_L0;
@@ -2024,7 +2024,7 @@ static PyObject *__pyx_pw_11pyqentangle_16negativity_utils_3bipartitepurestate_p
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_2bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_bipartitepurestate_tensor) {
+static PyObject *__pyx_pf_11pyqentangle_12cythonmodule_16negativity_utils_2bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_bipartitepurestate_tensor) {
   int __pyx_v_i;
   int __pyx_v_j;
   int __pyx_v_ip;
@@ -2054,7 +2054,7 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_2bipartitepurestate_p
   int __pyx_t_18;
   __Pyx_RefNannySetupContext("bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython", 0);
 
-  /* "pyqentangle/negativity_utils.pyx":25
+  /* "pyqentangle/cythonmodule/negativity_utils.pyx":25
  * def bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):
  *     cdef int i, j, ip, jp
  *     cdef int dim0 = bipartitepurestate_tensor.shape[0]             # <<<<<<<<<<<<<<
@@ -2063,19 +2063,19 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_2bipartitepurestate_p
  */
   __pyx_v_dim0 = (__pyx_v_bipartitepurestate_tensor->dimensions[0]);
 
-  /* "pyqentangle/negativity_utils.pyx":26
+  /* "pyqentangle/cythonmodule/negativity_utils.pyx":26
  *     cdef int i, j, ip, jp
  *     cdef int dim0 = bipartitepurestate_tensor.shape[0]
  *     cdef int dim1 = bipartitepurestate_tensor.shape[1]             # <<<<<<<<<<<<<<
  * 
- *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim1, dim0), dtype=np.complex)
+ *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim0, dim1), dtype=np.complex)
  */
   __pyx_v_dim1 = (__pyx_v_bipartitepurestate_tensor->dimensions[1]);
 
-  /* "pyqentangle/negativity_utils.pyx":28
+  /* "pyqentangle/cythonmodule/negativity_utils.pyx":28
  *     cdef int dim1 = bipartitepurestate_tensor.shape[1]
  * 
- *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim1, dim0), dtype=np.complex)             # <<<<<<<<<<<<<<
+ *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim0, dim1), dtype=np.complex)             # <<<<<<<<<<<<<<
  * 
  *     for i in range(dim0):
  */
@@ -2088,9 +2088,9 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_2bipartitepurestate_p
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_dim1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_dim1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_dim0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_dim0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_dim1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = PyTuple_New(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
@@ -2129,8 +2129,8 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_2bipartitepurestate_p
   __pyx_v_rho = ((PyArrayObject *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "pyqentangle/negativity_utils.pyx":30
- *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim1, dim0), dtype=np.complex)
+  /* "pyqentangle/cythonmodule/negativity_utils.pyx":30
+ *     cdef np.ndarray rho = np.zeros((dim0, dim1, dim0, dim1), dtype=np.complex)
  * 
  *     for i in range(dim0):             # <<<<<<<<<<<<<<
  *         for j in range(dim1):
@@ -2141,7 +2141,7 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_2bipartitepurestate_p
   for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
     __pyx_v_i = __pyx_t_9;
 
-    /* "pyqentangle/negativity_utils.pyx":31
+    /* "pyqentangle/cythonmodule/negativity_utils.pyx":31
  * 
  *     for i in range(dim0):
  *         for j in range(dim1):             # <<<<<<<<<<<<<<
@@ -2153,7 +2153,7 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_2bipartitepurestate_p
     for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
       __pyx_v_j = __pyx_t_12;
 
-      /* "pyqentangle/negativity_utils.pyx":32
+      /* "pyqentangle/cythonmodule/negativity_utils.pyx":32
  *     for i in range(dim0):
  *         for j in range(dim1):
  *             for ip in range(dim0):             # <<<<<<<<<<<<<<
@@ -2165,7 +2165,7 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_2bipartitepurestate_p
       for (__pyx_t_15 = 0; __pyx_t_15 < __pyx_t_14; __pyx_t_15+=1) {
         __pyx_v_ip = __pyx_t_15;
 
-        /* "pyqentangle/negativity_utils.pyx":33
+        /* "pyqentangle/cythonmodule/negativity_utils.pyx":33
  *         for j in range(dim1):
  *             for ip in range(dim0):
  *                 for jp in range(dim1):             # <<<<<<<<<<<<<<
@@ -2177,7 +2177,7 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_2bipartitepurestate_p
         for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_17; __pyx_t_18+=1) {
           __pyx_v_jp = __pyx_t_18;
 
-          /* "pyqentangle/negativity_utils.pyx":34
+          /* "pyqentangle/cythonmodule/negativity_utils.pyx":34
  *             for ip in range(dim0):
  *                 for jp in range(dim1):
  *                     rho[i, jp, ip, j] = bipartitepurestate_tensor[i, j] * np.conj(bipartitepurestate_tensor[ip, jp])             # <<<<<<<<<<<<<<
@@ -2269,7 +2269,7 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_2bipartitepurestate_p
     }
   }
 
-  /* "pyqentangle/negativity_utils.pyx":36
+  /* "pyqentangle/cythonmodule/negativity_utils.pyx":36
  *                     rho[i, jp, ip, j] = bipartitepurestate_tensor[i, j] * np.conj(bipartitepurestate_tensor[ip, jp])
  * 
  *     return rho             # <<<<<<<<<<<<<<
@@ -2279,7 +2279,7 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_2bipartitepurestate_p
   __pyx_r = ((PyObject *)__pyx_v_rho);
   goto __pyx_L0;
 
-  /* "pyqentangle/negativity_utils.pyx":23
+  /* "pyqentangle/cythonmodule/negativity_utils.pyx":23
  * 
  * 
  * def bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
@@ -2295,7 +2295,7 @@ static PyObject *__pyx_pf_11pyqentangle_16negativity_utils_2bipartitepurestate_p
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("pyqentangle.negativity_utils.bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyqentangle.cythonmodule.negativity_utils.bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_rho);
@@ -4796,8 +4796,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_numpy, __pyx_k_numpy, sizeof(__pyx_k_numpy), 0, 0, 1, 1},
   {&__pyx_kp_s_numpy_core_multiarray_failed_to, __pyx_k_numpy_core_multiarray_failed_to, sizeof(__pyx_k_numpy_core_multiarray_failed_to), 0, 0, 1, 0},
   {&__pyx_kp_s_numpy_core_umath_failed_to_impor, __pyx_k_numpy_core_umath_failed_to_impor, sizeof(__pyx_k_numpy_core_umath_failed_to_impor), 0, 0, 1, 0},
-  {&__pyx_n_s_pyqentangle_negativity_utils, __pyx_k_pyqentangle_negativity_utils, sizeof(__pyx_k_pyqentangle_negativity_utils), 0, 0, 1, 1},
-  {&__pyx_kp_s_pyqentangle_negativity_utils_pyx, __pyx_k_pyqentangle_negativity_utils_pyx, sizeof(__pyx_k_pyqentangle_negativity_utils_pyx), 0, 0, 1, 0},
+  {&__pyx_kp_s_pyqentangle_cythonmodule_negativ, __pyx_k_pyqentangle_cythonmodule_negativ, sizeof(__pyx_k_pyqentangle_cythonmodule_negativ), 0, 0, 1, 0},
+  {&__pyx_n_s_pyqentangle_cythonmodule_negativ_2, __pyx_k_pyqentangle_cythonmodule_negativ_2, sizeof(__pyx_k_pyqentangle_cythonmodule_negativ_2), 0, 0, 1, 1},
   {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
   {&__pyx_n_s_rho, __pyx_k_rho, sizeof(__pyx_k_rho), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
@@ -4896,7 +4896,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
 
-  /* "pyqentangle/negativity_utils.pyx":6
+  /* "pyqentangle/cythonmodule/negativity_utils.pyx":6
  * cimport numpy as np
  * 
  * def bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
@@ -4906,9 +4906,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__8 = PyTuple_Pack(8, __pyx_n_s_bipartitepurestate_tensor, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_ip, __pyx_n_s_jp, __pyx_n_s_dim0, __pyx_n_s_dim1, __pyx_n_s_rho); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
-  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyqentangle_negativity_utils_pyx, __pyx_n_s_bipartitepurestate_partialtransp, 6, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyqentangle_cythonmodule_negativ, __pyx_n_s_bipartitepurestate_partialtransp, 6, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(0, 6, __pyx_L1_error)
 
-  /* "pyqentangle/negativity_utils.pyx":23
+  /* "pyqentangle/cythonmodule/negativity_utils.pyx":23
  * 
  * 
  * def bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
@@ -4918,7 +4918,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__10 = PyTuple_Pack(8, __pyx_n_s_bipartitepurestate_tensor, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_ip, __pyx_n_s_jp, __pyx_n_s_dim0, __pyx_n_s_dim1, __pyx_n_s_rho); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__10);
   __Pyx_GIVEREF(__pyx_tuple__10);
-  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyqentangle_negativity_utils_pyx, __pyx_n_s_bipartitepurestate_partialtransp_2, 23, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyqentangle_cythonmodule_negativ, __pyx_n_s_bipartitepurestate_partialtransp_2, 23, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -5196,14 +5196,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_pyqentangle__negativity_utils) {
+  if (__pyx_module_is_main_pyqentangle__cythonmodule__negativity_utils) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 3, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "pyqentangle.negativity_utils")) {
-      if (unlikely(PyDict_SetItemString(modules, "pyqentangle.negativity_utils", __pyx_m) < 0)) __PYX_ERR(0, 3, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "pyqentangle.cythonmodule.negativity_utils")) {
+      if (unlikely(PyDict_SetItemString(modules, "pyqentangle.cythonmodule.negativity_utils", __pyx_m) < 0)) __PYX_ERR(0, 3, __pyx_L1_error)
     }
   }
   #endif
@@ -5224,7 +5224,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #endif
 
-  /* "pyqentangle/negativity_utils.pyx":3
+  /* "pyqentangle/cythonmodule/negativity_utils.pyx":3
  * 
  * 
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -5236,31 +5236,31 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyqentangle/negativity_utils.pyx":6
+  /* "pyqentangle/cythonmodule/negativity_utils.pyx":6
  * cimport numpy as np
  * 
  * def bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
  *     cdef int i, j, ip, jp
  *     cdef int dim0 = bipartitepurestate_tensor.shape[0]
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11pyqentangle_16negativity_utils_1bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython, NULL, __pyx_n_s_pyqentangle_negativity_utils); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11pyqentangle_12cythonmodule_16negativity_utils_1bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython, NULL, __pyx_n_s_pyqentangle_cythonmodule_negativ_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_bipartitepurestate_partialtransp, __pyx_t_1) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyqentangle/negativity_utils.pyx":23
+  /* "pyqentangle/cythonmodule/negativity_utils.pyx":23
  * 
  * 
  * def bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(np.ndarray bipartitepurestate_tensor):             # <<<<<<<<<<<<<<
  *     cdef int i, j, ip, jp
  *     cdef int dim0 = bipartitepurestate_tensor.shape[0]
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11pyqentangle_16negativity_utils_3bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython, NULL, __pyx_n_s_pyqentangle_negativity_utils); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11pyqentangle_12cythonmodule_16negativity_utils_3bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython, NULL, __pyx_n_s_pyqentangle_cythonmodule_negativ_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_bipartitepurestate_partialtransp_2, __pyx_t_1) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyqentangle/negativity_utils.pyx":3
+  /* "pyqentangle/cythonmodule/negativity_utils.pyx":3
  * 
  * 
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -5287,11 +5287,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_1);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init pyqentangle.negativity_utils", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init pyqentangle.cythonmodule.negativity_utils", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init pyqentangle.negativity_utils");
+    PyErr_SetString(PyExc_ImportError, "init pyqentangle.cythonmodule.negativity_utils");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
