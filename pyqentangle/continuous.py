@@ -3,7 +3,7 @@ from itertools import product
 
 import numpy as np
 
-from .interpolate_nocheck import numerical_continuous_interpolation_nocheck_cython
+from .cythonmodule.interpolate_nocheck import numerical_continuous_interpolation_nocheck_cython
 from . import schmidt_decomposition
 
 disentangled_gaussian = lambda x1, x2: np.exp(-0.5 * (x1 * x1 + x2 * x2)) / np.sqrt(np.pi)
