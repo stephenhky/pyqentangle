@@ -4,19 +4,19 @@ import numpy as np
 # reference: https://stackoverflow.com/questions/46784964/create-package-with-cython-so-users-can-install-it-without-having-cython-already
 try:
     from Cython.Build import cythonize
-    ext_modules = cythonize(['pyqentangle/interpolate_nocheck.pyx',
-                             'pyqentangle/bipartite_reddenmat_nocheck.pyx',
-                             'pyqentangle/bipartite_denmat.pyx',
-                             'pyqentangle/negativity_utils.pyx'])
+    ext_modules = cythonize(['pyqentangle/cythonmodule/interpolate_nocheck.pyx',
+                             'pyqentangle/cythonmodule/bipartite_reddenmat_nocheck.pyx',
+                             'pyqentangle/cythonmodule/bipartite_denmat.pyx',
+                             'pyqentangle/cythonmodule/negativity_utils.pyx'])
 except ImportError:
-    ext_modules = [Extension('pyqentangle.interpolate_nocheck',
-                             sources=['pyqentangle/interpolate_nocheck.c']),
-                   Extension('pyqentangle.bipartite_reddenmat_nocheck',
-                             sources=['pyqentangle/bipartite_reddenmat_nocheck.c']),
-                   Extension('pyqentangle.bipartite_denmat',
-                             sources=['pyqentangle/bipartite_denmat.c']),
-                   Extension('pyqentangle.negativity_utils',
-                             sources=['pyqentangle/negativity_utils.c'])]
+    ext_modules = [Extension('pyqentangle.cythonmodule.interpolate_nocheck',
+                             sources=['pyqentangle/cythonmodule/interpolate_nocheck.c']),
+                   Extension('pyqentangle.cythonmodule.bipartite_reddenmat_nocheck',
+                             sources=['pyqentangle/cythonmodule/bipartite_reddenmat_nocheck.c']),
+                   Extension('pyqentangle.cythonmodule.bipartite_denmat',
+                             sources=['pyqentangle/cythonmodule/bipartite_denmat.c']),
+                   Extension('pyqentangle.cythonmodule.negativity_utils',
+                             sources=['pyqentangle/cythonmodule/negativity_utils.c'])]
 
 
 def readme():

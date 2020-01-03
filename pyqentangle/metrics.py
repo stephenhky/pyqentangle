@@ -1,8 +1,8 @@
 
 import numpy as np
-from .negativity_utils import bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython
-from .negativity_utils import bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython
-from .bipartite_denmat import flatten_bipartite_densitymatrix_cython
+from .cythonmodule.negativity_utils import bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython
+from .cythonmodule.negativity_utils import bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython
+from .cythonmodule.bipartite_denmat import flatten_bipartite_densitymatrix_cython
 from .utils import InvalidQuantumStateException
 import tensornetwork as tn
 

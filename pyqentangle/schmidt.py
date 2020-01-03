@@ -1,7 +1,7 @@
 
 import numpy as np
-from .bipartite_reddenmat_nocheck import bipartitepurestate_reduceddensitymatrix_nocheck
-from .bipartite_denmat import bipartitepurestate_densitymatrix_cython
+from .cythonmodule.bipartite_reddenmat_nocheck import bipartitepurestate_reduceddensitymatrix_nocheck
+from .cythonmodule.bipartite_denmat import bipartitepurestate_densitymatrix_cython
 
 
 # total density matrix
