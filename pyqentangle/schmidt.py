@@ -55,8 +55,8 @@ def bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, kept, use
     ketnode = tn.Node(bipartitepurestate_tensor)
     branode = tn.Node(np.conj(bipartitepurestate_tensor))
 
-    edge = ketnode[kept] ^ branode[kept]
-    reddenmat_node = ketnode @ branode
+    _ = ketnode[kept] ^ branode[kept]   # defining the edge
+    reddenmat_node = ketnode @ branode     # contract
 
     return reddenmat_node.tensor
 
