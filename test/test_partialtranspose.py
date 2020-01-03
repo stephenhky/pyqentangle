@@ -4,8 +4,6 @@ import unittest2
 import numpy as np
 
 from pyqentangle.schmidt import bipartitepurestate_densitymatrix
-# from pyqentangle.metrics import bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython
-# from pyqentangle.metrics import bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython
 from pyqentangle.metrics import bipartitepurestate_partialtranspose_densitymatrix_cython
 from pyqentangle.metrics import flatten_bipartite_densitymatrix_cython
 
