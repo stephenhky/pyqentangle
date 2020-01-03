@@ -8,7 +8,7 @@ def bipartitepurestate_partialtranspose_subsys0_densitymatrix_cython(np.ndarray 
     cdef int dim0 = bipartitepurestate_tensor.shape[0]
     cdef int dim1 = bipartitepurestate_tensor.shape[1]
 
-    cdef np.ndarray rho = np.zeros((dim0, dim1, dim1, dim0), dtype=np.complex)
+    cdef np.ndarray rho = np.zeros((dim0, dim1, dim0, dim1), dtype=np.complex)
 
     for i in range(dim0):
         for j in range(dim1):
@@ -25,7 +25,7 @@ def bipartitepurestate_partialtranspose_subsys1_densitymatrix_cython(np.ndarray 
     cdef int dim0 = bipartitepurestate_tensor.shape[0]
     cdef int dim1 = bipartitepurestate_tensor.shape[1]
 
-    cdef np.ndarray rho = np.zeros((dim0, dim1, dim1, dim0), dtype=np.complex)
+    cdef np.ndarray rho = np.zeros((dim0, dim1, dim0, dim1), dtype=np.complex)
 
     for i in range(dim0):
         for j in range(dim1):
