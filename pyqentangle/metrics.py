@@ -107,7 +107,12 @@ def negativity(bipartite_tensor):
 
     """
     dim0, dim1 = bipartite_tensor.shape
-    flatten_fullden_pt = flatten_bipartite_densitymatrix_cython(bipartitepurestate_partialtranspose_densitymatrix(bipartite_tensor, 0 if dim0<dim1 else 1))
+    flatten_fullden_pt = flatten_bipartite_densitymatrix(
+        bipartitepurestate_partialtranspose_densitymatrix(
+            bipartite_tensor,
+            0 if dim0<dim1 else 1
+        )
+    )
 
     eigenvalues = np.linalg.eigvals(flatten_fullden_pt)
     return 0.5 * (np.sum(np.abs(eigenvalues)) - 1)
