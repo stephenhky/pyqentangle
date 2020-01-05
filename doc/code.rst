@@ -9,3 +9,6 @@ Documentation
 
 .. automodule:: metrics
    :members:
+
+.. automodule:: utils
+   :members:
