@@ -6,17 +6,14 @@ try:
     from Cython.Build import cythonize
     ext_modules = cythonize(['pyqentangle/cythonmodule/interpolate_nocheck.pyx',
                              'pyqentangle/cythonmodule/bipartite_reddenmat_nocheck.pyx',
-                             'pyqentangle/cythonmodule/bipartite_denmat.pyx',
-                             'pyqentangle/cythonmodule/negativity_utils.pyx'])
+                             'pyqentangle/cythonmodule/bipartite_denmat.pyx'])
 except ImportError:
     ext_modules = [Extension('pyqentangle.cythonmodule.interpolate_nocheck',
                              sources=['pyqentangle/cythonmodule/interpolate_nocheck.c']),
                    Extension('pyqentangle.cythonmodule.bipartite_reddenmat_nocheck',
                              sources=['pyqentangle/cythonmodule/bipartite_reddenmat_nocheck.c']),
                    Extension('pyqentangle.cythonmodule.bipartite_denmat',
-                             sources=['pyqentangle/cythonmodule/bipartite_denmat.c']),
-                   Extension('pyqentangle.cythonmodule.negativity_utils',
-                             sources=['pyqentangle/cythonmodule/negativity_utils.c'])]
+                             sources=['pyqentangle/cythonmodule/bipartite_denmat.c'])]
 
 
 def readme():

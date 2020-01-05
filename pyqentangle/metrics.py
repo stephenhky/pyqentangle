@@ -2,9 +2,25 @@
 import numpy as np
 import tensornetwork as tn
 
-from .cythonmodule.negativity_utils import bipartitepurestate_partialtranspose_densitymatrix_cython
 from .cythonmodule.bipartite_denmat import flatten_bipartite_densitymatrix_cython
 from .utils import InvalidQuantumStateException
+
+
+def bipartitepurestate_partialtranspose_densitymatrix(bipartite_tensor, pt_subsys):
+    if not (pt_subsys in [0, 1]):
+        raise ValueError('pt_subsys can only be 0 or 1!')
+
+    ketnode = tn.Node(bipartite_tensor)
+    branode = tn.Node(np.conj(bipartite_tensor))
+    final_node = tn.outer_product(ketnode, branode)
+
+    e0, e1, e2, e3 = final_node[0], final_node[1], final_node[2], final_node[3]
+    if pt_subsys == 0:
+        final_node.reorder_edges([e2, e1, e0, e3])
+    else:
+        final_node.reorder_edges([e0, e3, e2, e1])
+
+    return final_node.tensor
 
 
 def schmidt_coefficients(schmidt_modes):
@@ -68,7 +84,7 @@ def negativity(bipartite_tensor):
 
     """
     dim0, dim1 = bipartite_tensor.shape
-    flatten_fullden_pt = flatten_bipartite_densitymatrix_cython(bipartitepurestate_partialtranspose_densitymatrix_cython(bipartite_tensor, 0 if dim0<dim1 else 1))
+    flatten_fullden_pt = flatten_bipartite_densitymatrix_cython(bipartitepurestate_partialtranspose_densitymatrix(bipartite_tensor, 0 if dim0<dim1 else 1))
 
     eigenvalues = np.linalg.eigvals(flatten_fullden_pt)
     return 0.5 * (np.sum(np.abs(eigenvalues)) - 1)

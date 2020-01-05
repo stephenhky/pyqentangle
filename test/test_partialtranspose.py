@@ -4,7 +4,7 @@ import unittest2
 import numpy as np
 
 from pyqentangle.schmidt import bipartitepurestate_densitymatrix
-from pyqentangle.metrics import bipartitepurestate_partialtranspose_densitymatrix_cython
+from pyqentangle.metrics import bipartitepurestate_partialtranspose_densitymatrix
 from pyqentangle.metrics import flatten_bipartite_densitymatrix_cython
 
 
@@ -17,8 +17,10 @@ class testContinuousEntanglement(unittest2.TestCase):
 
     def test_partialtranpose(self):
         fullden = bipartitepurestate_densitymatrix(self.tensor)
-        fullden_pt0 = bipartitepurestate_partialtranspose_densitymatrix_cython(self.tensor, 0)
-        fullden_pt1 = bipartitepurestate_partialtranspose_densitymatrix_cython(self.tensor, 1)
+        # fullden_pt0 = bipartitepurestate_partialtranspose_densitymatrix_cython(self.tensor, 0)
+        fullden_pt0 = bipartitepurestate_partialtranspose_densitymatrix(self.tensor, 0)
+        # fullden_pt1 = bipartitepurestate_partialtranspose_densitymatrix_cython(self.tensor, 1)
+        fullden_pt1 = bipartitepurestate_partialtranspose_densitymatrix(self.tensor, 1)
 
         self.assertAlmostEqual(fullden[0, 1, 0, 1], 0.6+0j)
         self.assertAlmostEqual(fullden[0, 1, 1, 0], np.sqrt(0.6*0.4)+0j)
@@ -38,8 +40,8 @@ class testContinuousEntanglement(unittest2.TestCase):
 
     def test_flatten(self):
         fullden = bipartitepurestate_densitymatrix(self.tensor)
-        fullden_pt0 = bipartitepurestate_partialtranspose_densitymatrix_cython(self.tensor, 0)
-        fullden_pt1 = bipartitepurestate_partialtranspose_densitymatrix_cython(self.tensor, 1)
+        fullden_pt0 = bipartitepurestate_partialtranspose_densitymatrix(self.tensor, 0)
+        fullden_pt1 = bipartitepurestate_partialtranspose_densitymatrix(self.tensor, 1)
 
         flatten_fullden = flatten_bipartite_densitymatrix_cython(fullden)
         flatten_fullden_pt0 = flatten_bipartite_densitymatrix_cython(fullden_pt0)
