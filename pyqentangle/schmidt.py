@@ -1,12 +1,10 @@
 
 import numpy as np
 import tensornetwork as tn
-from .cythonmodule.bipartite_reddenmat_nocheck import bipartitepurestate_reduceddensitymatrix_nocheck
-from .cythonmodule.bipartite_denmat import bipartitepurestate_densitymatrix_cython
 
 
 # total density matrix
-def bipartitepurestate_densitymatrix(bipartitepurestate_tensor, use_cython=False):
+def bipartitepurestate_densitymatrix(bipartitepurestate_tensor):
     """Calculate the whole density matrix of the bipartitite system
 
     Given a discrete normalized quantum system, given in terms of 2-D numpy array ``bipartitepurestate_tensor``,
@@ -14,22 +12,17 @@ def bipartitepurestate_densitymatrix(bipartitepurestate_tensor, use_cython=False
     calculate the whole density matrix.
 
     :param bipartitepurestate_tensor: tensor describing the bi-partitite states, with each elements the coefficients for :math:`|ij\\rangle`
-    :param use_cython: use legacy Cython code (default: False)
     :return: density matrix
     :type bipartitepurestate_tensor: numpy.ndarray
-    :type use_cython: bool
     :rtype: numpy.ndarray
     """
-    if use_cython:
-        return bipartitepurestate_densitymatrix_cython(bipartitepurestate_tensor)
-
     ketnode = tn.Node(bipartitepurestate_tensor)
     branode = tn.Node(np.conj(bipartitepurestate_tensor))
     denmat_node = tn.outer_product(ketnode, branode)
     return denmat_node.tensor
 
 
-def bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, kept, use_cython=False):
+def bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, kept):
     """Calculate the reduced density matrix for the specified subsystem
 
     Given a discrete normalized quantum system, given in terms of 2-D numpy array ``bipartitepurestate_tensor``,
@@ -48,9 +41,6 @@ def bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, kept, use
     """
     if not (kept in [0, 1]):
         raise ValueError('kept can only be 0 or 1!')
-
-    if use_cython:
-        return bipartitepurestate_reduceddensitymatrix_nocheck(bipartitepurestate_tensor, kept)
 
     ketnode = tn.Node(bipartitepurestate_tensor)
     branode = tn.Node(np.conj(bipartitepurestate_tensor))

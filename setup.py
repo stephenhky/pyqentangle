@@ -5,13 +5,10 @@ import numpy as np
 try:
     from Cython.Build import cythonize
     ext_modules = cythonize(['pyqentangle/cythonmodule/interpolate_nocheck.pyx',
-                             'pyqentangle/cythonmodule/bipartite_reddenmat_nocheck.pyx',
                              'pyqentangle/cythonmodule/bipartite_denmat.pyx'])
 except ImportError:
     ext_modules = [Extension('pyqentangle.cythonmodule.interpolate_nocheck',
                              sources=['pyqentangle/cythonmodule/interpolate_nocheck.c']),
-                   Extension('pyqentangle.cythonmodule.bipartite_reddenmat_nocheck',
-                             sources=['pyqentangle/cythonmodule/bipartite_reddenmat_nocheck.c']),
                    Extension('pyqentangle.cythonmodule.bipartite_denmat',
                              sources=['pyqentangle/cythonmodule/bipartite_denmat.c'])]
 
@@ -28,7 +25,7 @@ def package_description():
 
 
 setup(name='pyqentangle',
-      version="3.1.1a02",
+      version="3.1.1a03",
       description="Quantum Entanglement in Python",
       long_description=package_description(),
       long_description_content_type='text/markdown',
