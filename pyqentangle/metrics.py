@@ -7,6 +7,15 @@ from .utils import InvalidQuantumStateException
 
 
 def bipartitepurestate_partialtranspose_densitymatrix(bipartite_tensor, pt_subsys):
+    """ Calculate the partial transpose of a density matrix.
+
+    :param bipartite_tensor: matrix for the bipartite system
+    :param pt_subsys: subsystem to transpose (either 0 or 1)
+    :return: density matrix after partial transpose
+    :type bipartite_tensor: numpy.ndarray
+    :type pt_subsys: int
+    :rtype: numpy.ndarray
+    """
     if not (pt_subsys in [0, 1]):
         raise ValueError('pt_subsys can only be 0 or 1!')
 
