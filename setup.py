@@ -4,13 +4,10 @@ import numpy as np
 # reference: https://stackoverflow.com/questions/46784964/create-package-with-cython-so-users-can-install-it-without-having-cython-already
 try:
     from Cython.Build import cythonize
-    ext_modules = cythonize(['pyqentangle/cythonmodule/interpolate_nocheck.pyx',
-                             'pyqentangle/cythonmodule/bipartite_denmat.pyx'])
+    ext_modules = cythonize(['pyqentangle/cythonmodule/interpolate_nocheck.pyx'])
 except ImportError:
     ext_modules = [Extension('pyqentangle.cythonmodule.interpolate_nocheck',
-                             sources=['pyqentangle/cythonmodule/interpolate_nocheck.c']),
-                   Extension('pyqentangle.cythonmodule.bipartite_denmat',
-                             sources=['pyqentangle/cythonmodule/bipartite_denmat.c'])]
+                             sources=['pyqentangle/cythonmodule/interpolate_nocheck.c'])]
 
 
 def readme():
