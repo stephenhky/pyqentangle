@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "pyqentangle.interpolate_nocheck",
+        "name": "pyqentangle.cythonmodule.interpolate_nocheck",
         "sources": [
-            "pyqentangle/interpolate_nocheck.pyx"
+            "pyqentangle/cythonmodule/interpolate_nocheck.pyx"
         ]
     },
-    "module_name": "pyqentangle.interpolate_nocheck"
+    "module_name": "pyqentangle.cythonmodule.interpolate_nocheck"
 }
 END: Cython Metadata */
 
@@ -598,8 +598,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__pyqentangle__interpolate_nocheck
-#define __PYX_HAVE_API__pyqentangle__interpolate_nocheck
+#define __PYX_HAVE__pyqentangle__cythonmodule__interpolate_nocheck
+#define __PYX_HAVE_API__pyqentangle__cythonmodule__interpolate_nocheck
 /* Early includes */
 #include <string.h>
 #include <stdio.h>
@@ -835,7 +835,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "pyqentangle/interpolate_nocheck.pyx",
+  "pyqentangle/cythonmodule/interpolate_nocheck.pyx",
   "__init__.pxd",
   "type.pxd",
 };
@@ -1578,12 +1578,12 @@ static PyTypeObject *__pyx_ptype_5numpy_ndarray = 0;
 static PyTypeObject *__pyx_ptype_5numpy_ufunc = 0;
 static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *, char *, char *, int *); /*proto*/
 
-/* Module declarations from 'pyqentangle.interpolate_nocheck' */
-#define __Pyx_MODULE_NAME "pyqentangle.interpolate_nocheck"
-extern int __pyx_module_is_main_pyqentangle__interpolate_nocheck;
-int __pyx_module_is_main_pyqentangle__interpolate_nocheck = 0;
+/* Module declarations from 'pyqentangle.cythonmodule.interpolate_nocheck' */
+#define __Pyx_MODULE_NAME "pyqentangle.cythonmodule.interpolate_nocheck"
+extern int __pyx_module_is_main_pyqentangle__cythonmodule__interpolate_nocheck;
+int __pyx_module_is_main_pyqentangle__cythonmodule__interpolate_nocheck = 0;
 
-/* Implementation of 'pyqentangle.interpolate_nocheck' */
+/* Implementation of 'pyqentangle.cythonmodule.interpolate_nocheck' */
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -1608,15 +1608,15 @@ static const char __pyx_k_RuntimeError[] = "RuntimeError";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_ndarray_is_not_C_contiguous[] = "ndarray is not C contiguous";
 static const char __pyx_k_numpy_core_multiarray_failed_to[] = "numpy.core.multiarray failed to import";
-static const char __pyx_k_pyqentangle_interpolate_nocheck[] = "pyqentangle/interpolate_nocheck.pyx";
 static const char __pyx_k_unknown_dtype_code_in_numpy_pxd[] = "unknown dtype code in numpy.pxd (%d)";
 static const char __pyx_k_Format_string_allocated_too_shor[] = "Format string allocated too short, see comment in numpy.pxd";
 static const char __pyx_k_Non_native_byte_order_not_suppor[] = "Non-native byte order not supported";
 static const char __pyx_k_ndarray_is_not_Fortran_contiguou[] = "ndarray is not Fortran contiguous";
 static const char __pyx_k_numerical_continuous_interpolati[] = "numerical_continuous_interpolation_nocheck_cython";
 static const char __pyx_k_numpy_core_umath_failed_to_impor[] = "numpy.core.umath failed to import";
-static const char __pyx_k_pyqentangle_interpolate_nocheck_2[] = "pyqentangle.interpolate_nocheck";
+static const char __pyx_k_pyqentangle_cythonmodule_interpo[] = "pyqentangle/cythonmodule/interpolate_nocheck.pyx";
 static const char __pyx_k_Format_string_allocated_too_shor_2[] = "Format string allocated too short.";
+static const char __pyx_k_pyqentangle_cythonmodule_interpo_2[] = "pyqentangle.cythonmodule.interpolate_nocheck";
 static PyObject *__pyx_kp_u_Format_string_allocated_too_shor;
 static PyObject *__pyx_kp_u_Format_string_allocated_too_shor_2;
 static PyObject *__pyx_n_s_ImportError;
@@ -1636,8 +1636,8 @@ static PyObject *__pyx_n_s_numerical_continuous_interpolati;
 static PyObject *__pyx_n_s_numpy;
 static PyObject *__pyx_kp_s_numpy_core_multiarray_failed_to;
 static PyObject *__pyx_kp_s_numpy_core_umath_failed_to_impor;
-static PyObject *__pyx_kp_s_pyqentangle_interpolate_nocheck;
-static PyObject *__pyx_n_s_pyqentangle_interpolate_nocheck_2;
+static PyObject *__pyx_kp_s_pyqentangle_cythonmodule_interpo;
+static PyObject *__pyx_n_s_pyqentangle_cythonmodule_interpo_2;
 static PyObject *__pyx_n_s_range;
 static PyObject *__pyx_n_s_right;
 static PyObject *__pyx_n_s_test;
@@ -1646,7 +1646,7 @@ static PyObject *__pyx_n_s_val;
 static PyObject *__pyx_n_s_x;
 static PyObject *__pyx_n_s_xarray;
 static PyObject *__pyx_n_s_yarray;
-static PyObject *__pyx_pf_11pyqentangle_19interpolate_nocheck_numerical_continuous_interpolation_nocheck_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_xarray, PyArrayObject *__pyx_v_yarray, double __pyx_v_x); /* proto */
+static PyObject *__pyx_pf_11pyqentangle_12cythonmodule_19interpolate_nocheck_numerical_continuous_interpolation_nocheck_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_xarray, PyArrayObject *__pyx_v_yarray, double __pyx_v_x); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
 static PyObject *__pyx_tuple_;
@@ -1660,7 +1660,7 @@ static PyObject *__pyx_tuple__8;
 static PyObject *__pyx_codeobj__9;
 /* Late includes */
 
-/* "pyqentangle/interpolate_nocheck.pyx":6
+/* "pyqentangle/cythonmodule/interpolate_nocheck.pyx":6
  * 
  * 
  * def numerical_continuous_interpolation_nocheck_cython(np.ndarray xarray, np.ndarray yarray, double x):             # <<<<<<<<<<<<<<
@@ -1669,9 +1669,9 @@ static PyObject *__pyx_codeobj__9;
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11pyqentangle_19interpolate_nocheck_1numerical_continuous_interpolation_nocheck_cython(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11pyqentangle_19interpolate_nocheck_1numerical_continuous_interpolation_nocheck_cython = {"numerical_continuous_interpolation_nocheck_cython", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11pyqentangle_19interpolate_nocheck_1numerical_continuous_interpolation_nocheck_cython, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11pyqentangle_19interpolate_nocheck_1numerical_continuous_interpolation_nocheck_cython(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11pyqentangle_12cythonmodule_19interpolate_nocheck_1numerical_continuous_interpolation_nocheck_cython(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11pyqentangle_12cythonmodule_19interpolate_nocheck_1numerical_continuous_interpolation_nocheck_cython = {"numerical_continuous_interpolation_nocheck_cython", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11pyqentangle_12cythonmodule_19interpolate_nocheck_1numerical_continuous_interpolation_nocheck_cython, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11pyqentangle_12cythonmodule_19interpolate_nocheck_1numerical_continuous_interpolation_nocheck_cython(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyArrayObject *__pyx_v_xarray = 0;
   PyArrayObject *__pyx_v_yarray = 0;
   double __pyx_v_x;
@@ -1730,13 +1730,13 @@ static PyObject *__pyx_pw_11pyqentangle_19interpolate_nocheck_1numerical_continu
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("numerical_continuous_interpolation_nocheck_cython", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 6, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("pyqentangle.interpolate_nocheck.numerical_continuous_interpolation_nocheck_cython", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyqentangle.cythonmodule.interpolate_nocheck.numerical_continuous_interpolation_nocheck_cython", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_xarray), __pyx_ptype_5numpy_ndarray, 1, "xarray", 0))) __PYX_ERR(0, 6, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_yarray), __pyx_ptype_5numpy_ndarray, 1, "yarray", 0))) __PYX_ERR(0, 6, __pyx_L1_error)
-  __pyx_r = __pyx_pf_11pyqentangle_19interpolate_nocheck_numerical_continuous_interpolation_nocheck_cython(__pyx_self, __pyx_v_xarray, __pyx_v_yarray, __pyx_v_x);
+  __pyx_r = __pyx_pf_11pyqentangle_12cythonmodule_19interpolate_nocheck_numerical_continuous_interpolation_nocheck_cython(__pyx_self, __pyx_v_xarray, __pyx_v_yarray, __pyx_v_x);
 
   /* function exit code */
   goto __pyx_L0;
@@ -1747,7 +1747,7 @@ static PyObject *__pyx_pw_11pyqentangle_19interpolate_nocheck_1numerical_continu
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11pyqentangle_19interpolate_nocheck_numerical_continuous_interpolation_nocheck_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_xarray, PyArrayObject *__pyx_v_yarray, double __pyx_v_x) {
+static PyObject *__pyx_pf_11pyqentangle_12cythonmodule_19interpolate_nocheck_numerical_continuous_interpolation_nocheck_cython(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_xarray, PyArrayObject *__pyx_v_yarray, double __pyx_v_x) {
   int __pyx_v_left;
   int __pyx_v_right;
   int __pyx_v_idx;
@@ -1767,7 +1767,7 @@ static PyObject *__pyx_pf_11pyqentangle_19interpolate_nocheck_numerical_continuo
   double __pyx_t_11;
   __Pyx_RefNannySetupContext("numerical_continuous_interpolation_nocheck_cython", 0);
 
-  /* "pyqentangle/interpolate_nocheck.pyx":7
+  /* "pyqentangle/cythonmodule/interpolate_nocheck.pyx":7
  * 
  * def numerical_continuous_interpolation_nocheck_cython(np.ndarray xarray, np.ndarray yarray, double x):
  *     cdef int left = 0             # <<<<<<<<<<<<<<
@@ -1776,7 +1776,7 @@ static PyObject *__pyx_pf_11pyqentangle_19interpolate_nocheck_numerical_continuo
  */
   __pyx_v_left = 0;
 
-  /* "pyqentangle/interpolate_nocheck.pyx":8
+  /* "pyqentangle/cythonmodule/interpolate_nocheck.pyx":8
  * def numerical_continuous_interpolation_nocheck_cython(np.ndarray xarray, np.ndarray yarray, double x):
  *     cdef int left = 0
  *     cdef int right = len(xarray) - 1             # <<<<<<<<<<<<<<
@@ -1786,7 +1786,7 @@ static PyObject *__pyx_pf_11pyqentangle_19interpolate_nocheck_numerical_continuo
   __pyx_t_1 = PyObject_Length(((PyObject *)__pyx_v_xarray)); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 8, __pyx_L1_error)
   __pyx_v_right = (__pyx_t_1 - 1);
 
-  /* "pyqentangle/interpolate_nocheck.pyx":9
+  /* "pyqentangle/cythonmodule/interpolate_nocheck.pyx":9
  *     cdef int left = 0
  *     cdef int right = len(xarray) - 1
  *     cdef int idx = len(xarray) / 2             # <<<<<<<<<<<<<<
@@ -1796,7 +1796,7 @@ static PyObject *__pyx_pf_11pyqentangle_19interpolate_nocheck_numerical_continuo
   __pyx_t_1 = PyObject_Length(((PyObject *)__pyx_v_xarray)); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 9, __pyx_L1_error)
   __pyx_v_idx = __Pyx_div_Py_ssize_t(__pyx_t_1, 2);
 
-  /* "pyqentangle/interpolate_nocheck.pyx":10
+  /* "pyqentangle/cythonmodule/interpolate_nocheck.pyx":10
  *     cdef int right = len(xarray) - 1
  *     cdef int idx = len(xarray) / 2
  *     while (idx != 0 and idx != len(xarray) - 1) and (not (x >= xarray[idx] and x < xarray[idx + 1])):             # <<<<<<<<<<<<<<
@@ -1848,7 +1848,7 @@ static PyObject *__pyx_pf_11pyqentangle_19interpolate_nocheck_numerical_continuo
     __pyx_L5_bool_binop_done:;
     if (!__pyx_t_2) break;
 
-    /* "pyqentangle/interpolate_nocheck.pyx":11
+    /* "pyqentangle/cythonmodule/interpolate_nocheck.pyx":11
  *     cdef int idx = len(xarray) / 2
  *     while (idx != 0 and idx != len(xarray) - 1) and (not (x >= xarray[idx] and x < xarray[idx + 1])):
  *         if x >= xarray[idx + 1]:             # <<<<<<<<<<<<<<
@@ -1867,7 +1867,7 @@ static PyObject *__pyx_pf_11pyqentangle_19interpolate_nocheck_numerical_continuo
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     if (__pyx_t_2) {
 
-      /* "pyqentangle/interpolate_nocheck.pyx":12
+      /* "pyqentangle/cythonmodule/interpolate_nocheck.pyx":12
  *     while (idx != 0 and idx != len(xarray) - 1) and (not (x >= xarray[idx] and x < xarray[idx + 1])):
  *         if x >= xarray[idx + 1]:
  *             left = idx + 1             # <<<<<<<<<<<<<<
@@ -1876,7 +1876,7 @@ static PyObject *__pyx_pf_11pyqentangle_19interpolate_nocheck_numerical_continuo
  */
       __pyx_v_left = (__pyx_v_idx + 1);
 
-      /* "pyqentangle/interpolate_nocheck.pyx":11
+      /* "pyqentangle/cythonmodule/interpolate_nocheck.pyx":11
  *     cdef int idx = len(xarray) / 2
  *     while (idx != 0 and idx != len(xarray) - 1) and (not (x >= xarray[idx] and x < xarray[idx + 1])):
  *         if x >= xarray[idx + 1]:             # <<<<<<<<<<<<<<
@@ -1886,7 +1886,7 @@ static PyObject *__pyx_pf_11pyqentangle_19interpolate_nocheck_numerical_continuo
       goto __pyx_L10;
     }
 
-    /* "pyqentangle/interpolate_nocheck.pyx":13
+    /* "pyqentangle/cythonmodule/interpolate_nocheck.pyx":13
  *         if x >= xarray[idx + 1]:
  *             left = idx + 1
  *         elif x < xarray[idx]:             # <<<<<<<<<<<<<<
@@ -1904,7 +1904,7 @@ static PyObject *__pyx_pf_11pyqentangle_19interpolate_nocheck_numerical_continuo
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_2) {
 
-      /* "pyqentangle/interpolate_nocheck.pyx":14
+      /* "pyqentangle/cythonmodule/interpolate_nocheck.pyx":14
  *             left = idx + 1
  *         elif x < xarray[idx]:
  *             right = idx - 1             # <<<<<<<<<<<<<<
@@ -1913,7 +1913,7 @@ static PyObject *__pyx_pf_11pyqentangle_19interpolate_nocheck_numerical_continuo
  */
       __pyx_v_right = (__pyx_v_idx - 1);
 
-      /* "pyqentangle/interpolate_nocheck.pyx":13
+      /* "pyqentangle/cythonmodule/interpolate_nocheck.pyx":13
  *         if x >= xarray[idx + 1]:
  *             left = idx + 1
  *         elif x < xarray[idx]:             # <<<<<<<<<<<<<<
@@ -1923,7 +1923,7 @@ static PyObject *__pyx_pf_11pyqentangle_19interpolate_nocheck_numerical_continuo
     }
     __pyx_L10:;
 
-    /* "pyqentangle/interpolate_nocheck.pyx":15
+    /* "pyqentangle/cythonmodule/interpolate_nocheck.pyx":15
  *         elif x < xarray[idx]:
  *             right = idx - 1
  *         idx = (left + right) / 2             # <<<<<<<<<<<<<<
@@ -1933,7 +1933,7 @@ static PyObject *__pyx_pf_11pyqentangle_19interpolate_nocheck_numerical_continuo
     __pyx_v_idx = __Pyx_div_long((__pyx_v_left + __pyx_v_right), 2);
   }
 
-  /* "pyqentangle/interpolate_nocheck.pyx":18
+  /* "pyqentangle/cythonmodule/interpolate_nocheck.pyx":18
  * 
  *     # interpolation
  *     cdef double val = yarray[idx] + (yarray[idx + 1] - yarray[idx]) / (xarray[idx + 1] - xarray[idx]) * (x - xarray[idx])             # <<<<<<<<<<<<<<
@@ -1983,7 +1983,7 @@ static PyObject *__pyx_pf_11pyqentangle_19interpolate_nocheck_numerical_continuo
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_v_val = __pyx_t_11;
 
-  /* "pyqentangle/interpolate_nocheck.pyx":19
+  /* "pyqentangle/cythonmodule/interpolate_nocheck.pyx":19
  *     # interpolation
  *     cdef double val = yarray[idx] + (yarray[idx + 1] - yarray[idx]) / (xarray[idx + 1] - xarray[idx]) * (x - xarray[idx])
  *     return val             # <<<<<<<<<<<<<<
@@ -1995,7 +1995,7 @@ static PyObject *__pyx_pf_11pyqentangle_19interpolate_nocheck_numerical_continuo
   __pyx_t_6 = 0;
   goto __pyx_L0;
 
-  /* "pyqentangle/interpolate_nocheck.pyx":6
+  /* "pyqentangle/cythonmodule/interpolate_nocheck.pyx":6
  * 
  * 
  * def numerical_continuous_interpolation_nocheck_cython(np.ndarray xarray, np.ndarray yarray, double x):             # <<<<<<<<<<<<<<
@@ -2010,7 +2010,7 @@ static PyObject *__pyx_pf_11pyqentangle_19interpolate_nocheck_numerical_continuo
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_10);
-  __Pyx_AddTraceback("pyqentangle.interpolate_nocheck.numerical_continuous_interpolation_nocheck_cython", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyqentangle.cythonmodule.interpolate_nocheck.numerical_continuous_interpolation_nocheck_cython", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4501,8 +4501,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_numpy, __pyx_k_numpy, sizeof(__pyx_k_numpy), 0, 0, 1, 1},
   {&__pyx_kp_s_numpy_core_multiarray_failed_to, __pyx_k_numpy_core_multiarray_failed_to, sizeof(__pyx_k_numpy_core_multiarray_failed_to), 0, 0, 1, 0},
   {&__pyx_kp_s_numpy_core_umath_failed_to_impor, __pyx_k_numpy_core_umath_failed_to_impor, sizeof(__pyx_k_numpy_core_umath_failed_to_impor), 0, 0, 1, 0},
-  {&__pyx_kp_s_pyqentangle_interpolate_nocheck, __pyx_k_pyqentangle_interpolate_nocheck, sizeof(__pyx_k_pyqentangle_interpolate_nocheck), 0, 0, 1, 0},
-  {&__pyx_n_s_pyqentangle_interpolate_nocheck_2, __pyx_k_pyqentangle_interpolate_nocheck_2, sizeof(__pyx_k_pyqentangle_interpolate_nocheck_2), 0, 0, 1, 1},
+  {&__pyx_kp_s_pyqentangle_cythonmodule_interpo, __pyx_k_pyqentangle_cythonmodule_interpo, sizeof(__pyx_k_pyqentangle_cythonmodule_interpo), 0, 0, 1, 0},
+  {&__pyx_n_s_pyqentangle_cythonmodule_interpo_2, __pyx_k_pyqentangle_cythonmodule_interpo_2, sizeof(__pyx_k_pyqentangle_cythonmodule_interpo_2), 0, 0, 1, 1},
   {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
   {&__pyx_n_s_right, __pyx_k_right, sizeof(__pyx_k_right), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
@@ -4604,7 +4604,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
 
-  /* "pyqentangle/interpolate_nocheck.pyx":6
+  /* "pyqentangle/cythonmodule/interpolate_nocheck.pyx":6
  * 
  * 
  * def numerical_continuous_interpolation_nocheck_cython(np.ndarray xarray, np.ndarray yarray, double x):             # <<<<<<<<<<<<<<
@@ -4614,7 +4614,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__8 = PyTuple_Pack(7, __pyx_n_s_xarray, __pyx_n_s_yarray, __pyx_n_s_x, __pyx_n_s_left, __pyx_n_s_right, __pyx_n_s_idx, __pyx_n_s_val); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
-  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(3, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyqentangle_interpolate_nocheck, __pyx_n_s_numerical_continuous_interpolati, 6, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(3, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyqentangle_cythonmodule_interpo, __pyx_n_s_numerical_continuous_interpolati, 6, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -4892,14 +4892,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_pyqentangle__interpolate_nocheck) {
+  if (__pyx_module_is_main_pyqentangle__cythonmodule__interpolate_nocheck) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 2, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "pyqentangle.interpolate_nocheck")) {
-      if (unlikely(PyDict_SetItemString(modules, "pyqentangle.interpolate_nocheck", __pyx_m) < 0)) __PYX_ERR(0, 2, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "pyqentangle.cythonmodule.interpolate_nocheck")) {
+      if (unlikely(PyDict_SetItemString(modules, "pyqentangle.cythonmodule.interpolate_nocheck", __pyx_m) < 0)) __PYX_ERR(0, 2, __pyx_L1_error)
     }
   }
   #endif
@@ -4920,7 +4920,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
   #endif
 
-  /* "pyqentangle/interpolate_nocheck.pyx":2
+  /* "pyqentangle/cythonmodule/interpolate_nocheck.pyx":2
  * 
  * import numpy as np             # <<<<<<<<<<<<<<
  * cimport numpy as np
@@ -4931,19 +4931,19 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyqentangle/interpolate_nocheck.pyx":6
+  /* "pyqentangle/cythonmodule/interpolate_nocheck.pyx":6
  * 
  * 
  * def numerical_continuous_interpolation_nocheck_cython(np.ndarray xarray, np.ndarray yarray, double x):             # <<<<<<<<<<<<<<
  *     cdef int left = 0
  *     cdef int right = len(xarray) - 1
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11pyqentangle_19interpolate_nocheck_1numerical_continuous_interpolation_nocheck_cython, NULL, __pyx_n_s_pyqentangle_interpolate_nocheck_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11pyqentangle_12cythonmodule_19interpolate_nocheck_1numerical_continuous_interpolation_nocheck_cython, NULL, __pyx_n_s_pyqentangle_cythonmodule_interpo_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_numerical_continuous_interpolati, __pyx_t_1) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyqentangle/interpolate_nocheck.pyx":2
+  /* "pyqentangle/cythonmodule/interpolate_nocheck.pyx":2
  * 
  * import numpy as np             # <<<<<<<<<<<<<<
  * cimport numpy as np
@@ -4969,11 +4969,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_1);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init pyqentangle.interpolate_nocheck", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init pyqentangle.cythonmodule.interpolate_nocheck", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init pyqentangle.interpolate_nocheck");
+    PyErr_SetString(PyExc_ImportError, "init pyqentangle.cythonmodule.interpolate_nocheck");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

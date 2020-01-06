@@ -2,7 +2,6 @@
 import numpy as np
 import tensornetwork as tn
 
-from .cythonmodule.bipartite_denmat import flatten_bipartite_densitymatrix_cython
 from .utils import InvalidQuantumStateException
 
 
@@ -30,6 +29,21 @@ def bipartitepurestate_partialtranspose_densitymatrix(bipartite_tensor, pt_subsy
         final_node.reorder_edges([e0, e3, e2, e1])
 
     return final_node.tensor
+
+
+def flatten_bipartite_densitymatrix(bipartite_tensor):
+    """ Flatten a bipartite state density matrix to a rank-2 matrix.
+
+    :param bipartite_tensor: density matrix (rank-4) for the bipartite system
+    :return: flatten rank-2 density matrix
+    :type bipartite_tensor: numpy.ndarray
+    :rtype: numpy.ndarray
+    """
+    denmat_node = tn.Node(bipartite_tensor)
+    e0, e1, e2, e3 = denmat_node[0], denmat_node[1], denmat_node[2], denmat_node[3]
+    tn.flatten_edges([e0, e1])
+    tn.flatten_edges([e2, e3])
+    return denmat_node.tensor
 
 
 def schmidt_coefficients(schmidt_modes):
@@ -93,7 +107,12 @@ def negativity(bipartite_tensor):
 
     """
     dim0, dim1 = bipartite_tensor.shape
-    flatten_fullden_pt = flatten_bipartite_densitymatrix_cython(bipartitepurestate_partialtranspose_densitymatrix(bipartite_tensor, 0 if dim0<dim1 else 1))
+    flatten_fullden_pt = flatten_bipartite_densitymatrix(
+        bipartitepurestate_partialtranspose_densitymatrix(
+            bipartite_tensor,
+            0 if dim0<dim1 else 1
+        )
+    )
 
     eigenvalues = np.linalg.eigvals(flatten_fullden_pt)
     return 0.5 * (np.sum(np.abs(eigenvalues)) - 1)
