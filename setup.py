@@ -22,7 +22,7 @@ def package_description():
 
 
 setup(name='pyqentangle',
-      version="3.1.2",
+      version="3.1.3",
       description="Quantum Entanglement in Python",
       long_description=package_description(),
       long_description_content_type='text/markdown',
@@ -33,6 +33,7 @@ setup(name='pyqentangle',
           "License :: OSI Approved :: MIT License",
           "Programming Language :: Python :: 3.6",
           "Programming Language :: Python :: 3.7",
+          "Programming Language :: Python :: 3.8",
           "Programming Language :: Cython",
           "Programming Language :: C",
           "Intended Audience :: Science/Research",
