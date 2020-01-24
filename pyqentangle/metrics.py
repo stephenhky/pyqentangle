@@ -2,7 +2,7 @@
 import numpy as np
 import tensornetwork as tn
 
-from .utils import InvalidQuantumStateException
+from . import InvalidQuantumStateException
 
 
 def bipartitepurestate_partialtranspose_densitymatrix(bipartite_tensor, pt_subsys):

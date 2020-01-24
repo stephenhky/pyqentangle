@@ -4,25 +4,9 @@ from itertools import product
 import numpy as np
 
 from .cythonmodule.interpolate_nocheck import numerical_continuous_interpolation_nocheck_cython
-from . import schmidt_decomposition
+from . import schmidt_decomposition, OutOfRangeException, UnequalLengthException
 
 disentangled_gaussian = lambda x1, x2: np.exp(-0.5 * (x1 * x1 + x2 * x2)) / np.sqrt(np.pi)
-
-
-class OutOfRangeException(Exception):
-    def __init__(self, value):
-        self.msg = "Out of range: " + str(value)
-
-    def __str__(self):
-        return repr(self.msg)
-
-
-class UnequalLengthException(Exception):
-    def __init__(self, array1, array2):
-        self.msg = "Unequal length: " + str(len(array1)) + " vs. " + str(len(array2))
-
-    def __str__(self):
-        return repr(self.msg)
 
 
 def numerical_continuous_interpolation(xarray, yarray, x):
