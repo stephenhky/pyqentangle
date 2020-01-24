@@ -6,8 +6,6 @@ import numpy as np
 from .cythonmodule.interpolate_nocheck import numerical_continuous_interpolation_nocheck_cython
 from . import schmidt_decomposition, OutOfRangeException, UnequalLengthException
 
-disentangled_gaussian = lambda x1, x2: np.exp(-0.5 * (x1 * x1 + x2 * x2)) / np.sqrt(np.pi)
-
 
 def numerical_continuous_interpolation(xarray, yarray, x):
     """Evaluate the value of a function given a variable x using interpolation
