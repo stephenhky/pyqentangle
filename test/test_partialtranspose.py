@@ -16,9 +16,7 @@ class testContinuousEntanglement(unittest2.TestCase):
 
     def test_partialtranpose(self):
         fullden = bipartitepurestate_densitymatrix(self.tensor)
-        # fullden_pt0 = bipartitepurestate_partialtranspose_densitymatrix_cython(self.tensor, 0)
         fullden_pt0 = bipartitepurestate_partialtranspose_densitymatrix(self.tensor, 0)
-        # fullden_pt1 = bipartitepurestate_partialtranspose_densitymatrix_cython(self.tensor, 1)
         fullden_pt1 = bipartitepurestate_partialtranspose_densitymatrix(self.tensor, 1)
 
         self.assertAlmostEqual(fullden[0, 1, 0, 1], 0.6+0j)
