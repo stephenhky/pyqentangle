@@ -3,9 +3,8 @@ import unittest2
 
 import numpy as np
 
-from pyqentangle.schmidt import bipartitepurestate_densitymatrix
-from pyqentangle.metrics import bipartitepurestate_partialtranspose_densitymatrix
-from pyqentangle.metrics import flatten_bipartite_densitymatrix
+from pyqentangle.tncompute import bipartitepurestate_densitymatrix, \
+    bipartitepurestate_partialtranspose_densitymatrix, flatten_bipartite_densitymatrix
 
 
 class testContinuousEntanglement(unittest2.TestCase):

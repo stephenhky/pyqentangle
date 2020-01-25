@@ -1,54 +1,5 @@
 
 import numpy as np
-import tensornetwork as tn
-
-
-# total density matrix
-def bipartitepurestate_densitymatrix(bipartitepurestate_tensor):
-    """Calculate the whole density matrix of the bipartitite system
-
-    Given a discrete normalized quantum system, given in terms of 2-D numpy array ``bipartitepurestate_tensor``,
-    each element of ``bipartitepurestate_tensor[i, j]`` is the coefficient of the ket :math:`|ij\\rangle`,
-    calculate the whole density matrix.
-
-    :param bipartitepurestate_tensor: tensor describing the bi-partitite states, with each elements the coefficients for :math:`|ij\\rangle`
-    :return: density matrix
-    :type bipartitepurestate_tensor: numpy.ndarray
-    :rtype: numpy.ndarray
-    """
-    ketnode = tn.Node(bipartitepurestate_tensor)
-    branode = tn.Node(np.conj(bipartitepurestate_tensor))
-    denmat_node = tn.outer_product(ketnode, branode)
-    return denmat_node.tensor
-
-
-def bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, kept):
-    """Calculate the reduced density matrix for the specified subsystem
-
-    Given a discrete normalized quantum system, given in terms of 2-D numpy array ``bipartitepurestate_tensor``,
-    each element of ``bipartitepurestate_tensor[i, j]`` is the coefficient of the ket :math:`|ij\\rangle`,
-    calculate the reduced density matrix of the specified subsystem.
-
-    :param bipartitepurestate_tensor: tensor describing the bi-partitite states, with each elements the coefficients for :math:`|ij\\rangle`
-    :param kept: subsystem, 0 indicating the first subsystem; 1 the second
-    :param use_cython: use legacy Cython code (default: False)
-    :return: reduced density matrix of the specified subsystem
-    :type bipartitepurestate_tensor: numpy.ndarray
-    :type kept: int
-    :type use_cython: bool
-    :rtype: numpy.ndarray
-
-    """
-    if not (kept in [0, 1]):
-        raise ValueError('kept can only be 0 or 1!')
-
-    ketnode = tn.Node(bipartitepurestate_tensor)
-    branode = tn.Node(np.conj(bipartitepurestate_tensor))
-
-    _ = ketnode[1-kept] ^ branode[1-kept]   # defining the edge
-    reddenmat_node = ketnode @ branode     # contract
-
-    return reddenmat_node.tensor
 
 
 def schmidt_decomposition(bipartitepurestate_tensor):
