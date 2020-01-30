@@ -34,3 +34,8 @@ def harmonic_wavefcn(n):
     """
     const = 1/sqrt(2**n * tail_factorial(n)) * 1/sqrt(sqrt(pi))
     return lambda x: const * np.exp(-0.5*x*x) * hermite(n)(x)
+
+
+# excited interaction states
+def coupled_excited_harmonics(n):
+    return lambda x1, x2: np.exp(-0.5*(x1+x2)*(x1+x2)) * harmonic_wavefcn(n)(x1-x2)
