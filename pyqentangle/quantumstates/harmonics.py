@@ -3,6 +3,7 @@ from math import sqrt, pi
 
 import numpy as np
 from scipy.special import hermite
+from scipy.integrate import dblquad
 
 def disentangled_gaussian_wavefcn():
     """
@@ -38,4 +39,7 @@ def harmonic_wavefcn(n):
 
 # excited interaction states
 def coupled_excited_harmonics(n):
-    return lambda x1, x2: np.exp(-0.5*(x1+x2)*(x1+x2)) * harmonic_wavefcn(n)(x1-x2)
+    unnormalized_fcn = lambda x1, x2: np.exp(-0.5*(x1+x2)*(x1+x2)) * harmonic_wavefcn(n)(x1-x2)
+    norm = dblquad(unnormalized_fcn, -10, 10, lambda x: -10, lambda y: 10)
+    const = 1./np.sqrt(norm)
+    return lambda x1, x2: const * np.exp(-0.5*(x1+x2)*(x1+x2)) * harmonic_wavefcn(n)(x1-x2)
