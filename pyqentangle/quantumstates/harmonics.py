@@ -79,8 +79,11 @@ def coupled_excited_harmonics(n):
     :param n:
     :return:
     """
+    normsq = lambda x: x * np.conj(x)
     unnormalized_fcn = lambda x1, x2: np.exp(-0.5*(x1+x2)*(x1+x2)) * harmonic_wavefcn(n)(x1-x2)
-    norm, _ = dblquad(lambda x1, x2: unnormalized_fcn(x1, x2), -np.inf, np.inf, lambda x: -np.inf, lambda y: np.inf)
+    norm, _ = dblquad(lambda x1, x2: normsq(unnormalized_fcn(x1, x2)),
+                      -np.inf, np.inf,
+                      lambda x: -np.inf, lambda y: np.inf)
     const = 1./np.sqrt(norm)
     return lambda x1, x2: const * np.exp(-0.5*(x1+x2)*(x1+x2)) * harmonic_wavefcn(n)(x1-x2)
 
