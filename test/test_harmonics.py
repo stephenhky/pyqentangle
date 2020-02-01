@@ -12,7 +12,7 @@ normsq = lambda x: x*np.conj(x)
 
 class testHarmonicsNorm(unittest2.TestCase):
     def test_disentangled_gaussian(self):
-        norm, err = dblquad(lambda x1, x2: normsq(disentangled_gaussian_wavefcn(x1, x2)),
+        norm, err = dblquad(lambda x1, x2: normsq(disentangled_gaussian_wavefcn()(x1, x2)),
                             -np.inf, np.inf, lambda x: -np.inf, lambda y: np.inf)
         self.assertAlmostEqual(norm, 1, delta=abs(err))
 
