@@ -18,12 +18,14 @@ class testHarmonicsNorm(unittest2.TestCase):
 
     def test_correlated_bipartite_gaussian(self):
         covmatrix = np.array([[2., 0.5], [0.5, 1.]])
-        norm, err = dblquad(lambda x1, x2: normsq(correlated_bipartite_gaussian_wavefcn(covmatrix)(x1, x2)),
+        wavefcn = correlated_bipartite_gaussian_wavefcn(covmatrix)
+        norm, err = dblquad(lambda x1, x2: normsq(wavefcn(x1, x2)),
                             -np.inf, np.inf, lambda x: -np.inf, lambda y: np.inf)
         self.assertAlmostEqual(norm, 1, delta=abs(err))
 
     def test_excited_states(self):
-        for n in range(20):
-            norm, err = dblquad(lambda x1, x2: normsq(coupled_excited_harmonics(n)(x1, x2)),
+        for n in range(3):
+            wavefcn = coupled_excited_harmonics(n)
+            norm, err = dblquad(lambda x1, x2: normsq(wavefcn(x1, x2)),
                                 -100, 100, lambda x2: -100, lambda x2: 100)
             self.assertAlmostEqual(norm, 1, delta=abs(err))
