@@ -28,10 +28,8 @@ class testContinuousEntanglement(unittest2.TestCase):
 
         norm1, err1 = quad(lambda x1: np.real(np.conjugate(decompositions[0][1](np.array([x1])))*decompositions[0][1](np.array([x1]))), -10, 10)
         norm2, err2 = quad(lambda x2: np.real(np.conjugate(decompositions[0][2](np.array([x2])))*decompositions[0][2](np.array([x2]))), -10, 10)
-        print(norm1, err1)
-        print(norm2, err2)
-        self.assertAlmostEqual(norm1, 1., delta=1e-2)
-        self.assertAlmostEqual(norm2, 1., delta=1e-2)
+        self.assertAlmostEqual(norm1, 1., delta=err1)
+        self.assertAlmostEqual(norm2, 1., delta=err2)
 
     def testInterpolation(self):
         xarray = np.array([0., 1., 2.])
