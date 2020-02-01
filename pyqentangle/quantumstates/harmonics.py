@@ -39,7 +39,12 @@ def harmonic_wavefcn(n):
 
 # excited interaction states
 def coupled_excited_harmonics(n):
+    """
+
+    :param n:
+    :return:
+    """
     unnormalized_fcn = lambda x1, x2: np.exp(-0.5*(x1+x2)*(x1+x2)) * harmonic_wavefcn(n)(x1-x2)
-    norm = dblquad(unnormalized_fcn, -10, 10, lambda x: -10, lambda y: 10)
+    norm, _ = dblquad(lambda x1, x2: unnormalized_fcn(x1, x2), -np.inf, np.inf, lambda x: -np.inf, lambda y: np.inf)
     const = 1./np.sqrt(norm)
     return lambda x1, x2: const * np.exp(-0.5*(x1+x2)*(x1+x2)) * harmonic_wavefcn(n)(x1-x2)
