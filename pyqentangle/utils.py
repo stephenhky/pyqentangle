@@ -18,3 +18,11 @@ class UnequalLengthException(Exception):
 
     def __str__(self):
         return repr(self.msg)
+
+
+class InvalidMatrix(Exception):
+    def __init__(self, msg = "Invalid matrix"):
+        self.msg = msg
+
+    def __str__(self):
+        return repr(self.msg)
