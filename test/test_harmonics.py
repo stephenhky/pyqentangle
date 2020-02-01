@@ -22,8 +22,8 @@ class testHarmonicsNorm(unittest2.TestCase):
                             -np.inf, np.inf, lambda x: -np.inf, lambda y: np.inf)
         self.assertAlmostEqual(norm, 1, delta=abs(err))
 
-    def test_first_excited_state(self):
+    def test_excited_states(self):
         for n in range(20):
             norm, err = dblquad(lambda x1, x2: normsq(coupled_excited_harmonics(n)(x1, x2)),
-                                -np.inf, np.inf, lambda x: -np.inf, lambda y: np.inf)
+                                -100, 100, lambda x2: -100, lambda x2: 100)
             self.assertAlmostEqual(norm, 1, delta=abs(err))

@@ -74,16 +74,19 @@ def harmonic_wavefcn(n):
 
 # excited interaction states
 def coupled_excited_harmonics(n):
-    """
+    """ Return a bipartitite wavefunction, with ground state of center of mass,
+    but excited state for the interaction.
 
-    :param n:
-    :return:
+    :param n: quantum harmonic state number for the interaction
+    :return: wavefunction of two variables
+    :type n: int
+    :rtype: function
     """
     normsq = lambda x: x * np.conj(x)
     unnormalized_fcn = lambda x1, x2: np.exp(-0.5*(x1+x2)*(x1+x2)) * harmonic_wavefcn(n)(x1-x2)
     norm, _ = dblquad(lambda x1, x2: normsq(unnormalized_fcn(x1, x2)),
-                      -np.inf, np.inf,
-                      lambda x: -np.inf, lambda y: np.inf)
+                      -100, 100,
+                      lambda x2: -100, lambda x2: 100)
     const = 1./np.sqrt(norm)
     return lambda x1, x2: const * np.exp(-0.5*(x1+x2)*(x1+x2)) * harmonic_wavefcn(n)(x1-x2)
 
