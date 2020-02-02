@@ -4,6 +4,7 @@ import unittest2
 import numpy as np
 
 import pyqentangle
+import pyqentangle.tncompute
 
 
 class TestFullDen(unittest2.TestCase):
@@ -16,7 +17,7 @@ class TestFullDen(unittest2.TestCase):
     def test_uneventwolevels(self):
         tensor = np.array([[0., np.sqrt(np.reciprocal(3.))],
                            [-np.sqrt(2./3.)*1j, 0.]])
-        fulldenmat = pyqentangle.schmidt.bipartitepurestate_densitymatrix(tensor)
+        fulldenmat = pyqentangle.tncompute.bipartitepurestate_densitymatrix(tensor)
 
         self.assertAlmostEqual(fulldenmat[0, 1, 0, 1], np.reciprocal(3.))
         self.assertAlmostEqual(fulldenmat[1, 0, 1, 0], 2./3.)
