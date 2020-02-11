@@ -61,7 +61,7 @@ def schmidt_decomposition(bipartitepurestate_tensor, approach='tensornetwork'):
     """
     if approach == 'numpy':
         return schmidt_decomposition_numpy(bipartitepurestate_tensor)
-    elif approach == 'tensorflow':
+    elif approach == 'tensornetwork':
         return schmidt_decomposition_tensornetwork(bipartitepurestate_tensor)
     else:
         raise ValueError("Approach is either 'numpy' or 'tensorflow', not {}.".format(approach))
