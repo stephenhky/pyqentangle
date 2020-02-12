@@ -29,3 +29,4 @@ class testHarmonicsNorm(unittest2.TestCase):
             norm, err = dblquad(lambda x1, x2: normsq(wavefcn(x1, x2)),
                                 -100, 100, lambda x2: -100, lambda x2: 100)
             self.assertAlmostEqual(norm, 1, delta=abs(err))
+

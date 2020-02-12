@@ -35,13 +35,12 @@ def schmidt_decomposition_tensornetwork(bipartitepurestate_tensor):
     node = tn.Node(bipartitepurestate_tensor)
     vecs1, diags, vecs2_h, _ = tn.split_node_full_svd(node, [node[0]], [node[1]])
 
-    decomposition = [(diags.tensor[k], vecs1.tensor[:, k], vecs2_h.tensor[k, :])
+    decomposition = [(diags.tensor[k, k], vecs1.tensor[:, k], vecs2_h.tensor[k, :])
                      for k in range(mindim)]
 
     decomposition = sorted(decomposition, key=lambda dec: dec[0], reverse=True)
 
     return decomposition
-
 
 
 def schmidt_decomposition(bipartitepurestate_tensor, approach='tensornetwork'):
