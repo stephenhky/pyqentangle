@@ -53,8 +53,10 @@ def schmidt_decomposition(bipartitepurestate_tensor, approach='tensornetwork'):
     second subsystem.
 
     :param bipartitepurestate_tensor: tensor describing the bi-partitite states, with each elements the coefficients for :math:`|ij\\rangle`
+    :param approach: using `numpy` or `tensornetwork` in computation. (default: `tensornetwork`)
     :return: list of tuples containing the Schmidt coefficient, eigenmode for first subsystem, and eigenmode for second subsystem
     :type bipartitepurestate_tensor: numpy.ndarray
+    :type approach: str
     :rtype: list
     :raise ValueError
     """
