@@ -123,7 +123,7 @@ def continuous_schmidt_decomposition(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100,
     :type keep: int
     :type approach: str
     :rtype: list
-
+    :raise ValueError
     """
     tensor = discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=nb_x1, nb_x2=nb_x2)
     decomposition = schmidt_decomposition(tensor, approach=approach)
