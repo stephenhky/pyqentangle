@@ -94,7 +94,8 @@ def discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=10
     return tensor
 
 
-def continuous_schmidt_decomposition(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100, nb_x2=100, keep=None):
+def continuous_schmidt_decomposition(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100, nb_x2=100, keep=None,
+                                     approach='tensornetwork'):
     """Compute the Schmidt decomposition of a continuous bipartite quantum systems
 
     Given a function `fcn` (a function with two input variables), perform the Schmidt
@@ -110,6 +111,7 @@ def continuous_schmidt_decomposition(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100,
     :param nb_x1: number of :math:`x_1` (default: 100)
     :param nb_x2: number of :math:`x_2` (default: 100)
     :param keep: the number of Schmidt modes with the largest coefficients to return; the smaller of `nb_x1` and `nb_x2` will be returned if `None` is given. (default: `None`)
+    :param approach: using `numpy` or `tensornetwork` in computation. (default: `tensornetwork`)
     :return: list of tuples, where each contains a Schmidt coefficient, the lambda function of the eigenmode of the first subsystem, and the lambda function of the eigenmode of the second subsystem
     :type fcn: function
     :type x1_lo: float
@@ -119,11 +121,12 @@ def continuous_schmidt_decomposition(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100,
     :type nb_x1: int
     :type nb_x2: int
     :type keep: int
+    :type approach: str
     :rtype: list
 
     """
     tensor = discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=nb_x1, nb_x2=nb_x2)
-    decomposition = schmidt_decomposition(tensor)
+    decomposition = schmidt_decomposition(tensor, approach=approach)
 
     if keep is not None or keep > len(decomposition):
         keep = len(decomposition)

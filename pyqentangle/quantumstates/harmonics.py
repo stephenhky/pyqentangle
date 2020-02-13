@@ -82,13 +82,14 @@ def coupled_excited_harmonics(n):
     :type n: int
     :rtype: function
     """
-    normsq = lambda x: x * np.conj(x)
-    unnormalized_fcn = lambda x1, x2: np.exp(-0.5*(x1+x2)*(x1+x2)) * harmonic_wavefcn(n)(x1-x2)
-    norm, _ = dblquad(lambda x1, x2: normsq(unnormalized_fcn(x1, x2)),
-                      -100, 100,
-                      lambda x2: -100, lambda x2: 100)
-    const = 1./np.sqrt(norm)
-    return lambda x1, x2: const * np.exp(-0.5*(x1+x2)*(x1+x2)) * harmonic_wavefcn(n)(x1-x2)
+    # normsq = lambda x: x * np.conj(x)
+    # unnormalized_fcn = lambda x1, x2: np.exp(-0.5*(x1+x2)*(x1+x2)) * harmonic_wavefcn(n)(x1-x2)
+    # norm, _ = dblquad(lambda x1, x2: normsq(unnormalized_fcn(x1, x2)),
+    #                   -100, 100,
+    #                   lambda x2: -100, lambda x2: 100)
+    # const = 1./np.sqrt(norm)
+    # return lambda x1, x2: const * np.exp(-0.5*(x1+x2)*(x1+x2)) * harmonic_wavefcn(n)(x1-x2)
+    return lambda x1, x2: harmonic_wavefcn(0)(0.5*(x1+x2)) * harmonic_wavefcn(n)(x1-x2)
 
 
 # tutorial on double integration: https://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html#general-multiple-integration-dblquad-tplquad-nquad
