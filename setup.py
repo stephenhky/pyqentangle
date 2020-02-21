@@ -22,7 +22,7 @@ def package_description():
 
 
 setup(name='pyqentangle',
-      version="3.1.5",
+      version="3.1.6",
       description="Quantum Entanglement in Python",
       long_description=package_description(),
       long_description_content_type='text/markdown',
@@ -45,7 +45,7 @@ setup(name='pyqentangle',
       author="Kwan-Yuet Ho",
       author_email="stephenhky@yahoo.com.hk",
       license='MIT',
-      packages=['pyqentangle', 'pyqentangle.quantumstates'],
+      packages=['pyqentangle', 'pyqentangle.quantumstates', 'pyqentangle.cythonmodule'],
       include_dirs=[np.get_include()],
       setup_requires=['Cython', 'numpy', ],
       install_requires=['numpy', 'scipy', 'tensornetwork'],
