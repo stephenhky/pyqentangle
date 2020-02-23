@@ -58,7 +58,7 @@ def schmidt_decomposition(bipartitepurestate_tensor, approach='tensornetwork'):
     :type bipartitepurestate_tensor: numpy.ndarray
     :type approach: str
     :rtype: list
-    :raise ValueError
+    :raise: ValueError
     """
     if approach == 'numpy':
         return schmidt_decomposition_numpy(bipartitepurestate_tensor)
