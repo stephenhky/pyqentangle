@@ -3,6 +3,9 @@
 [![Build Status](https://travis-ci.org/stephenhky/pyqentangle.svg?branch=master)](https://travis-ci.org/stephenhky/pyqentangle)
 [![GitHub release](https://img.shields.io/github/release/stephenhky/pyqentangle.svg?maxAge=3600)](https://github.com/stephenhky/pyqentangle/releases)
 [![Documentation Status](https://readthedocs.org/projects/pyqentangle/badge/?version=latest)](https://pyqentangle.readthedocs.io/en/latest/?badge=latest)
+[![Updates](https://pyup.io/repos/github/stephenhky/pyqentangle/shield.svg)](https://pyup.io/repos/github/stephenhky/pyqentangle/)
+[![Python 3](https://pyup.io/repos/github/stephenhky/pyqentangle/python-3-shield.svg)](https://pyup.io/repos/github/stephenhky/pyqentangle/)
+
 
 ## Version
 
