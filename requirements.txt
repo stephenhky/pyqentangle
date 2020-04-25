@@ -1,4 +1,4 @@
 Cython==0.29.16
 numpy==1.18.3
-scipy
+scipy==1.4.1
 tensornetwork
