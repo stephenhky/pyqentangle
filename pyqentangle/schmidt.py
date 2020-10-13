@@ -12,7 +12,6 @@ def schmidt_decomposition_numpy(bipartitepurestate_tensor):
     :return: list of tuples containing the Schmidt coefficient, eigenmode for first subsystem, and eigenmode for second subsystem
     :type bipartitepurestate_tensor: numpy.ndarray
     :rtype: list
-
     """
     state_dims = bipartitepurestate_tensor.shape
     mindim = np.min(state_dims)
@@ -29,6 +28,15 @@ def schmidt_decomposition_numpy(bipartitepurestate_tensor):
 
 
 def schmidt_decomposition_tensornetwork(bipartitepurestate_tensor):
+    """ Calculate the Schmidt decomposition of the given discrete bipartite quantum system
+
+    This is called by :func:`schmidt_decomposition`. This runs tensornetwork.
+
+    :param bipartitepurestate_tensor: tensor describing the bi-partitite states, with each elements the coefficients for :math:`|ij\\rangle`
+    :return: list of tuples containing the Schmidt coefficient, eigenmode for first subsystem, and eigenmode for second subsystem
+    :type bipartitepurestate_tensor: numpy.ndarray
+    :rtype: list
+    """
     state_dims = bipartitepurestate_tensor.shape
     mindim = np.min(state_dims)
 
