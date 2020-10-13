@@ -1,14 +1,14 @@
 Documentation
 =============
 
-.. automodule:: schmidt
+.. automodule:: pyqentangle.schmidt
    :members:
 
-.. automodule:: continuous
+.. automodule:: pyqentangle.continuous
    :members:
 
-.. automodule:: metrics
+.. automodule:: pyqentangle.metrics
    :members:
 
-.. automodule:: utils
+.. automodule:: pyqentangle.utils
    :members:
