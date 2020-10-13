@@ -3,7 +3,7 @@ from itertools import product
 
 import numpy as np
 
-from .cythonmodule.interpolate_nocheck import numerical_continuous_interpolation_nocheck_cython
+from .cythonmodule.interpolate import numerical_continuous_interpolation_nocheck
 from . import schmidt_decomposition, OutOfRangeException, UnequalLengthException
 
 
@@ -36,7 +36,7 @@ def numerical_continuous_interpolation(xarray, yarray, x):
     if not (x >= minx and x < maxx):
         raise OutOfRangeException(x)
 
-    return numerical_continuous_interpolation_nocheck_cython(xarray, yarray, x)
+    return numerical_continuous_interpolation_nocheck(xarray, yarray, x)
 
 
 def numerical_continuous_function(xarray, yarray):
