@@ -128,8 +128,10 @@ def continuous_schmidt_decomposition(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100,
     tensor = discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=nb_x1, nb_x2=nb_x2)
     decomposition = schmidt_decomposition(tensor, approach=approach)
 
-    if keep is not None or keep > len(decomposition):
-        keep = len(decomposition)
+    if keep is None:
+        keep = min(nb_x1, nb_x2)
+    else:
+        keep = len(decomposition) if keep > len(decomposition) else keep
 
     x1array = np.linspace(x1_lo, x1_hi, nb_x1)
     x2array = np.linspace(x2_lo, x2_hi, nb_x2)
