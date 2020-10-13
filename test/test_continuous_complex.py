@@ -17,7 +17,7 @@ class TestContinuousComplex(unittest2.TestCase):
         for f1_mode, f2_mode in zip(f1_modes, f2_modes):
             f1_eigval = f1_mode[0]
             f2_eigval = f2_mode[0]
-            np.testing(f1_eigval, f2_eigval)
+            np.testing.assert_almost_equal(f1_eigval, f2_eigval)
 
 
 if __name__ == '__main__':
