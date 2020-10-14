@@ -1,10 +1,5 @@
 
-from . import tncompute
-from . import schmidt
-from . import continuous
-from . import metrics
 from . import quantumstates
-from . import cythonmodule
 
 from .utils import OutOfRangeException, UnequalLengthException, InvalidQuantumStateException
 from .schmidt import schmidt_decomposition
