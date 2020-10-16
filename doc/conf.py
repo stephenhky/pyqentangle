@@ -23,11 +23,12 @@ sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('..'))
 sys.path.insert(0, os.path.abspath('../pyqentangle'))
 sys.path.insert(0, os.path.abspath('../pyqentangle/quantumstates'))
+sys.path.insert(0, os.path.abspath('../pyqentangle/cythonmodule'))
 
 # mock
-autodoc_mock_imports = ['pyqentangle.interpolate_nocheck']
-for mocked_import in autodoc_mock_imports:
-    sys.modules[mocked_import] = mock.Mock()
+# autodoc_mock_imports = ['pyqentangle.interpolate_nocheck']
+# for mocked_import in autodoc_mock_imports:
+#     sys.modules[mocked_import] = mock.Mock()
 
 
 # -- General configuration ------------------------------------------------
