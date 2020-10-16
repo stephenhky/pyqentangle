@@ -18,7 +18,7 @@ def schmidt_coefficients(schmidt_modes):
 
 
 def entanglement_entropy(schmidt_modes):
-    """Calculate the entanglement entropy
+    """ Calculate the entanglement entropy
 
     Given the calculated Schmidt modes, compute the entanglement entropy
     with the formula :math:`H=-\\sum_i p_i \log p_i`.
@@ -37,7 +37,7 @@ def entanglement_entropy(schmidt_modes):
 
 # participation ratio
 def participation_ratio(schmidt_modes):
-    """Calculate the participation ratio
+    """ Calculate the participation ratio
 
     Given the calculated Schmidt modes, compute the participation ratio
     with the formula :math:`K=\\frac{1}{\\sum_i p_i^2}`.
@@ -55,7 +55,7 @@ def participation_ratio(schmidt_modes):
 
 # negativity
 def negativity(bipartite_tensor):
-    """Calculate the negativity
+    """ Calculate the negativity
 
     Given a normalized bipartite discrete state, compute the negativity
     with the formula :math:`N = \\frac{||\\rho^{\Gamma_A}||_1-1}{2}`
