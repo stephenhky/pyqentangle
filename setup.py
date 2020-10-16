@@ -21,8 +21,12 @@ def package_description():
     return text[startpos:]
 
 
+def install_requirements():
+    return [package_string.strip() for package_string in open('requirements.txt', 'r')]
+
+
 setup(name='pyqentangle',
-      version="3.1.7",
+      version="3.1.8a1",
       description="Quantum Entanglement in Python",
       long_description=package_description(),
       long_description_content_type='text/markdown',
@@ -48,8 +52,8 @@ setup(name='pyqentangle',
       packages=['pyqentangle', 'pyqentangle.quantumstates', 'pyqentangle.cythonmodule'],
       include_dirs=[np.get_include()],
       setup_requires=['Cython', 'numpy', ],
-      install_requires=['numpy', 'scipy', 'tensornetwork'],
-      tests_require=['unittest2', 'numpy', 'scipy', 'tensornetwork'],
+      install_requires=install_requirements(),
+      tests_require=['unittest2',],
       ext_modules=ext_modules,
       test_suite="test",
       include_package_data=True,

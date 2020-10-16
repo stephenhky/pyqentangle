@@ -30,3 +30,6 @@ class testHarmonicsNorm(unittest2.TestCase):
                                 -100, 100, lambda x2: -100, lambda x2: 100)
             self.assertAlmostEqual(norm, 1, delta=abs(err))
 
+
+if __name__ == '__main__':
+    unittest2.main()
