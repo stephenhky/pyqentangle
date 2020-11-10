@@ -1,5 +1,6 @@
 
 from . import quantumstates
+from . import cythonmodule
 
 from .utils import OutOfRangeException, UnequalLengthException, InvalidQuantumStateException
 from .schmidt import schmidt_decomposition
