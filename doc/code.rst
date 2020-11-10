@@ -12,3 +12,6 @@ Documentation
 
 .. automodule:: pyqentangle.utils
    :members:
+
+.. automodule:: pyqentangle.quantumstates.harmonics
+   :members:
