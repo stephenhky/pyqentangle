@@ -22,3 +22,7 @@ class TestInterpolation(unittest2.TestCase):
         ys = f(np.array([1.5, 2.5]))
         self.assertAlmostEqual(ys[0], 1.5+1.5j)
         self.assertAlmostEqual(ys[1], 2.5+2.5j)
+
+
+if __name__ == '__main__':
+    unittest2.main()
