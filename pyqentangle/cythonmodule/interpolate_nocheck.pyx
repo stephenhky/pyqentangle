@@ -15,5 +15,5 @@ def numerical_continuous_interpolation_nocheck_cython(np.ndarray xarray, np.ndar
         idx = (left + right) / 2
 
     # interpolation
-    cdef double val = yarray[idx] + (yarray[idx + 1] - yarray[idx]) / (xarray[idx + 1] - xarray[idx]) * (x - xarray[idx])
+    cdef complex val = yarray[idx] + (yarray[idx + 1] - yarray[idx]) / (xarray[idx + 1] - xarray[idx]) * (x - xarray[idx])
     return val

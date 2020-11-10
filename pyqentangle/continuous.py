@@ -58,7 +58,8 @@ def numerical_continuous_function(xarray, yarray):
     :rtype: function
     :raises: OutOfRangeException
     """
-    return lambda xs: np.array(list(map(lambda x: numerical_continuous_interpolation(xarray, yarray, x), xs)))
+    return lambda xs: np.array(list(map(lambda x: numerical_continuous_interpolation(xarray, yarray, x), xs)),
+                               dtype=np.complex)
 
 
 def discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100, nb_x2=100):
@@ -88,7 +89,7 @@ def discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=10
     """
     x1 = np.linspace(x1_lo, x1_hi, nb_x1)
     x2 = np.linspace(x2_lo, x2_hi, nb_x2)
-    tensor = np.zeros((len(x1), len(x2)))
+    tensor = np.zeros((len(x1), len(x2)), dtype=np.complex)
     for i, j in product(*map(range, tensor.shape)):
         tensor[i, j] = fcn(x1[i], x2[j])
     return tensor
@@ -128,8 +129,10 @@ def continuous_schmidt_decomposition(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100,
     tensor = discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=nb_x1, nb_x2=nb_x2)
     decomposition = schmidt_decomposition(tensor, approach=approach)
 
-    if keep is not None or keep > len(decomposition):
-        keep = len(decomposition)
+    if keep is None:
+        keep = min(nb_x1, nb_x2)
+    else:
+        keep = len(decomposition) if keep > len(decomposition) else keep
 
     x1array = np.linspace(x1_lo, x1_hi, nb_x1)
     x2array = np.linspace(x2_lo, x2_hi, nb_x2)
