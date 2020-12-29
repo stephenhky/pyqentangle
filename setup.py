@@ -50,6 +50,10 @@ setup(name='pyqentangle',
       author_email="stephenhky@yahoo.com.hk",
       license='MIT',
       packages=['pyqentangle', 'pyqentangle.quantumstates', 'pyqentangle.cythonmodule'],
+      package_dir={'pyqentangle': 'pyqentangle'},
+      package_data={
+          'pyqentangle': ['cythonmodule/*.c', 'cythonmodule/*.pyx']
+      },
       include_dirs=[np.get_include()],
       setup_requires=['Cython', 'numpy', ],
       install_requires=install_requirements(),
