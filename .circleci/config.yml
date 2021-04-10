@@ -1,0 +1,58 @@
+version: 2
+
+shared: &shared
+  working_directory: ~/pyqentangle
+
+  steps:
+    - checkout
+
+    - run:
+        name: Apt Install
+        command: |
+          sudo apt-get update
+          sudo apt-get install libc6
+
+    - run:
+        name: Installing Packages
+        command: |
+          pip install --upgrade --user pip
+          pip install --upgrade --user numpy
+          pip install --upgrade --user scipy
+          pip install --upgrade --user Cython
+
+    - run:
+        name: Run Unit Tests
+        command: |
+          python setup.py test
+
+
+
+jobs:
+  py36:
+    <<: *shared
+    docker:
+      - image: circleci/python:3.6
+
+  py37:
+    <<: *shared
+    docker:
+      - image: circleci/python:3.7
+
+  py38:
+    <<: *shared
+    docker:
+      - image: circleci/python:3.8
+
+  py39:
+    <<: *shared
+    docker:
+      - image: circleci/python:3.9
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - py36
+      - py37
+      - py38
+      - py39
