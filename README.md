@@ -1,6 +1,6 @@
 # Quantum Entanglement in Python
 
-[![CircleCI](https://circleci.com/gh/stephenhky/pyqentagle.svg?style=svg)](https://circleci.com/gh/stephenhky/pyqentangle.svg)
+[![CircleCI](https://circleci.com/gh/stephenhky/pyqentangle.svg?style=svg)](https://circleci.com/gh/stephenhky/pyqentangle.svg)
 [![GitHub release](https://img.shields.io/github/release/stephenhky/pyqentangle.svg?maxAge=3600)](https://github.com/stephenhky/pyqentangle/releases)
 [![Documentation Status](https://readthedocs.org/projects/pyqentangle/badge/?version=latest)](https://pyqentangle.readthedocs.io/en/latest/?badge=latest)
 [![Updates](https://pyup.io/repos/github/stephenhky/pyqentangle/shield.svg)](https://pyup.io/repos/github/stephenhky/pyqentangle/)
