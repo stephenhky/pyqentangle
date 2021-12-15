@@ -5,7 +5,8 @@
 [![Documentation Status](https://readthedocs.org/projects/pyqentangle/badge/?version=latest)](https://pyqentangle.readthedocs.io/en/latest/?badge=latest)
 [![Updates](https://pyup.io/repos/github/stephenhky/pyqentangle/shield.svg)](https://pyup.io/repos/github/stephenhky/pyqentangle/)
 [![Python 3](https://pyup.io/repos/github/stephenhky/pyqentangle/python-3-shield.svg)](https://pyup.io/repos/github/stephenhky/pyqentangle/)
-
+[![pypi](https://img.shields.io/pypi/v/pyqentangle.svg?maxAge=3600)](https://pypi.org/project/pyqentangle/)
+[![download](https://img.shields.io/pypi/dm/pyqentangle.svg?maxAge=2592000&label=installs&color=%2327B1FF)](https://pypi.org/project/pyqentangle/)
 
 ## Version
 
