@@ -1,4 +1,4 @@
-import unittest2
+import unittest
 
 import numpy as np
 
@@ -6,7 +6,7 @@ import pyqentangle
 import pyqentangle.tncompute
 
 
-class testRedDenMat(unittest2.TestCase):
+class testRedDenMat(unittest.TestCase):
     def setUp(self):
         pass
 
@@ -90,4 +90,4 @@ class testRedDenMat(unittest2.TestCase):
 
 
 if __name__ == '__main__':
-    unittest2.main()
+    unittest.main()
