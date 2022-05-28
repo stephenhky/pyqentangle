@@ -1,11 +1,11 @@
 
-import unittest2
+import unittest
 
 import numpy as np
 
 import pyqentangle
 
-class testDiscreteEntanglement(unittest2.TestCase):
+class testDiscreteEntanglement(unittest.TestCase):
     def setUp(self):
         pass
 
@@ -23,4 +23,4 @@ class testDiscreteEntanglement(unittest2.TestCase):
 
 
 if __name__ == '__main__':
-    unittest2.main()
+    unittest.main()

@@ -1,5 +1,5 @@
 
-import unittest2
+import unittest
 
 import numpy as np
 from scipy.integrate import dblquad
@@ -10,7 +10,7 @@ from pyqentangle.quantumstates.harmonics import disentangled_gaussian_wavefcn, c
 normsq = lambda x: x*np.conj(x)
 
 
-class testHarmonicsNorm(unittest2.TestCase):
+class testHarmonicsNorm(unittest.TestCase):
     def test_disentangled_gaussian(self):
         norm, err = dblquad(lambda x1, x2: normsq(disentangled_gaussian_wavefcn()(x1, x2)),
                             -np.inf, np.inf, lambda x: -np.inf, lambda y: np.inf)
@@ -32,4 +32,4 @@ class testHarmonicsNorm(unittest2.TestCase):
 
 
 if __name__ == '__main__':
-    unittest2.main()
+    unittest.main()
