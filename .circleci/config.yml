@@ -16,7 +16,6 @@ shared: &shared
         name: Installing Packages
         command: |
           pip install --upgrade --user pip
-          pip install --upgrade --user requests
           pip install --upgrade --user numpy
           pip install --upgrade --user scipy
           pip install --upgrade --user Cython

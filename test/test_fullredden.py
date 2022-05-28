@@ -1,5 +1,5 @@
 
-import unittest2
+import unittest
 
 import numpy as np
 
@@ -7,7 +7,7 @@ import pyqentangle
 import pyqentangle.tncompute
 
 
-class TestFullDen(unittest2.TestCase):
+class TestFullDen(unittest.TestCase):
     def setUp(self):
         pass
 
@@ -25,4 +25,4 @@ class TestFullDen(unittest2.TestCase):
         self.assertAlmostEqual(fulldenmat[1, 0, 0, 1], -np.sqrt(2) / 3 * 1j)
 
 if __name__ == '__main__':
-    unittest2.main()
+    unittest.main()

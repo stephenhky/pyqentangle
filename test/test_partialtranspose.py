@@ -1,5 +1,5 @@
 
-import unittest2
+import unittest
 
 import numpy as np
 
@@ -7,7 +7,7 @@ from pyqentangle.tncompute import bipartitepurestate_densitymatrix, \
     bipartitepurestate_partialtranspose_densitymatrix, flatten_bipartite_densitymatrix
 
 
-class testContinuousEntanglement(unittest2.TestCase):
+class testContinuousEntanglement(unittest.TestCase):
     def setUp(self):
         self.tensor = np.array([[0., np.sqrt(0.6) * 1j], [np.sqrt(0.4) * 1j, 0.]])
 
@@ -62,4 +62,4 @@ class testContinuousEntanglement(unittest2.TestCase):
 
 
 if __name__ == '__main__':
-    unittest2.main()
+    unittest.main()

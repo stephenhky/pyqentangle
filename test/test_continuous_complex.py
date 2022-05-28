@@ -1,12 +1,12 @@
 
-import unittest2
+import unittest
 
 import numpy as np
 
 import pyqentangle
 
 
-class TestContinuousComplex(unittest2.TestCase):
+class TestContinuousComplex(unittest.TestCase):
     def test_imagpart(self):
         f1 = lambda x1, x2: np.exp(-0.5 * (x1 + x2) ** 2) * np.exp(-(x1 - x2) ** 2) * np.sqrt(np.sqrt(8.) / np.pi)
         f2 = lambda x1, x2: f1(x1, x2) * np.sqrt(0.5) * (1 + 1j)
@@ -21,4 +21,4 @@ class TestContinuousComplex(unittest2.TestCase):
 
 
 if __name__ == '__main__':
-    unittest2.main()
+    unittest.main()

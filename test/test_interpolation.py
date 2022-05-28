@@ -1,12 +1,12 @@
 
-import unittest2
+import unittest
 
 import numpy as np
 
 from pyqentangle.continuous import numerical_continuous_function
 
 
-class TestInterpolation(unittest2.TestCase):
+class TestInterpolation(unittest.TestCase):
     def test_real(self):
         xarray = np.array([0., 1., 2., 3.])
         yarray = np.array([1., 3., 5., 7.])
@@ -25,4 +25,4 @@ class TestInterpolation(unittest2.TestCase):
 
 
 if __name__ == '__main__':
-    unittest2.main()
+    unittest.main()

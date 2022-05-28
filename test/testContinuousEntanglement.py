@@ -1,12 +1,12 @@
 
-import unittest2
+import unittest
 
 import numpy as np
 from scipy.integrate import quad
 
 import pyqentangle
 
-class testContinuousEntanglement(unittest2.TestCase):
+class testContinuousEntanglement(unittest.TestCase):
     def setUp(self):
         pass
 
@@ -38,4 +38,4 @@ class testContinuousEntanglement(unittest2.TestCase):
         self.assertAlmostEqual(pyqentangle.continuous.numerical_continuous_interpolation(xarray, yarray, 1.5), 2.5)
 
 if __name__ == '__main__':
-    unittest2.main()
+    unittest.main()
