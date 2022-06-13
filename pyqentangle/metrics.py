@@ -1,4 +1,6 @@
 
+import warnings
+
 import numpy as np
 import tensornetwork as tn
 
@@ -33,6 +35,17 @@ def entanglement_entropy(schmidt_modes):
     square_eigenvalues = np.square(np.extract(eigenvalues > 0, eigenvalues))
     entropy = np.sum(- square_eigenvalues * np.log(square_eigenvalues))
     return entropy
+
+
+# Renyi's entropy
+def renyi_entanglement_entropy(schmidt_modes, alpha):
+    if alpha == 1:
+        warnings.warn('alpha = 1, doing Shannon entanglement entropy.')
+        return entanglement_entropy(schmidt_modes)
+    eigenvalues = np.real(schmidt_coefficients(schmidt_modes))
+    square_eigenvalues = np.square(np.extract(eigenvalues > 0, eigenvalues))
+    renyi_entropy = np.log(np.sum(square_eigenvalues**alpha)) / (1-alpha)
+    return renyi_entropy
 
 
 # participation ratio
