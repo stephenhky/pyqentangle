@@ -23,7 +23,7 @@ def entanglement_entropy(schmidt_modes):
     """ Calculate the entanglement entropy
 
     Given the calculated Schmidt modes, compute the entanglement entropy
-    with the formula :math:`H=-\\sum_i p_i \log p_i`.
+    with the formula :math:`H=-\\sum_i p_i \\log p_i`.
 
     :param schmidt_modes: Schmidt modes
     :return: the entanglement entropy
@@ -39,6 +39,15 @@ def entanglement_entropy(schmidt_modes):
 
 # Renyi's entropy
 def renyi_entanglement_entropy(schmidt_modes, alpha):
+    """ Calculate the Renyi's entanglement entropy
+
+    Given the calculated Schmidt modes and an :math:`\\alpha`, compute the
+    Renyi's entanglement entropy with the formula :math:`H= - \\frac{1}{1-\\alpha} \\log \\sum p_i^{\\alpha}`.
+
+    :param schmidt_modes:
+    :param alpha:
+    :return:
+    """
     if alpha == 1:
         warnings.warn('alpha = 1, doing Shannon entanglement entropy.')
         return entanglement_entropy(schmidt_modes)
@@ -71,7 +80,7 @@ def negativity(bipartite_tensor):
     """ Calculate the negativity
 
     Given a normalized bipartite discrete state, compute the negativity
-    with the formula :math:`N = \\frac{||\\rho^{\Gamma_A}||_1-1}{2}`
+    with the formula :math:`N = \\frac{||\\rho^{\\Gamma_A}||_1-1}{2}`
 
     :param bipartite_tensor: tensor describing the bi-partitite states, with each elements the coefficients for :math:`|ij\\rangle`
     :return: negativity
