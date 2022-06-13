@@ -16,7 +16,7 @@ class TestFullDen(unittest.TestCase):
         pass
 
     def test_entanglement_entropy(self):
-        self.assertAlmostEqual(pyqentangle.entanglement_entropy(self.schmidt_modes), 0.8812908992306926)
+        self.assertAlmostEqual(pyqentangle.entanglement_entropy(self.schmidt_modes), 0.8812908992306926*np.shannon)
 
     def test_renyi_entanglement_entropies(self):
         alpha_to_entropies = {
