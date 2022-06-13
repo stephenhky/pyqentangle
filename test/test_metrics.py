@@ -32,7 +32,7 @@ class TestFullDen(unittest.TestCase):
             1000.0: 0.5150882610908489
         }
         for alpha, entropy in alpha_to_entropies.items():
-            self.assertAlmostEqual(pyqentangle.renyi_entanglement_entropy(self.schmidt_modes, alpha), entropy)
+            self.assertAlmostEqual(pyqentangle.renyi_entanglement_entropy(self.schmidt_modes, alpha) / self.shannon, entropy)
 
 
 if __name__ == '__main__':
