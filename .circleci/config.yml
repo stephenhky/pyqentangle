@@ -11,14 +11,13 @@ shared: &shared
         command: |
           sudo apt-get update
           sudo apt-get install libc6
+          sudo apt-get install python3-dev
 
     - run:
         name: Installing Packages
         command: |
           pip install --upgrade --user pip
-          pip install --upgrade --user numpy
-          pip install --upgrade --user scipy
-          pip install --upgrade --user Cython
+          pip install --upgrade --user .
 
     - run:
         name: Run Unit Tests

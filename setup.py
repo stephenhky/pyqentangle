@@ -1,13 +1,10 @@
+
 from setuptools import setup, Extension
 import numpy as np
+from Cython.Build import cythonize
 
-# reference: https://stackoverflow.com/questions/46784964/create-package-with-cython-so-users-can-install-it-without-having-cython-already
-try:
-    from Cython.Build import cythonize
-    ext_modules = cythonize(['pyqentangle/cythonmodule/interpolate_nocheck.pyx'])
-except ImportError:
-    ext_modules = [Extension('pyqentangle.cythonmodule.interpolate_nocheck',
-                             sources=['pyqentangle/cythonmodule/interpolate_nocheck.c'])]
+
+ext_modules = cythonize(['pyqentangle/cythonmodule/interpolate_nocheck.pyx'])
 
 
 def readme():
@@ -26,7 +23,7 @@ def install_requirements():
 
 
 setup(name='pyqentangle',
-      version="3.2.0",
+      version="3.2.1a1",
       description="Quantum Entanglement in Python",
       long_description=package_description(),
       long_description_content_type='text/markdown',
