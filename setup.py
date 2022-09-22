@@ -1,5 +1,5 @@
 
-from setuptools import setup, Extension
+from setuptools import setup
 import numpy as np
 from Cython.Build import cythonize
 
@@ -23,7 +23,7 @@ def install_requirements():
 
 
 setup(name='pyqentangle',
-      version="3.2.1a1",
+      version="3.2.1",
       description="Quantum Entanglement in Python",
       long_description=package_description(),
       long_description_content_type='text/markdown',
