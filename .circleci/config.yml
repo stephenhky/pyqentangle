@@ -10,8 +10,10 @@ shared: &shared
         name: Apt Install
         command: |
           sudo apt-get update
-          sudo apt-get install libc6
-          sudo apt-get install python3-dev
+          sudo apt-get install -y libc6
+          sudo apt-get install -y g++
+          sudo apt-get install -y gfortran
+          sudo apt-get install -y python3-dev
 
     - run:
         name: Installing Packages
@@ -22,7 +24,10 @@ shared: &shared
     - run:
         name: Run Unit Tests
         command: |
-          python setup.py test
+          pip install -U pytest
+          pip install -U pytest-cython
+          pytest --doctest-cython
+#          python setup.py test
 
 
 

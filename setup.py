@@ -1,10 +1,15 @@
 
 from setuptools import setup
 import numpy as np
-from Cython.Build import cythonize
 
-
-ext_modules = cythonize(['pyqentangle/cythonmodule/interpolate_nocheck.pyx'])
+try:
+    from Cython.Build import cythonize
+    ext_modules = cythonize(['pyqentangle/cythonmodule/interpolate_nocheck.pyx'])
+except ImportError:
+    from setuptools import Extension
+    ext_modules = [
+        Extension('pyqentangle.cythonmodule.interpolate_nocheck', ['pyqentangle/cythonmodule/interpolate_nocheck.c'])
+    ]
 
 
 def readme():
