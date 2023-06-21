@@ -1,10 +1,15 @@
 
 from setuptools import setup
 import numpy as np
-from Cython.Build import cythonize
 
-
-ext_modules = cythonize(['pyqentangle/cythonmodule/interpolate_nocheck.pyx'])
+try:
+    from Cython.Build import cythonize
+    ext_modules = cythonize(['pyqentangle/cythonmodule/interpolate_nocheck.pyx'])
+except ImportError:
+    from setuptools import Extension
+    ext_modules = [
+        Extension('pyqentangle.cythonmodule.interpolate_nocheck', ['pyqentangle/cythonmodule/interpolate_nocheck.c'])
+    ]
 
 
 def readme():
@@ -23,7 +28,7 @@ def install_requirements():
 
 
 setup(name='pyqentangle',
-      version="3.2.3",
+      version="3.3.0",
       description="Quantum Entanglement in Python",
       long_description=package_description(),
       long_description_content_type='text/markdown',
@@ -32,11 +37,11 @@ setup(name='pyqentangle',
           "Topic :: Scientific/Engineering :: Mathematics",
           "Topic :: Scientific/Engineering :: Chemistry",
           "License :: OSI Approved :: MIT License",
-          "Programming Language :: Python :: 3.6",
           "Programming Language :: Python :: 3.7",
           "Programming Language :: Python :: 3.8",
           "Programming Language :: Python :: 3.9",
           "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
           "Programming Language :: Cython",
           "Programming Language :: C",
           "Intended Audience :: Science/Research",
