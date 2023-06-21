@@ -59,7 +59,7 @@ def numerical_continuous_function(xarray, yarray):
     :raises: OutOfRangeException
     """
     return lambda xs: np.array(list(map(lambda x: numerical_continuous_interpolation(xarray, yarray, x), xs)),
-                               dtype=np.complex)
+                               dtype=np.complex_)
 
 
 def discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100, nb_x2=100):
@@ -89,7 +89,7 @@ def discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=10
     """
     x1 = np.linspace(x1_lo, x1_hi, nb_x1)
     x2 = np.linspace(x2_lo, x2_hi, nb_x2)
-    tensor = np.zeros((len(x1), len(x2)), dtype=np.complex)
+    tensor = np.zeros((len(x1), len(x2)), dtype=np.complex_)
     for i, j in product(*map(range, tensor.shape)):
         tensor[i, j] = fcn(x1[i], x2[j])
     return tensor
