@@ -1,4 +1,4 @@
-Cython>=3.0.3
+Cython==3.0.3
 numpy==1.23.3
 scipy==1.10.1
 tensornetwork==0.4.6
