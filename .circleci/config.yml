@@ -28,7 +28,6 @@ shared: &shared
           pip install -U pytest
           pip install -U pytest-cython
           pytest --doctest-cython
-#          python setup.py test
 
 
 

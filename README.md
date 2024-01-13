@@ -22,7 +22,7 @@ Since release 3.3.0, support for Python 3.6 is diminished, but that for Python 3
 This package can be installed using `pip`.
 
 ```
->>> pip install -U pyqentangle
+>>> pip install pyqentangle
 ```
 
 To use it, enter
