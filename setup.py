@@ -28,7 +28,7 @@ def install_requirements():
 
 
 setup(name='pyqentangle',
-      version="3.3.1",
+      version="3.3.2a1",
       description="Quantum Entanglement in Python",
       long_description=package_description(),
       long_description_content_type='text/markdown',
@@ -61,6 +61,7 @@ setup(name='pyqentangle',
       include_dirs=[np.get_include()],
       setup_requires=['Cython', 'numpy', ],
       install_requires=install_requirements(),
+      test_requires=['pytest', 'pytest-cython'],
       ext_modules=ext_modules,
       test_suite="test",
       include_package_data=True,
