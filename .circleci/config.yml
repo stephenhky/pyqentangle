@@ -25,8 +25,8 @@ shared: &shared
     - run:
         name: Run Unit Tests
         command: |
-          pip install -U pytest
-          pip install -U pytest-cython
+          pip install pytest
+          pip install pytest-cython
           pytest --doctest-cython
 
 
