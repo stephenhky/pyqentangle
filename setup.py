@@ -2,15 +2,6 @@
 from setuptools import setup
 import numpy as np
 
-# try:
-#     from Cython.Build import cythonize
-#     ext_modules = cythonize(['pyqentangle/cythonmodule/interpolate_nocheck.pyx'])
-# except ImportError:
-#     from setuptools import Extension
-#     ext_modules = [
-#         Extension('pyqentangle.cythonmodule.interpolate_nocheck', ['pyqentangle/cythonmodule/interpolate_nocheck.c'])
-#     ]
-
 
 def readme():
     with open('README.md') as f:
@@ -28,7 +19,7 @@ def install_requirements():
 
 
 setup(name='pyqentangle',
-      version="3.3.3a1",
+      version="4.0.0a1",
       description="Quantum Entanglement in Python",
       long_description=package_description(),
       long_description_content_type='text/markdown',
@@ -61,7 +52,6 @@ setup(name='pyqentangle',
       include_dirs=[np.get_include()],
       setup_requires=['numpy', ],
       install_requires=install_requirements(),
-      # ext_modules=ext_modules,
       test_suite="test",
       include_package_data=True,
       zip_safe=False)

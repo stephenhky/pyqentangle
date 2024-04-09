@@ -50,7 +50,6 @@ def numerical_continuous_interpolation(xarray, yarray, x):
         raise OutOfRangeException(x)
 
     return interpolate(xarray, yarray, x)
-    # return numerical_continuous_interpolation_nocheck(xarray, yarray, x)
 
 
 def numerical_continuous_function(xarray, yarray):
