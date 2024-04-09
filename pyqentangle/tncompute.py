@@ -31,13 +31,10 @@ def bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, kept):
 
     :param bipartitepurestate_tensor: tensor describing the bi-partitite states, with each elements the coefficients for :math:`|ij\\rangle`
     :param kept: subsystem, 0 indicating the first subsystem; 1 the second
-    :param use_cython: use legacy Cython code (default: False)
     :return: reduced density matrix of the specified subsystem
     :type bipartitepurestate_tensor: numpy.ndarray
     :type kept: int
-    :type use_cython: bool
     :rtype: numpy.ndarray
-
     """
     if not (kept in [0, 1]):
         raise ValueError('kept can only be 0 or 1!')
