@@ -19,7 +19,7 @@ def install_requirements():
 
 
 setup(name='pyqentangle',
-      version="4.0.0",
+      version="4.0.1a1",
       description="Quantum Entanglement in Python",
       long_description=package_description(),
       long_description_content_type='text/markdown',
@@ -44,9 +44,6 @@ setup(name='pyqentangle',
       license='MIT',
       packages=['pyqentangle', 'pyqentangle.quantumstates'],
       package_dir={'pyqentangle': 'pyqentangle'},
-      # package_data={
-      #     'pyqentangle': ['cythonmodule/*.c', 'cythonmodule/*.pyx']
-      # },
       include_dirs=[np.get_include()],
       setup_requires=['numpy', ],
       install_requires=install_requirements(),
