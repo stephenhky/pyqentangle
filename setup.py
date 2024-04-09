@@ -2,14 +2,14 @@
 from setuptools import setup
 import numpy as np
 
-try:
-    from Cython.Build import cythonize
-    ext_modules = cythonize(['pyqentangle/cythonmodule/interpolate_nocheck.pyx'])
-except ImportError:
-    from setuptools import Extension
-    ext_modules = [
-        Extension('pyqentangle.cythonmodule.interpolate_nocheck', ['pyqentangle/cythonmodule/interpolate_nocheck.c'])
-    ]
+# try:
+#     from Cython.Build import cythonize
+#     ext_modules = cythonize(['pyqentangle/cythonmodule/interpolate_nocheck.pyx'])
+# except ImportError:
+#     from setuptools import Extension
+#     ext_modules = [
+#         Extension('pyqentangle.cythonmodule.interpolate_nocheck', ['pyqentangle/cythonmodule/interpolate_nocheck.c'])
+#     ]
 
 
 def readme():
@@ -53,15 +53,15 @@ setup(name='pyqentangle',
       author="Kwan-Yuet Ho",
       author_email="stephenhky@yahoo.com.hk",
       license='MIT',
-      packages=['pyqentangle', 'pyqentangle.quantumstates', 'pyqentangle.cythonmodule'],
+      packages=['pyqentangle', 'pyqentangle.quantumstates'],
       package_dir={'pyqentangle': 'pyqentangle'},
       package_data={
           'pyqentangle': ['cythonmodule/*.c', 'cythonmodule/*.pyx']
       },
       include_dirs=[np.get_include()],
-      setup_requires=['Cython', 'numpy', ],
+      setup_requires=['numpy', ],
       install_requires=install_requirements(),
-      ext_modules=ext_modules,
+      # ext_modules=ext_modules,
       test_suite="test",
       include_package_data=True,
       zip_safe=False)
