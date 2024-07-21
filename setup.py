@@ -19,7 +19,7 @@ def install_requirements():
 
 
 setup(name='pyqentangle',
-      version="4.0.0",
+      version="4.0.1a1",
       description="Quantum Entanglement in Python",
       long_description=package_description(),
       long_description_content_type='text/markdown',
@@ -33,20 +33,18 @@ setup(name='pyqentangle',
           "Programming Language :: Python :: 3.9",
           "Programming Language :: Python :: 3.10",
           "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
           "Intended Audience :: Science/Research",
           "Intended Audience :: Developers",
           "Intended Audience :: Education"
       ],
       keywords="quantum physics Schmidt decompostion entanglement",
       url="https://github.com/stephenhky/pyqentangle",
-      author="Kwan-Yuet Ho",
+      author="Kwan Yuet Stephen Ho",
       author_email="stephenhky@yahoo.com.hk",
       license='MIT',
       packages=['pyqentangle', 'pyqentangle.quantumstates'],
       package_dir={'pyqentangle': 'pyqentangle'},
-      # package_data={
-      #     'pyqentangle': ['cythonmodule/*.c', 'cythonmodule/*.pyx']
-      # },
       include_dirs=[np.get_include()],
       setup_requires=['numpy', ],
       install_requires=install_requirements(),
