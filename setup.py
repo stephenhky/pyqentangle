@@ -19,7 +19,7 @@ def install_requirements():
 
 
 setup(name='pyqentangle',
-      version="4.0.1",
+      version="4.0.2",
       description="Quantum Entanglement in Python",
       long_description=package_description(),
       long_description_content_type='text/markdown',
