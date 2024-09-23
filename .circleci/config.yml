@@ -20,12 +20,12 @@ shared: &shared
         command: |
           pip install --upgrade --user pip
           pip install --upgrade --user .
-          CC=gcc python setup.py build_ext --inplace
+#          CC=gcc python setup.py build_ext --inplace
 
     - run:
         name: Run Unit Tests
         command: |
-          pip install pytest
+          pip install --upgrade --user .[test]
           pytest
 
 
