@@ -40,4 +40,4 @@ packages = ["pyqentangle", "pyqentangle.quantumstates"]
 zip-safe = false
 
 [project.optional-dependencies]
-test = ["unittest", "pytest"]
+test = ["unittest2", "pytest"]
