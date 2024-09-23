@@ -9,9 +9,9 @@ shared: &shared
     - run:
         name: Apt Install
         command: |
-#          sudo apt-get update
-#          sudo apt-get install -y libc6
-#          sudo apt-get install -y g++
+          sudo apt-get update
+          sudo apt-get install -y libc6
+          sudo apt-get install -y g++
 #          sudo apt-get install -y gfortran
 #          sudo apt-get install -y python3-dev
 
