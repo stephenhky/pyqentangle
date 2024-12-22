@@ -1,3 +1,3 @@
-numpy==2.2.0
+numpy==2.2.1
 scipy==1.14.1
 tensornetwork==0.4.6
