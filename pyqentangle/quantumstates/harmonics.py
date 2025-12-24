@@ -3,7 +3,6 @@ from math import sqrt, pi
 
 import numpy as np
 from scipy.special import hermite
-from scipy.integrate import dblquad
 
 from ..utils import InvalidMatrix
 

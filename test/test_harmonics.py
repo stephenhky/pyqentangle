@@ -19,7 +19,7 @@ class testHarmonicsNorm(unittest.TestCase):
     def test_correlated_bipartite_gaussian(self):
         covmatrix = np.array([[2., 0.5], [0.5, 1.]])
         wavefcn = correlated_bipartite_gaussian_wavefcn(covmatrix)
-        norm, err = dblquad(lambda x1, x2: normsq(wavefcn(x1, x2)),
+        norm, err = dblquad(lambda x1, x2: normsq(wavefcn(x1, x2))[0, 0],
                             -np.inf, np.inf, lambda x: -np.inf, lambda y: np.inf)
         self.assertAlmostEqual(norm, 1, delta=abs(err))
 
