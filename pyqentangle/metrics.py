@@ -9,27 +9,28 @@ from .tncompute import bipartitepurestate_partialtranspose_densitymatrix, flatte
 
 
 def schmidt_coefficients(schmidt_modes):
-    """ Retrieving Schmidt coefficients from Schmidt modes.
+    """Retrieve Schmidt coefficients from Schmidt modes.
 
-    :param schmidt_modes: Schmidt modes
-    :return: Schmidt coefficients
-    :type schmidt_modes: list
-    :rtype: numpy.array
+    Args:
+        schmidt_modes (list): Schmidt modes.
+
+    Returns:
+        numpy.array: Schmidt coefficients.
     """
     return np.array([mode[0] for mode in schmidt_modes])
 
 
 def entanglement_entropy(schmidt_modes):
-    """ Calculate the entanglement entropy
+    """Calculate the entanglement entropy.
 
     Given the calculated Schmidt modes, compute the entanglement entropy
     with the formula :math:`H=-\\sum_i p_i \\log p_i`.
 
-    :param schmidt_modes: Schmidt modes
-    :return: the entanglement entropy
-    :type schmidt_modes: list
-    :rtype: numpy.float
+    Args:
+        schmidt_modes (list): Schmidt modes.
 
+    Returns:
+        numpy.float: The entanglement entropy.
     """
     eigenvalues = np.real(schmidt_coefficients(schmidt_modes))
     square_eigenvalues = np.square(np.extract(eigenvalues > 0, eigenvalues))
@@ -39,14 +40,17 @@ def entanglement_entropy(schmidt_modes):
 
 # Renyi's entropy
 def renyi_entanglement_entropy(schmidt_modes, alpha):
-    """ Calculate the Renyi's entanglement entropy
+    """Calculate the Renyi's entanglement entropy.
 
     Given the calculated Schmidt modes and an :math:`\\alpha`, compute the
     Renyi's entanglement entropy with the formula :math:`H= - \\frac{1}{1-\\alpha} \\log \\sum p_i^{\\alpha}`.
 
-    :param schmidt_modes:
-    :param alpha:
-    :return:
+    Args:
+        schmidt_modes: Schmidt modes.
+        alpha: Alpha parameter for Renyi entropy.
+
+    Returns:
+        Renyi's entanglement entropy.
     """
     if alpha == 1:
         warnings.warn('alpha = 1, doing Shannon entanglement entropy.')
@@ -59,16 +63,16 @@ def renyi_entanglement_entropy(schmidt_modes, alpha):
 
 # participation ratio
 def participation_ratio(schmidt_modes):
-    """ Calculate the participation ratio
+    """Calculate the participation ratio.
 
     Given the calculated Schmidt modes, compute the participation ratio
     with the formula :math:`K=\\frac{1}{\\sum_i p_i^2}`.
 
-    :param schmidt_modes: Schmidt modes
-    :return: participation ratio
-    :type schmidt_modes: list
-    :rtype: numpy.float
+    Args:
+        schmidt_modes (list): Schmidt modes.
 
+    Returns:
+        numpy.float: Participation ratio.
     """
     eigenvalues = np.real(np.real(schmidt_coefficients(schmidt_modes)))
     K = 1. / np.sum(np.square(np.square(eigenvalues)))
@@ -77,16 +81,17 @@ def participation_ratio(schmidt_modes):
 
 # negativity
 def negativity(bipartite_tensor):
-    """ Calculate the negativity
+    """Calculate the negativity.
 
     Given a normalized bipartite discrete state, compute the negativity
     with the formula :math:`N = \\frac{||\\rho^{\\Gamma_A}||_1-1}{2}`
 
-    :param bipartite_tensor: tensor describing the bi-partitite states, with each elements the coefficients for :math:`|ij\\rangle`
-    :return: negativity
-    :type bipartite_tensor: numpy.ndarray
-    :rtype: numpy.float
+    Args:
+        bipartite_tensor (numpy.ndarray): Tensor describing the bi-partitite states, with each elements 
+            the coefficients for :math:`|ij\\rangle`.
 
+    Returns:
+        numpy.float: Negativity.
     """
     dim0, dim1 = bipartite_tensor.shape
     flatten_fullden_pt = flatten_bipartite_densitymatrix(
@@ -102,12 +107,14 @@ def negativity(bipartite_tensor):
 
 # concurrence
 def concurrence(bipartite_tensor):
-    """ Calculate the concurrence of a bipartite system that contains 2-dimensional state qubit only.
+    """Calculate the concurrence of a bipartite system that contains 2-dimensional state qubit only.
 
-    :param bipartite_tensor: tensor describing the bi-partitite states, with each elements the coefficients for :math:`|ij\\rangle`
-    :return: concurrence
-    :type bipartite_tensor: numpy.ndarray
-    :rtype: numpy.float
+    Args:
+        bipartite_tensor (numpy.ndarray): Tensor describing the bi-partitite states, with each elements 
+            the coefficients for :math:`|ij\\rangle`.
+
+    Returns:
+        numpy.float: Concurrence.
     """
     dim0, dim1 = bipartite_tensor.shape
     if dim0 != 2 and dim1 != 2:
