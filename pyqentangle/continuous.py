@@ -6,7 +6,7 @@ import numpy as np
 from . import schmidt_decomposition, OutOfRangeException, UnequalLengthException
 
 
-def interpolate(xarray, yarray, x):
+def interpolate(xarray: np.ndarray, yarray: np.ndarray, x: float) -> float:
     left = 0
     right = len(xarray) - 1
     idx = right // 2
@@ -20,7 +20,7 @@ def interpolate(xarray, yarray, x):
     return yarray[idx] + (yarray[idx + 1] - yarray[idx]) / (xarray[idx + 1] - xarray[idx]) * (x - xarray[idx])
 
 
-def numerical_continuous_interpolation(xarray, yarray, x):
+def numerical_continuous_interpolation(xarray: np.ndarray, yarray: np.ndarray, x: float) -> float:
     """Evaluate the value of a function given a variable x using interpolation.
 
     With a function approximated by given arrays of independent variable (`xarray`)
@@ -55,7 +55,7 @@ def numerical_continuous_interpolation(xarray, yarray, x):
     return interpolate(xarray, yarray, x)
 
 
-def numerical_continuous_function(xarray, yarray):
+def numerical_continuous_function(xarray: np.ndarray, yarray: np.ndarray) -> callable:
     """Return a function with the given arrays of independent and dependent variables.
 
     With a function approximated by given arrays of independent variable (`xarray`)
@@ -80,7 +80,7 @@ def numerical_continuous_function(xarray, yarray):
                                dtype=np.complex128)
 
 
-def discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100, nb_x2=100):
+def discretize_continuous_bipartitesys(fcn: callable, x1_lo: float, x1_hi: float, x2_lo: float, x2_hi: float, nb_x1: int = 100, nb_x2: int = 100) -> np.ndarray:
     """Find the discretized representation of the continuous bipartite system.
 
     Given a function `fcn` (a function with two input variables),
@@ -107,8 +107,8 @@ def discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=10
     return tensor
 
 
-def continuous_schmidt_decomposition(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100, nb_x2=100, keep=None,
-                                     approach='tensornetwork'):
+def continuous_schmidt_decomposition(fcn: callable, x1_lo: float, x1_hi: float, x2_lo: float, x2_hi: float, nb_x1: int = 100, nb_x2: int = 100, keep: int = None,
+                                     approach: str = 'tensornetwork') -> list:
     """Compute the Schmidt decomposition of a continuous bipartite quantum systems.
 
     Given a function `fcn` (a function with two input variables), perform the Schmidt
