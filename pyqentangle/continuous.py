@@ -6,7 +6,7 @@ import numpy as np
 from . import schmidt_decomposition, OutOfRangeException, UnequalLengthException
 
 
-def interpolate(xarray, yarray, x):
+def interpolate(xarray: np.ndarray, yarray: np.ndarray, x: float) -> float:
     left = 0
     right = len(xarray) - 1
     idx = right // 2
@@ -20,8 +20,8 @@ def interpolate(xarray, yarray, x):
     return yarray[idx] + (yarray[idx + 1] - yarray[idx]) / (xarray[idx + 1] - xarray[idx]) * (x - xarray[idx])
 
 
-def numerical_continuous_interpolation(xarray, yarray, x):
-    """Evaluate the value of a function given a variable x using interpolation
+def numerical_continuous_interpolation(xarray: np.ndarray, yarray: np.ndarray, x: float) -> float:
+    """Evaluate the value of a function given a variable x using interpolation.
 
     With a function approximated by given arrays of independent variable (`xarray`)
     and of dependent variable (`yarray`), the value of this function given `x` is
@@ -31,14 +31,17 @@ def numerical_continuous_interpolation(xarray, yarray, x):
     is raised; if the lengths of `xarray` and `yarray` are not equal, an
     `UnequalLengthException` is raised.
 
-    :param xarray: an array of independent variable values
-    :param yarray: an array of dependent variable values
-    :param x: the input value at where the function is computed at
-    :return: the value of function with the given `x`
-    :type xarray: numpy.ndarray
-    :type yarray: numpy.ndarray
-    :rtype: float
-    :raises: OutOfRangeException, UnequalLengthException
+    Args:
+        xarray (numpy.ndarray): An array of independent variable values.
+        yarray (numpy.ndarray): An array of dependent variable values.
+        x (float): The input value at which the function is computed.
+
+    Returns:
+        float: The value of function with the given `x`.
+
+    Raises:
+        OutOfRangeException: If `x` is outside the range of `xarray`.
+        UnequalLengthException: If the lengths of `xarray` and `yarray` are not equal.
     """
     if len(xarray) != len(yarray):
         raise UnequalLengthException(xarray, yarray)
@@ -52,8 +55,8 @@ def numerical_continuous_interpolation(xarray, yarray, x):
     return interpolate(xarray, yarray, x)
 
 
-def numerical_continuous_function(xarray, yarray):
-    """Return a function with the given arrays of independent and dependent variables
+def numerical_continuous_function(xarray: np.ndarray, yarray: np.ndarray) -> callable:
+    """Return a function with the given arrays of independent and dependent variables.
 
     With a function approximated by given arrays of independent variable (`xarray`)
     and of dependent variable (`yarray`), it returns a lambda function that takes
@@ -63,42 +66,38 @@ def numerical_continuous_function(xarray, yarray):
     If `x` is outside the range of `xarray`, an `OutOfRangeException`
     is raised.
 
-    :param xarray: an array of independent variable values
-    :param yarray: an array of dependent variable values
-    :return: a lambda function that takes a `numpy.ndarray` as the input parameter and calculate the values
-    :type xarray: numpy.ndarray
-    :type yarray: numpy.ndarray
-    :rtype: function
-    :raises: OutOfRangeException
+    Args:
+        xarray (numpy.ndarray): An array of independent variable values.
+        yarray (numpy.ndarray): An array of dependent variable values.
+
+    Returns:
+        function: A lambda function that takes a `numpy.ndarray` as the input parameter and calculates the values.
+
+    Raises:
+        OutOfRangeException: If `x` is outside the range of `xarray`.
     """
     return lambda xs: np.array(list(map(lambda x: numerical_continuous_interpolation(xarray, yarray, x), xs)),
                                dtype=np.complex128)
 
 
-def discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100, nb_x2=100):
-    """Find the discretized representation of the continuous bipartite system
+def discretize_continuous_bipartitesys(fcn: callable, x1_lo: float, x1_hi: float, x2_lo: float, x2_hi: float, nb_x1: int = 100, nb_x2: int = 100) -> np.ndarray:
+    """Find the discretized representation of the continuous bipartite system.
 
     Given a function `fcn` (a function with two input variables),
     find the discretized representation of the bipartite system, with
     the first system ranges from `x1_lo` to `x1_hi`, and second from `x2_lo` to `x2_hi`.
 
-    :param fcn: function with two input variables
-    :param x1_lo: lower bound of :math:`x_1`
-    :param x1_hi: upper bound of :math:`x_1`
-    :param x2_lo: lower bound of :math:`x_2`
-    :param x2_hi: upper bound of :math:`x_2`
-    :param nb_x1: number of :math:`x_1` (default: 100)
-    :param nb_x2: number of :math:`x_2` (default: 100)
-    :return: discretized tensor representation of the continuous bipartite system
-    :type fcn: function
-    :type x1_lo: float
-    :type x1_hi: float
-    :type x2_lo: float
-    :type x2_hi: float
-    :type nb_x1: int
-    :type nb_x2: int
-    :rtype: numpy.ndarray
+    Args:
+        fcn (function): Function with two input variables.
+        x1_lo (float): Lower bound of :math:`x_1`.
+        x1_hi (float): Upper bound of :math:`x_1`.
+        x2_lo (float): Lower bound of :math:`x_2`.
+        x2_hi (float): Upper bound of :math:`x_2`.
+        nb_x1 (int, optional): Number of :math:`x_1`. Defaults to 100.
+        nb_x2 (int, optional): Number of :math:`x_2`. Defaults to 100.
 
+    Returns:
+        numpy.ndarray: Discretized tensor representation of the continuous bipartite system.
     """
     x1 = np.linspace(x1_lo, x1_hi, nb_x1)
     x2 = np.linspace(x2_lo, x2_hi, nb_x2)
@@ -108,36 +107,33 @@ def discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=10
     return tensor
 
 
-def continuous_schmidt_decomposition(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=100, nb_x2=100, keep=None,
-                                     approach='tensornetwork'):
-    """Compute the Schmidt decomposition of a continuous bipartite quantum systems
+def continuous_schmidt_decomposition(fcn: callable, x1_lo: float, x1_hi: float, x2_lo: float, x2_hi: float, nb_x1: int = 100, nb_x2: int = 100, keep: int = None,
+                                     approach: str = 'tensornetwork') -> list:
+    """Compute the Schmidt decomposition of a continuous bipartite quantum systems.
 
     Given a function `fcn` (a function with two input variables), perform the Schmidt
     decomposition, returning a list of tuples, where each contains a Schmidt decomposition,
     the lambda function of the eigenmode in the first subsystem, and the lambda function
     of the eigenmode of the second subsystem.
 
-    :param fcn: function with two input variables
-    :param x1_lo: lower bound of :math:`x_1`
-    :param x1_hi: upper bound of :math:`x_1`
-    :param x2_lo: lower bound of :math:`x_2`
-    :param x2_hi: upper bound of :math:`x_2`
-    :param nb_x1: number of :math:`x_1` (default: 100)
-    :param nb_x2: number of :math:`x_2` (default: 100)
-    :param keep: the number of Schmidt modes with the largest coefficients to return; the smaller of `nb_x1` and `nb_x2` will be returned if `None` is given. (default: `None`)
-    :param approach: using `numpy` or `tensornetwork` in computation. (default: `tensornetwork`)
-    :return: list of tuples, where each contains a Schmidt coefficient, the lambda function of the eigenmode of the first subsystem, and the lambda function of the eigenmode of the second subsystem
-    :type fcn: function
-    :type x1_lo: float
-    :type x1_hi: float
-    :type x2_lo: float
-    :type x2_hi: float
-    :type nb_x1: int
-    :type nb_x2: int
-    :type keep: int
-    :type approach: str
-    :rtype: list
-    :raise: ValueError
+    Args:
+        fcn (function): Function with two input variables.
+        x1_lo (float): Lower bound of :math:`x_1`.
+        x1_hi (float): Upper bound of :math:`x_1`.
+        x2_lo (float): Lower bound of :math:`x_2`.
+        x2_hi (float): Upper bound of :math:`x_2`.
+        nb_x1 (int, optional): Number of :math:`x_1`. Defaults to 100.
+        nb_x2 (int, optional): Number of :math:`x_2`. Defaults to 100.
+        keep (int, optional): The number of Schmidt modes with the largest coefficients to return; 
+            the smaller of `nb_x1` and `nb_x2` will be returned if `None` is given. Defaults to `None`.
+        approach (str, optional): Using `numpy` or `tensornetwork` in computation. Defaults to `tensornetwork`.
+
+    Returns:
+        list: List of tuples, where each contains a Schmidt coefficient, the lambda function of the 
+        eigenmode of the first subsystem, and the lambda function of the eigenmode of the second subsystem.
+
+    Raises:
+        ValueError: If approach is not 'numpy' or 'tensornetwork'.
     """
     tensor = discretize_continuous_bipartitesys(fcn, x1_lo, x1_hi, x2_lo, x2_hi, nb_x1=nb_x1, nb_x2=nb_x2)
     decomposition = schmidt_decomposition(tensor, approach=approach)

@@ -7,22 +7,23 @@ from scipy.special import hermite
 from ..utils import InvalidMatrix
 
 
-def disentangled_gaussian_wavefcn():
-    """ Return the function of normalized disentangled Gaussian systems.
+def disentangled_gaussian_wavefcn() -> callable:
+    """Return the function of normalized disentangled Gaussian systems.
 
-    :return: function of two variables
-    :rtype: function
+    Returns:
+        function: Function of two variables.
     """
     return lambda x1, x2: np.exp(-0.5 * (x1 * x1 + x2 * x2)) / np.sqrt(np.pi)
 
 
-def correlated_bipartite_gaussian_wavefcn(covmatrix):
-    """ Return a normalized correlated bivariate Gaussian wavefunction.
+def correlated_bipartite_gaussian_wavefcn(covmatrix: np.ndarray) -> callable:
+    """Return a normalized correlated bivariate Gaussian wavefunction.
 
-    :param covmatrix: covariance matrix of size (2, 2)
-    :return: a wavefunction of two variables
-    :type covmatrix: numpy.array
-    :rtype: function
+    Args:
+        covmatrix (numpy.array): Covariance matrix of size (2, 2).
+
+    Returns:
+        function: A wavefunction of two variables.
     """
     if not covmatrix.shape == (2, 2):
         raise InvalidMatrix("Invalid matrix shape: "+str(covmatrix.shape)+"; desired shape: (2, 2)")
@@ -39,17 +40,17 @@ def correlated_bipartite_gaussian_wavefcn(covmatrix):
                                          )
 
 
-def tail_factorial(n, accumulator=1):
-    """ Returns the factorial of an integer.
+def tail_factorial(n: int, accumulator: int = 1) -> int:
+    """Return the factorial of an integer.
 
     The calculation is done by tail recursion.
 
-    :param n: the integer of which the factorial is desired to return
-    :param accumulator: default to be 1, for tail recursion.
-    :return: factorial of `n`
-    :type n: int
-    :type accumulator: int
-    :rtype: int
+    Args:
+        n (int): The integer of which the factorial is desired to return.
+        accumulator (int, optional): Default to be 1, for tail recursion. Defaults to 1.
+
+    Returns:
+        int: Factorial of `n`.
     """
     if n == 0:
         return accumulator
@@ -58,28 +59,30 @@ def tail_factorial(n, accumulator=1):
 
 
 # m = omega = hbar = 1
-def harmonic_wavefcn(n):
-    """ Return the normalized wavefunction of a harmonic oscillator, where $n$ denotes
+def harmonic_wavefcn(n: int) -> callable:
+    """Return the normalized wavefunction of a harmonic oscillator, where $n$ denotes
     that it is an n-th excited state, or ground state for $n=0$.
 
-    :param n: quantum number of the excited state
-    :return: a normalized wavefunction
-    :type n: int
-    :rtype: function
+    Args:
+        n (int): Quantum number of the excited state.
+
+    Returns:
+        function: A normalized wavefunction.
     """
     const = 1/sqrt(2**n * tail_factorial(n)) * 1/sqrt(sqrt(pi))
     return lambda x: const * np.exp(-0.5*x*x) * hermite(n)(x)
 
 
 # excited interaction states
-def coupled_excited_harmonics(n):
-    """ Return a bipartitite wavefunction, with ground state of center of mass,
+def coupled_excited_harmonics(n: int) -> callable:
+    """Return a bipartitite wavefunction, with ground state of center of mass,
     but excited state for the interaction.
 
-    :param n: quantum harmonic state number for the interaction
-    :return: wavefunction of two variables
-    :type n: int
-    :rtype: function
+    Args:
+        n (int): Quantum harmonic state number for the interaction.
+
+    Returns:
+        function: Wavefunction of two variables.
     """
     return lambda x1, x2: harmonic_wavefcn(0)(0.5*(x1+x2)) * harmonic_wavefcn(n)(x1-x2)
 

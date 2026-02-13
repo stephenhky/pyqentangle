@@ -36,7 +36,16 @@ sys.path.insert(0, os.path.abspath('../pyqentangle/quantumstates'))
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.mathjax',
+    'sphinx.ext.napoleon',  # Support for NumPy and Google style docstrings
+    'sphinx.ext.viewcode',   # Add links to highlighted source code
 ]
+
+# Mock imports for packages that are difficult to install
+autodoc_mock_imports = ['tensornetwork', 'numpy', 'scipy']
+
+# Configure autodoc to include type hints
+autodoc_typehints = 'description'
+autodoc_typehints_description_target = 'documented'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
