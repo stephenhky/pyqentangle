@@ -4,7 +4,7 @@ import tensornetwork as tn
 
 
 # total density matrix
-def bipartitepurestate_densitymatrix(bipartitepurestate_tensor):
+def bipartitepurestate_densitymatrix(bipartitepurestate_tensor: np.ndarray) -> np.ndarray:
     """Calculate the whole density matrix of the bipartitite system.
 
     Given a discrete normalized quantum system, given in terms of 2-D numpy array ``bipartitepurestate_tensor``,
@@ -24,7 +24,7 @@ def bipartitepurestate_densitymatrix(bipartitepurestate_tensor):
     return denmat_node.tensor
 
 
-def bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, kept):
+def bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor: np.ndarray, kept: int) -> np.ndarray:
     """Calculate the reduced density matrix for the specified subsystem.
 
     Given a discrete normalized quantum system, given in terms of 2-D numpy array ``bipartitepurestate_tensor``,
@@ -51,7 +51,7 @@ def bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, kept):
     return reddenmat_node.tensor
 
 
-def bipartitepurestate_partialtranspose_densitymatrix(bipartite_tensor, pt_subsys):
+def bipartitepurestate_partialtranspose_densitymatrix(bipartite_tensor: np.ndarray, pt_subsys: int) -> np.ndarray:
     """Calculate the partial transpose of a density matrix.
 
     Args:
@@ -77,7 +77,7 @@ def bipartitepurestate_partialtranspose_densitymatrix(bipartite_tensor, pt_subsy
     return final_node.tensor
 
 
-def flatten_bipartite_densitymatrix(bipartite_tensor):
+def flatten_bipartite_densitymatrix(bipartite_tensor: np.ndarray) -> np.ndarray:
     """Flatten a bipartite state density matrix to a rank-2 matrix.
 
     Args:

@@ -8,7 +8,7 @@ from . import InvalidQuantumStateException
 from .tncompute import bipartitepurestate_partialtranspose_densitymatrix, flatten_bipartite_densitymatrix
 
 
-def schmidt_coefficients(schmidt_modes):
+def schmidt_coefficients(schmidt_modes: list) -> np.ndarray:
     """Retrieve Schmidt coefficients from Schmidt modes.
 
     Args:
@@ -20,7 +20,7 @@ def schmidt_coefficients(schmidt_modes):
     return np.array([mode[0] for mode in schmidt_modes])
 
 
-def entanglement_entropy(schmidt_modes):
+def entanglement_entropy(schmidt_modes: list) -> float:
     """Calculate the entanglement entropy.
 
     Given the calculated Schmidt modes, compute the entanglement entropy
@@ -39,7 +39,7 @@ def entanglement_entropy(schmidt_modes):
 
 
 # Renyi's entropy
-def renyi_entanglement_entropy(schmidt_modes, alpha):
+def renyi_entanglement_entropy(schmidt_modes: list, alpha: float) -> float:
     """Calculate the Renyi's entanglement entropy.
 
     Given the calculated Schmidt modes and an :math:`\\alpha`, compute the
@@ -62,7 +62,7 @@ def renyi_entanglement_entropy(schmidt_modes, alpha):
 
 
 # participation ratio
-def participation_ratio(schmidt_modes):
+def participation_ratio(schmidt_modes: list) -> float:
     """Calculate the participation ratio.
 
     Given the calculated Schmidt modes, compute the participation ratio
@@ -80,7 +80,7 @@ def participation_ratio(schmidt_modes):
 
 
 # negativity
-def negativity(bipartite_tensor):
+def negativity(bipartite_tensor: np.ndarray) -> float:
     """Calculate the negativity.
 
     Given a normalized bipartite discrete state, compute the negativity
@@ -106,7 +106,7 @@ def negativity(bipartite_tensor):
 
 
 # concurrence
-def concurrence(bipartite_tensor):
+def concurrence(bipartite_tensor: np.ndarray) -> float:
     """Calculate the concurrence of a bipartite system that contains 2-dimensional state qubit only.
 
     Args:

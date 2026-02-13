@@ -3,7 +3,7 @@ import numpy as np
 import tensornetwork as tn
 
 
-def schmidt_decomposition_numpy(bipartitepurestate_tensor):
+def schmidt_decomposition_numpy(bipartitepurestate_tensor: np.ndarray) -> list:
     """Calculate the Schmidt decomposition of the given discrete bipartite quantum system.
 
     This is called by :func:`schmidt_decomposition`. This runs numpy.
@@ -30,7 +30,7 @@ def schmidt_decomposition_numpy(bipartitepurestate_tensor):
     return decomposition
 
 
-def schmidt_decomposition_tensornetwork(bipartitepurestate_tensor):
+def schmidt_decomposition_tensornetwork(bipartitepurestate_tensor: np.ndarray) -> list:
     """Calculate the Schmidt decomposition of the given discrete bipartite quantum system.
 
     This is called by :func:`schmidt_decomposition`. This runs tensornetwork.
@@ -57,7 +57,7 @@ def schmidt_decomposition_tensornetwork(bipartitepurestate_tensor):
     return decomposition
 
 
-def schmidt_decomposition(bipartitepurestate_tensor, approach='tensornetwork'):
+def schmidt_decomposition(bipartitepurestate_tensor: np.ndarray, approach: str = 'tensornetwork') -> list:
     """Calculate the Schmidt decomposition of the given discrete bipartite quantum system.
 
     Given a discrete normalized quantum system, given in terms of 2-D numpy array ``bipartitepurestate_tensor``,

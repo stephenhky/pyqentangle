@@ -7,7 +7,7 @@ from scipy.special import hermite
 from ..utils import InvalidMatrix
 
 
-def disentangled_gaussian_wavefcn():
+def disentangled_gaussian_wavefcn() -> callable:
     """Return the function of normalized disentangled Gaussian systems.
 
     Returns:
@@ -16,7 +16,7 @@ def disentangled_gaussian_wavefcn():
     return lambda x1, x2: np.exp(-0.5 * (x1 * x1 + x2 * x2)) / np.sqrt(np.pi)
 
 
-def correlated_bipartite_gaussian_wavefcn(covmatrix):
+def correlated_bipartite_gaussian_wavefcn(covmatrix: np.ndarray) -> callable:
     """Return a normalized correlated bivariate Gaussian wavefunction.
 
     Args:
@@ -40,7 +40,7 @@ def correlated_bipartite_gaussian_wavefcn(covmatrix):
                                          )
 
 
-def tail_factorial(n, accumulator=1):
+def tail_factorial(n: int, accumulator: int = 1) -> int:
     """Return the factorial of an integer.
 
     The calculation is done by tail recursion.
@@ -59,7 +59,7 @@ def tail_factorial(n, accumulator=1):
 
 
 # m = omega = hbar = 1
-def harmonic_wavefcn(n):
+def harmonic_wavefcn(n: int) -> callable:
     """Return the normalized wavefunction of a harmonic oscillator, where $n$ denotes
     that it is an n-th excited state, or ground state for $n=0$.
 
@@ -74,7 +74,7 @@ def harmonic_wavefcn(n):
 
 
 # excited interaction states
-def coupled_excited_harmonics(n):
+def coupled_excited_harmonics(n: int) -> callable:
     """Return a bipartitite wavefunction, with ground state of center of mass,
     but excited state for the interaction.
 

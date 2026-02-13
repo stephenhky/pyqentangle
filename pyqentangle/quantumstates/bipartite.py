@@ -2,7 +2,7 @@
 import numpy as np
 
 
-def create_singlet():
+def create_singlet() -> np.ndarray:
     """Create a singlet state.
 
     Returns:
