@@ -5,16 +5,18 @@ import tensornetwork as tn
 
 # total density matrix
 def bipartitepurestate_densitymatrix(bipartitepurestate_tensor):
-    """Calculate the whole density matrix of the bipartitite system
+    """Calculate the whole density matrix of the bipartitite system.
 
     Given a discrete normalized quantum system, given in terms of 2-D numpy array ``bipartitepurestate_tensor``,
     each element of ``bipartitepurestate_tensor[i, j]`` is the coefficient of the ket :math:`|ij\\rangle`,
     calculate the whole density matrix.
 
-    :param bipartitepurestate_tensor: tensor describing the bi-partitite states, with each elements the coefficients for :math:`|ij\\rangle`
-    :return: density matrix
-    :type bipartitepurestate_tensor: numpy.ndarray
-    :rtype: numpy.ndarray
+    Args:
+        bipartitepurestate_tensor (numpy.ndarray): Tensor describing the bi-partitite states, with each elements 
+            the coefficients for :math:`|ij\\rangle`.
+
+    Returns:
+        numpy.ndarray: Density matrix.
     """
     ketnode = tn.Node(bipartitepurestate_tensor)
     branode = tn.Node(np.conj(bipartitepurestate_tensor))
@@ -23,18 +25,19 @@ def bipartitepurestate_densitymatrix(bipartitepurestate_tensor):
 
 
 def bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, kept):
-    """Calculate the reduced density matrix for the specified subsystem
+    """Calculate the reduced density matrix for the specified subsystem.
 
     Given a discrete normalized quantum system, given in terms of 2-D numpy array ``bipartitepurestate_tensor``,
     each element of ``bipartitepurestate_tensor[i, j]`` is the coefficient of the ket :math:`|ij\\rangle`,
     calculate the reduced density matrix of the specified subsystem.
 
-    :param bipartitepurestate_tensor: tensor describing the bi-partitite states, with each elements the coefficients for :math:`|ij\\rangle`
-    :param kept: subsystem, 0 indicating the first subsystem; 1 the second
-    :return: reduced density matrix of the specified subsystem
-    :type bipartitepurestate_tensor: numpy.ndarray
-    :type kept: int
-    :rtype: numpy.ndarray
+    Args:
+        bipartitepurestate_tensor (numpy.ndarray): Tensor describing the bi-partitite states, with each elements 
+            the coefficients for :math:`|ij\\rangle`.
+        kept (int): Subsystem, 0 indicating the first subsystem; 1 the second.
+
+    Returns:
+        numpy.ndarray: Reduced density matrix of the specified subsystem.
     """
     if not (kept in [0, 1]):
         raise ValueError('kept can only be 0 or 1!')
@@ -49,14 +52,14 @@ def bipartitepurestate_reduceddensitymatrix(bipartitepurestate_tensor, kept):
 
 
 def bipartitepurestate_partialtranspose_densitymatrix(bipartite_tensor, pt_subsys):
-    """ Calculate the partial transpose of a density matrix.
+    """Calculate the partial transpose of a density matrix.
 
-    :param bipartite_tensor: matrix for the bipartite system
-    :param pt_subsys: subsystem to transpose (either 0 or 1)
-    :return: density matrix after partial transpose
-    :type bipartite_tensor: numpy.ndarray
-    :type pt_subsys: int
-    :rtype: numpy.ndarray
+    Args:
+        bipartite_tensor (numpy.ndarray): Matrix for the bipartite system.
+        pt_subsys (int): Subsystem to transpose (either 0 or 1).
+
+    Returns:
+        numpy.ndarray: Density matrix after partial transpose.
     """
     if not (pt_subsys in [0, 1]):
         raise ValueError('pt_subsys can only be 0 or 1!')
@@ -75,12 +78,13 @@ def bipartitepurestate_partialtranspose_densitymatrix(bipartite_tensor, pt_subsy
 
 
 def flatten_bipartite_densitymatrix(bipartite_tensor):
-    """ Flatten a bipartite state density matrix to a rank-2 matrix.
+    """Flatten a bipartite state density matrix to a rank-2 matrix.
 
-    :param bipartite_tensor: density matrix (rank-4) for the bipartite system
-    :return: flatten rank-2 density matrix
-    :type bipartite_tensor: numpy.ndarray
-    :rtype: numpy.ndarray
+    Args:
+        bipartite_tensor (numpy.ndarray): Density matrix (rank-4) for the bipartite system.
+
+    Returns:
+        numpy.ndarray: Flatten rank-2 density matrix.
     """
     denmat_node = tn.Node(bipartite_tensor)
     e0, e1, e2, e3 = denmat_node[0], denmat_node[1], denmat_node[2], denmat_node[3]
