@@ -14,18 +14,18 @@ def test_two_level():
     assert np.trace(reddenmat0), pytest.approx(1.0)
     assert reddenmat0[0, 0], pytest.approx(0.6)
     assert reddenmat0[1, 1], pytest.approx(0.4)
-    assert reddenmat0[0, 1], pytest.approx(0.)
-    assert reddenmat0[1, 0], pytest.approx(0.)
+    assert reddenmat0[0, 1], pytest.approx(0.+0.j)
+    assert reddenmat0[1, 0], pytest.approx(0.+0.j)
 
     # subsystem B
     reddenmat1 = pyqentangle.tncompute.bipartitepurestate_reduceddensitymatrix(tensor, 1)
     assert np.trace(reddenmat1), pytest.approx(1.)
     assert reddenmat1[0, 0], pytest.approx(0.4)
     assert reddenmat1[1, 1], pytest.approx(0.6)
-    assert reddenmat1[0, 1], pytest.approx(0.)
-    assert reddenmat1[1, 0], pytest.approx(0.)
+    assert reddenmat1[0, 1], pytest.approx(0.+0.j)
+    assert reddenmat1[1, 0], pytest.approx(0.+0.j)
 
-def testThreeLevel():
+def test_three_level():
     tensor = np.array([[np.sqrt(0.5), 0.0, 0.0], [0.0, np.sqrt(0.3)*1.j, 0.0], [0.0, 0.0, np.sqrt(0.2)]])
 
     # subsystem A
@@ -34,9 +34,9 @@ def testThreeLevel():
     assert reddenmat0[0, 0], pytest.approx(0.5)
     assert reddenmat0[1, 1], pytest.approx(0.3)
     assert reddenmat0[2, 2], pytest.approx(0.2)
-    assert reddenmat0[1, 0], pytest.approx(0.)
-    assert reddenmat0[1, 2], pytest.approx(0.)
-    assert reddenmat0[2, 0], pytest.approx(0.)
+    assert reddenmat0[1, 0], pytest.approx(0.+0.j)
+    assert reddenmat0[1, 2], pytest.approx(0.+0.j)
+    assert reddenmat0[2, 0], pytest.approx(0.+0.j)
 
     # subsystem B
     reddenmat1 = pyqentangle.tncompute.bipartitepurestate_reduceddensitymatrix(tensor, 1)
@@ -44,11 +44,11 @@ def testThreeLevel():
     assert reddenmat1[0, 0], pytest.approx(0.5)
     assert reddenmat1[1, 1], pytest.approx(0.3)
     assert reddenmat1[2, 2], pytest.approx(0.2)
-    assert reddenmat1[2, 1], pytest.approx(0.)
-    assert reddenmat1[1, 0], pytest.approx(0.)
-    assert reddenmat1[0, 2], pytest.approx(0.)
+    assert reddenmat1[2, 1], pytest.approx(0.+0.j)
+    assert reddenmat1[1, 0], pytest.approx(0.+0.j)
+    assert reddenmat1[0, 2], pytest.approx(0.+0.j)
 
-def testTwoLevels2():
+def test_two_levels_2():
     tensor = np.array([[np.sqrt(0.5), np.sqrt(0.25) * 1.j], [0., np.sqrt(0.25)]])
 
     # subsystem A
@@ -68,7 +68,7 @@ def testTwoLevels2():
     assert reddenmat1[1, 0], pytest.approx(0.+0.35355339j)
 
 
-def testFiftennLevels():
+def test_fifteen_levels():
     tensor = np.zeros((15, 15))
     tensor[1, 1] = np.sqrt(0.3)
     tensor[1, 2] = np.sqrt(0.1)
