@@ -29,7 +29,7 @@ classifiers = [
     "Intended Audience :: Developers",
     "Intended Audience :: Education"
 ]
-dependencies = ["numpy>=1.20.0", "scipy>=1.4.0", "tensornetwork>=0.4.0"]
+dependencies = ["numpy>=1.20.0", "scipy>=1.4.0", "tensornetwork>=0.4.0", "numba"]
 
 [project.urls]
 Documentation = "http://pyqentangle.readthedocs.io"

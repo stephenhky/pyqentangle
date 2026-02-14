@@ -1,5 +1,6 @@
 
 from math import sqrt, pi
+from functools import lru_cache
 
 import numpy as np
 from scipy.special import hermite
@@ -40,6 +41,7 @@ def correlated_bipartite_gaussian_wavefcn(covmatrix: np.ndarray) -> callable:
                                          )
 
 
+@lru_cache(maxsize=100)
 def tail_factorial(n: int, accumulator: int = 1) -> int:
     """Return the factorial of an integer.
 

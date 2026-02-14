@@ -2,10 +2,12 @@
 from itertools import product
 
 import numpy as np
+import numba as nb
 
 from . import schmidt_decomposition, OutOfRangeException, UnequalLengthException
 
 
+@nb.njit(nb.float64(nb.float64[:], nb.float64[:], nb.float64))
 def interpolate(xarray: np.ndarray, yarray: np.ndarray, x: float) -> float:
     left = 0
     right = len(xarray) - 1
