@@ -39,6 +39,7 @@ Issues = "https://github.com/stephenhky/pyqentangle/issues"
 [tool.setuptools]
 packages = ["pyqentangle", "pyqentangle.quantumstates"]
 zip-safe = false
+package-dir = {"" = "src"}
 
 [project.optional-dependencies]
 test = ["unittest2", "pytest"]
