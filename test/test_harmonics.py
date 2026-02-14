@@ -9,13 +9,13 @@ from pyqentangle.quantumstates.harmonics import disentangled_gaussian_wavefcn, c
 normsq = lambda x: x*np.conj(x)
 
 
-def test_disentangled_gaussian(self):
+def test_disentangled_gaussian():
     norm, err = dblquad(lambda x1, x2: normsq(disentangled_gaussian_wavefcn()(x1, x2)),
                         -np.inf, np.inf, lambda x: -np.inf, lambda y: np.inf)
     assert norm == pytest.approx(1, abs=abs(err))
 
 
-def test_correlated_bipartite_gaussian(self):
+def test_correlated_bipartite_gaussian():
     covmatrix = np.array([[2., 0.5], [0.5, 1.]])
     wavefcn = correlated_bipartite_gaussian_wavefcn(covmatrix)
     norm, err = dblquad(lambda x1, x2: normsq(wavefcn(x1, x2))[0, 0],
@@ -23,7 +23,7 @@ def test_correlated_bipartite_gaussian(self):
     assert norm == pytest.approx(1, abs=abs(err))
 
 
-def test_excited_states(self):
+def test_excited_states():
     for n in range(3):
         wavefcn = coupled_excited_harmonics(n)
         norm, err = dblquad(lambda x1, x2: normsq(wavefcn(x1, x2)),

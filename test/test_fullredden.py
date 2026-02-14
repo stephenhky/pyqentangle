@@ -8,7 +8,7 @@ import pyqentangle.tncompute
 import pytest
 
 
-def test_uneven_two_levels(self):
+def test_uneven_two_levels():
     tensor = np.array([[0., np.sqrt(np.reciprocal(3.))],
                        [-np.sqrt(2./3.)*1j, 0.]])
     fulldenmat = pyqentangle.tncompute.bipartitepurestate_densitymatrix(tensor)
