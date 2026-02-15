@@ -19,8 +19,17 @@ def test_entangled_oscillators():
             print('expected={}, calculated={}'.format(expected_coef(i), eigenvalues[i]))
             assert expected_coef(i), pytest.approx(eigenvalues[i])
 
-        norm1, err1 = quad(lambda x1: np.real(np.conjugate(decompositions[0][1](np.array([x1])))*decompositions[0][1](np.array([x1]))), -10, 10)
-        norm2, err2 = quad(lambda x2: np.real(np.conjugate(decompositions[0][2](np.array([x2])))*decompositions[0][2](np.array([x2]))), -10, 10)
+        norm1, err1 = quad(
+            lambda x1: np.real(np.conjugate(decompositions[0][1](np.array([x1])))*decompositions[0][1](np.array([x1]))),
+            -10,
+            10
+        )
+        print(norm1)
+        norm2, err2 = quad(
+            lambda x2: np.real(np.conjugate(decompositions[0][2](np.array([x2])))*decompositions[0][2](np.array([x2]))),
+            -10,
+            10
+        )
         assert norm1 == pytest.approx(1., abs=1e-2)
         assert norm2 == pytest.approx(1., abs=1e-2)
 

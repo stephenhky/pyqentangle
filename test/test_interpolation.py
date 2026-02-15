@@ -7,7 +7,7 @@ from pyqentangle.continuous import numerical_continuous_function
 
 def test_interpolation_real():
     xarray = np.array([0., 1., 2., 3.])
-    yarray = np.array([1., 3., 5., 7.])
+    yarray = np.array([1., 3., 5., 7.], dtype=np.complex128)
     f = numerical_continuous_function(xarray, yarray)
     ys = f(np.array([1.5, 2.5]))
     assert ys[0] == pytest.approx(4.)
