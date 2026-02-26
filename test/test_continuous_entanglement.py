@@ -12,11 +12,14 @@ def test_entangled_oscillators():
     a = np.sqrt((1-rho*rho)/(2*rho))
     expected_coef = lambda n: np.sqrt(np.sqrt(8)*(1-rho*rho))/a*rho**n
     for approach in ['tensornetwork', 'numpy']:
+        print(f"--- Approach: {approach} ----")
+
         decompositions = pyqentangle.continuous_schmidt_decomposition(fcn, -10., 10., -10., 10., keep=10,
                                                                       approach=approach)
         eigenvalues = list(map(lambda item: item[0], decompositions))
+        print(decompositions[:10])
         for i in range(10):
-            print('expected={}, calculated={}'.format(expected_coef(i), eigenvalues[i]))
+            print(f'mode {i}:  expected={expected_coef(i)}, calculated={eigenvalues[i]}')
             assert expected_coef(i) == pytest.approx(eigenvalues[i])
 
         norm1, err1 = quad(
