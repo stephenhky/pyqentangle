@@ -22,14 +22,15 @@ def test_entangled_oscillators():
             print(f'mode {i}:  expected={expected_coef(i)}, calculated={eigenvalues[i]}')
             assert expected_coef(i) == pytest.approx(eigenvalues[i])
 
+        schmidt_fcn1 = decompositions[0][1]
         norm1, err1 = quad(
-            lambda x1: np.real(np.conjugate(decompositions[0][1](np.array([x1])))*decompositions[0][1](np.array([x1]))),
+            lambda x1: np.real(np.conjugate(schmidt_fcn1(np.array([x1])))*schmidt_fcn1(np.array([x1])))[0],
             -10,
             10
         )
-        print(norm1)
+        schmidt_fcn2 = decompositions[0][2]
         norm2, err2 = quad(
-            lambda x2: np.real(np.conjugate(decompositions[0][2](np.array([x2])))*decompositions[0][2](np.array([x2]))),
+            lambda x2: np.real(np.conjugate(schmidt_fcn2(np.array([x2])))*schmidt_fcn2(np.array([x2])))[0],
             -10,
             10
         )
