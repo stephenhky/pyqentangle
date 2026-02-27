@@ -5,7 +5,7 @@ import numpy as np
 import tensornetwork as tn
 
 from . import InvalidQuantumStateException
-from .tncompute import bipartitepurestate_partialtranspose_densitymatrix, flatten_bipartite_densitymatrix
+from .core.tncompute import bipartitepurestate_partialtranspose_densitymatrix, flatten_bipartite_densitymatrix
 
 
 def schmidt_coefficients(schmidt_modes: list) -> np.ndarray:
