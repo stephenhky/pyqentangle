@@ -37,7 +37,7 @@ Repository = "https://github.com/stephenhky/pyqentangle"
 Issues = "https://github.com/stephenhky/pyqentangle/issues"
 
 [tool.setuptools]
-packages = ["pyqentangle", "pyqentangle.quantumstates"]
+packages = ["pyqentangle", "pyqentangle.core", "pyqentangle.quantumstates"]
 zip-safe = false
 package-dir = {"" = "src"}
 
