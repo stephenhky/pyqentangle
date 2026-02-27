@@ -3,7 +3,7 @@ import unittest
 
 import numpy as np
 
-from pyqentangle.tncompute import bipartitepurestate_densitymatrix, \
+from pyqentangle.core.tncompute import bipartitepurestate_densitymatrix, \
     bipartitepurestate_partialtranspose_densitymatrix, flatten_bipartite_densitymatrix
 
 
