@@ -2,10 +2,10 @@
 from math import sqrt
 
 import numpy as np
+import pytest
 
 import pyqentangle
 import pyqentangle.core.tncompute
-import pytest
 
 
 def test_uneven_two_levels():
