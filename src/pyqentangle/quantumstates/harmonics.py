@@ -5,7 +5,7 @@ from functools import lru_cache
 import numpy as np
 from scipy.special import hermite
 
-from ..utils import InvalidMatrix
+from ..core.exceptions import InvalidMatrix
 
 
 def disentangled_gaussian_wavefcn() -> callable:
