@@ -31,6 +31,6 @@ def test_comb_2mode_harmonic_wavefunction():
         to_vectorize=False
     )
 
-    comb_fcn = sqrt(0.5) * psi0 + sqrt(0.5) * (cos(0.25*pi)+j*sin(0.25*pi)) * psi1
+    comb_fcn = sqrt(0.5) * psi0 + sqrt(0.5) * (np.cos(0.25*pi)+np.sin(0.25*pi)*1j) * psi1
 
     assert comb_fcn(0) == pytest.approx(sqrt(0.5) / sqrt(sqrt(pi)))
