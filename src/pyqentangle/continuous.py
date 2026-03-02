@@ -2,84 +2,9 @@
 from itertools import product
 
 import numpy as np
-import numba as nb
 
-from . import schmidt_decomposition, OutOfRangeException, UnequalLengthException
-
-
-@nb.njit(nb.complex128(nb.float64[:], nb.complex128[:], nb.float64))
-def interpolate(xarray: np.ndarray, yarray: np.ndarray, x: float) -> np.complex128:
-    left = 0
-    right = len(xarray) - 1
-    idx = right // 2
-    while (idx != 0 and idx != len(xarray) - 1) and (not (x >= xarray[idx] and x < xarray[idx + 1])):
-        if x >= xarray[idx + 1]:
-            left = idx + 1
-        elif x < xarray[idx]:
-            right = idx - 1
-        idx = (left + right) // 2
-
-    return yarray[idx] + (yarray[idx + 1] - yarray[idx]) / (xarray[idx + 1] - xarray[idx]) * (x - xarray[idx])
-
-
-def numerical_continuous_interpolation(xarray: np.ndarray, yarray: np.ndarray, x: float) -> float:
-    """Evaluate the value of a function given a variable x using interpolation.
-
-    With a function approximated by given arrays of independent variable (`xarray`)
-    and of dependent variable (`yarray`), the value of this function given `x` is
-    calculated by interpolation.
-
-    If `x` is outside the range of `xarray`, an `OutOfRangeException`
-    is raised; if the lengths of `xarray` and `yarray` are not equal, an
-    `UnequalLengthException` is raised.
-
-    Args:
-        xarray (numpy.ndarray): An array of independent variable values.
-        yarray (numpy.ndarray): An array of dependent variable values.
-        x (float): The input value at which the function is computed.
-
-    Returns:
-        float: The value of function with the given `x`.
-
-    Raises:
-        OutOfRangeException: If `x` is outside the range of `xarray`.
-        UnequalLengthException: If the lengths of `xarray` and `yarray` are not equal.
-    """
-    if len(xarray) != len(yarray):
-        raise UnequalLengthException(xarray, yarray)
-    minx = np.min(xarray)
-    maxx = np.max(xarray)
-    if x == maxx:
-        return yarray[-1]
-    if not (x >= minx and x < maxx):
-        raise OutOfRangeException(x)
-
-    return interpolate(xarray, yarray, x)
-
-
-def numerical_continuous_function(xarray: np.ndarray, yarray: np.ndarray) -> callable:
-    """Return a function with the given arrays of independent and dependent variables.
-
-    With a function approximated by given arrays of independent variable (`xarray`)
-    and of dependent variable (`yarray`), it returns a lambda function that takes
-    a `numpy.ndarray` as an input and calculates the values at all these elements
-    using interpolation.
-
-    If `x` is outside the range of `xarray`, an `OutOfRangeException`
-    is raised.
-
-    Args:
-        xarray (numpy.ndarray): An array of independent variable values.
-        yarray (numpy.ndarray): An array of dependent variable values.
-
-    Returns:
-        function: A lambda function that takes a `numpy.ndarray` as the input parameter and calculates the values.
-
-    Raises:
-        OutOfRangeException: If `x` is outside the range of `xarray`.
-    """
-    return lambda xs: np.array(list(map(lambda x: numerical_continuous_interpolation(xarray, yarray, x), xs)),
-                               dtype=np.complex128)
+from . import schmidt_decomposition
+from .core.interpolate import numerical_continuous_function
 
 
 def discretize_continuous_bipartitesys(fcn: callable, x1_lo: float, x1_hi: float, x2_lo: float, x2_hi: float, nb_x1: int = 100, nb_x2: int = 100) -> np.ndarray:
@@ -157,9 +82,9 @@ def continuous_schmidt_decomposition(fcn: callable, x1_lo: float, x1_hi: float, 
         normA = np.linalg.norm(unnorm_modeA) * np.sqrt(dx1)
         normB = np.linalg.norm(unnorm_modeB) * np.sqrt(dx2)
         renormalized_decomposition.append(
-            ( schmidt_weight / np.sqrt(sum_sq_eigvals),
-              numerical_continuous_function(x1array, unnorm_modeA / normA),
-              numerical_continuous_function(x2array, unnorm_modeB / normB)
+            (schmidt_weight / np.sqrt(sum_sq_eigvals),
+             numerical_continuous_function(x1array, unnorm_modeA / normA),
+             numerical_continuous_function(x2array, unnorm_modeB / normB)
              )
         )
 

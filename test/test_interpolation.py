@@ -2,7 +2,7 @@
 import numpy as np
 import pytest
 
-from pyqentangle.continuous import numerical_continuous_function
+from pyqentangle.core.interpolate import numerical_continuous_function
 
 
 def test_interpolation_real():

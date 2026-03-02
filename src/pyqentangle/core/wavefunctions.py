@@ -81,3 +81,7 @@ class AnalyticMultiDimWaveFunction(AnalyticWaveFunction):
             coordinates = np.array([coordinates])
 
         return self._lambda_func(coordinates)
+
+
+class InterpolatingWaveFunction(WaveFunction):
+    pass
