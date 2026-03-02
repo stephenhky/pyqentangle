@@ -44,7 +44,7 @@ class WaveFunction(ABC):
             return ResultingScalarMulWaveFunction()
 
     def __rmul__(self, other: Union[Self, float, np.complex128]) -> Self:
-        return self.__rmul__(other)
+        return self.__mul__(other)
 
 
 class AnalyticWaveFunction(WaveFunction, ABC):
