@@ -39,7 +39,7 @@ class WaveFunction(ABC):
 
 
 
-class AnalyticWaveFunction(ABC, WaveFunction):
+class AnalyticWaveFunction(WaveFunction, ABC):
     def __init__(
             self,
             lambda_func: Union[LambdaType, FunctionType],
