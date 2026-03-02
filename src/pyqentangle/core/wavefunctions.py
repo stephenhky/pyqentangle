@@ -17,8 +17,15 @@ class WaveFunction(ABC):
 
 
 class AnalyticWaveFunction(ABC, WaveFunction):
-    def __init__(self, lambda_func: Union[LambdaType, FunctionType]):
-        self._lambda_func = np.vectorize(lambda_func)
+    def __init__(
+            self,
+            lambda_func: Union[LambdaType, FunctionType],
+            to_vectorize: bool=True
+    ):
+        if to_vectorize:
+            self._lambda_func = np.vectorize(lambda_func)
+        else:
+            self._lambda_func = lambda_func
 
 
 class Analytic1DWaveFunction(AnalyticWaveFunction):
