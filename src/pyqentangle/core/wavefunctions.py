@@ -1,6 +1,6 @@
 
 from abc import ABC, abstractmethod
-from types import LambdaType
+from types import LambdaType, FunctionType
 from typing import Union
 
 import numpy as np
@@ -17,7 +17,7 @@ class WaveFunction(ABC):
 
 
 class AnalyticWaveFunction(ABC, WaveFunction):
-    def __init__(self, lambda_func: LambdaType):
+    def __init__(self, lambda_func: Union[LambdaType, FunctionType]):
         self._lambda_func = np.vectorize(lambda_func)
 
 
