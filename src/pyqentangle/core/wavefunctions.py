@@ -1,7 +1,7 @@
 
 from abc import ABC, abstractmethod
 from types import LambdaType, FunctionType
-from typing import Union
+from typing import Union, Self
 
 import numpy as np
 import numpy.typing as npt
@@ -14,6 +14,29 @@ class WaveFunction(ABC):
             coordinates: Union[npt.NDArray[np.float64], float]
     ) -> npt.NDArray[np.complex128]:
         raise NotImplemented()
+
+    def prob_density(self, coordinates: Union[npt.NDArray[np.float64], float]) -> float:
+        amplitude = self.__call__(coordinates)
+        return np.square(np.real(amplitude)) + np.square(np.imag(amplitude))
+
+    def __add__(self, other: Self) -> Self:
+        class ResultingAddedWavefunction(WaveFunction):
+            def __call__(self, coordinates):
+                return self.__call__(coordinates) + other.__call__(coordinates)
+        return ResultingAddedWavefunction()
+
+    def __mul__(self, other: Self) -> Self:
+        class ResultingMulWaveFunction(WaveFunction):
+            def __call__(self, coordiniates):
+                return self.__call__(coordiniates) * other.__call__(coordiniates)
+        return ResultingMulWaveFunction()
+
+    def __rmul__(self, other: Union[float, np.complex128]) -> Self:
+        class ResultingScalarMulWaveFunction(WaveFunction):
+            def __call__(self, coordiniates):
+                return self.__call__(coordiniates) * other
+        return ResultingScalarMulWaveFunction()
+
 
 
 class AnalyticWaveFunction(ABC, WaveFunction):
