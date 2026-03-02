@@ -1,4 +1,6 @@
 
+from math import log
+
 import numpy as np
 import pytest
 
@@ -6,7 +8,7 @@ import pyqentangle
 
 
 tensor = np.array([[0., np.sqrt(0.7)], [np.sqrt(0.3), 0.]])
-shannon = np.log(2.)
+shannon = log(2.)
 schmidt_modes = pyqentangle.schmidt_decomposition(tensor)
 
 
