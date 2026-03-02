@@ -15,12 +15,12 @@ def test_partialtranpose():
     fullden_pt1 = bipartitepurestate_partialtranspose_densitymatrix(tensor, 1)
 
     assert fullden[0, 1, 0, 1] == pytest.approx(0.6+0j)
-    assert fullden[0, 1, 1, 0] == pytest.approx( np.sqrt(0.6*0.4)+0j)
+    assert fullden[0, 1, 1, 0] == pytest.approx(np.sqrt(0.6*0.4)+0j)
     assert fullden[1, 0, 0, 1] == pytest.approx(np.sqrt(0.6*0.4)+0j)
     assert fullden[1, 0, 1, 0] == pytest.approx(0.4+0j)
 
     assert fullden_pt0[0, 1, 0, 1] == pytest.approx(0.6+0j)
-    assert fullden_pt0[1, 1, 0, 0] == pytest.approx((0.6*0.4)+0j)
+    assert fullden_pt0[1, 1, 0, 0] == pytest.approx(np.sqrt(0.6*0.4)+0j)
     assert fullden_pt0[0, 0, 1, 1] == pytest.approx(np.sqrt(0.6*0.4)+0j)
     assert fullden_pt0[1, 0, 1, 0] == pytest.approx(0.4+0j)
 
