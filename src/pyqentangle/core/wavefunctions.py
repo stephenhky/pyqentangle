@@ -12,6 +12,8 @@ if sys.version_info < (3, 11):
 else:
     from typing import Self
 
+from .interpolate import numerical_continuous_interpolation
+
 
 class WaveFunction(ABC):
     @abstractmethod
@@ -84,4 +86,16 @@ class AnalyticMultiDimWaveFunction(AnalyticWaveFunction):
 
 
 class InterpolatingWaveFunction(WaveFunction):
-    pass
+    def __init__(
+            self,
+            xarray: npt.NDArray[np.float64],
+            yarray: npt.NDArray[np.complex128]
+    ):
+        self._xarray = xarray
+        self._yarray = yarray
+
+    def __call__(
+            self,
+            coordinates: Union[npt.NDArray[np.float64], float]
+    ) -> npt.NDArray[np.complex128]:
+        return numerical_continuous_interpolation(self._xarray, self._yarray, coordinates)

@@ -1,12 +1,18 @@
 
 import numba as nb
 import numpy as np
+import numpy.typing as npt
+from deprecation import deprecated
 
 from .exceptions import UnequalLengthException, OutOfRangeException
 
 
 @nb.njit(nb.complex128(nb.float64[:], nb.complex128[:], nb.float64))
-def interpolate(xarray: np.ndarray, yarray: np.ndarray, x: float) -> np.complex128:
+def interpolate(
+        xarray: npt.NDArray[np.float64],
+        yarray: npt.NDArray[np.complex128],
+        x: float
+) -> np.complex128:
     left = 0
     right = len(xarray) - 1
     idx = right // 2
@@ -20,7 +26,11 @@ def interpolate(xarray: np.ndarray, yarray: np.ndarray, x: float) -> np.complex1
     return yarray[idx] + (yarray[idx + 1] - yarray[idx]) / (xarray[idx + 1] - xarray[idx]) * (x - xarray[idx])
 
 
-def numerical_continuous_interpolation(xarray: np.ndarray, yarray: np.ndarray, x: float) -> float:
+def numerical_continuous_interpolation(
+        xarray: npt.NDArray[np.float64],
+        yarray: npt.NDArray[np.complex128],
+        x: float
+) -> np.complex128:
     """Evaluate the value of a function given a variable x using interpolation.
 
     With a function approximated by given arrays of independent variable (`xarray`)
@@ -55,6 +65,7 @@ def numerical_continuous_interpolation(xarray: np.ndarray, yarray: np.ndarray, x
     return interpolate(xarray, yarray, x)
 
 
+@deprecated
 def numerical_continuous_function(xarray: np.ndarray, yarray: np.ndarray) -> callable:
     """Return a function with the given arrays of independent and dependent variables.
 

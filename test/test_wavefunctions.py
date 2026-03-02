@@ -20,6 +20,8 @@ def test_gaussian_wavefunction():
     half_gaussian_wavefunction = 0.5 * gaussian_wavefunction
     assert half_gaussian_wavefunction(0) == pytest.approx(0.5 * norm.pdf(0))
 
+    assert gaussian_wavefunction(np.array([-1, 0, 1])) == pytest.approx(norm.pdf(np.array([-1, 0, 1])))
+
 
 def test_comb_2mode_harmonic_wavefunction():
     psi0 = Analytic1DWaveFunction(
