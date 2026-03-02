@@ -1,10 +1,16 @@
 
 from abc import ABC, abstractmethod
 from types import LambdaType, FunctionType
-from typing import Union, Self
+from typing import Union
+import sys
 
 import numpy as np
 import numpy.typing as npt
+
+if sys.version_info < (3, 11):
+    from typing_extensions import Self
+else:
+    from typing import Self
 
 
 class WaveFunction(ABC):
@@ -25,18 +31,20 @@ class WaveFunction(ABC):
                 return self.__call__(coordinates) + other.__call__(coordinates)
         return ResultingAddedWavefunction()
 
-    def __mul__(self, other: Self) -> Self:
-        class ResultingMulWaveFunction(WaveFunction):
-            def __call__(self, coordiniates):
-                return self.__call__(coordiniates) * other.__call__(coordiniates)
-        return ResultingMulWaveFunction()
+    def __mul__(self, other: Union[Self, float, np.complex128]) -> Self:
+        if isinstance(other, WaveFunction):
+            class ResultingMulWaveFunction(WaveFunction):
+                def __call__(self, coordiniates):
+                    return self.__call__(coordiniates) * other.__call__(coordiniates)
+            return ResultingMulWaveFunction()
+        else:
+            class ResultingScalarMulWaveFunction(WaveFunction):
+                def __call__(self, coordiniates):
+                    return self.__call__(coordiniates) * other
+            return ResultingScalarMulWaveFunction()
 
-    def __rmul__(self, other: Union[float, np.complex128]) -> Self:
-        class ResultingScalarMulWaveFunction(WaveFunction):
-            def __call__(self, coordiniates):
-                return self.__call__(coordiniates) * other
-        return ResultingScalarMulWaveFunction()
-
+    def __rmul__(self, other: Union[Self, float, np.complex128]) -> Self:
+        return self.__rmul__(other)
 
 
 class AnalyticWaveFunction(WaveFunction, ABC):
