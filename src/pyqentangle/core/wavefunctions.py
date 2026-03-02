@@ -27,19 +27,19 @@ class WaveFunction(ABC):
 
     def __add__(self, other: Self) -> Self:
         class ResultingAddedWavefunction(WaveFunction):
-            def __call__(self, coordinates):
+            def __call__(self2, coordinates):
                 return self.__call__(coordinates) + other.__call__(coordinates)
         return ResultingAddedWavefunction()
 
     def __mul__(self, other: Union[Self, float, np.complex128]) -> Self:
         if isinstance(other, WaveFunction):
             class ResultingMulWaveFunction(WaveFunction):
-                def __call__(self, coordiniates):
+                def __call__(self2, coordiniates):
                     return self.__call__(coordiniates) * other.__call__(coordiniates)
             return ResultingMulWaveFunction()
         else:
             class ResultingScalarMulWaveFunction(WaveFunction):
-                def __call__(self, coordiniates):
+                def __call__(self2, coordiniates):
                     return self.__call__(coordiniates) * other
             return ResultingScalarMulWaveFunction()
 
