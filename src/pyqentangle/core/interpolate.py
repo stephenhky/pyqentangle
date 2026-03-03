@@ -65,7 +65,7 @@ def numerical_continuous_interpolation(
     return interpolate(xarray, yarray, x)
 
 
-@deprecated
+@deprecated(deprecated_in="5.0.0", removed_in="6.0.0")
 def numerical_continuous_function(xarray: np.ndarray, yarray: np.ndarray) -> callable:
     """Return a function with the given arrays of independent and dependent variables.
 
