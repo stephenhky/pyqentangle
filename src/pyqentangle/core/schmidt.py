@@ -4,10 +4,8 @@ from typing import Literal
 import numpy as np
 import numpy.typing as npt
 import tensornetwork as tn
-import numba as nb
 
 
-@nb.jit
 def schmidt_decomposition_numpy(bipartitepurestate_tensor: npt.NDArray[np.complex128]) -> list:
     """Calculate the Schmidt decomposition of the given discrete bipartite quantum system.
 
