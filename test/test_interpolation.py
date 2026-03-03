@@ -15,8 +15,8 @@ def test_interpolation_real():
     assert ys[1] == pytest.approx(6.)
 
     wavefunction = InterpolatingWaveFunction(xarray, yarray)
-    assert wavefunction(0) == pytest.approx(4.)
-    assert wavefunction(1) == pytest.approx(6.)
+    assert wavefunction(1.5) == pytest.approx(4.)
+    assert wavefunction(2.5) == pytest.approx(6.)
     assert wavefunction(np.array([0., 1.])) == pytest.approx(np.array([4., 6.]))
 
 
@@ -29,6 +29,6 @@ def test_interpolation_complex():
     assert ys[1] == pytest.approx(2.5+2.5j)
 
     wavefunction = InterpolatingWaveFunction(xarray, yarray)
-    assert wavefunction(0) == pytest.approx(1.5+1.5j)
-    assert wavefunction(1) == pytest.approx(2.5+2.5j)
+    assert wavefunction(1.5) == pytest.approx(1.5+1.5j)
+    assert wavefunction(2.5) == pytest.approx(2.5+2.5j)
     assert wavefunction(np.array([0., 1.])) == pytest.approx(np.array([1.5+1.5j, 2.5+2.5j]))
