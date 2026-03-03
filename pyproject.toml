@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyqentangle"
-version = "5.0.0a1"
+version = "5.0.0a2"
 authors = [
     {name = "Kwan Yuet Stephen Ho", email = "stephenhky@yahoo.com.hk"}
 ]
@@ -37,7 +37,7 @@ Repository = "https://github.com/stephenhky/pyqentangle"
 Issues = "https://github.com/stephenhky/pyqentangle/issues"
 
 [tool.setuptools]
-packages = ["pyqentangle", "pyqentangle.core", "pyqentangle.quantumstates"]
+packages = ["pyqentangle", "pyqentangle.core", "pyqentangle.quantumstates", "pyqentangle.schemas"]
 zip-safe = false
 package-dir = {"" = "src"}
 
