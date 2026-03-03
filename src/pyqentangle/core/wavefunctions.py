@@ -98,4 +98,12 @@ class InterpolatingWaveFunction(WaveFunction):
             self,
             coordinates: Union[npt.NDArray[np.float64], float]
     ) -> npt.NDArray[np.complex128]:
-        return numerical_continuous_interpolation(self._xarray, self._yarray, coordinates)
+        if isinstance(coordinates, float):
+            return numerical_continuous_interpolation(self._xarray, self._yarray, coordinates)
+        elif coordinates.ndim == 1:
+            return numerical_continuous_interpolation(self._xarray, self._yarray, coordinates)
+        else:
+            return np.array([
+                numerical_continuous_interpolation(self._xarray, self._yarray, coordinates[i])
+                for i in range(coordinates.shape[0])
+            ])
