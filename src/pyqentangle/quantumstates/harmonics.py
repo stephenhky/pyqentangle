@@ -22,7 +22,7 @@ def disentangled_gaussian_wavefcn() -> WaveFunction:
     Returns:
         function: Function of two variables.
     """
-    return AnalyticMultiDimWaveFunction(lambda x1, x2: gaussian_function_value(x1) * gaussian_function_value(x2))
+    return AnalyticMultiDimWaveFunction(lambda x: gaussian_function_value(x[0]) * gaussian_function_value(x[1]))
 
 
 def correlated_bipartite_gaussian_wavefcn(covmatrix: np.ndarray) -> Callable:
