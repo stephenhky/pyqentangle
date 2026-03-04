@@ -3,8 +3,8 @@ from itertools import product
 
 import numpy as np
 
-from . import schmidt_decomposition
-from .core.interpolate import numerical_continuous_function
+from .schmidt import schmidt_decomposition
+from .interpolate import numerical_continuous_function
 
 
 def discretize_continuous_bipartitesys(fcn: callable, x1_lo: float, x1_hi: float, x2_lo: float, x2_hi: float, nb_x1: int = 100, nb_x2: int = 100) -> np.ndarray:
