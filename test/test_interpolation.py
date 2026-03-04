@@ -2,8 +2,15 @@
 import numpy as np
 import pytest
 
-from pyqentangle.core.interpolate import numerical_continuous_function
+from pyqentangle.core.interpolate import numerical_continuous_function, numerical_continuous_interpolation
 from pyqentangle.core.wavefunctions import InterpolatingWaveFunction
+
+
+def test_interpolation():
+    xarray = np.array([0., 1., 2.])
+    yarray = np.array([0., 1., 4.], dtype=np.complex128)
+    assert np.real(numerical_continuous_interpolation(xarray, yarray, 0.5)) == pytest.approx(0.5)
+    assert np.real(numerical_continuous_interpolation(xarray, yarray, 1.5)) == pytest.approx(2.5)
 
 
 def test_interpolation_real_deprecated():
@@ -20,7 +27,7 @@ def test_interpolation_real():
     wavefunction = InterpolatingWaveFunction(xarray, yarray)
     assert wavefunction(1.5) == pytest.approx(4.)
     assert wavefunction(2.5) == pytest.approx(6.)
-    assert wavefunction(np.array([1.5, 2.5])) == pytest.approx(np.array([4., 6.]))
+    np.testing.assert_array_almost_equal(wavefunction(np.array([1.5, 2.5])), np.array([4., 6.]))
 
 
 def test_interpolation_complex_deprecated():
@@ -37,4 +44,4 @@ def test_interpolation_complex():
     wavefunction = InterpolatingWaveFunction(xarray, yarray)
     assert wavefunction(1.5) == pytest.approx(1.5+1.5j)
     assert wavefunction(2.5) == pytest.approx(2.5+2.5j)
-    assert wavefunction(np.array([1.5, 2.5])) == pytest.approx(np.array([1.5+1.5j, 2.5+2.5j]))
+    np.testing.assert_array_almost_equal(wavefunction(np.array([1.5, 2.5])), np.array([1.5+1.5j, 2.5+2.5j]))

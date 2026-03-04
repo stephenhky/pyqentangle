@@ -39,10 +39,4 @@ def test_entangled_oscillators():
         assert norm2 == pytest.approx(1., abs=1e-2)
 
 
-def test_interpolation():
-    xarray = np.array([0., 1., 2.])
-    yarray = np.array([0., 1., 4.], dtype=np.complex128)
-    assert np.real(
-        pyqentangle.core.interpolate.numerical_continuous_interpolation(xarray, yarray, 0.5)) == pytest.approx(0.5)
-    assert np.real(
-        pyqentangle.core.interpolate.numerical_continuous_interpolation(xarray, yarray, 1.5)) == pytest.approx(2.5)
+
