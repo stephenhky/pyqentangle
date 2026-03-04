@@ -10,7 +10,7 @@ normsq = lambda x: x*np.conj(x)
 
 
 def test_disentangled_gaussian():
-    norm, err = dblquad(lambda x1, x2: normsq(disentangled_gaussian_wavefcn()(x1, x2)),
+    norm, err = dblquad(lambda x1, x2: normsq(disentangled_gaussian_wavefcn()(np.array([x1, x2]))),
                         -np.inf, np.inf, lambda x: -np.inf, lambda y: np.inf)
     assert norm == pytest.approx(1, abs=abs(err))
 
