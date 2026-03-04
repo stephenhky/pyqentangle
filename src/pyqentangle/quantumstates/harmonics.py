@@ -4,18 +4,25 @@ from functools import lru_cache
 from typing import Callable
 
 import numpy as np
+import numba as nb
 from scipy.special import hermite
 
 from ..core.exceptions import InvalidMatrix
+from ..core.wavefunctions import AnalyticMultiDimWaveFunction, WaveFunction
 
 
-def disentangled_gaussian_wavefcn() -> Callable:
+@nb.njit(nb.float64[nb.float64])
+def gaussian_function_value(x: float) -> float:
+    return np.exp(-0.5*x*x) / np.sqrt(np.pi)
+
+
+def disentangled_gaussian_wavefcn() -> WaveFunction:
     """Return the function of normalized disentangled Gaussian systems.
 
     Returns:
         function: Function of two variables.
     """
-    return lambda x1, x2: np.exp(-0.5 * (x1 * x1 + x2 * x2)) / np.sqrt(np.pi)
+    return AnalyticMultiDimWaveFunction(lambda x1, x2: gaussian_function_value(x1) * gaussian_function_value(x2))
 
 
 def correlated_bipartite_gaussian_wavefcn(covmatrix: np.ndarray) -> Callable:
@@ -34,12 +41,7 @@ def correlated_bipartite_gaussian_wavefcn(covmatrix: np.ndarray) -> Callable:
 
     norm = 2 * np.pi / np.sqrt(np.linalg.det(covmatrix))
     const = 1 / np.sqrt(norm)
-    return lambda x1, x2: const * np.exp(-0.25* np.matmul(np.array([[x1, x2]]),
-                                                          np.matmul(covmatrix,
-                                                                    np.array([[x1], [x2]])
-                                                                    )
-                                                          )
-                                         )
+    return lambda x1, x2: const * np.exp(-0.25*np.array([[x1, x2]]) @ covmatrix @ np.array([[x1], [x2]]))
 
 
 @lru_cache(maxsize=100)
