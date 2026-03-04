@@ -1,13 +1,23 @@
 
 from itertools import product
+from typing import Optional, Literal
 
 import numpy as np
 
 from .schmidt import schmidt_decomposition
 from .interpolate import numerical_continuous_function
+from .wavefunctions import InterpolatingWaveFunction, WaveFunction
 
 
-def discretize_continuous_bipartitesys(fcn: callable, x1_lo: float, x1_hi: float, x2_lo: float, x2_hi: float, nb_x1: int = 100, nb_x2: int = 100) -> np.ndarray:
+def discretize_continuous_bipartitesys(
+        fcn: callable,
+        x1_lo: float,
+        x1_hi: float,
+        x2_lo: float,
+        x2_hi: float,
+        nb_x1: int = 100,
+        nb_x2: int = 100
+) -> np.ndarray:
     """Find the discretized representation of the continuous bipartite system.
 
     Given a function `fcn` (a function with two input variables),
@@ -34,8 +44,17 @@ def discretize_continuous_bipartitesys(fcn: callable, x1_lo: float, x1_hi: float
     return tensor
 
 
-def continuous_schmidt_decomposition(fcn: callable, x1_lo: float, x1_hi: float, x2_lo: float, x2_hi: float, nb_x1: int = 100, nb_x2: int = 100, keep: int = None,
-                                     approach: str = 'tensornetwork') -> list:
+def continuous_schmidt_decomposition(
+        fcn: callable,
+        x1_lo: float,
+        x1_hi: float,
+        x2_lo: float,
+        x2_hi: float,
+        nb_x1: int = 100,
+        nb_x2: int = 100,
+        keep: Optional[int] = None,
+        approach: Literal["tensornetwork", "numpy"] = 'tensornetwork'
+) -> list[tuple[float, WaveFunction, WaveFunction]]:
     """Compute the Schmidt decomposition of a continuous bipartite quantum systems.
 
     Given a function `fcn` (a function with two input variables), perform the Schmidt
@@ -83,8 +102,8 @@ def continuous_schmidt_decomposition(fcn: callable, x1_lo: float, x1_hi: float, 
         normB = np.linalg.norm(unnorm_modeB) * np.sqrt(dx2)
         renormalized_decomposition.append(
             (schmidt_weight / np.sqrt(sum_sq_eigvals),
-             numerical_continuous_function(x1array, unnorm_modeA / normA),
-             numerical_continuous_function(x2array, unnorm_modeB / normB)
+             InterpolatingWaveFunction(x1array, unnorm_modeA / normA),
+             InterpolatingWaveFunction(x2array, unnorm_modeB / normB)
              )
         )
 
