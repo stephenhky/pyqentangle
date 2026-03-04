@@ -28,7 +28,7 @@ def correlated_bipartite_gaussian_wavefcn(covmatrix: np.ndarray) -> Callable:
         function: A wavefunction of two variables.
     """
     if not covmatrix.shape == (2, 2):
-        raise InvalidMatrix("Invalid matrix shape: "+str(covmatrix.shape)+"; desired shape: (2, 2)")
+        raise InvalidMatrix(f"Invalid matrix shape: {covmatrix.shape}; desired shape: (2, 2)")
     if covmatrix[0, 1] != covmatrix[1, 0]:
         raise InvalidMatrix("Not a symmetric covariance matrix")
 
@@ -89,5 +89,3 @@ def coupled_excited_harmonics(n: int) -> Callable:
     """
     return lambda x1, x2: harmonic_wavefcn(0)(0.5*(x1+x2)) * harmonic_wavefcn(n)(x1-x2)
 
-
-# tutorial on double integration: https://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html#general-multiple-integration-dblquad-tplquad-nquad
