@@ -11,7 +11,7 @@ from ..core.exceptions import InvalidMatrix
 from ..core.wavefunctions import AnalyticMultiDimWaveFunction, WaveFunction
 
 
-@nb.njit(nb.float64[nb.float64])
+@nb.njit(nb.float64(nb.float64))
 def gaussian_function_value(x: float) -> float:
     return np.exp(-0.5*x*x) / np.sqrt(np.pi)
 
