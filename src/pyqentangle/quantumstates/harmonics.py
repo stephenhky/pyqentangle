@@ -93,4 +93,4 @@ def coupled_excited_harmonics(n: int) -> WaveFunction:
     Returns:
         function: Wavefunction of two variables.
     """
-    return AnalyticMultiDimWaveFunction(lambda x: harmonic_wavefcn(0)(0.5*(x[0]+x[1])) * harmonic_wavefcn(n)(x[0]-x[1]))
+    return Analytic1DWaveFunction(lambda x: harmonic_wavefcn(0)(0.5*(x[0]+x[1])) * harmonic_wavefcn(n)(x[0]-x[1]))
