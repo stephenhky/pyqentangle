@@ -13,7 +13,7 @@ from ..core.wavefunctions import Analytic1DWaveFunction, AnalyticMultiDimWaveFun
 
 @nb.njit(nb.float64(nb.float64))
 def sqrt_gaussian_function_value(x: float) -> float:
-    return np.exp(-0.25*x*x) / np.sqrt(np.sqrt(np.pi))
+    return np.exp(-0.25*x*x) / np.sqrt(np.sqrt(2*np.pi))
 
 
 def disentangled_gaussian_wavefcn() -> WaveFunction:
