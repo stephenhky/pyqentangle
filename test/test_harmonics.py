@@ -26,6 +26,6 @@ def test_correlated_bipartite_gaussian():
 def test_excited_states():
     for n in range(3):
         wavefcn = coupled_excited_harmonics(n)
-        norm, err = dblquad(lambda x1, x2: normsq(wavefcn(np.array([x1, x2]))[0]),
+        norm, err = dblquad(lambda x1, x2: normsq(wavefcn(np.array([x1, x2]))),
                             -100, 100, lambda x2: -100, lambda x2: 100)
         assert norm == pytest.approx(1, abs=abs(err))
