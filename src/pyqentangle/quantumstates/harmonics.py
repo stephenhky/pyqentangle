@@ -1,14 +1,14 @@
 
 from math import sqrt, pi
 from functools import lru_cache
-from typing import Callable
 
 import numpy as np
+import numpy.typing as npt
 import numba as nb
 from scipy.special import hermite
 
 from ..core.exceptions import InvalidMatrix
-from ..core.wavefunctions import AnalyticMultiDimWaveFunction, WaveFunction
+from ..core.wavefunctions import Analytic1DWaveFunction, AnalyticMultiDimWaveFunction, WaveFunction
 
 
 @nb.njit(nb.float64(nb.float64))
@@ -25,7 +25,14 @@ def disentangled_gaussian_wavefcn() -> WaveFunction:
     return AnalyticMultiDimWaveFunction(lambda x: gaussian_function_value(x[0]) * gaussian_function_value(x[1]))
 
 
-def correlated_bipartite_gaussian_wavefcn(covmatrix: np.ndarray) -> Callable:
+@nb.njit(nb.float64(nb.float64[:, :], nb.float64, nb.float64))
+def correlated_bipartite_gaussian_value(covmatrix: npt.NDArray[np.float64], x1: float, x2: float) -> float:
+    norm = 2 * np.pi / np.sqrt(np.linalg.det(covmatrix))
+    const = 1 / np.sqrt(norm)
+    return const * np.exp(-0.25*np.array([[x1, x2]]) @ covmatrix @ np.array([[x1], [x2]]))
+
+
+def correlated_bipartite_gaussian_wavefcn(covmatrix: np.ndarray) -> WaveFunction:
     """Return a normalized correlated bivariate Gaussian wavefunction.
 
     Args:
@@ -38,10 +45,7 @@ def correlated_bipartite_gaussian_wavefcn(covmatrix: np.ndarray) -> Callable:
         raise InvalidMatrix(f"Invalid matrix shape: {covmatrix.shape}; desired shape: (2, 2)")
     if covmatrix[0, 1] != covmatrix[1, 0]:
         raise InvalidMatrix("Not a symmetric covariance matrix")
-
-    norm = 2 * np.pi / np.sqrt(np.linalg.det(covmatrix))
-    const = 1 / np.sqrt(norm)
-    return lambda x1, x2: const * np.exp(-0.25*np.array([[x1, x2]]) @ covmatrix @ np.array([[x1], [x2]]))
+    return AnalyticMultiDimWaveFunction(lambda x: correlated_bipartite_gaussian_value(covmatrix, x[0], x[1]))
 
 
 @lru_cache(maxsize=100)
@@ -64,7 +68,7 @@ def tail_factorial(n: int, accumulator: int = 1) -> int:
 
 
 # m = omega = hbar = 1
-def harmonic_wavefcn(n: int) -> Callable:
+def harmonic_wavefcn(n: int) -> WaveFunction:
     """Return the normalized wavefunction of a harmonic oscillator, where $n$ denotes
     that it is an n-th excited state, or ground state for $n=0$.
 
@@ -75,11 +79,11 @@ def harmonic_wavefcn(n: int) -> Callable:
         function: A normalized wavefunction.
     """
     const = 1/sqrt(2**n * tail_factorial(n)) * 1/sqrt(sqrt(pi))
-    return lambda x: const * np.exp(-0.5*x*x) * hermite(n)(x)
+    return Analytic1DWaveFunction(lambda x: const * np.exp(-0.5*x*x) * hermite(n)(x))
 
 
 # excited interaction states
-def coupled_excited_harmonics(n: int) -> Callable:
+def coupled_excited_harmonics(n: int) -> WaveFunction:
     """Return a bipartitite wavefunction, with ground state of center of mass,
     but excited state for the interaction.
 
@@ -89,5 +93,4 @@ def coupled_excited_harmonics(n: int) -> Callable:
     Returns:
         function: Wavefunction of two variables.
     """
-    return lambda x1, x2: harmonic_wavefcn(0)(0.5*(x1+x2)) * harmonic_wavefcn(n)(x1-x2)
-
+    return AnalyticMultiDimWaveFunction(lambda x: harmonic_wavefcn(0)(0.5*(x[0]+x[1])) * harmonic_wavefcn(n)(x[0]-x[1]))
