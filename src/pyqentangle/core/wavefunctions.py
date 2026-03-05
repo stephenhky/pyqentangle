@@ -78,7 +78,7 @@ class AnalyticMultiDimWaveFunction(AnalyticWaveFunction):
             self,
             lambda_func: Union[LambdaType, FunctionType]   # do not put a vectorize function
     ):
-        self._lambda_func = np.vectorize(lambda_func)
+        self._lambda_func = lambda_func
 
     def __call__(
             self,
