@@ -8,8 +8,8 @@ from pyqentangle.entangle import ContinuousSchmidtDecomposer
 
 
 def test_samewavefunction_different_phases():
-    f1 = lambda x1, x2: np.exp(-0.5 * (x1 + x2) ** 2) * np.exp(-(x1 - x2) ** 2) * np.sqrt(np.sqrt(8.) / np.pi)
-    f2 = lambda x1, x2: f1(x1, x2) * np.sqrt(0.5) * (1 + 1j)
+    f1 = lambda x: np.exp(-0.5 * (x[0] + x[1]) ** 2) * np.exp(-(x[0] - x[1]) ** 2) * np.sqrt(np.sqrt(8.) / np.pi)
+    f2 = lambda x: f1(x) * np.sqrt(0.5) * (1 + 1j)
 
     f1_modes = continuous_schmidt_decomposition(f1, -10, 10, -10, 10, keep=5)
     f2_modes = continuous_schmidt_decomposition(f2, -10, 10, -10, 10, keep=5)
