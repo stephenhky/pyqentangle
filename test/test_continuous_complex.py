@@ -21,7 +21,7 @@ def test_samewavefunction_different_phases():
 
 
 def test_samewavefunction_different_phases_new():
-    wavefunction1 = AnalyticMultiDimWaveFunction(lambda x1, x2: np.exp(-0.5 * (x1 + x2) ** 2) * np.exp(-(x1 - x2) ** 2) * np.sqrt(np.sqrt(8.) / np.pi))
+    wavefunction1 = AnalyticMultiDimWaveFunction(lambda x: np.exp(-0.5 * (x[0] + x[1]) ** 2) * np.exp(-(x[0] - x[1]) ** 2) * np.sqrt(np.sqrt(8.) / np.pi))
     wavefunction2 = np.sqrt(0.5) * (1 + 1j) * wavefunction1
 
     schmidt_modes_1 = ContinuousSchmidtDecomposer(
