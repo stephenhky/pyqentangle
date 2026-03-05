@@ -29,7 +29,7 @@ def disentangled_gaussian_wavefcn() -> WaveFunction:
 def correlated_bipartite_gaussian_value(covmatrix: npt.NDArray[np.float64], x1: float, x2: float) -> float:
     norm = 2 * np.pi / np.sqrt(np.linalg.det(covmatrix))
     const = 1 / np.sqrt(norm)
-    return const * np.exp(-0.25 * np.array([[x1, x2]]) @ covmatrix)@ np.array([[x1], [x2]])
+    return const * np.exp(-0.25 * np.array([[x1, x2]]) @ covmatrix @ np.array([[x1], [x2]]))[0, 0]
 
 
 def correlated_bipartite_gaussian_wavefcn(covmatrix: np.ndarray) -> WaveFunction:
