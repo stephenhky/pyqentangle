@@ -50,6 +50,10 @@ class WaveFunction(ABC):
 
 
 class AnalyticWaveFunction(WaveFunction, ABC):
+    pass
+
+
+class Analytic1DWaveFunction(AnalyticWaveFunction):
     def __init__(
             self,
             lambda_func: Union[LambdaType, FunctionType],
@@ -60,8 +64,6 @@ class AnalyticWaveFunction(WaveFunction, ABC):
         else:
             self._lambda_func = lambda_func
 
-
-class Analytic1DWaveFunction(AnalyticWaveFunction):
     def __call__(
             self,
             coordinates: Union[npt.NDArray[np.float64], float]
@@ -72,6 +74,12 @@ class Analytic1DWaveFunction(AnalyticWaveFunction):
 
 
 class AnalyticMultiDimWaveFunction(AnalyticWaveFunction):
+    def __init__(
+            self,
+            lambda_func: Union[LambdaType, FunctionType]   # do not put a vectorize function
+    ):
+        self._lambda_func = np.vectorize(lambda_func)
+
     def __call__(
             self,
             coordinates: Union[npt.NDArray[np.float64], float]
@@ -80,9 +88,14 @@ class AnalyticMultiDimWaveFunction(AnalyticWaveFunction):
             raise TypeError("It has to be a coordinates in an array form, not a float number.")
 
         if coordinates.ndim == 1:
-            coordinates = np.array([coordinates])
-
-        return self._lambda_func(coordinates)
+            return self._lambda_func(coordinates)
+        elif coordinates.ndim == 2:
+            return np.array([
+                self._lambda_func(coordinates[i, :])
+                for i in range(coordinates.shape[0])
+            ])
+        else:
+            raise ValueError(f"The coordinates have the wrong shape: {coordinates.shape}")
 
 
 class InterpolatingWaveFunction(WaveFunction):
