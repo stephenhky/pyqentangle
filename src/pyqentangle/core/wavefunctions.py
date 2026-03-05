@@ -86,7 +86,7 @@ class AnalyticMultiDimWaveFunction(AnalyticWaveFunction):
             self,
             coordinates: Union[npt.NDArray[np.float64], float]
     ) -> npt.NDArray[np.complex128]:
-        if isinstance(coordinates, float):
+        if isinstance(coordinates, float) or isinstance(coordinates, int):
             raise TypeError("It has to be a coordinates in an array form, not a float number.")
 
         if coordinates.ndim == 1:

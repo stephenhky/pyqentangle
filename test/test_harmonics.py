@@ -10,7 +10,7 @@ normsq = lambda x: x*np.conj(x)
 
 
 def test_disentangled_gaussian():
-    norm, err = dblquad(lambda x1, x2: normsq(disentangled_gaussian_wavefcn()(np.array([x1, x2]))),
+    norm, err = dblquad(lambda x1, x2: normsq(disentangled_gaussian_wavefcn()(np.array([x1, x2]))[0]),
                         -np.inf, np.inf, lambda x: -np.inf, lambda y: np.inf)
     assert norm == pytest.approx(1, abs=abs(err))
 
@@ -18,7 +18,7 @@ def test_disentangled_gaussian():
 def test_correlated_bipartite_gaussian():
     covmatrix = np.array([[2., 0.5], [0.5, 1.]])
     wavefcn = correlated_bipartite_gaussian_wavefcn(covmatrix)
-    norm, err = dblquad(lambda x1, x2: normsq(wavefcn(np.array([x1, x2]))),
+    norm, err = dblquad(lambda x1, x2: normsq(wavefcn(np.array([x1, x2]))[0]),
                         -np.inf, np.inf, lambda x: -np.inf, lambda y: np.inf)
     assert norm == pytest.approx(1, abs=abs(err))
 
@@ -26,6 +26,6 @@ def test_correlated_bipartite_gaussian():
 def test_excited_states():
     for n in range(3):
         wavefcn = coupled_excited_harmonics(n)
-        norm, err = dblquad(lambda x1, x2: normsq(wavefcn(np.array([x1, x2]))),
+        norm, err = dblquad(lambda x1, x2: normsq(wavefcn(np.array([x1, x2]))[0]),
                             -100, 100, lambda x2: -100, lambda x2: 100)
         assert norm == pytest.approx(1, abs=abs(err))
