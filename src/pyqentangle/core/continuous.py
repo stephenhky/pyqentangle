@@ -40,7 +40,7 @@ def discretize_continuous_bipartitesys(
     x2 = np.linspace(x2_lo, x2_hi, nb_x2)
     tensor = np.zeros((len(x1), len(x2)), dtype=np.complex128)
     for i, j in product(*map(range, tensor.shape)):
-        tensor[i, j] = fcn(np.array(x1[i], x2[j]))
+        tensor[i, j] = fcn(np.array([x1[i], x2[j]]))
     return tensor
 
 
