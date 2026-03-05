@@ -12,8 +12,8 @@ from ..core.wavefunctions import Analytic1DWaveFunction, AnalyticMultiDimWaveFun
 
 
 @nb.njit(nb.float64(nb.float64))
-def gaussian_function_value(x: float) -> float:
-    return np.exp(-0.5*x*x) / np.sqrt(np.pi)
+def sqrt_gaussian_function_value(x: float) -> float:
+    return np.exp(-0.25*x*x) / np.sqrt(np.sqrt(np.pi))
 
 
 def disentangled_gaussian_wavefcn() -> WaveFunction:
@@ -22,7 +22,7 @@ def disentangled_gaussian_wavefcn() -> WaveFunction:
     Returns:
         function: Function of two variables.
     """
-    return AnalyticMultiDimWaveFunction(lambda x: gaussian_function_value(x[0]) * gaussian_function_value(x[1]))
+    return AnalyticMultiDimWaveFunction(lambda x: sqrt_gaussian_function_value(x[0]) * sqrt_gaussian_function_value(x[1]))
 
 
 @nb.njit(nb.float64(nb.float64[:, :], nb.float64, nb.float64))
