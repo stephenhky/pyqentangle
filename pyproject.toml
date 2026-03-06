@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyqentangle"
-version = "5.0.0a2"
+version = "5.0.0a3"
 authors = [
     {name = "Kwan Yuet Stephen Ho", email = "stephenhky@yahoo.com.hk"}
 ]
@@ -27,8 +27,13 @@ classifiers = [
     "Intended Audience :: Developers",
     "Intended Audience :: Education"
 ]
-dependencies = ["numpy>=1.20.0", "scipy>=1.4.0", "tensornetwork>=0.4.0",
-    "numba>=0.50.0", "deprecation>=2.0.0"]
+dependencies = [
+    "numpy>=1.20.0",
+    "scipy>=1.4.0",
+    "tensornetwork>=0.4.0",
+    "numba>=0.50.0",
+    "deprecation>=2.0.0"
+]
 
 [project.urls]
 Documentation = "http://pyqentangle.readthedocs.io"
@@ -36,7 +41,9 @@ Repository = "https://github.com/stephenhky/pyqentangle"
 Issues = "https://github.com/stephenhky/pyqentangle/issues"
 
 [tool.setuptools]
-packages = ["pyqentangle", "pyqentangle.core", "pyqentangle.quantumstates", "pyqentangle.schemas", "pyqentangle.metrics"]
+packages = [
+    "pyqentangle", "pyqentangle.core", "pyqentangle.quantumstates", "pyqentangle.schemas", "pyqentangle.metrics"
+]
 zip-safe = false
 package-dir = {"" = "src"}
 
