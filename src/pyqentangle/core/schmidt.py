@@ -2,10 +2,13 @@
 from typing import Literal
 
 import numpy as np
+import numpy.typing as npt
 import tensornetwork as tn
 
 
-def schmidt_decomposition_numpy(bipartitepurestate_tensor: np.ndarray) -> list:
+def schmidt_decomposition_numpy(
+        bipartitepurestate_tensor: npt.NDArray[np.complex128]
+) -> list[tuple[float, npt.NDArray[np.complex128], npt.NDArray[np.complex128]]]:
     """Calculate the Schmidt decomposition of the given discrete bipartite quantum system.
 
     This is called by :func:`schmidt_decomposition`. This runs numpy.
@@ -32,7 +35,9 @@ def schmidt_decomposition_numpy(bipartitepurestate_tensor: np.ndarray) -> list:
     return decomposition
 
 
-def schmidt_decomposition_tensornetwork(bipartitepurestate_tensor: np.ndarray) -> list:
+def schmidt_decomposition_tensornetwork(
+        bipartitepurestate_tensor: npt.NDArray[np.complex128]
+) -> list[tuple[float, npt.NDArray[np.complex128], npt.NDArray[np.complex128]]]:
     """Calculate the Schmidt decomposition of the given discrete bipartite quantum system.
 
     This is called by :func:`schmidt_decomposition`. This runs tensornetwork.
@@ -60,9 +65,9 @@ def schmidt_decomposition_tensornetwork(bipartitepurestate_tensor: np.ndarray) -
 
 
 def schmidt_decomposition(
-        bipartitepurestate_tensor: np.ndarray,
+        bipartitepurestate_tensor: npt.NDArray[np.complex128],
         approach: Literal["tensornetwork", "numpy"] = 'tensornetwork'
-) -> list:
+) -> list[tuple[float, npt.NDArray[np.complex128], npt.NDArray[np.complex128]]]:
     """Calculate the Schmidt decomposition of the given discrete bipartite quantum system.
 
     Given a discrete normalized quantum system, given in terms of 2-D numpy array ``bipartitepurestate_tensor``,
@@ -88,4 +93,4 @@ def schmidt_decomposition(
     elif approach == 'tensornetwork':
         return schmidt_decomposition_tensornetwork(bipartitepurestate_tensor)
     else:
-        raise ValueError("Approach is either 'numpy' or 'tensorflow', not {}.".format(approach))
+        raise ValueError(f"Approach is either 'numpy' or 'tensorflow', not {approach}.")

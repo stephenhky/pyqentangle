@@ -10,9 +10,11 @@
 
 ## Version
 
-The releases of `pyqentangle` 2.x.x is incompatible with previous releases.
+The releases of `pyqentangle` 2.x.x are incompatible with previous releases.
 
-The releases of `pyqentangle` 3.x.x is incompatible with previous releases.
+The releases of `pyqentangle` 3.x.x are incompatible with previous releases.
+
+The releases of `pyqentangle` 5.x.x are incompatible with previous releases.
 
 Since release 3.1.0, the support for Python 2 was decomissioned.
 
@@ -42,61 +44,77 @@ We first express the bipartite state in terms of a tensor. For example, if the s
 To perform the Schmidt decompostion, just enter:
 
 ```
->>> pyqentangle.schmidt_decomposition(tensor)
-[(0.7071067811865476, array([ 0., -1.]), array([-1., -0.])),
- (0.7071067811865476, array([-1.,  0.]), array([-0., -1.]))]
+>>> pyqentangle.DiscreteSchmidtDecomposer(tensor).modes()
+[DiscreteSchmidtMode(schmidt_coef=np.float64(0.7071067811865476), mode1=array([ 0., -1.]), mode2=array([-1., -0.])),
+ DiscreteSchmidtMode(schmidt_coef=np.float64(0.7071067811865476), mode1=array([-1.,  0.]), mode2=array([-0., -1.]))]
  ```
 
-For each tuple in the returned list, the first element is the Schmidt coefficients, the second the component for first subsystem, and the third the component for the second subsystem.
+In the returned list, for each element, there are the Schmidt coefficient, the component for first subsystem, and that
+for the second subsystem.
 
 ## Schmidt Decomposition for Continuous Bipartite States
 
 We can perform Schmidt decomposition on continuous systems too. For example, define the following normalized wavefunction:
 
 ```
->>> fcn = lambda x1, x2: np.exp(-0.5 * (x1 + x2) ** 2) * np.exp(-(x1 - x2) ** 2) * np.sqrt(np.sqrt(8.) / np.pi)
+>>> bipartite_wavefcn = pyqentangle.core.wavefunctions.AnalyticMultiDimWaveFunction(
+        lambda x: np.exp(-0.5 * (x[0] + x[1]) ** 2) * np.exp(-(x[0] - x[1]) ** 2) * np.sqrt(np.sqrt(8.) / np.pi)
+    )
 ```
 
 Then perform the Schmidt decomposition, 
 
 ```
->>> modes = pyqentangle.continuous_schmidt_decomposition(biwavefcn, -10., 10., -10., 10., keep=10)
+>>> modes = pyqentangle.ContinuousSchmidtDecomposer(bipartite_wavefcn, -10., 10., -10., 10., keep=10).modes()
+>>> modes
+[ContinuousSchmidtMode(schmidt_coef=np.float64(0.9851714310094161), wavefunction1=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa6dd9a0f50>, wavefunction2=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa6dd0d4f80>),
+ ContinuousSchmidtMode(schmidt_coef=np.float64(0.1690286950361957), wavefunction1=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa8582d7dd0>, wavefunction2=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa6dd15e350>),
+ ContinuousSchmidtMode(schmidt_coef=np.float64(0.029000739207759557), wavefunction1=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa6dd0d2cf0>, wavefunction2=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa6dd0d1240>),
+ ContinuousSchmidtMode(schmidt_coef=np.float64(0.004975740210361184), wavefunction1=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa6dd4393d0>, wavefunction2=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa6dd4394f0>),
+ ContinuousSchmidtMode(schmidt_coef=np.float64(0.0008537020544076699), wavefunction1=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa6dd439550>, wavefunction2=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa6dd439670>),
+ ContinuousSchmidtMode(schmidt_coef=np.float64(0.0001464721160848057), wavefunction1=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa6dd4396d0>, wavefunction2=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa6dd4397f0>),
+ ContinuousSchmidtMode(schmidt_coef=np.float64(2.5130642101174655e-05), wavefunction1=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa6dd439850>, wavefunction2=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa6dd439970>),
+ ContinuousSchmidtMode(schmidt_coef=np.float64(4.311736522271967e-06), wavefunction1=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa6dd4399d0>, wavefunction2=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa6dd439af0>),
+ ContinuousSchmidtMode(schmidt_coef=np.float64(7.397770324567384e-07), wavefunction1=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa6dd439b50>, wavefunction2=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa6dd439c70>),
+ ContinuousSchmidtMode(schmidt_coef=np.float64(1.2692567250818081e-07), wavefunction1=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa6dd439cd0>, wavefunction2=<pyqentangle.core.wavefunctions.InterpolatingWaveFunction object at 0x7fa6dd439df0>)]
 ```
 
-where it describes the ranges of x1 and x2 respectively, and `keep=10` specifies only top 10 Schmidt modes are kept. Then we can read the Schmidt coefficients:
+where it describes the ranges of x1 and x2 respectively, and `keep=10` specifies only top 10 Schmidt modes are kept. 
+Then we can read the Schmidt coefficients:
 
 ```
->>> list(map(lambda dec: dec[0], modes))
-[0.9851714310094161,
- 0.1690286950361957,
- 0.02900073920775954,
- 0.004975740210361192,
- 0.0008537020544076649,
- 0.00014647211608480773,
- 2.51306421011773e-05,
- 4.311736522272035e-06,
- 7.39777032460608e-07,
- 1.2692567250688184e-07]
+>>> from matplotlib import pyplot as plt
+>>> [mode.schmidt_coef for mode in modes]
+[np.float64(0.9851714310094161),
+ np.float64(0.1690286950361957),
+ np.float64(0.029000739207759557),
+ np.float64(0.004975740210361184),
+ np.float64(0.0008537020544076699),
+ np.float64(0.0001464721160848057),
+ np.float64(2.5130642101174655e-05),
+ np.float64(4.311736522271967e-06),
+ np.float64(7.397770324567384e-07),
+ np.float64(1.2692567250818081e-07)]
 ```
 
-The second and the third elements in each tuple in the list `decompositions` are lambda functions for the modes of susbsystems A and B respectively. The Schmidt functions can be plotted:
+The Schmidt functions can be plotted:
 ```
 >>> xarray = np.linspace(-10., 10., 100)
 
     plt.subplot(3, 2, 1)
-    plt.plot(xarray, modes[0][1](xarray))
+    plt.plot(xarray, modes[0].wavefunction1(xarray))
     plt.subplot(3, 2, 2)
-    plt.plot(xarray, modes[0][2](xarray))
+    plt.plot(xarray, modes[0].wavefunction2(xarray))
 
     plt.subplot(3, 2, 3)
-    plt.plot(xarray, modes[1][1](xarray))
+    plt.plot(xarray, modes[1].wavefunction1(xarray))
     plt.subplot(3, 2, 4)
-    plt.plot(xarray, modes[1][2](xarray))
+    plt.plot(xarray, modes[1].wavefunction2(xarray))
 
     plt.subplot(3, 2, 5)
-    plt.plot(xarray, modes[2][1](xarray))
+    plt.plot(xarray, modes[2].wavefunction1(xarray))
     plt.subplot(3, 2, 6)
-    plt.plot(xarray, modes[2][2](xarray))
+    plt.plot(xarray, modes[2].wavefunction2(xarray))
 ```
 
 ![alt](https://github.com/stephenhky/pyqentangle/raw/master/fig/three_harmonic_modes.png)
