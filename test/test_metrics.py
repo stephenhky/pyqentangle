@@ -9,7 +9,7 @@ import pyqentangle
 
 tensor = np.array([[0., np.sqrt(0.7)], [np.sqrt(0.3), 0.]])
 shannon = log(2.)
-schmidt_modes = pyqentangle.schmidt_decomposition(tensor)
+schmidt_modes = pyqentangle.DiscreteSchmidtDecomposer(tensor).modes()
 
 
 def test_entanglement_entropy():
