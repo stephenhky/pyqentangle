@@ -1,6 +1,6 @@
 
 from dataclasses import dataclass
-from typing import Optional
+from abc import ABC
 
 import numpy as np
 import numpy.typing as npt
@@ -9,14 +9,17 @@ from ..core.wavefunctions import WaveFunction
 
 
 @dataclass
-class DiscreteSchmidtMode:
-    schmidt_coef: Optional[float]
+class SchmidtMode(ABC):
+    schmidt_coef: float
+
+
+@dataclass
+class DiscreteSchmidtMode(SchmidtMode):
     mode1: npt.NDArray[np.complex128]
     mode2: npt.NDArray[np.complex128]
 
 
 @dataclass
-class ContinuousSchmidtMode:
-    schmidt_coef: Optional[float]
+class ContinuousSchmidtMode(SchmidtMode):
     wavefunction1: WaveFunction
     wavefunction2: WaveFunction

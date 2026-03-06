@@ -2,13 +2,15 @@
 import warnings
 
 import numpy as np
+import numpy.typing as npt
 import tensornetwork as tn
 
 from pyqentangle import InvalidQuantumStateException
+from pyqentangle.schemas.schemas import SchmidtMode
 from pyqentangle.core.tncompute import bipartitepurestate_partialtranspose_densitymatrix, flatten_bipartite_densitymatrix
 
 
-def schmidt_coefficients(schmidt_modes: list) -> np.ndarray:
+def schmidt_coefficients(schmidt_modes: list[SchmidtMode]) -> npt.NDArray[np.float64]:
     """Retrieve Schmidt coefficients from Schmidt modes.
 
     Args:
@@ -17,10 +19,10 @@ def schmidt_coefficients(schmidt_modes: list) -> np.ndarray:
     Returns:
         numpy.array: Schmidt coefficients.
     """
-    return np.array([mode[0] for mode in schmidt_modes])
+    return np.array([mode.schmidt_coef for mode in schmidt_modes])
 
 
-def entanglement_entropy(schmidt_modes: list) -> float:
+def entanglement_entropy(schmidt_modes: list[SchmidtMode]) -> float:
     """Calculate the entanglement entropy.
 
     Given the calculated Schmidt modes, compute the entanglement entropy
@@ -39,7 +41,7 @@ def entanglement_entropy(schmidt_modes: list) -> float:
 
 
 # Renyi's entropy
-def renyi_entanglement_entropy(schmidt_modes: list, alpha: float) -> float:
+def renyi_entanglement_entropy(schmidt_modes: list[SchmidtMode], alpha: float) -> float:
     """Calculate the Renyi's entanglement entropy.
 
     Given the calculated Schmidt modes and an :math:`\\alpha`, compute the
@@ -62,7 +64,7 @@ def renyi_entanglement_entropy(schmidt_modes: list, alpha: float) -> float:
 
 
 # participation ratio
-def participation_ratio(schmidt_modes: list) -> float:
+def participation_ratio(schmidt_modes: list[SchmidtMode]) -> float:
     """Calculate the participation ratio.
 
     Given the calculated Schmidt modes, compute the participation ratio
@@ -80,7 +82,7 @@ def participation_ratio(schmidt_modes: list) -> float:
 
 
 # negativity
-def negativity(bipartite_tensor: np.ndarray) -> float:
+def negativity(bipartite_tensor: npt.NDArray[np.complex128]) -> float:
     """Calculate the negativity.
 
     Given a normalized bipartite discrete state, compute the negativity
@@ -106,7 +108,7 @@ def negativity(bipartite_tensor: np.ndarray) -> float:
 
 
 # concurrence
-def concurrence(bipartite_tensor: np.ndarray) -> float:
+def concurrence(bipartite_tensor: npt.NDArray[np.complex128]) -> float:
     """Calculate the concurrence of a bipartite system that contains 2-dimensional state qubit only.
 
     Args:
