@@ -2,4 +2,4 @@ numpy==2.4.2
 scipy==1.17.1
 tensornetwork==0.4.6
 numba==0.64.0
-deprecation==2.0.0
+deprecation==2.1.0
