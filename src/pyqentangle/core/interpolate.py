@@ -61,7 +61,7 @@ def numerical_continuous_interpolation(
         x (float): The input value at which the function is computed.
 
     Returns:
-        float: The value of function with the given `x`.
+        complex: The interpolated complex value of the function at the given `x`.
 
     Raises:
         OutOfRangeException: If `x` is outside the range of `xarray`.
@@ -96,7 +96,8 @@ def numerical_continuous_function(xarray: np.ndarray, yarray: np.ndarray) -> cal
         yarray (numpy.ndarray): An array of dependent variable values.
 
     Returns:
-        function: A lambda function that takes a `numpy.ndarray` as the input parameter and calculates the values.
+        callable: A callable that takes a :class:`numpy.ndarray` as the input parameter and returns
+        a :class:`numpy.ndarray` of interpolated complex values.
 
     Raises:
         OutOfRangeException: If `x` is outside the range of `xarray`.

@@ -32,7 +32,7 @@ def disentangled_gaussian_wavefcn() -> WaveFunction:
     """Return the function of normalized disentangled Gaussian systems.
 
     Returns:
-        function: Function of two variables.
+        WaveFunction: Wavefunction of two variables.
     """
     return AnalyticMultiDimWaveFunction(lambda x: sqrt_gaussian_function_value(x[0]) * sqrt_gaussian_function_value(x[1]))
 
@@ -62,10 +62,10 @@ def correlated_bipartite_gaussian_wavefcn(covmatrix: np.ndarray) -> WaveFunction
     """Return a normalized correlated bivariate Gaussian wavefunction.
 
     Args:
-        covmatrix (numpy.array): Covariance matrix of size (2, 2).
+        covmatrix (numpy.ndarray): Covariance matrix of shape ``(2, 2)``.
 
     Returns:
-        function: A wavefunction of two variables.
+        WaveFunction: A wavefunction of two variables.
     """
     if not covmatrix.shape == (2, 2):
         raise InvalidMatrix(f"Invalid matrix shape: {covmatrix.shape}; desired shape: (2, 2)")
@@ -102,7 +102,7 @@ def harmonic_wavefcn(n: int) -> WaveFunction:
         n (int): Quantum number of the excited state.
 
     Returns:
-        function: A normalized wavefunction.
+        WaveFunction: A normalized wavefunction.
     """
     const = 1/sqrt(2**n * tail_factorial(n)) * 1/sqrt(sqrt(pi))
     return Analytic1DWaveFunction(lambda x: const * np.exp(-0.5*x*x) * hermite(n)(x))
@@ -117,7 +117,7 @@ def coupled_excited_harmonics(n: int) -> WaveFunction:
         n (int): Quantum harmonic state number for the interaction.
 
     Returns:
-        function: Wavefunction of two variables.
+        WaveFunction: Wavefunction of two variables.
     """
     # note: put a non-vectorize function
     return AnalyticMultiDimWaveFunction(lambda x: harmonic_wavefcn(0)(0.5*(x[0]+x[1]))[0] * harmonic_wavefcn(n)(x[0]-x[1])[0])

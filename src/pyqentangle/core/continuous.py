@@ -26,7 +26,7 @@ def discretize_continuous_bipartitesys(
     the first system ranges from `x1_lo` to `x1_hi`, and second from `x2_lo` to `x2_hi`.
 
     Args:
-        fcn (function): Function with two input variables.
+        fcn (callable): Function with two input variables.
         x1_lo (float): Lower bound of :math:`x_1`.
         x1_hi (float): Upper bound of :math:`x_1`.
         x2_lo (float): Lower bound of :math:`x_2`.
@@ -64,7 +64,7 @@ def continuous_schmidt_decomposition(
     of the eigenmode of the second subsystem.
 
     Args:
-        fcn (function): Function with two input variables.
+        fcn (callable): Function with two input variables.
         x1_lo (float): Lower bound of :math:`x_1`.
         x1_hi (float): Upper bound of :math:`x_1`.
         x2_lo (float): Lower bound of :math:`x_2`.
@@ -76,8 +76,9 @@ def continuous_schmidt_decomposition(
         approach (str, optional): Using `numpy` or `tensornetwork` in computation. Defaults to `tensornetwork`.
 
     Returns:
-        list: List of tuples, where each contains a Schmidt coefficient, the lambda function of the 
-        eigenmode of the first subsystem, and the lambda function of the eigenmode of the second subsystem.
+        list[tuple[float, WaveFunction, WaveFunction]]: List of tuples, where each contains a Schmidt
+        coefficient, the interpolating wavefunction of the eigenmode of the first subsystem, and the
+        interpolating wavefunction of the eigenmode of the second subsystem.
 
     Raises:
         ValueError: If approach is not 'numpy' or 'tensornetwork'.
