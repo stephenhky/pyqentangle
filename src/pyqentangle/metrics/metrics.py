@@ -11,28 +11,39 @@ from pyqentangle.core.tncompute import bipartitepurestate_partialtranspose_densi
 
 
 def schmidt_coefficients(schmidt_modes: list[SchmidtMode]) -> npt.NDArray[np.float64]:
-    """Retrieve Schmidt coefficients from Schmidt modes.
+    """Extract the Schmidt coefficients from a list of Schmidt modes.
 
     Args:
-        schmidt_modes (list): Schmidt modes.
+        schmidt_modes (list[SchmidtMode]): Schmidt modes as returned by the Schmidt
+            decomposition routines.
 
     Returns:
-        numpy.array: Schmidt coefficients.
+        npt.NDArray[numpy.float64]: 1-D array of Schmidt coefficients, one per mode,
+        in the same order as ``schmidt_modes``.
     """
     return np.array([mode.schmidt_coef for mode in schmidt_modes])
 
 
 def entanglement_entropy(schmidt_modes: list[SchmidtMode]) -> float:
-    """Calculate the entanglement entropy.
+    """Compute the von Neumann entanglement entropy from Schmidt modes.
 
-    Given the calculated Schmidt modes, compute the entanglement entropy
-    with the formula :math:`H=-\\sum_i p_i \\log p_i`.
+    Uses the formula
+
+    .. math::
+
+        S = -\\sum_i p_i \\log p_i
+
+    where :math:`p_i = \\lambda_i^2` are the squared Schmidt coefficients (eigenvalues of
+    the reduced density matrix).  Terms with :math:`\\lambda_i = 0` are excluded to avoid
+    :math:`0 \\log 0` singularities.
 
     Args:
-        schmidt_modes (list): Schmidt modes.
+        schmidt_modes (list[SchmidtMode]): Schmidt modes as returned by the Schmidt
+            decomposition routines.
 
     Returns:
-        numpy.float: The entanglement entropy.
+        float: Von Neumann entanglement entropy :math:`S \\geq 0`.  Returns ``0`` for a
+        product state and :math:`\\log(\\min(d_1, d_2))` for a maximally entangled state.
     """
     eigenvalues = np.real(schmidt_coefficients(schmidt_modes))
     square_eigenvalues = np.square(np.extract(eigenvalues > 0, eigenvalues))
@@ -42,17 +53,27 @@ def entanglement_entropy(schmidt_modes: list[SchmidtMode]) -> float:
 
 # Renyi's entropy
 def renyi_entanglement_entropy(schmidt_modes: list[SchmidtMode], alpha: float) -> float:
-    """Calculate the Renyi's entanglement entropy.
+    """Compute the Rényi entanglement entropy of order ``alpha`` from Schmidt modes.
 
-    Given the calculated Schmidt modes and an :math:`\\alpha`, compute the
-    Renyi's entanglement entropy with the formula :math:`H= - \\frac{1}{1-\\alpha} \\log \\sum p_i^{\\alpha}`.
+    Uses the formula
+
+    .. math::
+
+        S_\\alpha = \\frac{1}{1-\\alpha} \\log \\sum_i p_i^{\\alpha}
+
+    where :math:`p_i = \\lambda_i^2` are the squared Schmidt coefficients.  In the limit
+    :math:`\\alpha \\to 1` this reduces to the von Neumann entropy; when ``alpha=1`` is
+    passed, the function falls back to :func:`entanglement_entropy` and emits a warning.
 
     Args:
-        schmidt_modes: Schmidt modes.
-        alpha: Alpha parameter for Renyi entropy.
+        schmidt_modes (list[SchmidtMode]): Schmidt modes as returned by the Schmidt
+            decomposition routines.
+        alpha (float): Rényi order parameter.  Must satisfy :math:`\\alpha \\geq 0` and
+            :math:`\\alpha \\neq 1` (use ``alpha=1`` to obtain the von Neumann entropy via
+            the fallback path).
 
     Returns:
-        Renyi's entanglement entropy.
+        float: Rényi entanglement entropy :math:`S_\\alpha`.
     """
     if alpha == 1:
         warnings.warn('alpha = 1, doing Shannon entanglement entropy.')
@@ -65,16 +86,24 @@ def renyi_entanglement_entropy(schmidt_modes: list[SchmidtMode], alpha: float) -
 
 # participation ratio
 def participation_ratio(schmidt_modes: list[SchmidtMode]) -> float:
-    """Calculate the participation ratio.
+    """Compute the participation ratio (Schmidt number) from Schmidt modes.
 
-    Given the calculated Schmidt modes, compute the participation ratio
-    with the formula :math:`K=\\frac{1}{\\sum_i p_i^2}`.
+    Uses the formula
+
+    .. math::
+
+        K = \\frac{1}{\\sum_i p_i^2}
+
+    where :math:`p_i = \\lambda_i^2` are the squared Schmidt coefficients.  :math:`K`
+    equals 1 for a product state and :math:`\\min(d_1, d_2)` for a maximally entangled
+    state, providing an effective count of the contributing Schmidt modes.
 
     Args:
-        schmidt_modes (list): Schmidt modes.
+        schmidt_modes (list[SchmidtMode]): Schmidt modes as returned by the Schmidt
+            decomposition routines.
 
     Returns:
-        numpy.float: Participation ratio.
+        float: Participation ratio :math:`K \\geq 1`.
     """
     eigenvalues = np.real(np.real(schmidt_coefficients(schmidt_modes)))
     K = 1. / np.sum(np.square(np.square(eigenvalues)))
@@ -83,17 +112,28 @@ def participation_ratio(schmidt_modes: list[SchmidtMode]) -> float:
 
 # negativity
 def negativity(bipartite_tensor: npt.NDArray[np.complex128]) -> float:
-    """Calculate the negativity.
+    """Compute the negativity of a discrete bipartite pure state.
 
-    Given a normalized bipartite discrete state, compute the negativity
-    with the formula :math:`N = \\frac{||\\rho^{\\Gamma_A}||_1-1}{2}`
+    The negativity is defined as
+
+    .. math::
+
+        N(\\rho) = \\frac{\\|\\rho^{\\Gamma_A}\\|_1 - 1}{2}
+
+    where :math:`\\rho^{\\Gamma_A}` is the partial transpose of the density matrix with
+    respect to the smaller subsystem and :math:`\\|\\cdot\\|_1` denotes the trace norm
+    (sum of absolute eigenvalues).  A non-zero negativity certifies entanglement.
+
+    The partial transpose is taken over the subsystem with the smaller dimension
+    (``0`` if ``d1 < d2``, otherwise ``1``).
 
     Args:
-        bipartite_tensor (numpy.ndarray): Tensor describing the bi-partitite states, with each elements 
-            the coefficients for :math:`|ij\\rangle`.
+        bipartite_tensor (npt.NDArray[numpy.complex128]): 2-D complex array of shape
+            ``(d1, d2)`` representing a normalised bipartite pure state, where element
+            ``[i, j]`` is the coefficient of the basis ket :math:`|ij\\rangle`.
 
     Returns:
-        numpy.float: Negativity.
+        float: Negativity :math:`N \\geq 0`.  Returns ``0`` for a separable state.
     """
     dim0, dim1 = bipartite_tensor.shape
     flatten_fullden_pt = flatten_bipartite_densitymatrix(
@@ -109,14 +149,30 @@ def negativity(bipartite_tensor: npt.NDArray[np.complex128]) -> float:
 
 # concurrence
 def concurrence(bipartite_tensor: npt.NDArray[np.complex128]) -> float:
-    """Calculate the concurrence of a bipartite system that contains 2-dimensional state qubit only.
+    """Compute the concurrence of a two-qubit bipartite pure state.
+
+    The concurrence is an entanglement measure defined for systems where at least one
+    subsystem is a qubit (dimension 2).  It is computed via the tensor-network contraction
+
+    .. math::
+
+        C = |\\langle\\Psi| (\\epsilon \\otimes \\epsilon) |\\Psi^*\\rangle|
+
+    where :math:`\\epsilon = \\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix}` is the
+    Levi-Civita symbol.  :math:`C = 0` for a product state and :math:`C = 1` for a
+    maximally entangled Bell state.
 
     Args:
-        bipartite_tensor (numpy.ndarray): Tensor describing the bi-partitite states, with each elements 
-            the coefficients for :math:`|ij\\rangle`.
+        bipartite_tensor (npt.NDArray[numpy.complex128]): 2-D complex array of shape
+            ``(d1, d2)`` representing a normalised bipartite pure state, where element
+            ``[i, j]`` is the coefficient of the basis ket :math:`|ij\\rangle`.
+            At least one of ``d1``, ``d2`` must equal ``2``.
 
     Returns:
-        numpy.float: Concurrence.
+        float: Concurrence :math:`C \\in [0, 1]`.
+
+    Raises:
+        InvalidQuantumStateException: If neither subsystem has dimension 2.
     """
     dim0, dim1 = bipartite_tensor.shape
     if dim0 != 2 and dim1 != 2:
