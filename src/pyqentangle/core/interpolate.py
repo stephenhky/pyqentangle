@@ -13,6 +13,20 @@ def interpolate(
         yarray: npt.NDArray[np.complex128],
         x: float
 ) -> np.complex128:
+    """Perform linear interpolation to evaluate a complex-valued function at a given point.
+
+    Uses a binary search to locate the interval in `xarray` that contains `x`,
+    then applies linear interpolation between the two surrounding `yarray` values.
+    This function is JIT-compiled with Numba for performance.
+
+    Args:
+        xarray (numpy.ndarray): Sorted array of independent variable values (grid points).
+        yarray (numpy.ndarray): Array of complex dependent variable values at the grid points.
+        x (float): The point at which to interpolate.
+
+    Returns:
+        complex: Interpolated complex value at `x`.
+    """
     left = 0
     right = len(xarray) - 1
     idx = right // 2

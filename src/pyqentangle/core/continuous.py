@@ -3,6 +3,7 @@ from itertools import product
 from typing import Optional, Literal
 
 import numpy as np
+import numpy.typing as npt
 
 from .schmidt import schmidt_decomposition
 from .interpolate import numerical_continuous_function
@@ -17,7 +18,7 @@ def discretize_continuous_bipartitesys(
         x2_hi: float,
         nb_x1: int = 100,
         nb_x2: int = 100
-) -> np.ndarray:
+) -> npt.NDArray[np.complex128]:
     """Find the discretized representation of the continuous bipartite system.
 
     Given a function `fcn` (a function with two input variables),

@@ -9,17 +9,27 @@ import tensornetwork as tn
 def schmidt_decomposition_numpy(
         bipartitepurestate_tensor: npt.NDArray[np.complex128]
 ) -> list[tuple[float, npt.NDArray[np.complex128], npt.NDArray[np.complex128]]]:
-    """Calculate the Schmidt decomposition of the given discrete bipartite quantum system.
+    """Compute the Schmidt decomposition of a discrete bipartite pure state using NumPy SVD.
 
-    This is called by :func:`schmidt_decomposition`. This runs numpy.
+    Called internally by :func:`schmidt_decomposition` when ``approach='numpy'``.
+
+    The input tensor is treated as a matrix whose singular value decomposition yields the
+    Schmidt coefficients (singular values) and the eigenmodes of each subsystem (singular
+    vectors).  Results are sorted in descending order of Schmidt coefficient.
 
     Args:
-        bipartitepurestate_tensor (numpy.ndarray): Tensor describing the bi-partitite states, with each elements 
-            the coefficients for :math:`|ij\\rangle`.
+        bipartitepurestate_tensor (numpy.ndarray): 2-D complex array of shape ``(d1, d2)``
+            representing a normalised bipartite pure state, where element ``[i, j]``
+            is the coefficient of the basis ket :math:`|ij\\rangle`.
 
     Returns:
-        list: List of tuples containing the Schmidt coefficient, eigenmode for first subsystem, 
-            and eigenmode for second subsystem.
+        list[tuple[float, numpy.ndarray, numpy.ndarray]]:
+            A list of ``min(d1, d2)`` tuples ``(lambda_k, u_k, v_k)`` sorted by
+            descending Schmidt coefficient, where:
+
+            * ``lambda_k`` – real Schmidt coefficient (singular value).
+            * ``u_k`` – complex 1-D array; eigenmode of the first subsystem.
+            * ``v_k`` – complex 1-D array; eigenmode of the second subsystem.
     """
     state_dims = bipartitepurestate_tensor.shape
     mindim = np.min(state_dims)
@@ -38,17 +48,26 @@ def schmidt_decomposition_numpy(
 def schmidt_decomposition_tensornetwork(
         bipartitepurestate_tensor: npt.NDArray[np.complex128]
 ) -> list[tuple[float, npt.NDArray[np.complex128], npt.NDArray[np.complex128]]]:
-    """Calculate the Schmidt decomposition of the given discrete bipartite quantum system.
+    """Compute the Schmidt decomposition of a discrete bipartite pure state using TensorNetwork SVD.
 
-    This is called by :func:`schmidt_decomposition`. This runs tensornetwork.
+    Called internally by :func:`schmidt_decomposition` when ``approach='tensornetwork'`` (the
+    default).  Wraps the input array in a :class:`tensornetwork.Node` and delegates the SVD to
+    :func:`tensornetwork.split_node_full_svd`, then collects and sorts the decomposition terms
+    in descending order of Schmidt coefficient.
 
     Args:
-        bipartitepurestate_tensor (numpy.ndarray): Tensor describing the bi-partitite states, with each elements 
-            the coefficients for :math:`|ij\\rangle`.
+        bipartitepurestate_tensor (numpy.ndarray): 2-D complex array of shape ``(d1, d2)``
+            representing a normalised bipartite pure state, where element ``[i, j]``
+            is the coefficient of the basis ket :math:`|ij\\rangle`.
 
     Returns:
-        list: List of tuples containing the Schmidt coefficient, eigenmode for first subsystem, 
-            and eigenmode for second subsystem.
+        list[tuple[float, numpy.ndarray, numpy.ndarray]]:
+            A list of ``min(d1, d2)`` tuples ``(lambda_k, u_k, v_k)`` sorted by
+            descending Schmidt coefficient, where:
+
+            * ``lambda_k`` – real Schmidt coefficient (singular value).
+            * ``u_k`` – complex 1-D array; eigenmode of the first subsystem.
+            * ``v_k`` – complex 1-D array; eigenmode of the second subsystem.
     """
     state_dims = bipartitepurestate_tensor.shape
     mindim = np.min(state_dims)
@@ -68,25 +87,40 @@ def schmidt_decomposition(
         bipartitepurestate_tensor: npt.NDArray[np.complex128],
         approach: Literal["tensornetwork", "numpy"] = 'tensornetwork'
 ) -> list[tuple[float, npt.NDArray[np.complex128], npt.NDArray[np.complex128]]]:
-    """Calculate the Schmidt decomposition of the given discrete bipartite quantum system.
+    """Compute the Schmidt decomposition of a discrete bipartite pure state.
 
-    Given a discrete normalized quantum system, given in terms of 2-D numpy array ``bipartitepurestate_tensor``,
-    each element of ``bipartitepurestate_tensor[i, j]`` is the coefficient of the ket :math:`|ij\\rangle`,
-    calculate its Schmidt decomposition, returned as a list of tuples, where each tuple contains
-    the Schmidt coefficient, the vector of eigenmode of first subsystem, and the vector of the eigenmode of
-    second subsystem.
+    Decomposes the state described by ``bipartitepurestate_tensor`` into Schmidt form:
+
+    .. math::
+
+        |\\Psi\\rangle = \\sum_k \\lambda_k \\, |u_k\\rangle \\otimes |v_k\\rangle
+
+    where :math:`\\lambda_k \\geq 0` are the Schmidt coefficients and
+    :math:`\\{|u_k\\rangle\\}`, :math:`\\{|v_k\\rangle\\}` are orthonormal bases for the
+    first and second subsystems respectively.
+
+    The decomposition is obtained via singular value decomposition (SVD) of the coefficient
+    matrix.  Two backends are supported: ``'numpy'`` (uses :func:`numpy.linalg.svd`) and
+    ``'tensornetwork'`` (uses :func:`tensornetwork.split_node_full_svd`).
 
     Args:
-        bipartitepurestate_tensor (numpy.ndarray): Tensor describing the bi-partitite states, with each elements 
-            the coefficients for :math:`|ij\\rangle`.
-        approach (str, optional): Using `numpy` or `tensornetwork` in computation. Defaults to `tensornetwork`.
+        bipartitepurestate_tensor (numpy.ndarray): 2-D complex array of shape ``(d1, d2)``
+            representing a normalised bipartite pure state, where element ``[i, j]``
+            is the coefficient of the basis ket :math:`|ij\\rangle`.
+        approach (str, optional): Computational backend to use.  Either ``'numpy'`` or
+            ``'tensornetwork'``.  Defaults to ``'tensornetwork'``.
 
     Returns:
-        list: List of tuples containing the Schmidt coefficient, eigenmode for first subsystem, 
-            and eigenmode for second subsystem.
+        list[tuple[float, numpy.ndarray, numpy.ndarray]]:
+            A list of ``min(d1, d2)`` tuples ``(lambda_k, u_k, v_k)`` sorted in descending
+            order of Schmidt coefficient, where:
+
+            * ``lambda_k`` – real Schmidt coefficient.
+            * ``u_k`` – complex 1-D array; eigenmode of the first subsystem.
+            * ``v_k`` – complex 1-D array; eigenmode of the second subsystem.
 
     Raises:
-        ValueError: If approach is not 'numpy' or 'tensornetwork'.
+        ValueError: If ``approach`` is neither ``'numpy'`` nor ``'tensornetwork'``.
     """
     if approach == 'numpy':
         return schmidt_decomposition_numpy(bipartitepurestate_tensor)
