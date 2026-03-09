@@ -3,8 +3,6 @@ import numpy as np
 from scipy.integrate import quad
 import pytest
 
-import pyqentangle
-import pyqentangle.core.interpolate
 from pyqentangle.core.wavefunctions import AnalyticMultiDimWaveFunction
 from pyqentangle.entangle import ContinuousSchmidtDecomposer
 
