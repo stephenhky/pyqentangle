@@ -5,9 +5,9 @@ import numpy as np
 import numpy.typing as npt
 import tensornetwork as tn
 
-from pyqentangle import InvalidQuantumStateException
-from pyqentangle.schemas.schemas import SchmidtMode
-from pyqentangle.core.tncompute import bipartitepurestate_partialtranspose_densitymatrix, flatten_bipartite_densitymatrix
+from ..core.exceptions import InvalidQuantumStateException
+from ..schemas.schemas import SchmidtMode
+from ..core.tncompute import bipartitepurestate_partialtranspose_densitymatrix, flatten_bipartite_densitymatrix
 
 
 def schmidt_coefficients(schmidt_modes: list[SchmidtMode]) -> npt.NDArray[np.float64]:
