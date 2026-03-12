@@ -105,7 +105,7 @@ def participation_ratio(schmidt_modes: list[SchmidtMode]) -> float:
     Returns:
         float: Participation ratio :math:`K \\geq 1`.
     """
-    eigenvalues = np.real(np.real(schmidt_coefficients(schmidt_modes)))
+    eigenvalues = np.real(schmidt_coefficients(schmidt_modes))
     K = 1. / np.sum(np.square(np.square(eigenvalues)))
     return K
 
