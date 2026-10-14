@@ -13,7 +13,7 @@ subsystems. The two subsystems can be either discrete or continuous.
 Note: the releases 2.x are incompatible with releases 1.x and 3.x; the releases 3.x are incompatible
 with releases 1.x and 2.x. The releases 5.x are incompatible with previous releases.
 
-This package runs in Python 3.9, 3.10, 3.11, 3.12, and 3.13.
+This package runs in Python 3.9, 3.10, 3.11, 3.12, 3.13, and 3.14.
 
 Contents:
 
